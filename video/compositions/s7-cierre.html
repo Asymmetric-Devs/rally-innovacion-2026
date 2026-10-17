@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: #283618;
+          font-family: "IBM Plex Mono", monospace;
+          color: #f4ebd0;
+        }
+        #s7-glow {
+          position: absolute;
+          left: 560px;
+          top: 140px;
+          width: 800px;
+          height: 800px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(167, 201, 87, 0.35) 0%, rgba(167, 201, 87, 0) 68%);
+        }
+        #s7-name {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 330px;
+          text-align: center;
+          font-family: "Archivo Black", sans-serif;
+          font-size: 210px;
+          line-height: 1;
+          letter-spacing: -0.04em;
+        }
+        #s7-name .hl {
+          color: #a7c957;
+        }
+        #s7-quote {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 600px;
+          text-align: center;
+          font-size: 38px;
+          line-height: 1.4;
+          color: #dde5b6;
+        }
+        #s7-foot {
+          position: absolute;
+          left: 90px;
+          right: 90px;
+          bottom: 80px;
+          display: flex;
+          justify-content: space-between;
+          font-size: 26px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          color: #a7c957;
+        }
+        #s7-rule {
+          position: absolute;
+          left: 90px;
+          right: 90px;
+          bottom: 140px;
+          height: 4px;
+          background: #588157;
+          transform-origin: 0 50%;
+        }
+      </style>
+
+      <div data-hf-id="hf-pb7u" id="root" data-composition-id="s7-cierre" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-swgv" id="s7-glow"></div>
+        <div data-hf-id="hf-cpur" id="s7-name">Polli<span data-hf-id="hf-9jch" class="hl">Node</span></div>
+        <div data-hf-id="hf-n8fk" id="s7-quote"><span data-hf-id="hf-18l5" style="display:block">El futuro del agro no es solo cultivar la tierra.</span><span data-hf-id="hf-vgos" style="display:block">Es entender el ecosistema que la hace productiva.</span></div>
+        <div data-hf-id="hf-mx4e" id="s7-rule"></div>
+        <div data-hf-id="hf-f5ls" id="s7-foot"><span data-hf-id="hf-xuso">EQUIPO LAMBDA · UTN FRRE INTECNOR</span><span data-hf-id="hf-vy9i">RALLY LATINOAMERICANO DE INNOVACIÓN 2026</span></div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s7-glow", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 0);
+          tl.fromTo("#s7-name", { opacity: 0, y: 60, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out" }, 0.1);
+          tl.fromTo("#s7-quote", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0.8);
+          tl.fromTo("#s7-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.0, ease: "power3.inOut" }, 1.0);
+          tl.fromTo("#s7-foot", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 1.6);
+          window.__timelines["s7-cierre"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <!--
+        ESCENA 4: PIZARRÓN (live action). Hoy es un hueco con guía.
+        Cuando esté grabado: copiar el video a video/assets/pizarron.mp4 y reemplazar
+        #s4-slot por:
+          <video id="s4-footage" class="clip" src="assets/pizarron.mp4" data-start="0" data-duration="25"
+                 data-has-audio="true" playsinline></video>
+        El lower-third (#s4-lower) queda por encima del video.
+      -->
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: #283618;
+          font-family: "IBM Plex Mono", monospace;
+          color: #f4ebd0;
+        }
+        #s4-slot {
+          position: absolute;
+          inset: 40px;
+          border: 6px dashed #a7c957;
+          border-radius: 18px;
+          background: #344e41;
+        }
+        #s4-slot-in {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 26px;
+          text-align: center;
+          padding: 0 160px;
+        }
+        #s4-slot-in .big {
+          font-family: "Archivo Black", sans-serif;
+          font-size: 92px;
+          line-height: 1.02;
+          letter-spacing: -0.03em;
+        }
+        #s4-slot-in .mid {
+          font-size: 34px;
+          line-height: 1.4;
+          color: #dde5b6;
+        }
+        #s4-rec {
+          position: absolute;
+          left: 90px;
+          top: 90px;
+          font-size: 26px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          color: #f4ebd0;
+        }
+        #s4-rec i {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #bc4749;
+          margin-right: 14px;
+          vertical-align: -2px;
+        }
+        #s4-lower {
+          position: absolute;
+          left: 90px;
+          bottom: 90px;
+          padding: 22px 34px;
+          background: #f4ebd0;
+          color: #283618;
+          border-left: 14px solid #588157;
+          border-radius: 6px;
+        }
+        #s4-lower b {
+          display: block;
+          font-family: "Archivo Black", sans-serif;
+          font-weight: 400;
+          font-size: 46px;
+          letter-spacing: -0.02em;
+        }
+        #s4-lower span {
+          display: block;
+          margin-top: 4px;
+          font-size: 24px;
+          letter-spacing: 0.06em;
+        }
+      </style>
+
+      <div data-hf-id="hf-u58w" id="root" data-composition-id="s4-pizarron" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-1lvd" id="s4-slot">
+          <div data-hf-id="hf-adsv" id="s4-slot-in">
+            <div data-hf-id="hf-ct0f" class="big">Acá entra el video del pizarrón</div>
+            <div data-hf-id="hf-ygd6" class="mid">Lote, polinizadores que no llegan al centro, nodos, y la isla que se siembra donde indica el mapa.</div>
+          </div>
+        </div>
+        <div data-hf-id="hf-1bt3" id="s4-rec"><i data-hf-id="hf-wt6k"></i>REC · EN VIVO</div>
+        <div data-hf-id="hf-lcb8" id="s4-lower">
+          <b data-hf-id="hf-avov">Equipo Lambda</b>
+          <span data-hf-id="hf-kyk9">UTN FRRE INTECNOR</span>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s4-slot", { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, 0);
+          tl.fromTo("#s4-rec", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.5);
+          tl.to("#s4-rec i", { opacity: 0.25, duration: 0.5, yoyo: true, repeat: 23, ease: "none" }, 0.5);
+          tl.fromTo("#s4-lower", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, 1.0);
+          tl.to("#s4-lower", { opacity: 0, x: -40, duration: 0.5, ease: "power2.in" }, 6.5);
+          window.__timelines["s4-pizarron"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

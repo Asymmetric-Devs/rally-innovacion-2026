@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: #f4ebd0;
+          font-family: "IBM Plex Mono", monospace;
+          color: #283618;
+        }
+        #s3-eyebrow {
+          position: absolute;
+          left: 90px;
+          top: 70px;
+          font-size: 28px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          color: #588157;
+        }
+        #s3-title {
+          position: absolute;
+          left: 90px;
+          top: 120px;
+          font-family: "Archivo Black", sans-serif;
+          width: 1150px;
+          font-size: 80px;
+          line-height: 0.98;
+          letter-spacing: -0.03em;
+        }
+        #s3-title .hl {
+          color: #588157;
+        }
+        #s3-note {
+          position: absolute;
+          right: 90px;
+          top: 130px;
+          width: 520px;
+          font-size: 30px;
+          line-height: 1.35;
+          text-align: right;
+        }
+        #s3-map {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+        }
+        .s3-chip {
+          position: absolute;
+          bottom: 70px;
+          width: 540px;
+          height: 120px;
+          border: 5px solid #283618;
+          border-radius: 12px;
+          padding: 16px 24px;
+          background: #f4ebd0;
+          isolation: isolate;
+        }
+        .s3-chip b {
+          display: block;
+          font-family: "Archivo Black", sans-serif;
+          font-size: 42px;
+          font-weight: 400;
+          letter-spacing: -0.02em;
+        }
+        .s3-chip span {
+          display: block;
+          margin-top: 6px;
+          font-size: 24px;
+        }
+        .s3-chip-fill {
+          position: absolute;
+          inset: 0;
+          background: #a7c957;
+          opacity: 0;
+          z-index: -1;
+        }
+        #s3-c1 { left: 90px; }
+        #s3-c2 { left: 690px; }
+        #s3-c3 { left: 1290px; }
+      </style>
+
+      <div data-hf-id="hf-7kyk" id="root" data-composition-id="s3-islas" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-l7sv" id="s3-eyebrow">02 · LA SOLUCIÓN</div>
+        <h2 data-hf-id="hf-xla8" id="s3-title">Islas <span data-hf-id="hf-krlm" class="hl">biodinámicas</span> rotativas</h2>
+        <p data-hf-id="hf-3s60" id="s3-note">Flora nativa y leguminosas que florecen antes que el cultivo.</p>
+
+        <svg data-hf-id="hf-ukbv" id="s3-map" viewBox="0 0 1920 1080">
+          <rect data-hf-id="hf-6vca" x="90" y="300" width="1740" height="560" rx="10" fill="#a3b18a" />
+          <g data-hf-id="hf-u36y" id="s3-rows" fill="#8fa876"></g>
+          <g data-hf-id="hf-zqsk" id="s3-crop"></g>
+          <g data-hf-id="hf-lolj" id="s3-nitro" font-family="Archivo Black" font-size="46" fill="#283618"></g>
+          <g data-hf-id="hf-qi18" id="s3-islands"></g>
+          <g data-hf-id="hf-jzwd" id="s3-bees"></g>
+          <rect data-hf-id="hf-n1oo" x="90" y="300" width="1740" height="560" rx="10" fill="none" stroke="#283618" stroke-width="5" />
+          <rect data-hf-id="hf-4ax3" id="s3-capband" x="93" y="303" width="1734" height="52" fill="#f4ebd0" opacity="0.94" />
+          <g data-hf-id="hf-tozm" id="s3-cap" font-family="IBM Plex Mono" font-weight="700" font-size="26" letter-spacing="2">
+            <text data-hf-id="hf-gt2o" id="s3-cap1" x="120" y="342" fill="#283618">FLORA NATIVA: ATRAE Y MULTIPLICA</text>
+            <text data-hf-id="hf-l44m" id="s3-cap2" x="120" y="342" fill="#283618">CULTIVO EN FLOR: LOS INSECTOS PASAN A COSECHAR</text>
+            <text data-hf-id="hf-98hk" id="s3-cap3" x="120" y="342" fill="#283618">AL AÑO SIGUIENTE LA ISLA SE MUEVE. EL SUELO QUEDA FERTILIZADO</text>
+          </g>
+        </svg>
+
+        <div data-hf-id="hf-amh2" id="s3-c1" class="s3-chip"><div data-hf-id="hf-qgcl" class="s3-chip-fill"></div><b data-hf-id="hf-8cw8">01 CAPTACIÓN</b><span data-hf-id="hf-adyn">antes de la floración</span></div>
+        <div data-hf-id="hf-6od1" id="s3-c2" class="s3-chip"><div data-hf-id="hf-0luh" class="s3-chip-fill"></div><b data-hf-id="hf-8pmt">02 DESBORDE</b><span data-hf-id="hf-rcop">floración del cultivo</span></div>
+        <div data-hf-id="hf-3p3g" id="s3-c3" class="s3-chip"><div data-hf-id="hf-1srk" class="s3-chip-fill"></div><b data-hf-id="hf-iaf9">03 ROTACIÓN</b><span data-hf-id="hf-l7u0">fijación de nitrógeno</span></div>
+      </div>
+
+      <script>
+        (function () {
+          const NS = "http://www.w3.org/2000/svg";
+          const mk = (parent, name, attrs) => {
+            const el = document.createElementNS(NS, name);
+            for (const k in attrs) el.setAttribute(k, attrs[k]);
+            parent.appendChild(el);
+            return el;
+          };
+          // PRNG con semilla fija para que cada frame sea reproducible
+          let seed = 7;
+          const rnd = () => {
+            seed = (seed * 16807) % 2147483647;
+            return (seed - 1) / 2147483646;
+          };
+
+          const rowsG = document.getElementById("s3-rows");
+          for (let i = 0; i < 10; i++) mk(rowsG, "rect", { x: 90, y: 300 + i * 56, width: 1740, height: 26 });
+
+          // cultivo: puntos que florecen
+          const cropG = document.getElementById("s3-crop");
+          const crops = [];
+          for (let r = 0; r < 8; r++) {
+            for (let c = 0; c < 30; c++) {
+              crops.push(mk(cropG, "circle", { cx: 150 + c * 58, cy: 408 + r * 56, r: 11, fill: "#f2c94c", stroke: "#283618", "stroke-width": 3 }));
+            }
+          }
+
+          // islas
+          const ISL = [500, 960, 1420];
+          const CY = 590;
+          const islG = document.getElementById("s3-islands");
+          const islands = ISL.map((x) => {
+            const g = mk(islG, "g", {});
+            mk(g, "ellipse", { cx: x, cy: CY, rx: 150, ry: 120, fill: "#588157", stroke: "#283618", "stroke-width": 6 });
+            const flowers = [];
+            const cols = ["#f4ebd0", "#bc4749", "#dda15e", "#c9a0dc"];
+            for (let k = 0; k < 11; k++) {
+              const a = rnd() * Math.PI * 2;
+              const d = Math.sqrt(rnd()) * 100;
+              flowers.push(mk(g, "circle", { cx: x + Math.cos(a) * d * 1.2, cy: CY + Math.sin(a) * d * 0.9, r: 13, fill: cols[k % 4], stroke: "#283618", "stroke-width": 3 }));
+            }
+            return { g, flowers, x };
+          });
+
+          // abejas
+          const beesG = document.getElementById("s3-bees");
+          const bees = [];
+          for (let i = 0; i < 14; i++) {
+            const g = mk(beesG, "g", {});
+            mk(g, "ellipse", { cx: -4, cy: -9, rx: 10, ry: 6, fill: "#f4ebd0", stroke: "#283618", "stroke-width": 2 });
+            mk(g, "ellipse", { cx: 6, cy: -10, rx: 9, ry: 6, fill: "#f4ebd0", stroke: "#283618", "stroke-width": 2 });
+            mk(g, "ellipse", { cx: 0, cy: 0, rx: 15, ry: 10, fill: "#dda15e", stroke: "#283618", "stroke-width": 3 });
+            mk(g, "rect", { x: -5, y: -9, width: 5, height: 18, fill: "#283618" });
+            mk(g, "rect", { x: 4, y: -8, width: 5, height: 16, fill: "#283618" });
+            const home = ISL[i % 3];
+            bees.push({ g, home, ox: (rnd() - 0.5) * 300, oy: (rnd() - 0.5) * 240 });
+          }
+
+          // nitrógeno
+          const nitG = document.getElementById("s3-nitro");
+          const nits = ISL.map((x) => {
+            const t = mk(nitG, "text", { x: x - 18, y: CY - 130, "text-anchor": "start" });
+            t.textContent = "N";
+            return t;
+          });
+
+          const tl = gsap.timeline({ paused: true });
+
+          // fondo y cabecera
+          tl.fromTo("#s3-eyebrow", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+          tl.fromTo("#s3-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+          tl.fromTo("#s3-note", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" }, 0.7);
+          tl.fromTo("#s3-map", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
+          tl.fromTo(".s3-chip", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.12 }, 0.8);
+
+          // inicial
+          tl.set(crops, { opacity: 0, scale: 0.2 }, 0);
+          tl.set(["#s3-cap2", "#s3-cap3"], { opacity: 0 }, 0);
+          tl.set(nits, { opacity: 0 }, 0);
+          bees.forEach((b) => tl.set(b.g, { opacity: 0, x: b.home + b.ox, y: CY + b.oy }, 0));
+
+          // FASE 1  1 - 6.5  captación
+          tl.to("#s3-c1 .s3-chip-fill", { opacity: 1, duration: 0.4 }, 1.2);
+          tl.fromTo("#s3-cap1", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.2);
+          islands.forEach((isl, i) => {
+            tl.fromTo(isl.g, { scale: 0, svgOrigin: isl.x + " " + CY }, { scale: 1, svgOrigin: isl.x + " " + CY, duration: 0.8, ease: "back.out(1.5)" }, 1.4 + i * 0.25);
+            tl.fromTo(isl.flowers, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.4, ease: "back.out(2.5)", stagger: 0.06 }, 2.0 + i * 0.25);
+          });
+          bees.forEach((b, i) => {
+            tl.to(b.g, { opacity: 1, duration: 0.3 }, 3.0 + i * 0.07);
+            tl.to(b.g, { x: b.home - b.ox * 0.5, y: CY - b.oy * 0.5, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.0 + i * 0.07);
+          });
+
+          // FASE 2  6.5 - 13.5  desborde
+          tl.to("#s3-c1 .s3-chip-fill", { opacity: 0, duration: 0.3 }, 6.5);
+          tl.to("#s3-c2 .s3-chip-fill", { opacity: 1, duration: 0.4 }, 6.6);
+          tl.to("#s3-cap1", { opacity: 0, duration: 0.3 }, 6.5);
+          tl.to("#s3-cap2", { opacity: 1, duration: 0.4 }, 6.7);
+          tl.to(crops, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", stagger: { each: 0.018, from: "center", grid: [8, 30] } }, 6.8);
+          bees.forEach((b, i) => {
+            const tx = 200 + ((i * 119) % 1500);
+            const ty = 350 + ((i * 83) % 460);
+            tl.to(b.g, { x: tx, y: ty, duration: 2.6, ease: "power2.inOut" }, 7.4 + i * 0.08);
+            tl.to(b.g, { x: tx + 60, y: ty - 30, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 3 }, 10.2 + i * 0.05);
+          });
+          islands.forEach((isl) => {
+            tl.to(isl.flowers, { opacity: 0.35, duration: 1.4, stagger: 0.04 }, 8.0);
+          });
+
+          // FASE 3  13.5 - 20  rotación
+          tl.to("#s3-c2 .s3-chip-fill", { opacity: 0, duration: 0.3 }, 13.5);
+          tl.to("#s3-c3 .s3-chip-fill", { opacity: 1, duration: 0.4 }, 13.6);
+          tl.to("#s3-cap2", { opacity: 0, duration: 0.3 }, 13.5);
+          tl.to("#s3-cap3", { opacity: 1, duration: 0.4 }, 13.7);
+          bees.forEach((b) => tl.to(b.g, { opacity: 0.0, duration: 0.6 }, 13.6));
+          islands.forEach((isl, i) => {
+            tl.to(isl.g, { x: 230, duration: 1.8, ease: "power2.inOut" }, 14.2 + i * 0.2);
+            tl.to(isl.flowers, { opacity: 1, duration: 0.8 }, 15.8);
+          });
+          nits.forEach((n, i) => {
+            tl.fromTo(n, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: "back.out(2)" }, 15.4 + i * 0.25);
+            tl.to(n, { y: -22, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 2 }, 16.2 + i * 0.25);
+          });
+
+          window.__timelines["s3-islas"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

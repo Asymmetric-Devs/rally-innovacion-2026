@@ -32,22 +32,26 @@ Speech total: unas 290 palabras. A ritmo natural de 150 palabras por minuto entr
 **Voz en off:**
 > "Nuestra propuesta: islas biodinámicas rotativas. Microambientes de flora nativa y leguminosas que florecen antes que el cultivo, atraen polinizadores y enemigos naturales de las plagas, y fijan nitrógeno en el suelo. Cada año rotan, y el campo se fertiliza solo."
 
-## Escena 4. EL PIZARRÓN (0:50-1:15) | **live action, el equipo en cámara**
-**Visual:** dos integrantes del equipo frente a un pizarrón, en un lugar real (aula, taller, galpón, o mejor un campo). Mientras hablan, dibujan en vivo. Cortes entre plano general, plano medio y primer plano de la mano dibujando.
+## Escena 4. EL PIZARRÓN (0:50-1:15) | **live action, una sola persona en cámara**
+**Visual:** una persona frente a un pizarrón, en un lugar real (aula, taller, galpón, o mejor un campo). Mientras habla, dibuja en vivo. Cortes entre plano general, plano medio y primer plano de la mano dibujando.
 
-**Qué se dibuja, en este orden (cada paso coincide con una frase):**
-1. Un rectángulo: *"Este es un lote."* Dibujan el monte nativo al costado.
-2. Flechas de abejas que entran desde el monte y se apagan a mitad del lote: *"Los polinizadores entran por acá, pero no llegan al centro."* Marcan una **X roja** en la zona muerta.
-3. Pequeños círculos: *"Ponemos nodos, que escuchan y miran quién visita el lote."*
-4. Un óvalo verde sobre la X roja: *"Y el sistema nos dice dónde plantar la próxima isla."*
+**Qué dibujar, en este orden (cada paso coincide con una frase):**
+1. Un rectángulo grande: *"Este es un lote."* Al costado izquierdo, unos círculos para el **monte nativo**.
+2. Flechas de abejas que salen del monte, entran al lote y se **apagan a mitad de camino**. Una **X roja** (o círculo rojo) en el centro: *"Los polinizadores entran por acá, pero no llegan al centro."*
+3. Tres o cuatro puntos con una antena o poste: *"Ponemos nodos que escuchan el zumbido y miran quién visita cada zona."*
+4. Un óvalo verde sobre la X roja, con una flechita al lado del rectángulo que dice "isla": *"Y el sistema nos marca dónde sembrar la próxima isla."*
 
-**Guion hablado (en cámara, tono natural, no leído):**
-> **Integrante A:** "Esto es un lote. Los polinizadores entran desde el monte, pero muchos nunca llegan al centro."
-> **Integrante B:** "Hoy el productor se entera recién en la cosecha. Nosotros queremos que lo sepa antes."
-> **Integrante A:** "Ponemos nodos que escuchan el zumbido y miran quién visita cada zona."
-> **Integrante B:** "Y con eso, el sistema marca exactamente dónde sembrar la próxima isla. Así de simple."
+**Guion hablado (monólogo de unos 25 segundos, tono natural, no leído):**
+> "Esto es un lote. Los polinizadores entran desde el monte, pero muchos nunca llegan al centro.
+> Hoy el productor se entera recién en la cosecha. Nosotros queremos que lo sepa antes.
+> Ponemos nodos que escuchan el zumbido y miran quién visita cada zona.
+> Y con eso, el sistema marca exactamente dónde sembrar la próxima isla. Así de simple."
 
-**Truco de transición (a 1:13):** el último dibujo del pizarrón (el lote con nodos y el óvalo verde) se **transforma en la animación** del diagrama. Es un match cut: mismo encuadre, el trazo de marcador se vuelve línea animada. Eso ata las dos mitades.
+**Cómo grabarlo con una sola persona:** la persona se para a un lado del pizarrón (no tapa lo que dibuja) y alterna mirar el dibujo y mirar a cámara. Mejor si dibuja mientras habla, sin silencios largos. Si le cuesta hablar y dibujar a la vez, que grabe dos veces: una hablando y otra solo dibujando (para tener tomas de corte).
+
+**Truco de transición (a 1:13):** el último plano del pizarrón terminado (lote, nodos y óvalo verde), sin gente tapando, se cruza con la animación del diagrama. Mismo encuadre, el trazo de marcador se vuelve línea animada. Eso une las dos mitades.
+
+---
 
 ## Escena 5. La tecnología (1:15-1:40) | animación
 **Visual:** render del **PolliNode** (poste, panel solar de 5W, cámara, micrófono). Cámara y audio identifican visitantes con cajas de detección y un espectrograma. Luego, mapa de calor del lote con zonas muertas en rojo y **pines** donde va la próxima isla. Aparece un panel simple tipo celular para el productor. Al final, un destello: *"Próxima fase: iluminación inteligente"* (solo si se valida la idea de los audios).
@@ -60,13 +64,13 @@ Speech total: unas 290 palabras. A ritmo natural de 150 palabras por minuto entr
 > "Menos fertilizante, cero pesticidas, más biodiversidad y un producto orgánico que se vende mejor. Una solución pensada para el productor chaqueño, y escalable a toda la región."
 
 ## Escena 7. Cierre (1:55-2:00) | live action + logo
-**Visual:** el equipo, juntos, frente al pizarrón. Mirada a cámara. Logo y nombre del proyecto.
+**Visual:** la misma persona frente al pizarrón, mirada a cámara. Logo y nombre del proyecto (PolliNode, equipo Lambda).
 **Frase final (en cámara):**
 > "El futuro del agro no es solo cultivar la tierra. Es entender el ecosistema que la hace productiva."
 
 ---
 
-## Lista de tomas para grabar el pizarrón (Escena 4 y cierre)
+## Lista de tomas para grabar el pizarrón (Escena 4 y cierre, una persona)
 
 **Equipo y lugar**
 - Pizarrón blanco grande (o chalkboard) con buena luz natural lateral. Evitar contraluz y reflejos en el pizarrón.
@@ -81,11 +85,11 @@ Speech total: unas 290 palabras. A ritmo natural de 150 palabras por minuto entr
 - Grabar cada línea 2 o 3 veces y también el pizarrón **en silencio** para tener material de corte.
 
 **Tomas mínimas**
-1. Plano general: los dos junto al pizarrón.
+1. Plano general: la persona junto al pizarrón.
 2. Primer plano de la mano dibujando cada paso (4 tomas).
-3. Plano medio de cada integrante hablando.
+3. Plano medio de la persona hablando.
 4. Plano del pizarrón terminado, **sin gente**, bien encuadrado (para el match cut).
-5. Cierre mirando a cámara, juntos.
+5. Cierre mirando a cámara.
 6. Opcional: B-roll real en un campo o con plantas nativas (flores, insectos, el monte) si pueden.
 
 ---
@@ -98,7 +102,7 @@ Speech total: unas 290 palabras. A ritmo natural de 150 palabras por minuto entr
 - Música suave de fondo con licencia libre.
 
 ## Preguntas abiertas
-1. ¿Quiénes salen en cámara y cuántas personas son?
+1. ¿Quién sale en cámara? (resuelto: una persona)
 2. ¿Dónde graban el pizarrón?
 3. ¿Qué son las "luces inteligentes" del audio? ¿Entran en el video o quedan como fase futura?
 4. ¿Cuál es el nombre del equipo y del proyecto? Hoy el nodo se llama "PolliNode" y las islas "biodinámicas rotativas".
