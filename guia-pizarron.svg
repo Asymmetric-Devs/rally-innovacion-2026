@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <filter id="marker" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" />
+    </filter>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#1f8a3b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+
+  <!-- pizarrón -->
+  <rect width="1600" height="900" fill="#f7f8f6" />
+  <rect x="14" y="14" width="1572" height="872" rx="14" fill="none" stroke="#c9ccc8" stroke-width="10" />
+
+  <g filter="url(#marker)" fill="none" stroke-linecap="round" stroke-linejoin="round" font-family="'Marker Felt','Bradley Hand','Comic Sans MS',cursive">
+    <!-- 1. LOTE (negro) -->
+    <path d="M 430 220 L 1500 214 L 1506 650 L 426 656 Z" stroke="#1b1b1b" stroke-width="8" />
+    <text x="600" y="268" font-size="34" fill="#1b1b1b" stroke="none" text-anchor="middle">LOTE DE CULTIVO</text>
+
+    <!-- monte -->
+    <g stroke="#1b1b1b" stroke-width="7">
+      <circle cx="170" cy="330" r="62" />
+      <circle cx="270" cy="420" r="70" />
+      <circle cx="165" cy="500" r="64" />
+      <circle cx="280" cy="570" r="52" />
+    </g>
+    <text x="215" y="700" font-size="34" fill="#1b1b1b" stroke="none" text-anchor="middle">MONTE</text>
+
+    <!-- 2. ABEJAS que se apagan (negro) -->
+    <g stroke="#1b1b1b" stroke-width="6">
+      <path d="M 345 350 C 480 325, 600 375, 760 340" marker-end="url(#ah)" />
+      <path d="M 350 420 C 500 400, 640 445, 810 415" marker-end="url(#ah)" />
+      <path d="M 345 490 C 500 505, 620 465, 770 480" marker-end="url(#ah)" />
+    </g>
+    <g stroke="#1b1b1b" stroke-width="6" stroke-dasharray="2 16">
+      <path d="M 790 340 L 840 338" />
+      <path d="M 840 415 L 880 413" />
+      <path d="M 800 481 L 850 480" />
+    </g>
+
+    <!-- zona muerta (rojo) -->
+    <g stroke="#d02a2a" stroke-width="9">
+      <path d="M 905 345 L 1015 495" />
+      <path d="M 1015 345 L 905 495" />
+    </g>
+    <ellipse cx="960" cy="420" rx="150" ry="115" stroke="#d02a2a" stroke-width="5" stroke-dasharray="14 14" />
+    <text x="960" y="590" font-size="30" fill="#d02a2a" stroke="none" text-anchor="middle">NO LLEGAN</text>
+
+    <!-- 3. NODOS (negro) -->
+    <g stroke="#1b1b1b" stroke-width="6">
+      <path d="M 600 625 L 600 555" /><circle cx="600" cy="545" r="13" fill="#f7f8f6" /><path d="M 620 528 q 20 17 0 34" />
+      <path d="M 820 625 L 820 555" /><circle cx="820" cy="545" r="13" fill="#f7f8f6" /><path d="M 840 528 q 20 17 0 34" />
+      <path d="M 1160 625 L 1160 555" /><circle cx="1160" cy="545" r="13" fill="#f7f8f6" /><path d="M 1180 528 q 20 17 0 34" />
+      <path d="M 1380 625 L 1380 555" /><circle cx="1380" cy="545" r="13" fill="#f7f8f6" /><path d="M 1400 528 q 20 17 0 34" />
+    </g>
+    <text x="990" y="708" font-size="30" fill="#1b1b1b" stroke="none" text-anchor="middle">NODOS (escuchan y miran)</text>
+
+    <!-- 4. ISLA (verde) -->
+    <ellipse cx="960" cy="420" rx="125" ry="88" stroke="#1f8a3b" stroke-width="9" fill="#bfe8c8" fill-opacity="0.3" />
+    <g stroke="#1f8a3b" stroke-width="5">
+      <circle cx="920" cy="400" r="9" />
+      <circle cx="975" cy="385" r="9" />
+      <circle cx="1010" cy="430" r="9" />
+      <circle cx="940" cy="455" r="9" />
+    </g>
+    <path d="M 1215 170 C 1180 240, 1130 300, 1075 350" stroke="#1f8a3b" stroke-width="7" marker-end="url(#ahg)" />
+    <text x="1290" y="130" font-size="46" fill="#1f8a3b" stroke="none" text-anchor="middle">ISLA</text>
+    <text x="1290" y="172" font-size="26" fill="#1f8a3b" stroke="none" text-anchor="middle">(flores nativas)</text>
+  </g>
+
+  <!-- guía de orden (NO dibujar) -->
+  <g font-family="'Marker Felt','Bradley Hand','Comic Sans MS',cursive" text-anchor="middle">
+    <g fill="#2f6fd0">
+      <circle cx="470" cy="190" r="26" /><text x="470" y="200" font-size="30" fill="#fff">1</text>
+      <circle cx="560" cy="305" r="26" /><text x="560" y="315" font-size="30" fill="#fff">2</text>
+      <circle cx="700" cy="700" r="26" /><text x="700" y="710" font-size="30" fill="#fff">3</text>
+      <circle cx="1130" cy="190" r="26" /><text x="1130" y="200" font-size="30" fill="#fff">4</text>
+    </g>
+  </g>
+  <g font-family="'Marker Felt','Bradley Hand','Comic Sans MS',cursive" font-size="30" fill="#2f6fd0">
+    <text x="60" y="800">① lote y monte (negro)   ② abejas que se apagan + X roja   ③ nodos   ④ isla verde sobre la X</text>
+    <text x="60" y="846" font-size="24" fill="#6b7280">Guía de referencia: los números azules no se dibujan.</text>
+  </g>
+</svg>
