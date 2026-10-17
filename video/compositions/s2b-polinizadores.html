@@ -158,18 +158,20 @@
 
           // mosca (sírfido)
           const fcl = mk(cards[2].icon, "g", {});
-          const fW1 = mk(fcl, "ellipse", { cx: -4, cy: -14, rx: 30, ry: 12, fill: "#ffffff", opacity: 0.45 });
-          mk(fcl, "ellipse", { cx: 0, cy: 6, rx: 50, ry: 15, fill: "#f5b83d" });
-          const fb = mk(fcl, "g", { "clip-path": "url(#s2b-clip-fly)", fill: "#12301f" });
-          [-34, -12, 10].forEach((x) => mk(fb, "rect", { x: x, y: -14, width: 9, height: 40 }));
-          mk(fcl, "circle", { cx: 56, cy: 2, r: 17, fill: "#12301f" });
-          mk(fcl, "circle", { cx: 61, cy: -3, r: 8, fill: "#138a5f" });
-          const fW2 = mk(fcl, "ellipse", { cx: 6, cy: -14, rx: 32, ry: 13, fill: "#ffffff", opacity: 0.65 });
+          [[-8, 16], [8, 18], [22, 16]].forEach((q) => mk(fcl, "path", { d: "M " + q[0] + " 12 L " + (q[0] - 4) + " " + q[1] + " L " + (q[0] - 12) + " " + (q[1] + 14), fill: "none", stroke: "#12301f", "stroke-width": 2.5, "stroke-linecap": "round", "stroke-linejoin": "round" }));
+          const fW1 = mk(fcl, "ellipse", { cx: -14, cy: -14, rx: 40, ry: 12, fill: "#ffffff", opacity: 0.55, stroke: "#5a7564", "stroke-width": 1.5 });
+          mk(fcl, "ellipse", { cx: -24, cy: 6, rx: 28, ry: 17, fill: "#3b4a41" });
+          mk(fcl, "path", { d: "M -40 -6 Q -24 -12 -8 -6 M -46 6 Q -24 0 -2 6", fill: "none", stroke: "#6b7d72", "stroke-width": 2.5, "stroke-linecap": "round" });
+          mk(fcl, "ellipse", { cx: 10, cy: 2, rx: 21, ry: 17, fill: "#12301f" });
+          mk(fcl, "circle", { cx: 38, cy: 5, r: 14, fill: "#12301f" });
+          mk(fcl, "ellipse", { cx: 43, cy: 0, rx: 11, ry: 12, fill: "#c4452d" });
+          mk(fcl, "circle", { cx: 46, cy: -4, r: 3, fill: "#ffffff", opacity: 0.8 });
+          const fW2 = mk(fcl, "ellipse", { cx: -4, cy: -12, rx: 42, ry: 13, fill: "#ffffff", opacity: 0.7, stroke: "#5a7564", "stroke-width": 1.5 });
           cards[2].upd = (t) => {
             fcl.setAttribute("transform", "translate(" + (Math.sin(t * 2.2 + 2) * 12).toFixed(1) + " " + (Math.sin(t * 3.6 + 1) * 8).toFixed(1) + ")");
             const a = Math.sin(t * 60) * 20;
-            fW1.setAttribute("transform", "rotate(" + (-14 + a) + " -4 -2)");
-            fW2.setAttribute("transform", "rotate(" + (8 - a) + " 6 -2)");
+            fW1.setAttribute("transform", "rotate(" + (-10 + a) + " 8 -6)");
+            fW2.setAttribute("transform", "rotate(" + (4 - a) + " 8 -6)");
           };
 
           // mariposa
