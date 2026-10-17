@@ -6,27 +6,34 @@
   <body>
     <template>
       <!--
-        ESCENA 4: PIZARRÓN (20 s).
-        0.3 a 12.3 s: la toma real (assets/pizarron.mp4, audio ya limpiado y subido) con subtítulos.
-        12.3 a 20 s: se congela el último cuadro (assets/pizarron-last.jpg) y se lo repasa en tinta de cómic.
-        Para cambiar la toma: reemplazar assets/pizarron.mp4, volver a sacar el último cuadro y ajustar data-duration.
+        ESCENA 4: PIZARRÓN (18 s).
+        0 a 12 s: la toma real (assets/pizarron.mp4, audio limpiado) con subtítulos.
+        12 a 18 s: se congela el último cuadro (assets/pizarron-last.jpg) y se lo repasa en líneas limpias.
+        Para cambiar la toma: reemplazar assets/pizarron.mp4, sacar de nuevo el último cuadro y ajustar data-duration y los tiempos de abajo.
       -->
       <style>
         @font-face {
-          font-family: "Bangers";
-          src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+          font-family: "Instrument Serif";
+          font-style: normal;
+          src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
         }
         @font-face {
-          font-family: "Permanent Marker";
-          src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+          font-family: "Instrument Serif";
+          font-style: italic;
+          src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "Instrument Sans";
+          font-weight: 400 700;
+          src: url("assets/fonts/InstrumentSans.woff2") format("woff2");
         }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #17132b;
-          font-family: "Permanent Marker", cursive;
-          color: #17132b;
+          background: #1d1b19;
+          font-family: "Instrument Sans", sans-serif;
+          color: #1d1b19;
         }
         #s4-zoom {
           position: absolute;
@@ -41,10 +48,10 @@
           height: 1080px;
           object-fit: cover;
         }
-        #s4-dim {
+        #s4-veil {
           position: absolute;
           inset: 0;
-          background: #2b1d5e;
+          background: #f4efe6;
           opacity: 0;
         }
         #s4-over {
@@ -53,265 +60,212 @@
           top: 0;
           width: 1920px;
           height: 1080px;
-          filter: url(#boil);
         }
-        #s4-ui {
+        .tag {
           position: absolute;
-          inset: 0;
-          filter: url(#boil);
-        }
-        #s4-frame {
-          position: absolute;
-          inset: 0;
-          border: 20px solid #17132b;
-        }
-        .ht {
-          position: absolute;
-          pointer-events: none;
-          background-image: radial-gradient(circle, rgba(255, 61, 139, 0.6) 3.4px, transparent 3.8px);
-          background-size: 20px 20px;
-        }
-        #s4-ht1 {
-          right: 20px;
-          bottom: 20px;
-          width: 760px;
-          height: 420px;
-          -webkit-mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 70%);
-          mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 70%);
-        }
-        .cap {
-          position: absolute;
-          background: #ffd23f;
-          border: 6px solid #17132b;
-          box-shadow: 9px 9px 0 #17132b;
-          padding: 10px 22px 8px;
-          letter-spacing: 0.02em;
-        }
-        #s4-tag {
-          left: 56px;
-          top: 52px;
-          font-size: 28px;
+          left: 64px;
+          top: 56px;
+          padding: 12px 20px 10px;
+          background: rgba(244, 239, 230, 0.94);
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          transform: rotate(-1.5deg);
+        }
+        .tag b {
+          color: #c4502f;
+          margin-right: 14px;
         }
         .sub {
+          position: absolute;
           left: 50%;
-          bottom: 62px;
-          max-width: 1500px;
-          font-size: 40px;
-          line-height: 1.2;
-          text-transform: uppercase;
-          text-align: center;
-          background: #fff1d6;
+          bottom: 64px;
           transform: translateX(-50%);
+          padding: 14px 28px 12px;
+          background: rgba(29, 27, 25, 0.82);
+          color: #f4efe6;
+          font-size: 40px;
+          font-weight: 500;
           white-space: nowrap;
+          opacity: 0;
+        }
+        #s4-steps {
+          position: absolute;
+          left: 1280px;
+          top: 150px;
+          width: 560px;
         }
         .step {
-          left: 1290px;
-          width: 560px;
-          font-size: 30px;
-          text-transform: uppercase;
           display: flex;
-          align-items: center;
-          gap: 18px;
+          align-items: baseline;
+          gap: 22px;
+          padding: 18px 0 16px;
+          border-top: 2px solid #1d1b19;
+          background: rgba(244, 239, 230, 0.9);
+          opacity: 0;
         }
-        .step svg {
-          flex: none;
-          width: 56px;
-          height: 52px;
+        .step span {
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.16em;
+          color: #c4502f;
+          padding-left: 6px;
         }
-        #s4-st1 { top: 110px; transform: rotate(-1deg); }
-        #s4-st2 { top: 206px; transform: rotate(0.8deg); }
-        #s4-st3 { top: 302px; transform: rotate(-0.8deg); }
+        .step p {
+          font-family: "Instrument Serif", serif;
+          font-size: 54px;
+          line-height: 1.05;
+        }
       </style>
 
       <div id="root" data-composition-id="s4-pizarron" data-width="1920" data-height="1080">
         <div id="s4-zoom">
-          <video id="s4-footage" class="clip" src="assets/pizarron.mp4" data-start="0" data-duration="12" data-track-index="0" data-has-audio="true" playsinline></video>
+          <video id="s4-footage" class="clip" src="assets/pizarron.mp4" data-start="0" data-duration="12" data-track-index="0" data-has-audio="true" data-volume="1.3" playsinline></video>
           <img id="s4-still" src="assets/pizarron-last.jpg" alt="" />
-          <div id="s4-dim"></div>
+          <div id="s4-veil"></div>
 
           <svg id="s4-over" viewBox="0 0 1920 1080">
-            <defs>
-              <clipPath id="s4-lot-clip"><rect x="720" y="290" width="510" height="380" /></clipPath>
-            </defs>
-            <g id="s4-lotg">
-              <rect id="s4-lot-shadow" x="734" y="304" width="510" height="380" fill="url(#ht-ink)" opacity="0" />
-              <rect id="s4-lot-fill" x="720" y="290" width="510" height="380" fill="#6c3df4" opacity="0" />
-              <path id="s4-lot-stroke" d="M 720 290 H 1230 V 670 H 720 Z" pathLength="1" fill="none" stroke="#17132b" stroke-width="12" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" />
-            </g>
+            <defs><clipPath id="s4-lot-clip"><rect x="720" y="290" width="510" height="380" /></clipPath></defs>
             <g clip-path="url(#s4-lot-clip)">
-              <ellipse id="s4-dead" cx="1150" cy="490" rx="92" ry="112" fill="url(#ht-cyan)" opacity="0" />
-              <ellipse id="s4-dead-ring" cx="1150" cy="490" rx="92" ry="112" fill="none" stroke="#17132b" stroke-width="8" stroke-dasharray="14 12" opacity="0" />
+              <ellipse id="s4-dead" cx="1150" cy="490" rx="92" ry="112" fill="url(#hatch-clay)" opacity="0" />
             </g>
-            <g id="s4-rings" fill="none" stroke="#19c3e6" stroke-width="8"></g>
-            <path id="s4-trail" d="M 952 476 C 1010 360, 1100 380, 1142 502" fill="none" stroke="#17132b" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" />
+            <path id="s4-lot" d="M 720 290 H 1230 V 670 H 720 Z" pathLength="1" fill="none" stroke="#1d1b19" stroke-width="5" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" />
+            <ellipse id="s4-dead-ring" cx="1150" cy="490" rx="92" ry="112" fill="none" stroke="#c4502f" stroke-width="3" stroke-dasharray="10 9" opacity="0" />
+            <g id="s4-rings" fill="none" stroke="#e5a02d" stroke-width="3"></g>
+            <g id="s4-trail" fill="#1d1b19"></g>
             <g id="s4-cloud" transform="translate(546 426)">
               <g id="s4-cloud-in">
-                <path d="M -100 34 Q -124 -10 -64 -14 Q -54 -64 0 -54 Q 44 -86 88 -44 Q 140 -42 128 10 Q 142 38 98 40 Z" fill="#17132b" transform="translate(8 8)" />
-                <path d="M -100 34 Q -124 -10 -64 -14 Q -54 -64 0 -54 Q 44 -86 88 -44 Q 140 -42 128 10 Q 142 38 98 40 Z" fill="#fff1d6" stroke="#17132b" stroke-width="8" stroke-linejoin="round" />
-                <text x="12" y="10" text-anchor="middle" font-family="Permanent Marker" font-size="25" fill="#ff3d8b">POLINIZADORES</text>
+                <ellipse cx="0" cy="0" rx="104" ry="40" fill="#f4efe6" stroke="#1d1b19" stroke-width="3" />
+                <text x="0" y="8" text-anchor="middle" font-family="Instrument Serif" font-style="italic" font-size="30" fill="#c4502f">polinizadores</text>
               </g>
             </g>
             <g id="s4-totems"></g>
             <g id="s4-isl-outer"><g id="s4-isl"></g></g>
             <g id="s4-bees"></g>
-            <g id="s4-sfx"></g>
           </svg>
         </div>
 
-        <div id="s4-ui">
-          <div id="s4-ht1" class="ht"></div>
-          <div id="s4-tag" class="cap">La idea, en el pizarrón</div>
+        <div class="tag" id="s4-tag"><b>04</b>La idea, en el pizarrón</div>
+        <div class="sub" id="s4-sub1">Los polinizadores no llegan a todas las áreas.</div>
+        <div class="sub" id="s4-sub2">Entonces, implementando estos sensores inteligentes,</div>
+        <div class="sub" id="s4-sub3">podemos decirle al agricultor dónde ir moviendo esta isla.</div>
 
-          <div id="s4-sub1" class="sub cap">Los polinizadores no llegan a todas las áreas.</div>
-          <div id="s4-sub2" class="sub cap">Entonces, implementando estos sensores inteligentes,</div>
-          <div id="s4-sub3" class="sub cap">podemos decirle al agricultor dónde ir moviendo esta isla.</div>
-
-          <div id="s4-st1" class="step cap"><svg viewBox="0 0 56 52"><polygon points="52,26 39,48 13,48 0,26 13,4 39,4" fill="#ff3d8b" stroke="#17132b" stroke-width="5" stroke-linejoin="round" transform="translate(2 0) scale(0.96)" /><text x="26" y="36" text-anchor="middle" font-family="Bangers" font-size="30" fill="#fff1d6" stroke="#17132b" stroke-width="3" paint-order="stroke">1</text></svg><span>Los sensores miden</span></div>
-          <div id="s4-st2" class="step cap"><svg viewBox="0 0 56 52"><polygon points="52,26 39,48 13,48 0,26 13,4 39,4" fill="#19c3e6" stroke="#17132b" stroke-width="5" stroke-linejoin="round" transform="translate(2 0) scale(0.96)" /><text x="26" y="36" text-anchor="middle" font-family="Bangers" font-size="30" fill="#fff1d6" stroke="#17132b" stroke-width="3" paint-order="stroke">2</text></svg><span>El mapa marca la zona</span></div>
-          <div id="s4-st3" class="step cap"><svg viewBox="0 0 56 52"><polygon points="52,26 39,48 13,48 0,26 13,4 39,4" fill="#ff7a2f" stroke="#17132b" stroke-width="5" stroke-linejoin="round" transform="translate(2 0) scale(0.96)" /><text x="26" y="36" text-anchor="middle" font-family="Bangers" font-size="30" fill="#fff1d6" stroke="#17132b" stroke-width="3" paint-order="stroke">3</text></svg><span>La isla se mueve ahí</span></div>
+        <div id="s4-steps">
+          <div class="step" id="s4-st1"><span>01</span><p>Los sensores miden</p></div>
+          <div class="step" id="s4-st2"><span>02</span><p>El mapa marca la zona</p></div>
+          <div class="step" id="s4-st3"><span>03</span><p>La isla se mueve ahí</p></div>
         </div>
-
-        <div id="s4-frame"></div>
       </div>
 
       <script>
         (function () {
           const mk = PN.mk;
-          const DUR = 20;
+          const DUR = 18;
           const $ = (id) => document.getElementById(id);
 
-          // tótems de sensores (cuatro, en la posición de los dibujados en el pizarrón)
-          const totemG = $("s4-totems");
+          // sensores (posición de los tótems dibujados en el pizarrón)
           const TX = [810, 902, 1020, 1144];
           const totems = TX.map((x) => {
-            const g = mk(totemG, "g", {});
-            mk(g, "line", { x1: x, y1: 664, x2: x, y2: 592, stroke: "#17132b", "stroke-width": 11, "stroke-linecap": "round" });
-            mk(g, "rect", { x: x - 21, y: 546, width: 42, height: 34, rx: 7, fill: "#17132b", transform: "translate(5 5)" });
-            mk(g, "rect", { x: x - 21, y: 546, width: 42, height: 34, rx: 7, fill: "#ffd23f", stroke: "#17132b", "stroke-width": 6 });
-            mk(g, "circle", { cx: x, cy: 563, r: 9, fill: "#17132b" });
-            mk(g, "circle", { cx: x, cy: 563, r: 4, fill: "#19c3e6" });
-            mk(g, "line", { x1: x + 10, y1: 546, x2: x + 18, y2: 524, stroke: "#17132b", "stroke-width": 5, "stroke-linecap": "round" });
-            mk(g, "circle", { cx: x + 19, cy: 521, r: 6, fill: "#ff3d8b", stroke: "#17132b", "stroke-width": 3 });
+            const g = mk($("s4-totems"), "g", {});
+            mk(g, "line", { x1: x, y1: 664, x2: x, y2: 590, stroke: "#1d1b19", "stroke-width": 6, "stroke-linecap": "round" });
+            mk(g, "rect", { x: x - 20, y: 548, width: 40, height: 34, rx: 5, fill: "#f4efe6", stroke: "#1d1b19", "stroke-width": 4 });
+            mk(g, "circle", { cx: x, cy: 565, r: 8, fill: "#e5a02d" });
+            mk(g, "circle", { cx: x + 16, cy: 536, r: 5, fill: "#c4502f" });
+            mk(g, "line", { x1: x + 10, y1: 548, x2: x + 15, y2: 540, stroke: "#1d1b19", "stroke-width": 3 });
             return g;
           });
-          const ringsG = $("s4-rings");
           const rings = [];
           TX.forEach((x, i) => {
-            for (let k = 0; k < 2; k++) rings.push({ el: mk(ringsG, "circle", { cx: x, cy: 563, r: 0, opacity: 0 }), i: i, k: k });
+            for (let k = 0; k < 2; k++) rings.push({ el: mk($("s4-rings"), "circle", { cx: x, cy: 565, r: 0, opacity: 0 }), i: i, k: k });
           });
 
-          // isla comic (se dibuja sobre la isla azul del pizarrón)
-          const isl = $("s4-isl");
-          const blob = (cx, cy, rx, ry, ph) => {
-            let d = "";
-            for (let i = 0; i < 48; i++) {
-              const a = (i / 48) * Math.PI * 2;
-              const k = 1 + 0.1 * Math.sin(3 * a + ph) + 0.06 * Math.sin(5 * a + ph * 1.7);
-              d += (i ? "L" : "M") + (cx + rx * k * Math.cos(a)).toFixed(1) + " " + (cy + ry * k * Math.sin(a)).toFixed(1) + " ";
-            }
-            return d + "Z";
-          };
+          // isla
           const IX = 952, IY = 476;
-          mk(isl, "path", { d: blob(IX + 10, IY + 12, 88, 80, 0.4), fill: "url(#ht-ink)", opacity: 0.6 });
-          mk(isl, "path", { d: blob(IX, IY, 88, 80, 0.4), fill: "#0e8f8a", stroke: "#17132b", "stroke-width": 9, "stroke-linejoin": "round" });
-          mk(isl, "path", { d: blob(IX - 6, IY - 6, 64, 56, 1.2), fill: "#13a39b" });
-          const frnd = PN.rng(17);
-          const petals = ["#ff3d8b", "#fff1d6", "#ffd23f", "#19c3e6", "#ff9ec7"];
+          mk($("s4-isl"), "path", { d: PN.blob(IX, IY, 84, 74, 0.4), fill: "#33504a" });
+          const fr = PN.rng(17);
+          const petals = ["#c4502f", "#e5a02d", "#f4efe6"];
           const flowers = [];
           for (let k = 0; k < 8; k++) {
-            const a = frnd() * 6.28;
-            const d = Math.sqrt(frnd()) * 52;
-            flowers.push(PN.flower(isl, IX + Math.cos(a) * d * 1.1, IY + Math.sin(a) * d * 0.9, 14 + frnd() * 6, petals[k % 5], "#ffd23f"));
+            const a = fr() * 6.28, d = Math.sqrt(fr()) * 48;
+            flowers.push(PN.flower($("s4-isl"), IX + Math.cos(a) * d * 1.1, IY + Math.sin(a) * d * 0.9, 12 + fr() * 4, petals[k % 3], "#1d1b19"));
           }
 
-          // abejas
-          const beesG = $("s4-bees");
-          const bees = [0, 1, 2, 3].map((i) => ({ bee: PN.bee(beesG, { scale: 0.95 }), i: i }));
-          const sfx = PN.sfx($("s4-sfx"), "¡PLOP!", 1170, 330, 190, "#ffd23f", 6);
+          // rastro punteado de la isla (aparece con el movimiento)
+          const tpts = PN.samplePath($("s4-over"), "M 952 476 C 1010 380, 1100 390, 1142 502", 60);
+          const tdots = [];
+          for (let i = 0; i < 22; i++) {
+            const p = PN.at(tpts, i / 21);
+            tdots.push(mk($("s4-trail"), "circle", { cx: p.x, cy: p.y, r: 3.2, opacity: 0 }));
+          }
+          const bees = [0, 1, 2].map((i) => ({ bee: PN.bee($("s4-bees"), { scale: 1.5 }), i: i }));
 
           const tl = gsap.timeline({ paused: true });
           const T0 = 12.0;
 
           PN.clock(tl, DUR, function (t) {
-            const q = PN.q(t);
-            // isla: se desplaza en arco hacia la zona muerta
-            const u = PN.ease(PN.clamp((q - 15.4) / 1.6, 0, 1));
-            const dx = 190 * u, dy = 26 * u - 70 * Math.sin(Math.PI * u);
+            const u = PN.ease(PN.clamp((t - 15.3) / 1.7, 0, 1));
+            const dx = 190 * u, dy = 26 * u - 64 * Math.sin(Math.PI * u);
             $("s4-isl-outer").setAttribute("transform", "translate(" + dx.toFixed(1) + " " + dy.toFixed(1) + ")");
-            flowers.forEach((f, k) => f.inner.setAttribute("transform", "rotate(" + (Math.sin(q * 1.4 + k) * 9).toFixed(2) + ")"));
-            // abejas: salen de la nube, luego rodean la isla
+            flowers.forEach((f, k) => f.inner.setAttribute("transform", "rotate(" + (Math.sin(t * 1.3 + k) * 7).toFixed(2) + ")"));
+            tdots.forEach((d, i) => d.setAttribute("opacity", t > 15.3 && i / 21 <= u ? 0.7 : 0));
             bees.forEach((b) => {
               const i = b.i;
-              let x, y;
-              if (q < 15.4) {
-                const w = PN.clamp((q - 13.0 - i * 0.35) / 2.4, 0, 1);
-                x = 600 + 190 * PN.ease(w) + Math.sin(q * 3 + i) * 10;
-                y = 430 + (i - 1.5) * 26 + Math.sin(q * 5 + i) * 8 - 30 * Math.sin(Math.PI * w);
+              let x, y, x2, y2;
+              if (t < 15.3) {
+                const w = PN.clamp((t - 13.0 - i * 0.4) / 2.4, 0, 1);
+                x = 620 + 170 * PN.ease(w);
+                y = 426 + (i - 1) * 26 - 28 * Math.sin(Math.PI * w);
+                x2 = x + 8;
+                y2 = y;
               } else {
-                const a = q * (1.2 + i * 0.12) + i * 1.6;
-                x = 952 + dx + 130 * Math.cos(a);
-                y = 476 + dy + 92 * Math.sin(a * 1.2);
+                const f = (tt) => [952 + dx + 125 * Math.cos(tt * (1.1 + i * 0.1) + i * 2.1), 476 + dy + 88 * Math.sin((tt * (1.1 + i * 0.1) + i * 2.1) * 1.2)];
+                [x, y] = f(t);
+                [x2, y2] = f(t + 0.05);
               }
-              const x2 = q < 15.4 ? x + 8 : 952 + dx + 130 * Math.cos((q + 0.05) * (1.2 + i * 0.12) + i * 1.6);
-              const y2 = q < 15.4 ? y : 476 + dy + 92 * Math.sin(((q + 0.05) * (1.2 + i * 0.12) + i * 1.6) * 1.2);
               PN.fly(b.bee, x, y, x2 - x, y2 - y, 0.3);
               b.bee.flap(t, i);
-              b.bee.g.setAttribute("opacity", PN.clamp((q - 13.0 - i * 0.35) / 0.3, 0, 1).toFixed(2));
+              b.bee.g.setAttribute("opacity", PN.clamp((t - 13.0 - i * 0.4) / 0.4, 0, 1).toFixed(2));
             });
-            // ondas de sensado
             rings.forEach((r) => {
-              if (q < 13.8) {
+              if (t < 13.8) {
                 r.el.setAttribute("opacity", 0);
                 return;
               }
-              const ph = ((((q - 13.8) / 1.6 - r.k / 2 - r.i * 0.17) % 1) + 1) % 1;
-              r.el.setAttribute("r", (14 + ph * 86).toFixed(1));
-              r.el.setAttribute("opacity", ((1 - ph) * 0.95).toFixed(2));
+              const ph = ((((t - 13.8) / 1.8 - r.k / 2 - r.i * 0.15) % 1) + 1) % 1;
+              r.el.setAttribute("r", (12 + ph * 80).toFixed(1));
+              r.el.setAttribute("opacity", ((1 - ph) * 0.9).toFixed(2));
             });
-            // estallido del PLOP
-            const sp = PN.clamp((q - 17.0) / 0.12, 0, 1) * (1 - PN.clamp((q - 17.9) / 0.3, 0, 1));
-            sfx.g.setAttribute("transform", "translate(1170 330) rotate(-8) scale(" + sp.toFixed(3) + ")");
           });
 
-          // video: arranca apenas entra la escena; zoom lento (la cámara de la toma se mueve sola)
-          tl.fromTo("#s4-zoom", { scale: 1, transformOrigin: "62% 44%" }, { scale: 1.05, duration: 12.0, ease: "sine.inOut" }, 0);
+          // toma real + zoom muy lento
+          tl.fromTo("#s4-zoom", { scale: 1, transformOrigin: "62% 44%" }, { scale: 1.04, duration: 12, ease: "sine.inOut" }, 0);
           tl.set("#s4-still", { opacity: 0 }, 0);
           tl.set("#s4-still", { opacity: 1 }, 11.98);
-          tl.to("#s4-zoom", { scale: 1.1, duration: 8.0, ease: "sine.inOut", transformOrigin: "52% 48%" }, 12.0);
+          tl.to("#s4-zoom", { scale: 1.07, duration: 6, ease: "sine.inOut", transformOrigin: "52% 48%" }, 12);
 
-          // interfaz de cómic
-          tl.fromTo("#s4-tag", { opacity: 0, x: -60, rotation: -6 }, { opacity: 1, x: 0, rotation: -1.5, duration: 0.5, ease: "back.out(2)" }, 0.2);
+          // etiqueta y subtítulos
+          tl.fromTo("#s4-tag", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.3);
+          tl.to("#s4-tag", { opacity: 0, duration: 0.4 }, 11.8);
           const sub = (id, a, b) => {
-            tl.fromTo(id, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, a);
-            tl.to(id, { opacity: 0, y: -20, duration: 0.2 }, b - 0.2);
+            tl.fromTo(id, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, a);
+            tl.to(id, { opacity: 0, duration: 0.3 }, b - 0.3);
           };
-          tl.set(["#s4-sub1", "#s4-sub2", "#s4-sub3"], { opacity: 0 }, 0);
           sub("#s4-sub1", 0.3, 3.5);
           sub("#s4-sub2", 3.5, 6.6);
-          sub("#s4-sub3", 6.6, 11.95);
-          tl.to("#s4-tag", { opacity: 0, duration: 0.3 }, 11.9);
+          sub("#s4-sub3", 6.6, 11.9);
 
-          // REPASO EN TINTA (desde 12.3)
-          tl.fromTo("#s4-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.6 }, T0);
-          tl.to("#s4-lot-stroke", { strokeDashoffset: 0, duration: 0.9, ease: "power2.out" }, T0 + 0.3);
-          tl.to("#s4-lot-fill", { opacity: 0.3, duration: 0.5 }, T0 + 0.9);
-          tl.to("#s4-lot-shadow", { opacity: 0.5, duration: 0.5 }, T0 + 0.9);
-          tl.fromTo("#s4-cloud-in", { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2.2)" }, T0 + 0.6);
-          tl.fromTo("#s4-isl", { opacity: 0, scale: 0.2, svgOrigin: IX + " " + IY }, { opacity: 1, scale: 1, svgOrigin: IX + " " + IY, duration: 0.6, ease: "back.out(2)" }, T0 + 1.0);
-          totems.forEach((g, i) => tl.fromTo(g, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2.4)" }, T0 + 1.3 + i * 0.15));
-          tl.fromTo("#s4-dead", { opacity: 0 }, { opacity: 0.8, duration: 0.5 }, 14.4);
-          tl.fromTo("#s4-dead-ring", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 14.4);
-          tl.to("#s4-trail", { strokeDashoffset: 0, duration: 1.4, ease: "power1.inOut" }, 15.4);
-          tl.to("#s4-dead", { opacity: 0.18, duration: 0.6 }, 17.0);
-          tl.to("#s4-dead-ring", { opacity: 0, duration: 0.4 }, 17.0);
+          // repaso en líneas limpias (desde 12 s)
+          tl.fromTo("#s4-veil", { opacity: 0 }, { opacity: 0.66, duration: 0.7 }, T0);
+          tl.to("#s4-lot", { strokeDashoffset: 0, duration: 1.0, ease: "power2.out" }, T0 + 0.4);
+          tl.fromTo("#s4-cloud-in", { opacity: 0 }, { opacity: 1, duration: 0.6 }, T0 + 0.8);
+          tl.fromTo("#s4-isl", { opacity: 0, scale: 0.4, svgOrigin: IX + " " + IY }, { opacity: 1, scale: 1, svgOrigin: IX + " " + IY, duration: 0.8, ease: "power3.out" }, T0 + 1.2);
+          totems.forEach((g, i) => tl.fromTo(g, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, T0 + 1.5 + i * 0.15));
+          tl.fromTo("#s4-dead", { opacity: 0 }, { opacity: 0.9, duration: 0.7 }, 14.3);
+          tl.fromTo("#s4-dead-ring", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 14.3);
+          tl.to("#s4-dead", { opacity: 0.15, duration: 0.7 }, 17.0);
+          tl.to("#s4-dead-ring", { opacity: 0, duration: 0.5 }, 17.0);
 
-          const stepIn = (id, at) => tl.fromTo(id, { opacity: 0, x: -140, rotation: -5 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(2)" }, at);
-          tl.set(["#s4-st1", "#s4-st2", "#s4-st3"], { opacity: 0 }, 0);
-          stepIn("#s4-st1", 13.6);
-          stepIn("#s4-st2", 14.6);
-          stepIn("#s4-st3", 15.6);
+          [["#s4-st1", 13.4], ["#s4-st2", 14.5], ["#s4-st3", 15.6]].forEach((s) => tl.fromTo(s[0], { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, s[1]));
 
           window.__timelines["s4-pizarron"] = tl;
         })();

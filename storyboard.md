@@ -1,6 +1,6 @@
 # Storyboard y speech: video de 2:00
 
-> **Actualización (rama `video-spiderverse`):** el video pasó a un estilo de cómic tipo Spider-Verse (tinta, semitono, colores desfasados), con logo propio, y ya incluye la toma real del pizarrón. Los tiempos vigentes están en `guion.md` y la descripción técnica en `video/NOTAS.md`. Lo que sigue es el storyboard original de referencia.
+> **Actualización (rama `video-minimal`):** el video pasó a un estilo editorial minimalista (papel hueso, tinta, arcilla y azafrán, tipografía serif), con logo propio, las seis voces integradas y la toma real del pizarrón. Los tiempos vigentes están en `guion.md` y la descripción técnica en `video/NOTAS.md`. Lo que sigue es el storyboard original de referencia.
 
 Formato: 1920x1080, 24/30 fps. Mezcla de **animación** (HyperFrames) con **una escena real del equipo explicando en el pizarrón** en la mitad del video (0:50-1:15), para darle humanidad.
 

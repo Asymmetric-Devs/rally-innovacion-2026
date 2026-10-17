@@ -7,211 +7,123 @@
     <template>
       <style>
         @font-face {
-          font-family: "Bangers";
-          src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+          font-family: "Instrument Serif";
+          font-style: normal;
+          src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
         }
         @font-face {
-          font-family: "Permanent Marker";
-          src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+          font-family: "Instrument Serif";
+          font-style: italic;
+          src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "Instrument Sans";
+          font-weight: 400 700;
+          src: url("assets/fonts/InstrumentSans.woff2") format("woff2");
         }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #fff1d6;
-          font-family: "Permanent Marker", cursive;
-          color: #17132b;
+          background: #f4efe6;
+          font-family: "Instrument Serif", serif;
+          color: #1d1b19;
         }
         #s2-cam {
           position: absolute;
           inset: 0;
-          filter: url(#boil);
         }
-        .ht {
+        .h {
           position: absolute;
-          pointer-events: none;
-          background-image: radial-gradient(circle, rgba(255, 61, 139, 0.55) 3.4px, transparent 3.8px);
-          background-size: 20px 20px;
-        }
-        #s2-ht1 {
-          left: 0;
-          bottom: 0;
-          width: 900px;
-          height: 600px;
-          -webkit-mask-image: radial-gradient(circle at 0% 100%, #000 0%, transparent 70%);
-          mask-image: radial-gradient(circle at 0% 100%, #000 0%, transparent 70%);
-        }
-        .cap {
-          position: absolute;
-          background: #ffd23f;
-          border: 6px solid #17132b;
-          box-shadow: 9px 9px 0 #17132b;
-          padding: 10px 22px 8px;
-          letter-spacing: 0.02em;
-        }
-        #s2-eyebrow {
-          left: 90px;
-          top: 80px;
-          font-size: 30px;
-          text-transform: uppercase;
-          transform: rotate(-1.5deg);
-        }
-        .s2-h {
-          position: absolute;
-          left: 90px;
-          top: 190px;
-          width: 860px;
-          font-family: "Bangers", sans-serif;
-          font-size: 164px;
-          line-height: 0.94;
-          letter-spacing: 0.01em;
-          text-transform: uppercase;
-          color: #fff1d6;
-          -webkit-text-stroke: 9px #17132b;
-          paint-order: stroke fill;
-          text-shadow: 8px 8px 0 #ff3d8b;
-        }
-        .s2-h .hl {
-          color: #ffd23f;
-        }
-        .s2-h .w {
-          transform-origin: 0 100%;
-          margin-right: 0.16em;
-        }
-        .s2-sub {
-          left: 90px;
-          top: 735px;
+          left: 120px;
+          top: 340px;
           width: 800px;
-          font-size: 31px;
-          line-height: 1.28;
-          background: #fff1d6;
+          font-size: 132px;
+          line-height: 1.02;
+          letter-spacing: -0.015em;
+          font-weight: 400;
         }
-        #s2-vis {
+        .h .ln {
+          display: block;
+          overflow: hidden;
+          padding-bottom: 0.14em;
+          margin-bottom: -0.14em;
+        }
+        .h .in {
+          display: block;
+        }
+        .h em {
+          color: #c4502f;
+        }
+        #s2-panel {
           position: absolute;
           left: 1000px;
-          top: 90px;
-          width: 830px;
-          height: 900px;
-          border: 9px solid #17132b;
-          border-radius: 6px;
-          background: #ffd23f;
-          overflow: hidden;
-          box-shadow: 16px 16px 0 #17132b;
+          top: 180px;
+          width: 800px;
+          height: 720px;
+          background: #ebe4d6;
         }
-        #s2-vis .hti {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background-image: radial-gradient(circle, rgba(23, 19, 43, 0.32) 3.4px, transparent 3.8px);
-          background-size: 20px 20px;
-          -webkit-mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 62%);
-          mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 62%);
-        }
-        #s2-vis svg {
+        #s2-panel svg {
           position: absolute;
           left: 0;
           top: 0;
-          width: 812px;
-          height: 882px;
+          width: 800px;
+          height: 720px;
         }
-        #s2-dots {
-          position: absolute;
-          left: 90px;
-          bottom: 70px;
-          width: 300px;
-          height: 80px;
-        }
-        .s2-lbl {
-          font-family: "Permanent Marker", cursive;
-          font-size: 27px;
-          fill: #17132b;
+        .cap {
+          font-family: "Instrument Sans", sans-serif;
+          font-weight: 600;
+          font-size: 21px;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          fill: #1d1b19;
         }
       </style>
 
       <div id="root" data-composition-id="s2-problema" data-width="1920" data-height="1080">
         <div id="s2-cam">
-          <div id="s2-ht1" class="ht"></div>
-          <div id="s2-eyebrow" class="cap">01 · El problema</div>
+          <h2 id="s2-ha" class="h"><span class="ln"><span class="in">Lo orgánico</span></span><span class="ln"><span class="in">vale <em>más.</em></span></span></h2>
+          <h2 id="s2-hb" class="h"><span class="ln"><span class="in">Pero hay</span></span><span class="ln"><span class="in"><em>dos muros.</em></span></span></h2>
+          <h2 id="s2-hc" class="h"><span class="ln"><span class="in">Y nadie sabe</span></span><span class="ln"><span class="in">dónde <em>falla.</em></span></span></h2>
 
-          <h2 id="s2-ha" class="s2-h">Lo orgánico se vende <span class="hl">mejor</span>.</h2>
-          <p id="s2-suba" class="s2-sub cap">Sin agroquímicos y sin semillas transgénicas, el producto del Chaco llega a mercados que pagan un precio premium.</p>
-
-          <h2 id="s2-hb" class="s2-h">Pero hay <span class="hl">dos muros</span>.</h2>
-          <p id="s2-subb" class="s2-sub cap">Suelos agotados y polinización incierta. Sin insumos químicos, nada compensa cuando la naturaleza falla.</p>
-
-          <h2 id="s2-hc" class="s2-h">Y nadie sabe <span class="hl">dónde falla</span>.</h2>
-          <p id="s2-subc" class="s2-sub cap">Si los insectos no llegan al centro del lote, el rinde se resiente. Hoy el productor lo descubre recién en la cosecha.</p>
-
-          <svg id="s2-dots" viewBox="0 0 300 80">
-            <g id="s2-dot-a" transform="translate(40 40)"><polygon points="34,0 17,29.4 -17,29.4 -34,0 -17,-29.4 17,-29.4" fill="#ff3d8b" stroke="#17132b" stroke-width="6" stroke-linejoin="round" /></g>
-            <g id="s2-dot-b" transform="translate(150 40)"><polygon points="34,0 17,29.4 -17,29.4 -34,0 -17,-29.4 17,-29.4" fill="#fff1d6" stroke="#17132b" stroke-width="6" stroke-linejoin="round" /></g>
-            <g id="s2-dot-c" transform="translate(260 40)"><polygon points="34,0 17,29.4 -17,29.4 -34,0 -17,-29.4 17,-29.4" fill="#fff1d6" stroke="#17132b" stroke-width="6" stroke-linejoin="round" /></g>
-          </svg>
-
-          <div id="s2-vis">
-            <div class="hti"></div>
-            <!-- A: etiqueta colgante -->
-            <svg id="s2-va" viewBox="0 0 812 882">
-              <g id="s2-pend-wrap">
-                <g id="s2-pend">
-                  <path d="M 406 -30 L 406 296" fill="none" stroke="#17132b" stroke-width="7" />
-                  <path d="M 336 252 L 476 252 L 576 332 L 576 702 Q 576 724 554 724 L 258 724 Q 236 724 236 702 L 236 332 Z" fill="#17132b" transform="translate(14 14)" />
-                  <path d="M 336 252 L 476 252 L 576 332 L 576 702 Q 576 724 554 724 L 258 724 Q 236 724 236 702 L 236 332 Z" fill="#ff3d8b" stroke="#17132b" stroke-width="9" stroke-linejoin="round" />
-                  <path d="M 236 520 L 576 520 L 576 702 Q 576 724 554 724 L 258 724 Q 236 724 236 702 Z" fill="url(#ht-white)" opacity="0.45" />
-                  <circle cx="406" cy="300" r="22" fill="#ffd23f" stroke="#17132b" stroke-width="7" />
-                  <text x="406" y="438" text-anchor="middle" font-family="Bangers" font-size="76" fill="#fff1d6" stroke="#17132b" stroke-width="10" paint-order="stroke" letter-spacing="2">ORGÁNICO</text>
-                  <text x="406" y="540" text-anchor="middle" font-family="Bangers" font-size="112" fill="#ffd23f" stroke="#17132b" stroke-width="12" paint-order="stroke" letter-spacing="2">PREMIUM</text>
-                  <path d="M 336 612 C 368 568, 404 568, 436 612 C 404 656, 368 656, 336 612 Z" fill="#19c3e6" stroke="#17132b" stroke-width="6" stroke-linejoin="round" />
-                  <path d="M 336 612 L 396 612" stroke="#17132b" stroke-width="5" stroke-linecap="round" />
-                  <g id="s2-barcode" stroke="#17132b" stroke-width="5"></g>
-                </g>
+          <div id="s2-panel">
+            <!-- A: etiqueta -->
+            <svg id="s2-va" viewBox="0 0 800 720">
+              <g id="s2-pend">
+                <line x1="400" y1="-20" x2="400" y2="196" stroke="#1d1b19" stroke-width="3" />
+                <path d="M 320 196 L 480 196 L 556 254 L 556 600 L 244 600 L 244 254 Z" fill="#f4efe6" stroke="#1d1b19" stroke-width="3" stroke-linejoin="round" />
+                <circle cx="400" cy="232" r="13" fill="#c4502f" />
+                <text x="400" y="372" text-anchor="middle" font-family="Instrument Serif" font-style="italic" font-size="78" fill="#1d1b19">Orgánico</text>
+                <rect x="372" y="400" width="56" height="4" fill="#c4502f" />
+                <text class="cap" x="400" y="454" text-anchor="middle">Precio</text>
+                <text class="cap" x="400" y="486" text-anchor="middle">premium</text>
               </g>
-              <g id="s2-sparks"></g>
-              <g id="s2-sfxA"></g>
             </svg>
 
             <!-- B: dos muros -->
-            <svg id="s2-vb" viewBox="0 0 812 882">
-              <g id="s2-wall-l"></g>
-              <g id="s2-wall-r"></g>
-              <g id="s2-dust"></g>
-              <rect x="40" y="760" width="732" height="16" fill="#17132b" />
-              <g id="s2-cracks" fill="none" stroke="#17132b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M 66 776 L 84 806 L 68 834 L 92 868" />
-                <path d="M 372 776 L 352 808 L 384 836 L 360 870" />
-              </g>
-              <g transform="translate(228 340)">
-                <g id="s2-plant">
-                  <path d="M 0 0 C 2 -40, -4 -70, 8 -100 C 20 -128, 44 -118, 52 -92" fill="none" stroke="#17132b" stroke-width="16" stroke-linecap="round" />
-                  <path d="M 0 0 C 2 -40, -4 -70, 8 -100 C 20 -128, 44 -118, 52 -92" fill="none" stroke="#b79ad6" stroke-width="8" stroke-linecap="round" />
-                  <ellipse cx="-26" cy="-34" rx="30" ry="12" fill="#8c86b8" stroke="#17132b" stroke-width="5" transform="rotate(32 -26 -34)" />
-                  <ellipse cx="34" cy="-52" rx="30" ry="12" fill="#8c86b8" stroke="#17132b" stroke-width="5" transform="rotate(-24 34 -52)" />
-                  <ellipse cx="56" cy="-82" rx="22" ry="10" fill="#c2bde0" stroke="#17132b" stroke-width="5" transform="rotate(70 56 -82)" />
-                </g>
-              </g>
-              <g id="s2-beeB"></g>
-              <g id="s2-qs"></g>
-              <g id="s2-sfxB"></g>
-              <g id="s2-lblL"><rect x="62" y="800" width="306" height="52" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><text class="s2-lbl" x="215" y="837" text-anchor="middle">SUELOS AGOTADOS</text></g>
-              <g id="s2-lblR"><rect x="420" y="800" width="372" height="52" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><text class="s2-lbl" x="606" y="837" text-anchor="middle" style="font-size:25px">POLINIZACIÓN INCIERTA</text></g>
+            <svg id="s2-vb" viewBox="0 0 800 720">
+              <rect x="120" y="600" width="560" height="3" fill="#1d1b19" />
+              <rect id="s2-slabL" x="170" y="190" width="170" height="410" fill="#1d1b19" />
+              <rect id="s2-slabR" x="460" y="150" width="170" height="450" fill="#c4502f" />
+              <text id="s2-lblL" class="cap" x="255" y="646" text-anchor="middle">Suelos</text>
+              <text id="s2-lblL2" class="cap" x="255" y="674" text-anchor="middle">agotados</text>
+              <text id="s2-lblR" class="cap" x="545" y="646" text-anchor="middle">Polinización</text>
+              <text id="s2-lblR2" class="cap" x="545" y="674" text-anchor="middle">incierta</text>
             </svg>
 
-            <!-- C: lote con zona muerta -->
-            <svg id="s2-vc" viewBox="0 0 812 882">
+            <!-- C: lote -->
+            <svg id="s2-vc" viewBox="0 0 800 720">
               <defs>
-                <clipPath id="s2-clip-dead"><ellipse cx="406" cy="455" rx="160" ry="125" /></clipPath>
+                <clipPath id="s2-lot-clip"><rect x="60" y="120" width="680" height="440" /></clipPath>
+                <clipPath id="s2-zone-clip"><ellipse cx="400" cy="340" rx="150" ry="120" /></clipPath>
               </defs>
-              <rect x="64" y="176" width="736" height="580" rx="10" fill="url(#ht-ink)" opacity="0.55" />
-              <rect x="50" y="160" width="736" height="580" rx="10" fill="#3a2a82" />
-              <g id="s2-vc-rows"></g>
-              <g clip-path="url(#s2-clip-dead)"><rect x="50" y="160" width="736" height="580" fill="#3a2a82" /><g id="s2-vc-dead-rows"></g></g>
-              <rect x="50" y="160" width="736" height="580" rx="10" fill="none" stroke="#17132b" stroke-width="10" />
-              <g id="s2-vc-rings" fill="none" stroke="#19c3e6" stroke-width="8"></g>
-              <ellipse id="s2-vc-dead" cx="406" cy="455" rx="160" ry="125" fill="url(#ht-cyan)" opacity="0.7" />
-              <ellipse id="s2-vc-ring" cx="406" cy="455" rx="160" ry="125" fill="none" stroke="#17132b" stroke-width="8" stroke-dasharray="16 14" />
-              <g id="s2-vc-bees"></g>
-              <g id="s2-vc-q"></g>
-              <g id="s2-lblC"><rect x="166" y="782" width="480" height="54" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><text class="s2-lbl" x="406" y="820" text-anchor="middle">CENTRO DEL LOTE SIN DATOS</text></g>
+              <rect x="60" y="120" width="680" height="440" fill="#f4efe6" />
+              <g clip-path="url(#s2-lot-clip)"><g id="s2-rows"></g></g>
+              <g clip-path="url(#s2-zone-clip)" id="s2-zone"><rect x="60" y="120" width="680" height="440" fill="#f4efe6" /><rect x="60" y="120" width="680" height="440" fill="url(#hatch-clay)" opacity="0.8" /></g>
+              <ellipse id="s2-zone-ring" cx="400" cy="340" rx="150" ry="120" fill="none" stroke="#c4502f" stroke-width="3" stroke-dasharray="10 9" />
+              <text id="s2-q" x="400" y="372" text-anchor="middle" font-family="Instrument Serif" font-style="italic" font-size="120" fill="#c4502f">?</text>
+              <g id="s2-bees"></g>
+              <text id="s2-lblC" class="cap" x="400" y="616" text-anchor="middle">Centro del lote: sin datos</text>
             </svg>
           </div>
         </div>
@@ -219,171 +131,75 @@
 
       <script>
         (function () {
-          const mk = PN.mk;
-          const DUR = 20;
+          const DUR = 18;
           const $ = (id) => document.getElementById(id);
+          const ins = (id) => Array.from(document.querySelectorAll(id + " .in"));
+          const A = ins("#s2-ha"), B = ins("#s2-hb"), Cc = ins("#s2-hc");
 
-          const heads = ["#s2-ha", "#s2-hb", "#s2-hc"].map((id) => PN.words(document.querySelector(id)));
+          PN.rows($("s2-rows"), 80, 150, 730, 540, 38, 32, "#1d1b19", 7, 0.28);
 
-          // A: código de barras + brillos + estallido de precio
-          const bc = $("s2-barcode");
-          const brnd = PN.rng(4);
-          let bx = 290;
-          while (bx < 520) {
-            const w = 3 + Math.floor(brnd() * 5);
-            mk(bc, "line", { x1: bx, y1: 664, x2: bx, y2: 706, "stroke-width": w });
-            bx += w + 5 + Math.floor(brnd() * 5);
-          }
-          const sparksG = $("s2-sparks");
-          const sparks = [[150, 330, 30], [680, 260, 24], [690, 580, 34], [130, 660, 24], [610, 120, 20]].map((p, i) => ({ s: PN.sparkle(sparksG, p[0], p[1], p[2], i % 2 ? "#19c3e6" : "#ffd23f"), k: i * 1.1 }));
-          const sfxA = PN.sfx($("s2-sfxA"), "$$$", 640, 150, 170, "#19c3e6", 5);
-
-          // B: muros
-          const buildWall = (id, x0, rows, fill) => {
-            const g = $(id);
-            const bricks = [];
-            for (let r = 0; r < rows; r++) {
-              for (let c = 0; c < 4; c++) {
-                const bw = 112;
-                const shift = r % 2 ? -bw / 2 : 0;
-                const x = x0 + c * bw + shift;
-                if (x < x0 - 1 || x + bw - 6 > x0 + 3 * bw + 1) continue;
-                const b = mk(g, "rect", { x: x, y: 760 - (r + 1) * 70, width: bw - 6, height: 64, rx: 5, fill: fill, stroke: "#17132b", "stroke-width": 6 });
-                bricks.push({ el: b, x: x + bw / 2 - 3, y: 760 - r * 70 });
-              }
-            }
-            return bricks;
-          };
-          const wallL = buildWall("s2-wall-l", 60, 6, "#6c3df4");
-          const wallR = buildWall("s2-wall-r", 460, 7, "#ff3d8b");
-          const dustG = $("s2-dust");
-          const puff = (b) => mk(dustG, "circle", { cx: b.x, cy: b.y - 4, r: 8, fill: "#fff1d6", stroke: "#17132b", "stroke-width": 4, opacity: 0 });
-          const beeB = PN.bee($("s2-beeB"), { scale: 1.3 });
-          const qa = PN.sfx($("s2-qs"), "?", 540, 112, 100, "#fff1d6", 9);
-          const qb = PN.sfx($("s2-qs"), "?", 700, 214, 84, "#ffd23f", 12);
-          const thud = PN.sfx($("s2-sfxB"), "THUD!", 215, 560, 190, "#ffd23f", 8);
-
-          // C: lote
-          PN.rows($("s2-vc-rows"), 80, 200, 760, 710, 46, 33, "#ffd23f", "#fff1d6", 22);
-          PN.rows($("s2-vc-dead-rows"), 80, 200, 760, 710, 46, 33, "#8c86b8", "#c2bde0", 22);
-          const rings = [0, 1, 2].map(() => mk($("s2-vc-rings"), "ellipse", { cx: 406, cy: 455, rx: 0, ry: 0, opacity: 0 }));
-          const beesCG = $("s2-vc-bees");
+          // abejas que se acercan al lote y se detienen antes del centro
           const flows = [0, 1, 2].map((k) => {
-            const y0 = 330 + k * 125;
-            const d = "M 20 " + (y0 + 10) + " C 120 " + (y0 - 50) + ", 200 " + (y0 + 55) + ", 300 " + (y0 + 5) + " C 330 " + (y0 - 10) + ", 350 " + y0 + ", 372 " + (y0 + 4);
-            return { pts: PN.samplePath($("s2-vc"), d, 60), bee: PN.bee(beesCG, { scale: 1.0 }), k: k };
+            const y0 = 230 + k * 110;
+            const d = "M 40 " + (y0 + 10) + " C 130 " + (y0 - 40) + ", 200 " + (y0 + 40) + ", 300 " + y0;
+            return { pts: PN.samplePath($("s2-vc"), d, 50), bee: PN.bee($("s2-bees"), { scale: 1.3 }), k: k };
           });
-          const bigQ = PN.sfx($("s2-vc-q"), "?", 406, 455, 250, "#ffd23f", 11);
-          bigQ.text.setAttribute("font-size", "190");
-          bigQ.text.setAttribute("y", "62");
 
           const tl = gsap.timeline({ paused: true });
 
           PN.clock(tl, DUR, function (t) {
-            const q = PN.q(t);
-            // A: péndulo + brillos
-            const dt = Math.max(0, q - 0.55);
-            const ang = q < 0.55 ? 0 : 17 * Math.exp(-0.32 * dt) * Math.sin(dt * 3.3);
-            $("s2-pend").setAttribute("transform", "rotate(" + ang.toFixed(2) + " 406 -30)");
-            sparks.forEach((s) => {
-              const v = Math.max(0, Math.sin(q * 2.6 + s.k)) * (q > 1.4 ? 1 : 0);
-              s.s.el.setAttribute("transform", "scale(" + (0.15 + v * 0.95).toFixed(3) + ")");
-            });
-            // B: planta marchita, abeja perdida, signos de pregunta
-            $("s2-plant").setAttribute("transform", "rotate(" + (Math.sin(q * 1.2) * 2.4).toFixed(2) + " 0 0)");
-            const bt = q - 6.5;
-            const bx2 = 628 + 120 * Math.sin(bt * 1.3);
-            const by2 = 175 + 44 * Math.sin(bt * 2.6);
-            PN.fly(beeB, bx2, by2, 120 * 1.3 * Math.cos(bt * 1.3), 44 * 2.6 * Math.cos(bt * 2.6), 0.4);
-            beeB.flap(t, 0);
-            const va = q > 8.8 ? Math.max(0, Math.sin(bt * 2.2)) : 0;
-            const vb = q > 8.8 ? Math.max(0, Math.sin(bt * 2.2 + 2.1)) : 0;
-            qa.g.setAttribute("transform", "translate(540 112) scale(" + va.toFixed(2) + ")");
-            qb.g.setAttribute("transform", "translate(700 214) scale(" + vb.toFixed(2) + ")");
-            // C: abejas que se apagan antes del centro
+            // A: la etiqueta se mece
+            const dt = Math.max(0, t - 1.1);
+            $("s2-pend").setAttribute("transform", "rotate(" + (t < 1.1 ? 0 : 8 * Math.exp(-0.3 * dt) * Math.sin(dt * 2.7)).toFixed(2) + " 400 -20)");
+            // C: abejas
             flows.forEach((f) => {
-              const raw = (q - 14.2 - f.k * 0.85) / 3.4;
+              const raw = (t - 11.0 - f.k * 0.9) / 3.2;
               if (raw < 0) {
                 f.bee.g.setAttribute("opacity", 0);
                 return;
               }
               const u = raw - Math.floor(raw);
-              const p = PN.at(f.pts, PN.ease(u) * 0.85 + u * 0.15);
-              const op = PN.clamp(u / 0.12, 0, 1) * (1 - PN.clamp((u - 0.7) / 0.28, 0, 1));
-              f.bee.place(p.x, p.y + Math.sin(q * 8 + f.k) * 5, p.ang * 0.5);
-              f.bee.g.setAttribute("opacity", op.toFixed(3));
-              f.bee.flap(t, f.k * 1.3);
-            });
-            rings.forEach((r, k) => {
-              if (q < 15.0) {
-                r.setAttribute("opacity", 0);
-                return;
-              }
-              const ph = ((((q - 15.0) / 2.4 - k / 3) % 1) + 1) % 1;
-              r.setAttribute("rx", (160 + ph * 110).toFixed(1));
-              r.setAttribute("ry", (125 + ph * 86).toFixed(1));
-              r.setAttribute("opacity", ((1 - ph) * 0.9).toFixed(3));
+              const p = PN.at(f.pts, PN.ease(u));
+              f.bee.place(p.x, p.y + Math.sin(t * 7 + f.k) * 3, p.ang * 0.5);
+              f.bee.g.setAttribute("opacity", (PN.clamp(u / 0.12, 0, 1) * (1 - PN.clamp((u - 0.72) / 0.24, 0, 1))).toFixed(2));
+              f.bee.flap(t, f.k);
             });
           });
 
-          tl.fromTo("#s2-cam", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.04, duration: DUR, ease: "sine.inOut" }, 0);
-          tl.fromTo("#s2-eyebrow", { opacity: 0, x: -60, rotation: -6 }, { opacity: 1, x: 0, rotation: -1.5, duration: 0.5, ease: "back.out(2)" }, 0.1);
-          tl.fromTo("#s2-vis", { opacity: 0, x: 120, rotation: 5 }, { opacity: 1, x: 0, rotation: 1, duration: 0.7, ease: "back.out(1.5)" }, 0.1);
+          tl.fromTo("#s2-cam", { scale: 1, transformOrigin: "50% 55%" }, { scale: 1.025, duration: DUR, ease: "sine.inOut" }, 0);
+          tl.set([A, B, Cc], { yPercent: 128 }, 0);
+          tl.set(["#s2-vb", "#s2-vc"], { opacity: 0 }, 0);
+          tl.fromTo("#s2-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.3);
 
-          tl.set(["#s2-hb", "#s2-subb", "#s2-hc", "#s2-subc", "#s2-vb", "#s2-vc"], { opacity: 0 }, 0);
-          const wordsIn = (arr, at) => tl.fromTo(arr, { opacity: 0, y: 90, rotation: 7 }, { opacity: 1, y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.8)", stagger: 0.09 }, at);
-          const subIn = (id, at) => tl.fromTo(id, { opacity: 0, y: 40, rotation: -3 }, { opacity: 1, y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, at);
+          const lineIn = (el, at) => tl.to(el, { yPercent: 0, duration: 0.9, ease: "power3.out" }, at);
+          const lineOut = (el, at) => tl.to(el, { yPercent: -128, duration: 0.55, ease: "power3.in" }, at);
 
-          // BEAT A  0 - 6.5
-          wordsIn(heads[0], 0.3);
-          subIn("#s2-suba", 1.1);
-          tl.fromTo("#s2-pend-wrap", { y: -940 }, { y: 0, duration: 1.1, ease: "bounce.out" }, 0.35);
-          tl.fromTo("#s2-sfxA", { opacity: 0, scale: 0.2, transformOrigin: "640px 150px" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.6)" }, 2.0);
-          tl.to("#s2-sfxA", { opacity: 0, duration: 0.3 }, 5.4);
+          // A  (voz 0,9 a 4,2): lo orgánico se vende mejor
+          lineIn(A[0], 0.9);
+          lineIn(A[1], 1.5);
+          tl.from("#s2-pend", { y: -300, duration: 1.1, ease: "power3.out" }, 0.9);
+          lineOut(A, 4.0);
+          tl.to("#s2-va", { opacity: 0, duration: 0.5 }, 4.0);
 
-          // salida A
-          tl.to(["#s2-ha", "#s2-suba"], { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 6.1);
-          tl.to("#s2-va", { opacity: 0, duration: 0.4, ease: "power2.in" }, 6.1);
+          // B  (voz 4,2 a 10): dos muros
+          lineIn(B[0], 4.5);
+          lineIn(B[1], 6.0);
+          tl.to("#s2-vb", { opacity: 1, duration: 0.4 }, 4.5);
+          tl.fromTo("#s2-slabL", { attr: { y: 600, height: 0 } }, { attr: { y: 190, height: 410 }, duration: 1.0, ease: "power3.out" }, 7.0);
+          tl.fromTo("#s2-slabR", { attr: { y: 600, height: 0 } }, { attr: { y: 150, height: 450 }, duration: 1.0, ease: "power3.out" }, 8.0);
+          tl.fromTo(["#s2-lblL", "#s2-lblL2"], { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.08 }, 7.4);
+          tl.fromTo(["#s2-lblR", "#s2-lblR2"], { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.08 }, 8.4);
+          lineOut(B, 9.9);
+          tl.to("#s2-vb", { opacity: 0, duration: 0.5 }, 9.9);
 
-          // BEAT B  6.5 - 13.5
-          tl.to("#s2-vis", { backgroundColor: "#19c3e6", rotation: -1, duration: 0.4 }, 6.4);
-          tl.to("#s2-dot-a polygon", { fill: "#fff1d6", duration: 0.2 }, 6.4);
-          tl.to("#s2-dot-b polygon", { fill: "#19c3e6", duration: 0.2 }, 6.4);
-          tl.set("#s2-hb", { opacity: 1 }, 6.5);
-          wordsIn(heads[1], 6.5);
-          subIn("#s2-subb", 7.2);
-          tl.set("#s2-vb", { opacity: 1 }, 6.5);
-          const land = (b, at) => {
-            tl.fromTo(b.el, { y: -760, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "bounce.out" }, at);
-            const p = puff(b);
-            tl.fromTo(p, { opacity: 1, attr: { r: 8 } }, { opacity: 0, attr: { r: 40 }, duration: 0.5, ease: "power2.out", immediateRender: false }, at + 0.2);
-          };
-          wallL.forEach((b, i) => land(b, 6.7 + i * 0.12));
-          wallR.forEach((b, i) => land(b, 7.2 + i * 0.12));
-          tl.fromTo("#s2-sfxB", { opacity: 0, scale: 0.2, transformOrigin: "215px 560px" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 7.4);
-          tl.to("#s2-sfxB", { opacity: 0, duration: 0.3 }, 8.6);
-          tl.fromTo("#s2-cracks path", { strokeDasharray: 300, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: 0.5, ease: "power1.out", stagger: 0.25 }, 9.2);
-          tl.fromTo("#s2-plant", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 9.0);
-          tl.fromTo("#s2-beeB", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 9.0);
-          tl.fromTo(["#s2-lblL", "#s2-lblR"], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)", stagger: 0.15 }, 9.4);
-
-          // salida B
-          tl.to(["#s2-hb", "#s2-subb"], { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 13.1);
-          tl.to("#s2-vb", { opacity: 0, duration: 0.4 }, 13.1);
-
-          // BEAT C  13.5 - 20
-          tl.to("#s2-vis", { backgroundColor: "#ff7a2f", rotation: 1.2, duration: 0.4 }, 13.4);
-          tl.to("#s2-dot-b polygon", { fill: "#fff1d6", duration: 0.2 }, 13.4);
-          tl.to("#s2-dot-c polygon", { fill: "#ffd23f", duration: 0.2 }, 13.4);
-          tl.set("#s2-hc", { opacity: 1 }, 13.5);
-          wordsIn(heads[2], 13.5);
-          subIn("#s2-subc", 14.2);
-          tl.fromTo("#s2-vc", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.4)" }, 13.5);
-          tl.fromTo("#s2-vc-dead", { opacity: 0 }, { opacity: 0.7, duration: 0.7, ease: "power2.out" }, 15.0);
-          tl.fromTo("#s2-vc-ring", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 15.0);
-          tl.fromTo("#s2-vc-q", { opacity: 0, scale: 0.2, svgOrigin: "406 455" }, { opacity: 1, scale: 1, svgOrigin: "406 455", duration: 0.5, ease: "back.out(2.6)" }, 15.4);
-          tl.to("#s2-vc-q", { rotation: 5, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 5, svgOrigin: "406 455" }, 16.0);
-          tl.fromTo("#s2-lblC", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, 16.0);
+          // C  (voz 10 a 17): nadie sabe dónde falla
+          lineIn(Cc[0], 10.4);
+          lineIn(Cc[1], 14.2);
+          tl.to("#s2-vc", { opacity: 1, duration: 0.5 }, 10.4);
+          tl.fromTo("#s2-zone", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out" }, 11.9);
+          tl.fromTo("#s2-zone-ring", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 11.9);
+          tl.fromTo("#s2-q", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 14.3);
+          tl.fromTo("#s2-lblC", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 14.6);
 
           window.__timelines["s2-problema"] = tl;
         })();

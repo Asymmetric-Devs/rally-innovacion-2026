@@ -1,4 +1,6 @@
-# Guion completo: PolliNode (1:55)
+# Guion: PolliNode (1:43)
+
+> **Estado:** las seis voces en off y la toma del pizarrón ya están grabadas e integradas en el video. Lo que sigue es el texto de referencia (lo que se dice en cada parte) y los tiempos reales. Para regrabar una parte, mantener la duración aproximada.
 
 Ritmo: unas 150 palabras por minuto. Hablá claro y sin apuro. Si una parte te sale más corta o más larga por unos segundos, no pasa nada: yo ajusto las animaciones a tu voz.
 
@@ -37,16 +39,21 @@ Mirás a cámara, frente al pizarrón. La frase dura unos 6 segundos y el resto 
 
 ---
 
-## Resumen de tiempos
+## Tiempos reales (con las voces grabadas)
 
-| # | Parte | Desde | Hasta | Duración | Tipo |
-|---|---|---|---|---|---|
-| 1 | Gancho | 0:00 | 0:10 | 10 s | Voz en off |
-| 2 | Problema | 0:10 | 0:30 | 20 s | Voz en off |
-| 3 | Solución | 0:30 | 0:50 | 20 s | Voz en off |
-| **4** | **Pizarrón** | **0:50** | **1:10** | **20 s** | **En cámara (toma ya grabada)** |
-| 5 | Tecnología | 1:10 | 1:35 | 25 s | Voz en off |
-| 6 | Impacto | 1:35 | 1:47 | 12 s | Voz en off |
-| **7** | **Cierre** | **1:47** | **1:55** | **8 s** | **En cámara (falta grabar)** |
+| # | Parte | Desde | Duración | Fuente |
+|---|---|---|---|---|
+| 1 | Gancho | 0:00 | 8 s | Voz en off |
+| 2 | Problema | 0:08 | 18 s | Voz en off |
+| 3 | Solución | 0:26 | 18,5 s | Voz en off |
+| 4 | Pizarrón | 0:44,5 | 18 s | Toma real (12 s) + repaso animado (6 s) |
+| 5 | Tecnología | 1:02,5 | 19 s | Voz en off |
+| 6 | Impacto | 1:21,5 | 12,5 s | Voz en off |
+| 7 | Cierre | 1:34 | 9 s | Voz en off + logo |
 
-Total del video: **1:55**. Lo que falta grabar: el cierre en cámara y las 5 voces en off.
+Total del video: **1:43**.
+
+Notas sobre lo grabado:
+- La voz del cierre dice "el futuro del agro no es solo cultivar la tierra, es entender el ecosistema que la hace productiva". Se grabó como voz en off, así que el cierre no necesita toma en cámara.
+- En la voz de impacto se dice "...una solución pensada para que el productor chaqueño escale a toda la región". Es una versión más corta de la frase original del guion.
+- La toma del pizarrón dura 12 s y tiene una frase cortada al inicio ("...polinizadores no llegan a todas las áreas"). Si la regrabás, empezá la frase completa.
