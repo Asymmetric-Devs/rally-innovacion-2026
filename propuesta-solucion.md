@@ -1,5 +1,3 @@
-Resumen falopa:
-
 ¿Y si pudiéramos aumentar la productividad del campo mientras recuperamos la biodiversidad?
 
 En el Chaco, proponemos transformar la polinización en una ventaja competitiva mediante **islas biodinámicas rotativas**: microambientes de flora nativa y leguminosas que atraen polinizadores, favorecen el control biológico de plagas y mejoran la fertilidad del suelo.
