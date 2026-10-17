@@ -25,7 +25,7 @@
         .item {
           position: relative;
           height: 172px;
-          border-top: 1px solid #223c2d;
+          border-top: 1px solid #c5d1b1;
           overflow: hidden;
         }
         .item .num {
@@ -36,7 +36,7 @@
           font-weight: 700;
           font-size: 22px;
           letter-spacing: 0.16em;
-          color: #c8f25c;
+          color: #4f8a0b;
         }
         .item .txt {
           position: absolute;
@@ -46,7 +46,7 @@
           font-size: 84px;
           line-height: 1.1;
           letter-spacing: -0.04em;
-          color: #eef3e4;
+          color: #12301f;
           white-space: nowrap;
         }
         #s6-end {
@@ -55,12 +55,30 @@
           font-size: 80px;
           opacity: 0;
         }
+        #s6-actors {
+          position: absolute;
+          left: 120px;
+          top: 880px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          opacity: 0;
+        }
+        #s6-actors .lab {
+          font-family: "IBM Plex Mono", monospace;
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #4f8a0b;
+          margin-right: 8px;
+        }
         #s6-mapf {
           left: 1160px;
           top: 230px;
           width: 640px;
           height: 640px;
-          background: #0e2a1c;
+          background: #e6eed4;
         }
         #s6-map {
           width: 640px;
@@ -98,14 +116,14 @@
           for (let r = 0; r < ROWS; r++) {
             for (let c = 0; c < COLS; c++) {
               const x = 26 + c * GAP, y = 26 + r * GAP;
-              dots.push({ el: mk($("s6-map"), "circle", { cx: x, cy: y, r: 3, fill: "#6ee7b7", opacity: 0.22 }), x: x, y: y });
+              dots.push({ el: mk($("s6-map"), "circle", { cx: x, cy: y, r: 3, fill: "#138a5f", opacity: 0.22 }), x: x, y: y });
             }
           }
           const nuclei = [{ x: 150, y: 150, at: 1.3 }, { x: 430, y: 120, at: 2.7 }, { x: 230, y: 380, at: 3.9 }, { x: 470, y: 470, at: 5.4 }];
           const items = ["#s6-i1", "#s6-i2", "#s6-i3", "#s6-i4"];
           const endIns = Array.from(document.querySelectorAll("#s6-end .in"));
 
-          const tl = gsap.timeline({ paused: true });
+          const tl = PN.timeline();
 
           PN.clock(tl, DUR, function (t) {
             const wave = PN.clamp((t - 8.9) / 2.6, 0, 1);
@@ -118,21 +136,21 @@
                 lvl = Math.max(lvl, t > n.at ? PN.clamp(l * 1.6, 0, 1) : 0);
               });
               d.el.setAttribute("r", (3 + 4.5 * lvl).toFixed(2));
-              d.el.setAttribute("fill", lvl > 0.02 ? "#c8f25c" : "#6ee7b7");
+              d.el.setAttribute("fill", lvl > 0.02 ? "#8cc21f" : "#138a5f");
               d.el.setAttribute("opacity", (0.22 + 0.78 * lvl).toFixed(2));
             });
           });
 
           tl.fromTo("#s6-cam", { scale: 1, transformOrigin: "50% 55%" }, { scale: 1.02, duration: DUR, ease: "sine.inOut" }, 0);
           tl.fromTo("#s6-mapf", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out" }, 0.4);
-          tl.set("#s6-mk", { "--mk": 0, color: "#eef3e4" }, 0);
-          tl.set("#s6-mk2", { "--mk": 0, color: "#eef3e4" }, 0);
+          tl.set("#s6-mk", { "--mk": 0, color: "#12301f" }, 0);
+          tl.set("#s6-mk2", { "--mk": 0, color: "#12301f" }, 0);
           [1.1, 2.3, 3.6, 5.3].forEach((at, i) => {
             tl.fromTo(items[i] + " .txt", { yPercent: 170 }, { yPercent: 0, duration: 0.9, ease: "power3.out" }, at);
             tl.fromTo(items[i] + " .num", { opacity: 0 }, { opacity: 1, duration: 0.5 }, at + 0.2);
           });
           tl.to("#s6-mk", { "--mk": 1, duration: 0.6, ease: "power3.out" }, 5.8);
-          tl.to("#s6-mk", { color: "#0a1a13", duration: 0.01 }, 6.1);
+          tl.to("#s6-mk", { color: "#12301f", duration: 0.01 }, 6.1);
 
           // segunda frase: pasa a un titular grande y el mapa se expande
           tl.to("#s6-list", { opacity: 0, y: -30, duration: 0.6, ease: "power2.in" }, 6.9);
@@ -143,10 +161,11 @@
           tl.to(endIns[1], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 8.0);
           tl.to(endIns[2], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 9.0);
           tl.to(endIns[3], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 9.7);
+          tl.to("#s6-actors", { opacity: 1, duration: 0.7 }, 10.6);
           tl.to("#s6-mk2", { "--mk": 1, duration: 0.6, ease: "power3.out" }, 10.3);
-          tl.to("#s6-mk2", { color: "#0a1a13", duration: 0.01 }, 10.6);
+          tl.to("#s6-mk2", { color: "#12301f", duration: 0.01 }, 10.6);
 
-          window.__timelines["s6-impacto"] = tl;
+          window.__timelines["s6-impacto"] = PN.raw(tl);
         })();
       </script>
     </template>

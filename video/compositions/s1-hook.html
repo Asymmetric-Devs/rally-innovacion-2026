@@ -28,7 +28,7 @@
           font-size: 44px;
           font-weight: 700;
           letter-spacing: -0.02em;
-          color: #c8f25c;
+          color: #4f8a0b;
           opacity: 0;
         }
         #s1-frame {
@@ -63,15 +63,15 @@
                 <clipPath data-hf-id="hf-j0gy" id="s1-bloom-clip"><ellipse data-hf-id="hf-10wb" id="s1-bloom-e" cx="570" cy="410" rx="0" ry="0" /></clipPath>
               </defs>
               <g data-hf-id="hf-bjo8" id="s1-bands"></g>
-              <rect data-hf-id="hf-xz4r" x="300" y="150" width="500" height="520" fill="#0f2d1f" />
+              <rect data-hf-id="hf-xz4r" x="300" y="150" width="500" height="520" fill="#e6eed4" />
               <g data-hf-id="hf-89jq" clip-path="url(#s1-lot-clip)"><g data-hf-id="hf-eqqz" id="s1-rows"></g></g>
-              <rect data-hf-id="hf-u74h" x="300" y="150" width="500" height="520" fill="none" stroke="#223c2d" stroke-width="2" />
-              <g data-hf-id="hf-zbhc" clip-path="url(#s1-zone-clip)" id="s1-zone"><rect data-hf-id="hf-ermj" x="300" y="150" width="500" height="520" fill="#0f2d1f" /><rect data-hf-id="hf-rn86" x="300" y="150" width="500" height="520" fill="url(#s1-hatch)" opacity="0.85" /></g>
+              <rect data-hf-id="hf-u74h" x="300" y="150" width="500" height="520" fill="none" stroke="#c5d1b1" stroke-width="2" />
+              <g data-hf-id="hf-zbhc" clip-path="url(#s1-zone-clip)" id="s1-zone"><rect data-hf-id="hf-ermj" x="300" y="150" width="500" height="520" fill="#e6eed4" /><rect data-hf-id="hf-rn86" x="300" y="150" width="500" height="520" fill="url(#s1-hatch)" opacity="0.85" /></g>
               <ellipse data-hf-id="hf-2qhs" id="s1-zone-ring" cx="570" cy="410" rx="150" ry="124" fill="none" stroke="#ff7a5c" stroke-width="3" stroke-dasharray="10 9" />
-              <g data-hf-id="hf-3r6i" clip-path="url(#s1-bloom-clip)"><rect data-hf-id="hf-edbi" x="300" y="150" width="500" height="520" fill="#0f2d1f" /><g data-hf-id="hf-eutx" id="s1-bloom"></g></g>
+              <g data-hf-id="hf-3r6i" clip-path="url(#s1-bloom-clip)"><rect data-hf-id="hf-edbi" x="300" y="150" width="500" height="520" fill="#e6eed4" /><g data-hf-id="hf-eutx" id="s1-bloom"></g></g>
               <g data-hf-id="hf-rs4n" id="s1-trees"></g>
               <g data-hf-id="hf-c6js" id="s1-flowers"></g>
-              <g data-hf-id="hf-5e4m" id="s1-trail" fill="#c8f25c"></g>
+              <g data-hf-id="hf-5e4m" id="s1-trail" fill="#8cc21f"></g>
               <g data-hf-id="hf-7bpf" id="s1-bee-holder"></g>
             </svg>
             <div data-hf-id="hf-rsfg" class="br tl"></div><div data-hf-id="hf-2rei" class="br tr"></div><div data-hf-id="hf-gsq6" class="br bl"></div><div data-hf-id="hf-a3p4" class="br rb"></div>
@@ -91,13 +91,13 @@
           // fondo tipo satélite: franjas de parcelas
           for (let i = 0; i < 11; i++) mk($("s1-bands"), "rect", { x: 0, y: i * 76, width: 800, height: 76, fill: i % 2 ? "#14402a" : "#123524" });
           // cultivo y floración
-          PN.rows($("s1-rows"), 322, 176, 790, 660, 36, 30, "#6ee7b7", 6, 0.3);
-          PN.rows($("s1-bloom"), 322, 176, 790, 660, 36, 30, "#c8f25c", 9, 1);
+          PN.rows($("s1-rows"), 322, 176, 790, 660, 36, 30, "#138a5f", 6, 0.3);
+          PN.rows($("s1-bloom"), 322, 176, 790, 660, 36, 30, "#8cc21f", 9, 1);
 
           // monte nativo
           const trees = [[100, 210, 84, 3], [190, 350, 104, 5], [96, 500, 90, 8], [212, 630, 78, 11], [130, 730, 58, 13], [250, 120, 52, 17], [70, 90, 46, 19]].map((t) => PN.tree($("s1-trees"), t[0], t[1], t[2], t[3]));
-          const petals = ["#ff7a5c", "#f5b83d", "#eef3e4"];
-          const flowers = [[262, 230], [286, 470], [160, 110], [276, 700], [60, 640]].map((p, i) => ({ f: PN.flower($("s1-flowers"), p[0], p[1], 15, petals[i % 3], "#0a1a13"), at: 3.7 + i * 0.18 }));
+          const petals = ["#ff7a5c", "#f5b83d", "#ffffff"];
+          const flowers = [[262, 230], [286, 470], [160, 110], [276, 700], [60, 640]].map((p, i) => ({ f: PN.flower($("s1-flowers"), p[0], p[1], 15, petals[i % 3], "#12301f"), at: 3.7 + i * 0.18 }));
 
           // abeja y recorrido
           const path = "M 270 420 C 360 350, 440 470, 520 400 S 560 410, 570 410";
@@ -109,7 +109,7 @@
             dots.push(mk($("s1-trail"), "circle", { cx: p.x, cy: p.y, r: 3, opacity: 0 }));
           }
 
-          const tl = gsap.timeline({ paused: true });
+          const tl = PN.timeline();
 
           PN.clock(tl, DUR, function (t) {
             trees.forEach((tr, i) => tr.sway(t + i, 2.4));
@@ -128,10 +128,10 @@
           tl.fromTo("#s1-cam", { scale: 1, transformOrigin: "60% 50%" }, { scale: 1.025, duration: DUR, ease: "sine.inOut" }, 0);
           tl.fromTo("#s1-frame", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out" }, 0.1);
           tl.set(ins, { yPercent: 130 }, 0);
-          tl.set("#s1-mk", { "--mk": 0, color: "#eef3e4" }, 0);
+          tl.set("#s1-mk", { "--mk": 0, color: "#12301f" }, 0);
           [0.6, 1.5, 2.4, 3.2, 3.8].forEach((at, i) => tl.to(ins[i], { yPercent: 0, duration: 0.9, ease: "power3.out" }, at));
           tl.to("#s1-mk", { "--mk": 1, duration: 0.7, ease: "power3.out" }, 4.4);
-          tl.to("#s1-mk", { color: "#0a1a13", duration: 0.01 }, 4.75);
+          tl.to("#s1-mk", { color: "#12301f", duration: 0.01 }, 4.75);
           tl.fromTo("#s1-yes", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 5.2);
 
           // "creemos que sí": la zona seca florece
@@ -141,7 +141,7 @@
           tl.to("#s1-pill", { opacity: 0, duration: 0.3 }, 5.7);
           tl.to("#s1-pill2", { opacity: 1, duration: 0.5 }, 6.0);
 
-          window.__timelines["s1-hook"] = tl;
+          window.__timelines["s1-hook"] = PN.raw(tl);
         })();
       </script>
     </template>

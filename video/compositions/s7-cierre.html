@@ -42,17 +42,17 @@
           font-size: 168px;
           letter-spacing: -0.055em;
           line-height: 1;
-          color: #eef3e4;
+          color: #12301f;
         }
         #s7-name b {
-          color: #c8f25c;
+          color: #5a940a;
           font-weight: 900;
         }
         #s7-sub {
           margin-top: 18px;
           font-size: 34px;
           font-weight: 400;
-          color: #9db3a4;
+          color: #5a7564;
           letter-spacing: 0;
         }
         #s7-foot {
@@ -66,19 +66,19 @@
           font-size: 20px;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: #9db3a4;
+          color: #5a7564;
           opacity: 0;
         }
         #s7-foot i {
           font-style: normal;
-          color: #c8f25c;
+          color: #5a940a;
           margin: 0 16px;
         }
         #s7-credit {
           margin-top: 16px;
           font-size: 16px;
           letter-spacing: 0.1em;
-          color: #6b8574;
+          color: #5a7564;
         }
       </style>
 
@@ -126,7 +126,7 @@
             ".....DDD.....",
             "......D......",
           ];
-          const col = { D: "#0a1a13", Y: "#f5b83d", W: "#fbfff0", E: "#c8f25c" };
+          const col = { D: "#12301f", Y: "#f5b83d", W: "#fbfff0", E: "#c8f25c" };
           const C = 20;
           const pix = [];
           rows.forEach((row, r) => {
@@ -136,15 +136,15 @@
             }
           });
 
-          const tl = gsap.timeline({ paused: true });
+          const tl = PN.timeline();
           tl.set(ins, { yPercent: 130 }, 0);
-          tl.set("#s7-mk", { "--mk": 0, color: "#eef3e4" }, 0);
+          tl.set("#s7-mk", { "--mk": 0, color: "#12301f" }, 0);
           // la frase aparece mientras se dice
           tl.to(ins[0], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 0.6);
           tl.to(ins[1], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 1.4);
           tl.to(ins[2], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 3.55);
           tl.to("#s7-mk", { "--mk": 1, duration: 0.7, ease: "power3.out" }, 4.1);
-          tl.to("#s7-mk", { color: "#0a1a13", duration: 0.01 }, 4.45);
+          tl.to("#s7-mk", { color: "#12301f", duration: 0.01 }, 4.45);
           tl.to(ins[3], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 4.45);
           tl.to(ins, { yPercent: -130, duration: 0.6, ease: "power3.in", stagger: 0.06 }, 6.6);
 
@@ -156,7 +156,7 @@
           tl.fromTo("#s7-sub", { opacity: 0 }, { opacity: 1, duration: 0.7 }, 8.0);
           tl.fromTo("#s7-foot", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 8.1);
 
-          window.__timelines["s7-cierre"] = tl;
+          window.__timelines["s7-cierre"] = PN.raw(tl);
         })();
       </script>
     </template>

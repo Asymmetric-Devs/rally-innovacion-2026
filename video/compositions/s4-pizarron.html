@@ -16,7 +16,7 @@
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #0a1a13;
+          background: #f2f6e6;
           font-family: "Montserrat", sans-serif;
         }
         #s4-zoom {
@@ -35,7 +35,7 @@
         #s4-veil {
           position: absolute;
           inset: 0;
-          background: #0a1a13;
+          background: #f2f6e6;
           opacity: 0;
         }
         #s4-over {
@@ -49,7 +49,7 @@
           position: absolute;
           width: 64px;
           height: 64px;
-          border: 0 solid #eef3e4;
+          border: 0 solid #12301f;
           pointer-events: none;
         }
         .vbr.tl { left: 48px; top: 48px; border-top-width: 4px; border-left-width: 4px; }
@@ -67,9 +67,9 @@
           bottom: 100px;
           transform: translateX(-50%);
           padding: 16px 30px 14px 34px;
-          background: rgba(10, 26, 19, 0.9);
-          border-left: 6px solid #c8f25c;
-          color: #eef3e4;
+          background: rgba(251, 253, 244, 0.94);
+          border-left: 6px solid #8cc21f;
+          color: #12301f;
           font-size: 40px;
           font-weight: 700;
           letter-spacing: -0.015em;
@@ -88,9 +88,9 @@
           gap: 22px;
           margin-bottom: 16px;
           padding: 20px 24px;
-          background: rgba(17, 36, 25, 0.94);
-          border: 1px solid #223c2d;
-          border-left: 6px solid #c8f25c;
+          background: rgba(251, 253, 244, 0.95);
+          border: 1px solid #c5d1b1;
+          border-left: 6px solid #8cc21f;
           opacity: 0;
         }
         .step span {
@@ -98,13 +98,13 @@
           font-weight: 700;
           font-size: 22px;
           letter-spacing: 0.12em;
-          color: #c8f25c;
+          color: #4f8a0b;
         }
         .step p {
           font-weight: 900;
           font-size: 36px;
           letter-spacing: -0.025em;
-          color: #eef3e4;
+          color: #12301f;
         }
       </style>
 
@@ -120,17 +120,17 @@
               <pattern data-hf-id="hf-ivik" id="s4-hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line data-hf-id="hf-9mk4" x1="0" y1="0" x2="0" y2="12" stroke="#ff7a5c" stroke-width="3" /></pattern>
             </defs>
             <g data-hf-id="hf-1gvn" clip-path="url(#s4-lot-clip)">
-              <rect data-hf-id="hf-kldx" id="s4-lot-fill" x="720" y="290" width="510" height="380" fill="#112419" opacity="0" />
+              <rect data-hf-id="hf-kldx" id="s4-lot-fill" x="720" y="290" width="510" height="380" fill="#fbfdf4" opacity="0" />
               <ellipse data-hf-id="hf-tu1a" id="s4-dead" cx="1150" cy="490" rx="92" ry="112" fill="url(#s4-hatch)" opacity="0" />
             </g>
-            <path data-hf-id="hf-cy6b" id="s4-lot" d="M 720 290 H 1230 V 670 H 720 Z" pathLength="1" fill="none" stroke="#c8f25c" stroke-width="5" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" />
+            <path data-hf-id="hf-cy6b" id="s4-lot" d="M 720 290 H 1230 V 670 H 720 Z" pathLength="1" fill="none" stroke="#4f8a0b" stroke-width="5" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" />
             <ellipse data-hf-id="hf-n0le" id="s4-dead-ring" cx="1150" cy="490" rx="92" ry="112" fill="none" stroke="#ff7a5c" stroke-width="3" stroke-dasharray="10 9" opacity="0" />
-            <g data-hf-id="hf-ie9l" id="s4-rings" fill="none" stroke="#6ee7b7" stroke-width="3"></g>
-            <g data-hf-id="hf-jlpb" id="s4-trail" fill="#c8f25c"></g>
+            <g data-hf-id="hf-ie9l" id="s4-rings" fill="none" stroke="#138a5f" stroke-width="3"></g>
+            <g data-hf-id="hf-jlpb" id="s4-trail" fill="#8cc21f"></g>
             <g data-hf-id="hf-flgx" id="s4-cloud" transform="translate(546 426)">
               <g data-hf-id="hf-pnna" id="s4-cloud-in">
-                <ellipse data-hf-id="hf-tpgz" cx="0" cy="0" rx="110" ry="40" fill="#0a1a13" stroke="#eef3e4" stroke-width="3" />
-                <text data-hf-id="hf-kthx" x="0" y="7" text-anchor="middle" font-family="IBM Plex Mono" font-weight="700" font-size="19" letter-spacing="2" fill="#c8f25c">POLINIZADORES</text>
+                <ellipse data-hf-id="hf-tpgz" cx="0" cy="0" rx="110" ry="40" fill="#fbfdf4" stroke="#12301f" stroke-width="3" />
+                <text data-hf-id="hf-kthx" x="0" y="7" text-anchor="middle" font-family="IBM Plex Mono" font-weight="700" font-size="19" letter-spacing="2" fill="#4f8a0b">POLINIZADORES</text>
               </g>
             </g>
             <g data-hf-id="hf-b4yt" id="s4-totems"></g>
@@ -155,7 +155,7 @@
       <script>
         (function () {
           const mk = PN.mk;
-          const DUR = 25;
+          const DUR = 22.5;
           const T0 = 18.5;
           const $ = (id) => document.getElementById(id);
 
@@ -163,11 +163,11 @@
           const TX = [810, 902, 1020, 1144];
           const totems = TX.map((x) => {
             const g = mk($("s4-totems"), "g", {});
-            mk(g, "line", { x1: x, y1: 664, x2: x, y2: 590, stroke: "#eef3e4", "stroke-width": 6, "stroke-linecap": "round" });
-            mk(g, "rect", { x: x - 20, y: 548, width: 40, height: 34, rx: 5, fill: "#0a1a13", stroke: "#eef3e4", "stroke-width": 4 });
-            mk(g, "circle", { cx: x, cy: 565, r: 8, fill: "#c8f25c" });
+            mk(g, "line", { x1: x, y1: 664, x2: x, y2: 590, stroke: "#12301f", "stroke-width": 6, "stroke-linecap": "round" });
+            mk(g, "rect", { x: x - 20, y: 548, width: 40, height: 34, rx: 5, fill: "#fbfdf4", stroke: "#12301f", "stroke-width": 4 });
+            mk(g, "circle", { cx: x, cy: 565, r: 8, fill: "#8cc21f" });
             mk(g, "circle", { cx: x + 16, cy: 536, r: 5, fill: "#ff7a5c" });
-            mk(g, "line", { x1: x + 10, y1: 548, x2: x + 15, y2: 540, stroke: "#eef3e4", "stroke-width": 3 });
+            mk(g, "line", { x1: x + 10, y1: 548, x2: x + 15, y2: 540, stroke: "#12301f", "stroke-width": 3 });
             return g;
           });
           const rings = [];
@@ -181,11 +181,11 @@
           mk($("s4-isl"), "path", { d: PN.blob(IX, IY, 84, 74, 0.4), fill: "#1d5c3e" });
           mk($("s4-isl"), "path", { d: PN.blob(IX - 8, IY - 8, 62, 52, 1.2), fill: "#2f7d4f" });
           const fr = PN.rng(17);
-          const petals = ["#ff7a5c", "#f5b83d", "#eef3e4"];
+          const petals = ["#ff7a5c", "#f5b83d", "#ffffff"];
           const flowers = [];
           for (let k = 0; k < 8; k++) {
             const a = fr() * 6.28, d = Math.sqrt(fr()) * 48;
-            flowers.push(PN.flower($("s4-isl"), IX + Math.cos(a) * d * 1.1, IY + Math.sin(a) * d * 0.9, 12 + fr() * 4, petals[k % 3], "#0a1a13"));
+            flowers.push(PN.flower($("s4-isl"), IX + Math.cos(a) * d * 1.1, IY + Math.sin(a) * d * 0.9, 12 + fr() * 4, petals[k % 3], "#12301f"));
           }
 
           // rastro punteado de la isla (aparece con el movimiento)
@@ -198,10 +198,10 @@
           const bees = [0, 1, 2].map((i) => ({ bee: PN.bee($("s4-bees"), { scale: 1.5 }), i: i }));
 
           const tl = gsap.timeline({ paused: true });
-          const MV = T0 + 3.5; // la isla se mueve
+          const MV = T0 + 2.52; // la isla se mueve
 
           PN.clock(tl, DUR, function (t) {
-            const u = PN.ease(PN.clamp((t - MV) / 1.7, 0, 1));
+            const u = PN.ease(PN.clamp((t - MV) / 1.3, 0, 1));
             const dx = 190 * u, dy = 26 * u - 64 * Math.sin(Math.PI * u);
             $("s4-isl-outer").setAttribute("transform", "translate(" + dx.toFixed(1) + " " + dy.toFixed(1) + ")");
             flowers.forEach((f, k) => f.inner.setAttribute("transform", "rotate(" + (Math.sin(t * 1.3 + k) * 7).toFixed(2) + ")"));
@@ -210,7 +210,7 @@
               const i = b.i;
               let x, y, x2, y2;
               if (t < MV) {
-                const w = PN.clamp((t - (T0 + 0.9) - i * 0.4) / 2.4, 0, 1);
+                const w = PN.clamp((t - (T0 + 0.65) - i * 0.4) / 2.4, 0, 1);
                 x = 620 + 170 * PN.ease(w);
                 y = 426 + (i - 1) * 26 - 28 * Math.sin(Math.PI * w);
                 x2 = x + 8;
@@ -222,14 +222,14 @@
               }
               PN.fly(b.bee, x, y, x2 - x, y2 - y, 0.3);
               b.bee.flap(t, i);
-              b.bee.g.setAttribute("opacity", PN.clamp((t - (T0 + 0.9) - i * 0.4) / 0.4, 0, 1).toFixed(2));
+              b.bee.g.setAttribute("opacity", PN.clamp((t - (T0 + 0.65) - i * 0.4) / 0.4, 0, 1).toFixed(2));
             });
             rings.forEach((r) => {
-              if (t < T0 + 1.7) {
+              if (t < T0 + 1.22) {
                 r.el.setAttribute("opacity", 0);
                 return;
               }
-              const ph = ((((t - T0 - 1.7) / 1.8 - r.k / 2 - r.i * 0.15) % 1) + 1) % 1;
+              const ph = ((((t - T0 - 1.2) / 1.8 - r.k / 2 - r.i * 0.15) % 1) + 1) % 1;
               r.el.setAttribute("r", (12 + ph * 80).toFixed(1));
               r.el.setAttribute("opacity", ((1 - ph) * 0.9).toFixed(2));
             });
@@ -254,18 +254,18 @@
 
           // repaso en líneas limpias
           tl.fromTo("#s4-veil", { opacity: 0 }, { opacity: 0.66, duration: 0.7 }, T0);
-          tl.to("#s4-lot", { strokeDashoffset: 0, duration: 1.0, ease: "power2.out" }, T0 + 0.4);
-          tl.to("#s4-lot-fill", { opacity: 0.85, duration: 0.6 }, T0 + 1.0);
-          tl.fromTo("#s4-cloud-in", { opacity: 0 }, { opacity: 1, duration: 0.6 }, T0 + 0.8);
-          tl.fromTo("#s4-isl", { opacity: 0, scale: 0.4, svgOrigin: IX + " " + IY }, { opacity: 1, scale: 1, svgOrigin: IX + " " + IY, duration: 0.8, ease: "power3.out" }, T0 + 1.2);
-          totems.forEach((g, i) => tl.fromTo(g, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, T0 + 1.5 + i * 0.15));
-          tl.fromTo("#s4-dead", { opacity: 0 }, { opacity: 0.9, duration: 0.7 }, T0 + 2.2);
-          tl.fromTo("#s4-dead-ring", { opacity: 0 }, { opacity: 1, duration: 0.6 }, T0 + 2.2);
-          tl.to("#s4-dead", { opacity: 0.15, duration: 0.7 }, MV + 1.7);
-          tl.to("#s4-dead-ring", { opacity: 0, duration: 0.5 }, MV + 1.7);
+          tl.to("#s4-lot", { strokeDashoffset: 0, duration: 1.0, ease: "power2.out" }, T0 + 0.29);
+          tl.to("#s4-lot-fill", { opacity: 0.85, duration: 0.6 }, T0 + 0.72);
+          tl.fromTo("#s4-cloud-in", { opacity: 0 }, { opacity: 1, duration: 0.6 }, T0 + 0.58);
+          tl.fromTo("#s4-isl", { opacity: 0, scale: 0.4, svgOrigin: IX + " " + IY }, { opacity: 1, scale: 1, svgOrigin: IX + " " + IY, duration: 0.8, ease: "power3.out" }, T0 + 0.86);
+          totems.forEach((g, i) => tl.fromTo(g, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, T0 + 1.08 + i * 0.15));
+          tl.fromTo("#s4-dead", { opacity: 0 }, { opacity: 0.9, duration: 0.7 }, T0 + 1.58);
+          tl.fromTo("#s4-dead-ring", { opacity: 0 }, { opacity: 1, duration: 0.6 }, T0 + 1.58);
+          tl.to("#s4-dead", { opacity: 0.15, duration: 0.7 }, MV + 1.3);
+          tl.to("#s4-dead-ring", { opacity: 0, duration: 0.5 }, MV + 1.3);
 
           tl.set(["#s4-st1", "#s4-st2", "#s4-st3"], { opacity: 0 }, 0);
-          [["#s4-st1", T0 + 1.0], ["#s4-st2", T0 + 2.0], ["#s4-st3", T0 + 3.0]].forEach((s) => tl.fromTo(s[0], { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, s[1]));
+          [["#s4-st1", T0 + 0.72], ["#s4-st2", T0 + 1.44], ["#s4-st3", T0 + 2.16]].forEach((s) => tl.fromTo(s[0], { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, s[1]));
 
           window.__timelines["s4-pizarron"] = tl;
         })();

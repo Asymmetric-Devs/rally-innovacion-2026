@@ -58,19 +58,19 @@
           font-weight: 700;
           font-size: 22px;
           letter-spacing: 0.16em;
-          color: #9db3a4;
+          color: #5a7564;
         }
         .st .t {
           margin-top: 10px;
           font-weight: 900;
           font-size: 40px;
           letter-spacing: -0.03em;
-          color: #eef3e4;
+          color: #12301f;
         }
         .st .d {
           margin-top: 6px;
           font-size: 26px;
-          color: #9db3a4;
+          color: #5a7564;
         }
         #s3-line {
           position: absolute;
@@ -78,7 +78,7 @@
           top: 14px;
           width: 1680px;
           height: 3px;
-          background: #223c2d;
+          background: #c5d1b1;
         }
         #s3-prog {
           position: absolute;
@@ -86,7 +86,7 @@
           top: 14px;
           height: 3px;
           width: 0;
-          background: #c8f25c;
+          background: #8cc21f;
         }
         .dot {
           position: absolute;
@@ -94,7 +94,7 @@
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: #223c2d;
+          background: #c5d1b1;
         }
       </style>
 
@@ -125,14 +125,14 @@
             </svg>
             <div data-hf-id="hf-rsfg" class="br tl"></div><div data-hf-id="hf-2rei" class="br tr"></div><div data-hf-id="hf-gsq6" class="br bl"></div><div data-hf-id="hf-a3p4" class="br rb"></div>
             <div data-hf-id="hf-ls9y" id="s3-year1" class="pill" style="left:100px;top:36px;bottom:auto">Año 1</div>
-            <div data-hf-id="hf-joc6" id="s3-year2" class="pill" style="left:100px;top:36px;bottom:auto;color:#c8f25c;opacity:0">Año 2</div>
+            <div data-hf-id="hf-joc6" id="s3-year2" class="pill" style="left:100px;top:36px;bottom:auto;color:#4f8a0b;opacity:0">Año 2</div>
           </div>
 
           <div data-hf-id="hf-zmg1" id="s3-steps">
             <div data-hf-id="hf-99hi" id="s3-line"></div><div data-hf-id="hf-0vpg" id="s3-prog"></div>
-            <div data-hf-id="hf-2p8j" id="s3-d1" class="dot" style="left:0;background:#c8f25c"></div><div data-hf-id="hf-tu0i" id="s3-d2" class="dot" style="left:560px"></div><div data-hf-id="hf-wuvi" id="s3-d3" class="dot" style="left:1120px"></div>
-            <div data-hf-id="hf-0a46" class="st" style="left:0"><div data-hf-id="hf-7h2p" class="n">01</div><div data-hf-id="hf-58dm" class="t">Captación</div><div data-hf-id="hf-ottx" class="d">Florecen antes que el cultivo</div></div>
-            <div data-hf-id="hf-x7u5" class="st" style="left:560px"><div data-hf-id="hf-8nzs" class="n">02</div><div data-hf-id="hf-auro" class="t">Desborde</div><div data-hf-id="hf-ja63" class="d">Los polinizadores pasan al cultivo</div></div>
+            <div data-hf-id="hf-2p8j" id="s3-d1" class="dot" style="left:0;background:#8cc21f"></div><div data-hf-id="hf-tu0i" id="s3-d2" class="dot" style="left:560px"></div><div data-hf-id="hf-wuvi" id="s3-d3" class="dot" style="left:1120px"></div>
+            <div data-hf-id="hf-0a46" class="st" style="left:0"><div data-hf-id="hf-7h2p" class="n">01</div><div data-hf-id="hf-58dm" class="t">Captación</div><div data-hf-id="hf-ottx" class="d">Refugio y alimento para polinizadores nativos</div></div>
+            <div data-hf-id="hf-x7u5" class="st" style="left:560px"><div data-hf-id="hf-8nzs" class="n">02</div><div data-hf-id="hf-auro" class="t">Desborde</div><div data-hf-id="hf-ja63" class="d">Los polinizadores llegan al centro del lote</div></div>
             <div data-hf-id="hf-h7z6" class="st" style="left:1120px"><div data-hf-id="hf-89or" class="n">03</div><div data-hf-id="hf-ct7p" class="t">Rotación</div><div data-hf-id="hf-1br2" class="d">La isla se mueve; el suelo queda fértil</div></div>
           </div>
         </div>
@@ -149,15 +149,15 @@
           const ins = Array.from(document.querySelectorAll("#s3-title .in"));
 
           for (let i = 0; i < 7; i++) mk($("s3-bands"), "rect", { x: 0, y: i * 76, width: 1680, height: 76, fill: i % 2 ? "#14402a" : "#123524" });
-          mk($("s3-bands"), "rect", { x: 0, y: 0, width: 1680, height: 500, fill: "#0f2d1f", opacity: 0.82 });
-          PN.rows($("s3-rows"), 30, 80, 1660, 470, 36, 32, "#6ee7b7", 6, 0.3);
-          PN.rows($("s3-bloom"), 30, 80, 1660, 470, 36, 32, "#c8f25c", 9, 1);
+          mk($("s3-bands"), "rect", { x: 0, y: 0, width: 1680, height: 500, fill: "#e6eed4", opacity: 0.82 });
+          PN.rows($("s3-rows"), 30, 80, 1660, 470, 36, 32, "#138a5f", 6, 0.3);
+          PN.rows($("s3-bloom"), 30, 80, 1660, 470, 36, 32, "#8cc21f", 9, 1);
 
           // suelo enriquecido donde estuvo cada isla
           const rich = ISL.map((x, i) => mk($("s3-rich"), "path", { d: PN.blob(x, CY, 150, 108, i * 1.3), fill: "#7a6340", opacity: 0 }));
 
           // islas: tonos de verde con flores
-          const petals = ["#ff7a5c", "#f5b83d", "#eef3e4"];
+          const petals = ["#ff7a5c", "#f5b83d", "#ffffff"];
           const islands = ISL.map((x, idx) => {
             const outer = mk($("s3-islands"), "g", {});
             const inner = mk(outer, "g", {});
@@ -170,7 +170,7 @@
             for (let k = 0; k < 11; k++) {
               const a = rnd() * 6.28;
               const d = Math.sqrt(rnd()) * 92;
-              const f = PN.flower(inner, x + Math.cos(a) * d * 1.15, CY + Math.sin(a) * d * 0.8, 12 + rnd() * 6, petals[k % 3], "#0a1a13");
+              const f = PN.flower(inner, x + Math.cos(a) * d * 1.15, CY + Math.sin(a) * d * 0.8, 12 + rnd() * 6, petals[k % 3], "#12301f");
               flowers.push({ f: f, k: rnd() * 6.28, at: 4.9 + idx * 0.3 + k * 0.09 });
             }
             return { outer: outer, inner: inner, flowers: flowers, x: x };
@@ -206,10 +206,10 @@
           // nitrógeno: puntos que suben desde cada isla
           const nit = [];
           ISL.forEach((x, i) => {
-            for (let k = 0; k < 4; k++) nit.push({ el: mk($("s3-nitro"), "circle", { r: 5, fill: "#c8f25c" }), x: x + (k - 1.5) * 58, k: k, i: i });
+            for (let k = 0; k < 4; k++) nit.push({ el: mk($("s3-nitro"), "circle", { r: 5, fill: "#8cc21f" }), x: x + (k - 1.5) * 58, k: k, i: i });
           });
 
-          const tl = gsap.timeline({ paused: true });
+          const tl = PN.timeline();
 
           PN.clock(tl, DUR, function (t) {
             islands.forEach((isl) => {
@@ -240,12 +240,12 @@
 
           tl.fromTo("#s3-cam", { scale: 1, transformOrigin: "50% 60%" }, { scale: 1.02, duration: DUR, ease: "sine.inOut" }, 0);
           tl.set(ins, { yPercent: 130 }, 0);
-          tl.set("#s3-mk", { "--mk": 0, color: "#eef3e4" }, 0);
+          tl.set("#s3-mk", { "--mk": 0, color: "#12301f" }, 0);
           tl.to(ins[0], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 2.0);
           tl.to(ins[1], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 2.5);
           tl.to(ins[2], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 3.4);
           tl.to("#s3-mk", { "--mk": 1, duration: 0.7, ease: "power3.out" }, 4.0);
-          tl.to("#s3-mk", { color: "#0a1a13", duration: 0.01 }, 4.35);
+          tl.to("#s3-mk", { color: "#12301f", duration: 0.01 }, 4.35);
           tl.fromTo("#s3-frame", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.5);
           tl.fromTo("#s3-steps", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 1.2);
 
@@ -254,18 +254,18 @@
 
           // 02 desborde
           ["#s3-m0", "#s3-m1", "#s3-m2"].forEach((id, i) => tl.fromTo(id, { attr: { r: 0 } }, { attr: { r: 520 }, duration: 5.0, ease: "power2.out" }, 9.6 + i * 0.2));
-          tl.to("#s3-d2", { backgroundColor: "#c8f25c", duration: 0.3 }, 9.3);
+          tl.to("#s3-d2", { backgroundColor: "#8cc21f", duration: 0.3 }, 9.3);
           tl.to("#s3-prog", { width: 560, duration: 1.0, ease: "power2.inOut" }, 9.3);
 
           // 03 rotación
-          tl.to("#s3-d3", { backgroundColor: "#c8f25c", duration: 0.3 }, 14.5);
+          tl.to("#s3-d3", { backgroundColor: "#8cc21f", duration: 0.3 }, 14.5);
           tl.to("#s3-prog", { width: 1120, duration: 1.0, ease: "power2.inOut" }, 14.5);
           tl.to("#s3-year1", { opacity: 0, duration: 0.3 }, 14.5);
           tl.to("#s3-year2", { opacity: 1, duration: 0.4 }, 14.7);
           rich.forEach((r, i) => tl.to(r, { opacity: 1, duration: 0.9, ease: "power2.out" }, 14.7 + i * 0.15));
           islands.forEach((isl, i) => tl.to(isl.outer, { x: SHIFT, duration: 2.0, ease: "power3.inOut" }, 14.7 + i * 0.2));
 
-          window.__timelines["s3-islas"] = tl;
+          window.__timelines["s3-islas"] = PN.raw(tl);
         })();
       </script>
     </template>

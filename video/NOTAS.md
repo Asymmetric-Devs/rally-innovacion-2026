@@ -1,6 +1,6 @@
 # Video PolliNode: notas de producción
 
-Rama de trabajo: `video-dosel`. Estilo: la identidad de **Dosel** (bosque oscuro, lima, menta, coral; titulares gruesos con marcador, etiquetas mono, marcos tipo visor) sobre las ilustraciones de abejas, árboles, islas y mapas. Las ramas anteriores (`video-spiderverse` con cómic y `video-minimal` con serif sobre papel) quedaron como referencia.
+Rama de trabajo: `video-dosel`. Estilo: la identidad de **Dosel en tono claro** (fondo crema liso, sin rejilla ni numeración de escenas; verde bosque para texto, lima como marcador, menta, coral; titulares gruesos con marcador, etiquetas mono, marcos tipo visor) sobre las ilustraciones de abejas, árboles, islas y mapas. Las ramas anteriores (`video-spiderverse` con cómic y `video-minimal` con serif sobre papel) quedaron como referencia.
 
 ## Cómo verlo
 ```bash
@@ -11,29 +11,30 @@ npx hyperframes render --quality draft -o renders/pollinode-borrador.mp4   # bor
 npx hyperframes render                 # versión final (solo con el visto bueno del equipo)
 ```
 
-## Línea de tiempo (110 s)
-Cada escena dura lo que su voz más un respiro. Las voces empiezan 0,5 s después del inicio de su escena.
+## Línea de tiempo (119,65 s; el límite del rally es 2:00)
+Las voces están aceleradas 1,10x (`atempo`, mismo tono) y empiezan 0,3 s después del inicio de su escena. Los originales sin acelerar están en `assets/vo-original-velocidad/`.
 
 | Escena | Archivo | Desde | Dur. | Audio |
 |---|---|---|---|---|
-| 1 Gancho | `compositions/s1-hook.html` | 0:00 | 8 s | `vo1-gancho` |
-| 2 Problema | `compositions/s2-problema.html` | 0:08 | 18 s | `vo2-problema` |
-| 3 Solución | `compositions/s3-islas.html` | 0:26 | 18,5 s | `vo3-solucion` |
-| 4 Pizarrón | `compositions/s4-pizarron.html` | 0:44,5 | 25 s | audio de la toma (18,5 s) + repaso animado (6,5 s) |
-| 5 Tecnología | `compositions/s5-tecnologia.html` | 1:09,5 | 19 s | `vo5-tecnologia` |
-| 6 Impacto | `compositions/s6-impacto.html` | 1:28,5 | 12,5 s | `vo6-impacto` |
-| 7 Cierre | `compositions/s7-cierre.html` | 1:41 | 9 s | `vo7-cierre` |
+| 1 Gancho | `compositions/s1-hook.html` | 0:00 | 6,7 s | `vo1-gancho` |
+| 2 Los polinizadores | `compositions/s2b-polinizadores.html` | 0:06,7 | 22,3 s | `vo2b-polinizadores` |
+| 3 Problema | `compositions/s2-problema.html` | 0:29 | 15,7 s | `vo2-problema` |
+| 4 Solución | `compositions/s3-islas.html` | 0:44,7 | 16,4 s | `vo3-solucion` |
+| 5 Pizarrón | `compositions/s4-pizarron.html` | 1:01,1 | 22,5 s | audio de la toma (18,5 s) + repaso animado de 4 s |
+| 6 Tecnología | `compositions/s5-tecnologia.html` | 1:23,6 | 16,7 s | `vo5-tecnologia` |
+| 7 Impacto | `compositions/s6-impacto.html` | 1:40,3 | 10,75 s | `vo6-impacto` |
+| 8 Cierre | `compositions/s7-cierre.html` | 1:51,05 | 8,6 s | `vo7-cierre` |
 
-Los tiempos están en `index.html` (`data-start` y `data-duration` de cada escena y cada `<audio>`, la lista de cortinas `[8, 26, 44.5, 69.5, 88.5, 101]` y el arreglo `S` de la cabecera). Si cambia la duración de una escena hay que mover las siguientes en esos tres lugares. Dentro de cada escena la animación está sincronizada con las palabras de su voz (tiempo de escena = tiempo de la voz + 0,5).
+Los nombres de archivo no siguen el orden (se agregó una escena en el medio). Los tiempos están en `index.html` (escenas, `<audio>`, cortinas `[6.7, 29, 44.7, 61.1, 83.6, 100.3, 111.05]`, arreglo `S` y volumen de la música). Las escenas con voz usan `PN.timeline()` (en `kit.js`), que comprime la animación escrita para la voz sin acelerar: tiempo local = 0,3 + (t - 0,5) / 1,1. Se escribe como siempre (voz + 0,5 s) y se registra con `PN.raw(tl)`.
 
 ## Audio
-- `assets/vo/*.m4a`: las seis voces en off, a partir de los audios originales de WhatsApp. Filtro de graves, reducción de ruido de voz (RNNoise), compresión suave, volumen a -16 LUFS y **fundidos de 0,18 s al entrar y 0,45 s al salir** para que no se noten cortes entre voces.
+- `assets/vo/*.m4a`: las siete voces en off, a partir de los audios originales de WhatsApp. Filtro de graves, reducción de ruido de voz (RNNoise), compresión suave, volumen a -16 LUFS y aceleración 1,10x y **fundidos de 0,15 s al entrar y 0,4 s al salir** para que no se noten cortes entre voces.
 - `assets/pizarron.mp4`: la toma **completa** (18,5 s, con la charla del grupo al principio). Audio rehecho con RNNoise completo, ecualización suave, -16 LUFS y fundidos de entrada y salida.
-- `assets/music/dreamy-flashback.m4a`: música de fondo muy baja (volumen 0,13; baja a 0,05 durante la toma del pizarrón, donde ya hay voz en vivo). Va con fundidos de 3 s al entrar y 6 s al salir. El volumen se automatiza con `data-automation` en el `<audio id="music">` de `index.html`.
+- `assets/music/dreamy-flashback.m4a`: música de fondo muy baja (volumen 0,13; baja a 0,05 durante la toma del pizarrón, donde ya hay voz en vivo). Recortada a 119,4 s; fundidos de 3 s al entrar y 6 s al salir. El volumen se automatiza con `data-automation` en el `<audio id="music">` de `index.html`.
 - **Crédito obligatorio de la música** (licencia CC BY 4.0): "Dreamy Flashback" de Kevin MacLeod (incompetech.com). Ya aparece en la placa final y está en `assets/music/CREDITOS.txt`. Si la placa se rehace, mantener el crédito.
 
 ## Paleta y tipografías
-- Bosque `#0a1a13`, superficie `#112419`, línea `#223c2d`, tinta `#eef3e4`, salvia `#9db3a4`, lima `#c8f25c`, menta `#6ee7b7`, miel `#f5b83d`, coral `#ff7a5c`, y tonos de follaje `#123524`, `#1d5c3e`, `#2f7d4f`, `#54a36a`.
+- Fondo crema `#f2f6e6`, panel `#e6eed4`, tarjeta `#fbfdf4`, línea `#c5d1b1`, tinta verde bosque `#12301f`, salvia `#5a7564`, lima `#c8f25c` (marcador; `#8cc21f` y `#4f8a0b` para rellenos y textos), menta `#138a5f`, miel `#f5b83d`, coral `#ff7a5c`, y tonos de follaje `#123524`, `#1d5c3e`, `#2f7d4f`, `#54a36a`.
 - Titulares: **Montserrat** negra con tracking apretado y marcador lima en la palabra clave. Etiquetas: **IBM Plex Mono**. Estilos compartidos en `style.css`; ilustración en `kit.js`.
 
 ## Logo

@@ -4,14 +4,14 @@
   const NS = "http://www.w3.org/2000/svg";
   const PN = (window.PN = {});
   const C = (PN.C = {
-    canopy: "#0a1a13",
-    surface: "#112419",
-    surface2: "#163021",
-    line: "#223c2d",
-    ink: "#eef3e4",
-    sage: "#9db3a4",
-    lime: "#c8f25c",
-    mint: "#6ee7b7",
+    canopy: "#12301f",
+    surface: "#fbfdf4",
+    surface2: "#eef3dc",
+    line: "#c5d1b1",
+    ink: "#ffffff",
+    sage: "#5a7564",
+    lime: "#8cc21f",
+    mint: "#138a5f",
     honey: "#f5b83d",
     coral: "#ff7a5c",
     f1: "#123524",
@@ -46,12 +46,44 @@
   PN.ease = (u) => (u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2);
   PN.out = (u) => 1 - Math.pow(1 - PN.clamp(u, 0, 1), 3);
 
-  /* Un reloj: llama fn(t) en cada frame del timeline, con t en segundos de la escena. */
+  /* Reloj de la escena. Con una línea de tiempo "comprimida" (PN.timeline), fn recibe el tiempo en la escala original. */
   PN.clock = function (tl, dur, fn) {
     const o = { t: 0 };
-    tl.to(o, { t: dur, duration: dur, ease: "none", onUpdate: () => fn(o.t) }, 0);
+    if (tl && tl.__w) {
+      const w = tl.__w;
+      const dNew = tl.W(dur);
+      const inv = (tt) => (tt <= w.off ? tt * (0.5 / w.off) : 0.5 + (tt - w.off) * w.k);
+      tl.raw.to(o, { t: dNew, duration: dNew, ease: "none", onUpdate: () => fn(inv(o.t)) }, 0);
+    } else {
+      tl.to(o, { t: dur, duration: dur, ease: "none", onUpdate: () => fn(o.t) }, 0);
+    }
     fn(0);
   };
+
+  /* Línea de tiempo comprimida: se escribe en la escala original (voz + 0,5 s) y se reproduce k veces más rápido,
+     con una pausa de entrada de `off` segundos. Así la animación sigue pegada a las palabras de una voz acelerada. */
+  PN.timeline = function (opts) {
+    const w = Object.assign({ off: 0.3, k: 1.1 }, opts || {});
+    const raw = gsap.timeline({ paused: true });
+    const W = (t) => (t <= 0.5 ? t * (w.off / 0.5) : w.off + (t - 0.5) / w.k);
+    const pos = (p) => (typeof p === "number" ? W(p) : p);
+    const vars = (v) => {
+      if (!v) return v;
+      const o = Object.assign({}, v);
+      if (typeof o.duration === "number") o.duration /= w.k;
+      if (typeof o.delay === "number") o.delay /= w.k;
+      if (typeof o.stagger === "number") o.stagger /= w.k;
+      else if (o.stagger && typeof o.stagger === "object" && typeof o.stagger.each === "number") o.stagger = Object.assign({}, o.stagger, { each: o.stagger.each / w.k });
+      return o;
+    };
+    const api = { raw: raw, __w: w, W: W };
+    api.to = (t, v, p) => { raw.to(t, vars(v), pos(p)); return api; };
+    api.from = (t, v, p) => { raw.from(t, vars(v), pos(p)); return api; };
+    api.fromTo = (t, a, b, p) => { raw.fromTo(t, a, vars(b), pos(p)); return api; };
+    api.set = (t, v, p) => { raw.set(t, v, pos(p)); return api; };
+    return api;
+  };
+  PN.raw = (tl) => (tl && tl.raw) || tl;
 
   /* Abeja (mira a la derecha), con sombra suave. Devuelve { g, flap(t, phase), place(x, y, angDeg, flip) }. */
   PN.bee = function (parent, opts) {

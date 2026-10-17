@@ -1,13 +1,13 @@
-/* PolliNode: estilo compartido (Dosel: bosque oscuro, lima, menta, coral). */
+/* PolliNode: estilo compartido (Dosel en tono claro: crema, verde bosque, lima, menta, coral). */
 :root {
-  --canopy: #0a1a13;
-  --surface: #112419;
-  --surface2: #163021;
-  --line: #223c2d;
-  --ink: #eef3e4;
-  --sage: #9db3a4;
+  --canopy: #f2f6e6;
+  --surface: #fbfdf4;
+  --surface2: #eef3dc;
+  --line: #c5d1b1;
+  --ink: #12301f;
+  --sage: #5a7564;
   --lime: #c8f25c;
-  --mint: #6ee7b7;
+  --mint: #138a5f;
   --honey: #f5b83d;
   --coral: #ff7a5c;
 }
@@ -20,7 +20,7 @@
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.04;
-  color: #eef3e4;
+  color: #12301f;
 }
 .h .ln {
   display: block;
@@ -35,7 +35,7 @@
   position: relative;
   isolation: isolate;
   display: inline-block;
-  color: #0a1a13;
+  color: #12301f;
   padding: 0 0.12em;
   margin: 0 -0.02em;
 }
@@ -69,9 +69,9 @@
   font-size: 22px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6ee7b7;
-  background: rgba(10, 26, 19, 0.9);
-  border: 1px solid #223c2d;
+  color: #138a5f;
+  background: rgba(251, 253, 244, 0.94);
+  border: 1px solid #c5d1b1;
   padding: 12px 20px 10px;
 }
 .pill.warn {
@@ -80,15 +80,15 @@
 .body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  color: #9db3a4;
+  color: #5a7564;
   line-height: 1.4;
 }
 
 /* marco tipo visor (como las capturas de Dosel): esquinas blancas y etiqueta de datos */
 .frame {
   position: absolute;
-  background: #0e2a1c;
-  border: 1px solid #223c2d;
+  background: #e6eed4;
+  border: 1px solid #c5d1b1;
   overflow: hidden;
 }
 .frame svg {
@@ -100,7 +100,7 @@
   position: absolute;
   width: 56px;
   height: 56px;
-  border: 0 solid #eef3e4;
+  border: 0 solid #12301f;
   pointer-events: none;
 }
 .br.tl { left: 24px; top: 24px; border-top-width: 4px; border-left-width: 4px; }

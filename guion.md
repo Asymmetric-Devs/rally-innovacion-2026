@@ -1,4 +1,4 @@
-# Guion: PolliNode (1:50)
+# Guion: PolliNode (2:11)
 
 > **Estado:** las seis voces en off y la toma del pizarrón ya están grabadas e integradas en el video. Lo que sigue es el texto de referencia (lo que se dice en cada parte) y los tiempos reales. Para regrabar una parte, mantener la duración aproximada.
 
@@ -39,19 +39,26 @@ Mirás a cámara, frente al pizarrón. La frase dura unos 6 segundos y el resto 
 
 ---
 
+## 2b. LOS POLINIZADORES · NUEVA SECCIÓN · FALTA GRABAR (unos 20 s)
+Va entre el gancho y el problema. Pone el foco en el problema del desafío: los polinizadores nativos y sus amenazas locales. Hoy suena una **voz guía provisoria** (`assets/vo/vo2b-polinizadores-GUIA.m4a`); cuando la grabes, reemplazá ese archivo y re-sincronizo.
+> Pero detrás de cada cultivo hay otros protagonistas: los polinizadores nativos. Abejas, abejorros, moscas, mariposas y colibríes están disminuyendo. El desmonte les quita el refugio, los agroquímicos los envenenan y el monocultivo los deja sin flores. Y sin ellos, se pone en riesgo la producción de alimentos y la biodiversidad de toda la región.
+
+El análisis completo del enfoque está en `enfoque-desafio.md`.
+
 ## Tiempos reales (con las voces grabadas)
 
 | # | Parte | Desde | Duración | Fuente |
 |---|---|---|---|---|
-| 1 | Gancho | 0:00 | 8 s | Voz en off |
-| 2 | Problema | 0:08 | 18 s | Voz en off |
-| 3 | Solución | 0:26 | 18,5 s | Voz en off |
-| 4 | Pizarrón | 0:44,5 | 25 s | Toma real completa (18,5 s) + repaso animado (6,5 s) |
-| 5 | Tecnología | 1:09,5 | 19 s | Voz en off |
-| 6 | Impacto | 1:28,5 | 12,5 s | Voz en off |
-| 7 | Cierre | 1:41 | 9 s | Voz en off + logo |
+| 1 | Gancho | 0:00 | 6,7 s | Voz en off |
+| 2 | Los polinizadores | 0:06,7 | 22,3 s | Voz en off |
+| 3 | Problema | 0:29 | 15,7 s | Voz en off |
+| 4 | Solución | 0:44,7 | 16,4 s | Voz en off |
+| 5 | Pizarrón | 1:01,1 | 22,5 s | Toma real completa (18,5 s) + repaso animado (4 s) |
+| 6 | Tecnología | 1:23,6 | 16,7 s | Voz en off |
+| 7 | Impacto | 1:40,3 | 10,75 s | Voz en off |
+| 8 | Cierre | 1:51,05 | 8,6 s | Voz en off + logo |
 
-Total del video: **1:50**, con música de fondo muy sutil.
+Total del video: **1:59,65** (el rally permite 2:00 como máximo), con música de fondo muy sutil. Las voces en off están aceleradas 1,10x para entrar en el límite.
 
 Notas sobre lo grabado:
 - La voz del cierre dice "el futuro del agro no es solo cultivar la tierra, es entender el ecosistema que la hace productiva". Se grabó como voz en off, así que el cierre no necesita toma en cámara.
