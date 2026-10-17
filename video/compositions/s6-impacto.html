@@ -6,125 +6,257 @@
   <body>
     <template>
       <style>
+        @font-face {
+          font-family: "Bangers";
+          src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+        }
+        @font-face {
+          font-family: "Permanent Marker";
+          src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #f4ebd0;
-          font-family: "IBM Plex Mono", monospace;
-          color: #283618;
+          background: #fff1d6;
+          font-family: "Permanent Marker", cursive;
+          color: #17132b;
+        }
+        #s6-cam {
+          position: absolute;
+          inset: 0;
+          filter: url(#boil);
+        }
+        #s6-bg,
+        #s6-fx {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+        }
+        .cap {
+          position: absolute;
+          background: #ffd23f;
+          border: 6px solid #17132b;
+          box-shadow: 9px 9px 0 #17132b;
+          padding: 10px 22px 8px;
+          letter-spacing: 0.02em;
         }
         #s6-eyebrow {
-          position: absolute;
           left: 90px;
-          top: 90px;
-          font-size: 28px;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          color: #588157;
+          top: 70px;
+          font-size: 30px;
+          text-transform: uppercase;
+          transform: rotate(-1.5deg);
         }
         #s6-title {
           position: absolute;
           left: 90px;
-          top: 150px;
+          top: 128px;
           width: 1740px;
-          font-family: "Archivo Black", sans-serif;
-          font-size: 100px;
-          line-height: 1;
-          letter-spacing: -0.03em;
+          font-family: "Bangers", sans-serif;
+          font-size: 150px;
+          line-height: 0.92;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          color: #fff1d6;
+          -webkit-text-stroke: 10px #17132b;
+          paint-order: stroke fill;
+          text-shadow: 9px 9px 0 #ff3d8b;
         }
         #s6-title .hl {
-          color: #588157;
+          color: #ffd23f;
+        }
+        #s6-title .w {
+          transform-origin: 0 100%;
+          margin-right: 0.16em;
         }
         .s6-card {
           position: absolute;
-          top: 400px;
+          top: 440px;
           width: 560px;
-          height: 590px;
-          border: 5px solid #283618;
-          border-radius: 14px;
-          background: #ede1bd;
-          padding: 36px 40px;
+          height: 560px;
+          border: 9px solid #17132b;
+          padding: 24px 34px;
           overflow: hidden;
+          box-shadow: 14px 14px 0 #17132b;
         }
-        .s6-card svg {
+        .s6-card .hti {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background-image: radial-gradient(circle, rgba(23, 19, 43, 0.28) 3.4px, transparent 3.8px);
+          background-size: 20px 20px;
+          -webkit-mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 65%);
+          mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 65%);
+        }
+        .s6-card svg.ic {
+          position: relative;
           display: block;
-          width: 180px;
-          height: 180px;
+          width: 230px;
+          height: 200px;
         }
         .s6-card h3 {
-          margin-top: 28px;
-          font-family: "Archivo Black", sans-serif;
+          position: relative;
+          margin-top: 6px;
+          font-family: "Bangers", sans-serif;
           font-weight: 400;
-          font-size: 56px;
-          line-height: 1;
-          letter-spacing: -0.03em;
+          font-size: 84px;
+          line-height: 0.95;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          color: #fff1d6;
+          -webkit-text-stroke: 8px #17132b;
+          paint-order: stroke fill;
+          text-shadow: 6px 6px 0 #17132b;
         }
         .s6-card p {
-          margin-top: 22px;
-          font-size: 30px;
-          line-height: 1.4;
-        }
-        .s6-bar {
           position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          height: 18px;
+          left: 26px;
+          right: 26px;
+          bottom: 24px;
+          background: #fff1d6;
+          border: 5px solid #17132b;
+          padding: 10px 16px 8px;
+          font-size: 25px;
+          line-height: 1.22;
         }
-        #s6-c1 { left: 90px; }
-        #s6-c2 { left: 680px; }
-        #s6-c3 { left: 1270px; }
+        #s6-c1 { left: 90px; background: #19c3e6; transform: rotate(-1.8deg); }
+        #s6-c2 { left: 680px; background: #ff3d8b; transform: rotate(1.2deg); }
+        #s6-c3 { left: 1270px; background: #ff7a2f; transform: rotate(-1deg); }
       </style>
 
-      <div data-hf-id="hf-pb6k" id="root" data-composition-id="s6-impacto" data-width="1920" data-height="1080">
-        <div data-hf-id="hf-2sm9" id="s6-eyebrow">04 · EL IMPACTO</div>
-        <h2 data-hf-id="hf-ylqj" id="s6-title">Producir más, <span data-hf-id="hf-e5z5" class="hl">cuidando lo que hace producir</span>.</h2>
+      <div id="root" data-composition-id="s6-impacto" data-width="1920" data-height="1080">
+        <div id="s6-cam">
+          <svg id="s6-bg" viewBox="0 0 1920 1080"><g id="s6-rays"></g></svg>
+          <svg id="s6-fx" viewBox="0 0 1920 1080"></svg>
+          <div id="s6-eyebrow" class="cap">04 · El impacto</div>
+          <h2 id="s6-title">Producir más, <span class="hl">cuidando lo que hace producir</span>.</h2>
 
-        <div data-hf-id="hf-1a9c" id="s6-c1" class="s6-card">
-          <svg data-hf-id="hf-5qgp" viewBox="0 0 180 180">
-            <path data-hf-id="hf-hgk8" id="s6-leaf" d="M 30 150 C 20 70, 80 20, 160 20 C 160 100, 110 160, 30 150 Z" fill="#588157" stroke="#283618" stroke-width="7" stroke-linejoin="round" />
-            <path data-hf-id="hf-t96p" d="M 30 150 C 70 110, 100 80, 140 40" fill="none" stroke="#283618" stroke-width="7" stroke-linecap="round" />
-          </svg>
-          <h3 data-hf-id="hf-keua">Menos insumos</h3>
-          <p data-hf-id="hf-sg58">Las leguminosas fijan nitrógeno y los enemigos naturales controlan las plagas.</p>
-          <div data-hf-id="hf-srkm" class="s6-bar" style="background:#588157"></div>
-        </div>
-        <div data-hf-id="hf-c5qz" id="s6-c2" class="s6-card">
-          <svg data-hf-id="hf-16od" viewBox="0 0 180 180">
-            <ellipse data-hf-id="hf-6n9f" cx="82" cy="58" rx="40" ry="22" fill="#f4ebd0" stroke="#283618" stroke-width="6" />
-            <ellipse data-hf-id="hf-id1w" cx="116" cy="54" rx="36" ry="20" fill="#f4ebd0" stroke="#283618" stroke-width="6" />
-            <ellipse data-hf-id="hf-mi9g" cx="94" cy="108" rx="62" ry="40" fill="#dda15e" stroke="#283618" stroke-width="7" />
-            <rect data-hf-id="hf-f49g" x="68" y="70" width="16" height="76" fill="#283618" />
-            <rect data-hf-id="hf-ghl5" x="100" y="72" width="16" height="72" fill="#283618" />
-            <circle data-hf-id="hf-apuv" cx="30" cy="104" r="20" fill="#283618" />
-          </svg>
-          <h3 data-hf-id="hf-2uso">Más biodiversidad</h3>
-          <p data-hf-id="hf-s94c">Refugio y alimento todo el año para los polinizadores nativos del Chaco.</p>
-          <div data-hf-id="hf-l8wo" class="s6-bar" style="background:#dda15e"></div>
-        </div>
-        <div data-hf-id="hf-87my" id="s6-c3" class="s6-card">
-          <svg data-hf-id="hf-2dlg" viewBox="0 0 180 180">
-            <circle data-hf-id="hf-kp28" cx="90" cy="90" r="76" fill="#f2c94c" stroke="#283618" stroke-width="7" />
-            <circle data-hf-id="hf-3h6i" cx="90" cy="90" r="54" fill="none" stroke="#283618" stroke-width="5" stroke-dasharray="6 9" />
-            <path data-hf-id="hf-tw2e" d="M 62 92 L 82 114 L 122 66" fill="none" stroke="#283618" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <h3 data-hf-id="hf-88fh">Mejor precio</h3>
-          <p data-hf-id="hf-583s">Producción orgánica certificable, lista para mercados que pagan premium.</p>
-          <div data-hf-id="hf-obnj" class="s6-bar" style="background:#bc4749"></div>
+          <div id="s6-c1" class="s6-card">
+            <div class="hti"></div>
+            <svg class="ic" viewBox="0 0 230 200"><g id="s6-ic1"></g></svg>
+            <h3>Menos insumos</h3>
+            <p>Las leguminosas fijan nitrógeno y los enemigos naturales controlan las plagas.</p>
+          </div>
+          <div id="s6-c2" class="s6-card">
+            <div class="hti"></div>
+            <svg class="ic" viewBox="0 0 230 200"><g id="s6-ic2"></g></svg>
+            <h3>Más biodiversidad</h3>
+            <p>Refugio y alimento todo el año para los polinizadores nativos del Chaco.</p>
+          </div>
+          <div id="s6-c3" class="s6-card">
+            <div class="hti"></div>
+            <svg class="ic" viewBox="0 0 230 200"><g id="s6-ic3"></g></svg>
+            <h3>Mejor precio</h3>
+            <p>Producción orgánica certificable, lista para mercados que pagan premium.</p>
+          </div>
         </div>
       </div>
 
       <script>
         (function () {
-          const tl = gsap.timeline({ paused: true });
-          tl.fromTo("#s6-eyebrow", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
-          tl.fromTo("#s6-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.3);
-          ["#s6-c1", "#s6-c2", "#s6-c3"].forEach((id, i) => {
-            tl.fromTo(id, { opacity: 0, y: 120, rotation: i === 1 ? 2 : -2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "back.out(1.4)" }, 1.4 + i * 3.4);
-            tl.fromTo(id + " svg", { scale: 0.4, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(2)", transformOrigin: "50% 50%" }, 1.8 + i * 3.4);
-            tl.fromTo(id + " .s6-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power2.out", transformOrigin: "0 50%" }, 2.2 + i * 3.4);
+          const mk = PN.mk;
+          const DUR = 12;
+          const $ = (id) => document.getElementById(id);
+          const titleWords = PN.words($("s6-title"));
+
+          // rayos de cómic detrás de todo
+          const raysG = $("s6-rays");
+          const NR = 26;
+          mk(raysG, "rect", { x: -40, y: -40, width: 2000, height: 1160, fill: "#fff1d6" });
+          const rays = [];
+          for (let i = 0; i < NR; i++) rays.push(mk(raysG, "polygon", { points: "0,0 0,0 0,0", fill: i % 2 ? "#ffd23f" : "#ffe27a" }));
+          const setRays = (t) => {
+            const base = PN.q(t) * 0.04;
+            rays.forEach((r, i) => {
+              const a0 = (i / NR) * Math.PI * 2 + base;
+              const a1 = a0 + (Math.PI * 2) / NR;
+              r.setAttribute("points", "960,820 " + (960 + Math.cos(a0) * 2400).toFixed(0) + "," + (820 + Math.sin(a0) * 2400).toFixed(0) + " " + (960 + Math.cos(a1) * 2400).toFixed(0) + "," + (820 + Math.sin(a1) * 2400).toFixed(0));
+            });
+          };
+
+          // icono 1: brote que crece, con burbujas de nitrógeno
+          const i1 = $("s6-ic1");
+          mk(i1, "ellipse", { cx: 110, cy: 178, rx: 82, ry: 16, fill: "#ff7a2f", stroke: "#17132b", "stroke-width": 7 });
+          const sprout = mk(i1, "g", { "stroke-linejoin": "round" });
+          mk(sprout, "path", { d: "M 110 176 C 108 140, 114 110, 110 80", fill: "none", stroke: "#17132b", "stroke-width": 15, "stroke-linecap": "round" });
+          mk(sprout, "path", { d: "M 110 176 C 108 140, 114 110, 110 80", fill: "none", stroke: "#0e8f8a", "stroke-width": 7, "stroke-linecap": "round" });
+          mk(sprout, "path", { d: "M 110 128 C 70 130, 40 104, 36 76 C 78 72, 106 96, 110 128 Z", fill: "#0e8f8a", stroke: "#17132b", "stroke-width": 7 });
+          mk(sprout, "path", { d: "M 110 100 C 150 100, 182 76, 186 46 C 144 44, 114 70, 110 100 Z", fill: "#13a39b", stroke: "#17132b", "stroke-width": 7 });
+          mk(sprout, "path", { d: "M 110 80 C 94 62, 98 40, 112 26 C 128 40, 126 64, 110 80 Z", fill: "#ffd23f", stroke: "#17132b", "stroke-width": 7 });
+          const nb = [0, 1, 2].map((k) => {
+            const g = mk(i1, "g", {});
+            mk(g, "circle", { cx: 0, cy: 0, r: 17, fill: "#fff1d6", stroke: "#17132b", "stroke-width": 4.5 });
+            const tx = mk(g, "text", { x: 0, y: 7, "text-anchor": "middle", "font-family": "Bangers", "font-size": 22, fill: "#17132b" });
+            tx.textContent = "N";
+            return { g: g, k: k };
           });
+
+          // icono 2: abeja sobre flores
+          const i2 = $("s6-ic2");
+          const fl = [[46, 160, 24, "#fff1d6"], [112, 170, 28, "#ffd23f"], [176, 158, 24, "#19c3e6"]];
+          const flo = fl.map((f) => {
+            mk(i2, "line", { x1: f[0], y1: f[1], x2: f[0], y2: 198, stroke: "#17132b", "stroke-width": 8, "stroke-linecap": "round" });
+            return PN.flower(i2, f[0], f[1], f[2], f[3], "#ff7a2f");
+          });
+          const bee = PN.bee(mk(i2, "g", {}), { scale: 1.55 });
+
+          // icono 3: moneda que gira + brillos
+          const i3 = $("s6-ic3");
+          const coin = mk(i3, "g", { transform: "translate(115 100)" });
+          const coinIn = mk(coin, "g", {});
+          mk(coinIn, "circle", { cx: 6, cy: 6, r: 80, fill: "#17132b" });
+          mk(coinIn, "circle", { cx: 0, cy: 0, r: 80, fill: "#ffd23f", stroke: "#17132b", "stroke-width": 8 });
+          mk(coinIn, "circle", { cx: 0, cy: 0, r: 56, fill: "none", stroke: "#17132b", "stroke-width": 6, "stroke-dasharray": "7 10" });
+          mk(coinIn, "path", { d: "M -28 4 L -8 26 L 30 -22", fill: "none", stroke: "#17132b", "stroke-width": 15, "stroke-linecap": "round", "stroke-linejoin": "round" });
+          const sp = [[-100, -50, 18], [104, -60, 22], [100, 70, 16]].map((p, k) => ({ s: PN.sparkle(i3, 115 + p[0], 100 + p[1], p[2], k % 2 ? "#fff1d6" : "#19c3e6"), k: k }));
+
+          const pollen = PN.pollen($("s6-fx"), 24, 1920, 1080, 33, "#fff1d6");
+
+          const tl = gsap.timeline({ paused: true });
+          const S = [1.5, 4.5, 7.5];
+
+          PN.clock(tl, DUR, function (t) {
+            const q = PN.q(t);
+            setRays(t);
+            pollen.update(t);
+            const g1 = PN.ease(PN.clamp((q - S[0] - 0.4) / 1.2, 0, 1));
+            sprout.setAttribute("transform", "translate(110 176) rotate(" + (Math.sin(q * 1.6) * 3).toFixed(2) + ") scale(" + (0.2 + 0.8 * g1).toFixed(3) + ") translate(-110 -176)");
+            nb.forEach((b) => {
+              const raw = (q - S[0] - 1.4 - b.k * 0.6) / 1.8;
+              if (raw < 0) {
+                b.g.setAttribute("opacity", 0);
+                return;
+              }
+              const u = raw - Math.floor(raw);
+              b.g.setAttribute("transform", "translate(" + (50 + b.k * 62 + Math.sin(q * 2 + b.k) * 8) + " " + (150 - u * 120) + ") scale(" + (0.6 + 0.5 * u).toFixed(2) + ")");
+              b.g.setAttribute("opacity", (PN.clamp(u / 0.15, 0, 1) * (1 - PN.clamp((u - 0.7) / 0.3, 0, 1))).toFixed(2));
+            });
+            const bx = 112 + 46 * Math.sin(q * 1.4);
+            const by = 72 + 18 * Math.sin(q * 2.8);
+            PN.fly(bee, bx, by, Math.cos(q * 1.4) * 46 * 1.4, Math.cos(q * 2.8) * 18 * 2.8, 0.4);
+            bee.flap(t, 0);
+            flo.forEach((f, k) => f.inner.setAttribute("transform", "rotate(" + (Math.sin(q * 1.3 + k * 1.4) * 9).toFixed(2) + ")"));
+            const cs = Math.cos((q - S[2]) * 2.1);
+            coinIn.setAttribute("transform", "scale(" + (0.18 + 0.82 * Math.abs(cs)).toFixed(3) + " 1)");
+            sp.forEach((s) => {
+              const v = Math.max(0, Math.sin(q * 3 + s.k * 1.9)) * (q > S[2] + 0.8 ? 1 : 0);
+              s.s.el.setAttribute("transform", "scale(" + (0.15 + v).toFixed(3) + ")");
+            });
+          });
+
+          tl.fromTo("#s6-cam", { scale: 1, transformOrigin: "50% 60%" }, { scale: 1.04, duration: DUR, ease: "sine.inOut" }, 0);
+          tl.fromTo("#s6-eyebrow", { opacity: 0, x: -60, rotation: -6 }, { opacity: 1, x: 0, rotation: -1.5, duration: 0.5, ease: "back.out(2)" }, 0.1);
+          tl.fromTo(titleWords, { opacity: 0, y: 90, rotation: 7 }, { opacity: 1, y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.8)", stagger: 0.08 }, 0.3);
+          const rot = ["-1.8", "1.2", "-1"];
+          ["#s6-c1", "#s6-c2", "#s6-c3"].forEach((id, i) => {
+            tl.fromTo(id, { opacity: 0, y: 160, rotation: 8 - i * 2 }, { opacity: 1, y: 0, rotation: parseFloat(rot[i]), duration: 0.6, ease: "back.out(1.7)" }, S[i]);
+            tl.fromTo(id + " h3", { opacity: 0, scale: 0.6, transformOrigin: "0 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.4)" }, S[i] + 0.5);
+            tl.fromTo(id + " p", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, S[i] + 0.8);
+          });
+
           window.__timelines["s6-impacto"] = tl;
         })();
       </script>

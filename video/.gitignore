@@ -1,2 +1,6 @@
 .hyperframes/
 .thumbnails/
+.agents/
+.claude/
+agent/
+skills-lock.json

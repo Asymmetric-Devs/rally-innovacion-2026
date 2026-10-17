@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=1920, height=1080" />
     <title>PolliNode - Rally 2026</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="kit.js"></script>
     <style>
+      @font-face {
+        font-family: "Bangers";
+        src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Permanent Marker";
+        src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+      }
       * {
         margin: 0;
         padding: 0;
@@ -17,28 +26,64 @@
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #f4ebd0;
+        background: #fff1d6;
       }
       #root {
         position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background: #f4ebd0;
+        background: #fff1d6;
+      }
+      #grain {
+        position: absolute;
+        left: -140px;
+        top: -110px;
+        width: 2200px;
+        height: 1300px;
+        z-index: 90;
+        opacity: 0.13;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.09  0 0 0 0 0.07  0 0 0 0 0.17  0 0 0 1.1 -0.1'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      }
+      #hex {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+        z-index: 100;
+        pointer-events: none;
       }
     </style>
   </head>
   <body>
-    <!-- Duración total: 120 s. Tiempos provisionales; se reajustan con la locución real. -->
-    <div data-hf-id="hf-jrvh"
+    <!-- Recursos globales del estilo cómic: contorno "hirviendo" y tramas de semitono -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <filter id="boil" x="-1%" y="-1%" width="102%" height="102%" color-interpolation-filters="sRGB">
+          <feTurbulence id="boil-turb" type="fractalNoise" baseFrequency="0.011 0.015" numOctaves="2" seed="1" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <pattern id="ht-ink" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(25)"><circle cx="7" cy="7" r="3.2" fill="#17132b" /></pattern>
+        <pattern id="ht-white" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(25)"><circle cx="7" cy="7" r="3.2" fill="#ffffff" /></pattern>
+        <pattern id="ht-mag" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(25)"><circle cx="7" cy="7" r="3.4" fill="#ff3d8b" /></pattern>
+        <pattern id="ht-cyan" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(25)"><circle cx="7" cy="7" r="3.4" fill="#19c3e6" /></pattern>
+        <pattern id="ht-yel" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(25)"><circle cx="7" cy="7" r="3.4" fill="#ffd23f" /></pattern>
+      </defs>
+    </svg>
+
+    <!-- Duración total: 115 s. Tiempos provisionales; se reajustan con la locución real. -->
+    <div
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="120"
+      data-duration="115"
       data-width="1920"
       data-height="1080"
     >
-      <div data-hf-id="hf-utx7"
+      <div
         id="s1-hook"
         data-composition-id="s1-hook"
         data-composition-src="compositions/s1-hook.html"
@@ -48,7 +93,7 @@
         data-width="1920"
         data-height="1080"
       ></div>
-      <div data-hf-id="hf-eszl"
+      <div
         id="s2-problema"
         data-composition-id="s2-problema"
         data-composition-src="compositions/s2-problema.html"
@@ -58,7 +103,7 @@
         data-width="1920"
         data-height="1080"
       ></div>
-      <div data-hf-id="hf-mv32"
+      <div
         id="s3-islas"
         data-composition-id="s3-islas"
         data-composition-src="compositions/s3-islas.html"
@@ -68,49 +113,89 @@
         data-width="1920"
         data-height="1080"
       ></div>
-      <div data-hf-id="hf-l4a7"
+      <div
         id="s4-pizarron"
         data-composition-id="s4-pizarron"
         data-composition-src="compositions/s4-pizarron.html"
         data-start="50"
-        data-duration="25"
+        data-duration="20"
         data-track-index="1"
         data-width="1920"
         data-height="1080"
       ></div>
-      <div data-hf-id="hf-mnd1"
+      <div
         id="s5-tecnologia"
         data-composition-id="s5-tecnologia"
         data-composition-src="compositions/s5-tecnologia.html"
-        data-start="75"
+        data-start="70"
         data-duration="25"
         data-track-index="1"
         data-width="1920"
         data-height="1080"
       ></div>
-      <div data-hf-id="hf-3vls"
+      <div
         id="s6-impacto"
         data-composition-id="s6-impacto"
         data-composition-src="compositions/s6-impacto.html"
-        data-start="100"
-        data-duration="15"
+        data-start="95"
+        data-duration="12"
         data-track-index="1"
         data-width="1920"
         data-height="1080"
       ></div>
-      <div data-hf-id="hf-mrqd"
+      <div
         id="s7-cierre"
         data-composition-id="s7-cierre"
         data-composition-src="compositions/s7-cierre.html"
-        data-start="115"
-        data-duration="5"
+        data-start="107"
+        data-duration="8"
         data-track-index="1"
         data-width="1920"
         data-height="1080"
       ></div>
+
+      <div id="grain"></div>
+      <svg id="hex" viewBox="0 0 1920 1080"></svg>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
+
+      // el contorno "hierve": la semilla del ruido cambia 8 veces por segundo, como un dibujo animado a mano
+      const turb = document.getElementById("boil-turb");
+      PN.clock(tl, 115, (t) => turb.setAttribute("seed", String(1 + (Math.floor(t * 8) % 7))));
+
+      // grano de papel que "tiembla" a pocos cuadros por segundo
+      tl.fromTo("#grain", { x: 0, y: 0 }, { x: -90, y: -70, duration: 115, ease: "steps(460)" }, 0);
+
+      // transición de panal (honeycomb) con tinta: cubre y descubre barriendo de izquierda a derecha
+      const R = 118;
+      const hexG = document.getElementById("hex");
+      const rnd = PN.rng(21);
+      const palette = ["#ff3d8b", "#19c3e6", "#ffd23f", "#ff7a2f", "#6c3df4", "#ff3d8b", "#ffd23f"];
+      const hexes = [];
+      for (let c = -1; c <= 12; c++) {
+        for (let r = -1; r <= 6; r++) {
+          const cx = c * R * 1.5;
+          const cy = r * R * 1.7320508 + (c % 2 ? R * 0.8660254 : 0);
+          let pts = "";
+          for (let k = 0; k < 6; k++) {
+            const a = (Math.PI / 3) * k;
+            pts += (cx + R * Math.cos(a)).toFixed(1) + "," + (cy + R * Math.sin(a)).toFixed(1) + " ";
+          }
+          const el = PN.mk(hexG, "polygon", { points: pts, fill: palette[Math.floor(rnd() * palette.length)], stroke: "#17132b", "stroke-width": 9, "stroke-linejoin": "round" });
+          const delay = (cx / 1920) * 0.22 + (cy / 1080) * 0.08 + rnd() * 0.04;
+          hexes.push({ el, cx, cy, delay });
+        }
+      }
+      gsap.set(hexes.map((h) => h.el), { scale: 0 });
+      [10, 30, 50, 70, 95, 107].forEach((T) => {
+        hexes.forEach((h) => {
+          const o = h.cx + " " + h.cy;
+          tl.fromTo(h.el, { scale: 0, svgOrigin: o }, { scale: 1.06, svgOrigin: o, duration: 0.26, ease: "power2.out" }, T - 0.5 + h.delay);
+          tl.to(h.el, { scale: 0, svgOrigin: o, duration: 0.26, ease: "power2.in" }, T + 0.02 + h.delay);
+        });
+      });
+
       window.__timelines["main"] = tl;
     </script>
   </body>

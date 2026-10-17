@@ -6,46 +6,89 @@
   <body>
     <template>
       <style>
+        @font-face {
+          font-family: "Bangers";
+          src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+        }
+        @font-face {
+          font-family: "Permanent Marker";
+          src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #f4ebd0;
-          font-family: "IBM Plex Mono", monospace;
-          color: #283618;
+          background: #fff1d6;
+          font-family: "Permanent Marker", cursive;
+          color: #17132b;
+        }
+        #s3-cam {
+          position: absolute;
+          inset: 0;
+          filter: url(#boil);
+        }
+        .ht {
+          position: absolute;
+          pointer-events: none;
+          background-image: radial-gradient(circle, rgba(25, 195, 230, 0.55) 3.4px, transparent 3.8px);
+          background-size: 20px 20px;
+        }
+        #s3-ht1 {
+          right: 0;
+          top: 0;
+          width: 1000px;
+          height: 420px;
+          -webkit-mask-image: radial-gradient(circle at 100% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 100% 0%, #000 0%, transparent 72%);
+        }
+        .cap {
+          position: absolute;
+          background: #ffd23f;
+          border: 6px solid #17132b;
+          box-shadow: 9px 9px 0 #17132b;
+          padding: 10px 22px 8px;
+          letter-spacing: 0.02em;
         }
         #s3-eyebrow {
-          position: absolute;
           left: 90px;
-          top: 70px;
+          top: 40px;
           font-size: 28px;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          color: #588157;
+          text-transform: uppercase;
+          transform: rotate(-1.5deg);
         }
         #s3-title {
           position: absolute;
           left: 90px;
-          top: 120px;
-          font-family: "Archivo Black", sans-serif;
-          width: 1150px;
-          font-size: 80px;
-          line-height: 0.98;
-          letter-spacing: -0.03em;
+          top: 92px;
+          width: 1290px;
+          font-family: "Bangers", sans-serif;
+          font-size: 134px;
+          line-height: 0.92;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          color: #fff1d6;
+          -webkit-text-stroke: 9px #17132b;
+          paint-order: stroke fill;
+          text-shadow: 8px 8px 0 #ff3d8b;
         }
         #s3-title .hl {
-          color: #588157;
+          color: #ffd23f;
+        }
+        #s3-title .w {
+          transform-origin: 0 100%;
+          margin-right: 0.16em;
         }
         #s3-note {
-          position: absolute;
           right: 90px;
-          top: 130px;
-          width: 520px;
-          font-size: 30px;
-          line-height: 1.35;
-          text-align: right;
+          top: 120px;
+          width: 440px;
+          font-size: 28px;
+          line-height: 1.25;
+          background: #fff1d6;
+          transform: rotate(1.6deg);
         }
-        #s3-map {
+        #s3-map,
+        #s3-fx {
           position: absolute;
           left: 0;
           top: 0;
@@ -54,188 +97,296 @@
         }
         .s3-chip {
           position: absolute;
-          bottom: 70px;
+          bottom: 56px;
           width: 540px;
-          height: 120px;
-          border: 5px solid #283618;
-          border-radius: 12px;
-          padding: 16px 24px;
-          background: #f4ebd0;
+          height: 118px;
+          border: 7px solid #17132b;
+          padding: 12px 24px;
+          background: #fff1d6;
+          box-shadow: 9px 9px 0 #17132b;
           isolation: isolate;
+          overflow: hidden;
         }
         .s3-chip b {
           display: block;
-          font-family: "Archivo Black", sans-serif;
-          font-size: 42px;
+          font-family: "Bangers", sans-serif;
+          font-size: 52px;
           font-weight: 400;
-          letter-spacing: -0.02em;
+          line-height: 1;
+          letter-spacing: 0.02em;
         }
         .s3-chip span {
           display: block;
-          margin-top: 6px;
+          margin-top: 2px;
           font-size: 24px;
         }
         .s3-chip-fill {
           position: absolute;
           inset: 0;
-          background: #a7c957;
+          background: #ff3d8b;
           opacity: 0;
           z-index: -1;
         }
-        #s3-c1 { left: 90px; }
-        #s3-c2 { left: 690px; }
-        #s3-c3 { left: 1290px; }
+        #s3-c1 { left: 90px; transform: rotate(-1deg); }
+        #s3-c2 { left: 690px; transform: rotate(0.8deg); }
+        #s3-c3 { left: 1290px; transform: rotate(-0.8deg); }
       </style>
 
-      <div data-hf-id="hf-7kyk" id="root" data-composition-id="s3-islas" data-width="1920" data-height="1080">
-        <div data-hf-id="hf-l7sv" id="s3-eyebrow">02 · LA SOLUCIÓN</div>
-        <h2 data-hf-id="hf-xla8" id="s3-title">Islas <span data-hf-id="hf-krlm" class="hl">biodinámicas</span> rotativas</h2>
-        <p data-hf-id="hf-3s60" id="s3-note">Flora nativa y leguminosas que florecen antes que el cultivo.</p>
+      <div id="root" data-composition-id="s3-islas" data-width="1920" data-height="1080">
+        <div id="s3-cam">
+          <div id="s3-ht1" class="ht"></div>
+          <div id="s3-eyebrow" class="cap">02 · La solución</div>
+          <h2 id="s3-title">Islas <span class="hl">biodinámicas</span> rotativas</h2>
+          <p id="s3-note" class="cap">Flora nativa y leguminosas que florecen antes que el cultivo.</p>
 
-        <svg data-hf-id="hf-ukbv" id="s3-map" viewBox="0 0 1920 1080">
-          <rect data-hf-id="hf-6vca" x="90" y="300" width="1740" height="560" rx="10" fill="#a3b18a" />
-          <g data-hf-id="hf-u36y" id="s3-rows" fill="#8fa876"></g>
-          <g data-hf-id="hf-zqsk" id="s3-crop"></g>
-          <g data-hf-id="hf-lolj" id="s3-nitro" font-family="Archivo Black" font-size="46" fill="#283618"></g>
-          <g data-hf-id="hf-qi18" id="s3-islands"></g>
-          <g data-hf-id="hf-jzwd" id="s3-bees"></g>
-          <rect data-hf-id="hf-n1oo" x="90" y="300" width="1740" height="560" rx="10" fill="none" stroke="#283618" stroke-width="5" />
-          <rect data-hf-id="hf-4ax3" id="s3-capband" x="93" y="303" width="1734" height="52" fill="#f4ebd0" opacity="0.94" />
-          <g data-hf-id="hf-tozm" id="s3-cap" font-family="IBM Plex Mono" font-weight="700" font-size="26" letter-spacing="2">
-            <text data-hf-id="hf-gt2o" id="s3-cap1" x="120" y="342" fill="#283618">FLORA NATIVA: ATRAE Y MULTIPLICA</text>
-            <text data-hf-id="hf-l44m" id="s3-cap2" x="120" y="342" fill="#283618">CULTIVO EN FLOR: LOS INSECTOS PASAN A COSECHAR</text>
-            <text data-hf-id="hf-98hk" id="s3-cap3" x="120" y="342" fill="#283618">AL AÑO SIGUIENTE LA ISLA SE MUEVE. EL SUELO QUEDA FERTILIZADO</text>
-          </g>
-        </svg>
+          <svg id="s3-map" viewBox="0 0 1920 1080">
+            <defs>
+              <filter id="s3-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="26" /></filter>
+              <mask id="s3-bloom-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+                <rect x="0" y="0" width="1920" height="1080" fill="black" />
+                <g filter="url(#s3-soft)" fill="white">
+                  <circle id="s3-m0" cx="500" cy="590" r="0" />
+                  <circle id="s3-m1" cx="960" cy="590" r="0" />
+                  <circle id="s3-m2" cx="1420" cy="590" r="0" />
+                </g>
+              </mask>
+              <clipPath id="s3-lot-clip"><rect x="90" y="318" width="1740" height="542" rx="14" /></clipPath>
+            </defs>
+            <g id="s3-lot">
+              <rect x="108" y="336" width="1740" height="542" rx="14" fill="url(#ht-ink)" opacity="0.55" />
+              <rect x="90" y="318" width="1740" height="542" rx="14" fill="#3a2a82" />
+              <g clip-path="url(#s3-lot-clip)">
+                <g id="s3-rows"></g>
+                <g id="s3-bloom" mask="url(#s3-bloom-mask)"></g>
+                <g id="s3-rich"></g>
+                <g id="s3-islands"></g>
+                <g id="s3-bubbles"></g>
+                <g id="s3-bees"></g>
+              </g>
+              <rect id="s3-capband" x="94" y="322" width="1732" height="50" fill="#fff1d6" />
+              <rect x="90" y="368" width="1740" height="6" fill="#17132b" />
+              <g font-family="Permanent Marker" font-size="26" letter-spacing="1">
+                <text id="s3-cap1" x="120" y="358" fill="#17132b">FLORA NATIVA: ATRAE Y MULTIPLICA POLINIZADORES</text>
+                <text id="s3-cap2" x="120" y="358" fill="#17132b">EL CULTIVO FLORECE: LOS INSECTOS PASAN A POLINIZAR</text>
+                <text id="s3-cap3" x="120" y="358" fill="#17132b">AL AÑO SIGUIENTE LA ISLA SE MUEVE Y EL SUELO QUEDA FERTILIZADO</text>
+                <text id="s3-year1" x="1800" y="358" text-anchor="end" fill="#c81e69">AÑO 1</text>
+                <text id="s3-year2" x="1800" y="358" text-anchor="end" fill="#c81e69">AÑO 2</text>
+              </g>
+              <rect x="90" y="318" width="1740" height="542" rx="14" fill="none" stroke="#17132b" stroke-width="10" />
+              <g id="s3-sfx"></g>
+            </g>
+          </svg>
 
-        <div data-hf-id="hf-amh2" id="s3-c1" class="s3-chip"><div data-hf-id="hf-qgcl" class="s3-chip-fill"></div><b data-hf-id="hf-8cw8">01 CAPTACIÓN</b><span data-hf-id="hf-adyn">antes de la floración</span></div>
-        <div data-hf-id="hf-6od1" id="s3-c2" class="s3-chip"><div data-hf-id="hf-0luh" class="s3-chip-fill"></div><b data-hf-id="hf-8pmt">02 DESBORDE</b><span data-hf-id="hf-rcop">floración del cultivo</span></div>
-        <div data-hf-id="hf-3p3g" id="s3-c3" class="s3-chip"><div data-hf-id="hf-1srk" class="s3-chip-fill"></div><b data-hf-id="hf-iaf9">03 ROTACIÓN</b><span data-hf-id="hf-l7u0">fijación de nitrógeno</span></div>
+          <svg id="s3-fx" viewBox="0 0 1920 1080"></svg>
+
+          <div id="s3-c1" class="s3-chip"><div class="s3-chip-fill"></div><b>01 CAPTACIÓN</b><span>antes de la floración</span></div>
+          <div id="s3-c2" class="s3-chip"><div class="s3-chip-fill"></div><b>02 DESBORDE</b><span>floración del cultivo</span></div>
+          <div id="s3-c3" class="s3-chip"><div class="s3-chip-fill"></div><b>03 ROTACIÓN</b><span>fijación de nitrógeno</span></div>
+        </div>
       </div>
 
       <script>
         (function () {
-          const NS = "http://www.w3.org/2000/svg";
-          const mk = (parent, name, attrs) => {
-            const el = document.createElementNS(NS, name);
-            for (const k in attrs) el.setAttribute(k, attrs[k]);
-            parent.appendChild(el);
-            return el;
-          };
-          // PRNG con semilla fija para que cada frame sea reproducible
-          let seed = 7;
-          const rnd = () => {
-            seed = (seed * 16807) % 2147483647;
-            return (seed - 1) / 2147483646;
-          };
-
-          const rowsG = document.getElementById("s3-rows");
-          for (let i = 0; i < 10; i++) mk(rowsG, "rect", { x: 90, y: 300 + i * 56, width: 1740, height: 26 });
-
-          // cultivo: puntos que florecen
-          const cropG = document.getElementById("s3-crop");
-          const crops = [];
-          for (let r = 0; r < 8; r++) {
-            for (let c = 0; c < 30; c++) {
-              crops.push(mk(cropG, "circle", { cx: 150 + c * 58, cy: 408 + r * 56, r: 11, fill: "#f2c94c", stroke: "#283618", "stroke-width": 3 }));
-            }
-          }
-
-          // islas
+          const mk = PN.mk;
+          const DUR = 20;
           const ISL = [500, 960, 1420];
-          const CY = 590;
-          const islG = document.getElementById("s3-islands");
-          const islands = ISL.map((x) => {
-            const g = mk(islG, "g", {});
-            mk(g, "ellipse", { cx: x, cy: CY, rx: 150, ry: 120, fill: "#588157", stroke: "#283618", "stroke-width": 6 });
-            const flowers = [];
-            const cols = ["#f4ebd0", "#bc4749", "#dda15e", "#c9a0dc"];
-            for (let k = 0; k < 11; k++) {
-              const a = rnd() * Math.PI * 2;
-              const d = Math.sqrt(rnd()) * 100;
-              flowers.push(mk(g, "circle", { cx: x + Math.cos(a) * d * 1.2, cy: CY + Math.sin(a) * d * 0.9, r: 13, fill: cols[k % 4], stroke: "#283618", "stroke-width": 3 }));
+          const CY = 610;
+          const SHIFT = 230;
+
+          const titleWords = PN.words(document.getElementById("s3-title"));
+
+          // surcos del lote: cultivo joven (lila) y encima la floración amarilla que revela la máscara
+          PN.rows(document.getElementById("s3-rows"), 130, 408, 1800, 840, 48, 34, "#b79ad6", "#e6d9f5", 22);
+          PN.rows(document.getElementById("s3-bloom"), 130, 408, 1800, 840, 48, 34, "#ffd23f", "#fff1d6", 24);
+
+          const blob = (cx, cy, rx, ry, ph) => {
+            let d = "";
+            const N = 56;
+            for (let i = 0; i < N; i++) {
+              const a = (i / N) * Math.PI * 2;
+              const k = 1 + 0.1 * Math.sin(3 * a + ph) + 0.06 * Math.sin(5 * a + ph * 1.7);
+              d += (i ? "L" : "M") + (cx + rx * k * Math.cos(a)).toFixed(1) + " " + (cy + ry * k * Math.sin(a)).toFixed(1) + " ";
             }
-            return { g, flowers, x };
+            return d + "Z";
+          };
+
+          // suelo enriquecido donde estuvo cada isla
+          const richG = document.getElementById("s3-rich");
+          const rich = ISL.map((x, idx) => {
+            const g = mk(richG, "g", { opacity: 0 });
+            mk(g, "path", { d: blob(x, CY, 162, 120, idx * 1.3), fill: "#ff7a2f", stroke: "#17132b", "stroke-width": 8, "stroke-linejoin": "round" });
+            mk(g, "path", { d: blob(x, CY, 162, 120, idx * 1.3), fill: "url(#ht-ink)", opacity: 0.35 });
+            return g;
+          });
+
+          // islas orgánicas con flores
+          const islG = document.getElementById("s3-islands");
+          const petals = ["#ff3d8b", "#fff1d6", "#ffd23f", "#19c3e6", "#ff9ec7", "#ff7a2f"];
+          const islands = ISL.map((x, idx) => {
+            const outer = mk(islG, "g", {});
+            const inner = mk(outer, "g", {});
+            mk(inner, "path", { d: blob(x + 14, CY + 16, 158, 118, idx * 1.3), fill: "url(#ht-ink)", opacity: 0.6 });
+            mk(inner, "path", { d: blob(x, CY, 158, 118, idx * 1.3), fill: "#0e8f8a", stroke: "#17132b", "stroke-width": 9, "stroke-linejoin": "round" });
+            mk(inner, "path", { d: blob(x - 8, CY - 8, 118, 84, idx * 1.3 + 0.8), fill: "#13a39b" });
+            const rnd = PN.rng(40 + idx * 7);
+            for (let k = 0; k < 8; k++) {
+              const a = rnd() * 6.28;
+              const d = Math.sqrt(rnd()) * 100;
+              const lx = x + Math.cos(a) * d * 1.1, ly = CY + Math.sin(a) * d * 0.8;
+              mk(inner, "ellipse", { cx: lx, cy: ly, rx: 22, ry: 8, fill: "#7fe8d9", stroke: "#17132b", "stroke-width": 3, transform: "rotate(" + Math.floor(rnd() * 180) + " " + lx + " " + ly + ")" });
+            }
+            const flowers = [];
+            for (let k = 0; k < 12; k++) {
+              const a = rnd() * 6.28;
+              const d = Math.sqrt(rnd()) * 105;
+              const fx = x + Math.cos(a) * d * 1.15;
+              const fy = CY + Math.sin(a) * d * 0.82;
+              const f = PN.flower(inner, fx, fy, 17 + rnd() * 7, petals[Math.floor(rnd() * petals.length)], "#ffd23f");
+              flowers.push({ f: f, fx: fx, fy: fy, k: rnd() * 6.28 });
+            }
+            return { outer: outer, inner: inner, flowers: flowers, x: x };
           });
 
           // abejas
           const beesG = document.getElementById("s3-bees");
+          const brnd = PN.rng(90);
           const bees = [];
-          for (let i = 0; i < 14; i++) {
-            const g = mk(beesG, "g", {});
-            mk(g, "ellipse", { cx: -4, cy: -9, rx: 10, ry: 6, fill: "#f4ebd0", stroke: "#283618", "stroke-width": 2 });
-            mk(g, "ellipse", { cx: 6, cy: -10, rx: 9, ry: 6, fill: "#f4ebd0", stroke: "#283618", "stroke-width": 2 });
-            mk(g, "ellipse", { cx: 0, cy: 0, rx: 15, ry: 10, fill: "#dda15e", stroke: "#283618", "stroke-width": 3 });
-            mk(g, "rect", { x: -5, y: -9, width: 5, height: 18, fill: "#283618" });
-            mk(g, "rect", { x: 4, y: -8, width: 5, height: 16, fill: "#283618" });
-            const home = ISL[i % 3];
-            bees.push({ g, home, ox: (rnd() - 0.5) * 300, oy: (rnd() - 0.5) * 240 });
+          for (let i = 0; i < 13; i++) {
+            bees.push({
+              bee: PN.bee(beesG, { scale: 0.85 }),
+              i: i,
+              home: ISL[i % 3],
+              y0: 430 + brnd() * 400,
+              tx: 190 + brnd() * 1560,
+              ty: 470 + brnd() * 340,
+              w: 1.0 + brnd() * 0.5,
+              ph: brnd() * 6.28,
+            });
           }
+          const orbit = (b, t) => {
+            const a = t * b.w + b.ph;
+            return [b.home + (170 + 22 * (b.i % 3)) * Math.cos(a), CY + (108 + 14 * (b.i % 2)) * Math.sin(a * 1.3)];
+          };
+          const hover = (b, t) => [b.tx + 78 * Math.cos(t * 1.6 + b.ph), b.ty + 40 * Math.sin(t * 2.2 + b.ph)];
+          const beePos = (b, t) => {
+            const o = orbit(b, t);
+            if (t < 2.0) return [60, b.y0];
+            if (t < 3.4) {
+              const u = PN.ease((t - 2.0) / 1.4);
+              return [60 + (o[0] - 60) * u, b.y0 + (o[1] - b.y0) * u + Math.sin(u * Math.PI) * -70];
+            }
+            if (t < 6.8) return o;
+            if (t < 9.6) {
+              const u = PN.ease((t - 6.8) / 2.8);
+              const h = hover(b, t);
+              return [o[0] + (h[0] - o[0]) * u, o[1] + (h[1] - o[1]) * u - Math.sin(u * Math.PI) * 90];
+            }
+            return hover(b, t);
+          };
 
-          // nitrógeno
-          const nitG = document.getElementById("s3-nitro");
-          const nits = ISL.map((x) => {
-            const t = mk(nitG, "text", { x: x - 18, y: CY - 130, "text-anchor": "start" });
-            t.textContent = "N";
-            return t;
+          // burbujas de nitrógeno
+          const bubG = document.getElementById("s3-bubbles");
+          const bubbles = [];
+          ISL.forEach((x, i) => {
+            for (let k = 0; k < 3; k++) {
+              const g = mk(bubG, "g", {});
+              mk(g, "circle", { cx: 0, cy: 0, r: 26, fill: "#19c3e6", stroke: "#17132b", "stroke-width": 5 });
+              const tx = mk(g, "text", { x: 0, y: 10, "text-anchor": "middle", "font-family": "Bangers", "font-size": 32, fill: "#17132b" });
+              tx.textContent = "N";
+              bubbles.push({ g: g, x: x + (k - 1) * 70, k: k, i: i });
+            }
           });
+
+          // efectos de sonido
+          const popFx = PN.sfx(document.getElementById("s3-sfx"), "POP!", 330, 470, 150, "#19c3e6", 4);
+          const bzFx = PN.sfx(document.getElementById("s3-sfx"), "BZZZ!", 1130, 470, 160, "#ff3d8b", 9);
+          bzFx.text.setAttribute("fill", "#fff1d6");
+          bzFx.text.setAttribute("stroke", "#17132b");
+          bzFx.text.setAttribute("stroke-width", "7");
+          bzFx.text.setAttribute("paint-order", "stroke");
+
+          const pollen = PN.pollen(document.getElementById("s3-fx"), 26, 1920, 1080, 12, "#fff1d6");
 
           const tl = gsap.timeline({ paused: true });
 
-          // fondo y cabecera
-          tl.fromTo("#s3-eyebrow", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
-          tl.fromTo("#s3-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
-          tl.fromTo("#s3-note", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" }, 0.7);
-          tl.fromTo("#s3-map", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.3);
-          tl.fromTo(".s3-chip", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.12 }, 0.8);
+          PN.clock(tl, DUR, function (t) {
+            const q = PN.q(t);
+            pollen.update(t);
+            islands.forEach((isl, i) => {
+              isl.flowers.forEach((f, k) => {
+                const u = PN.clamp((q - (2.0 + i * 0.25 + k * 0.05)) / 0.45, 0, 1);
+                const c1 = 2.55, c3 = c1 + 1;
+                const sc = u <= 0 ? 0 : 1 + c3 * Math.pow(u - 1, 3) + c1 * Math.pow(u - 1, 2);
+                f.f.inner.setAttribute("transform", "rotate(" + (Math.sin(q * 1.3 + f.k) * 8).toFixed(2) + ") scale(" + sc.toFixed(3) + ")");
+              });
+            });
+            bees.forEach((b) => {
+              const p = beePos(b, q);
+              const p2 = beePos(b, q + 0.05);
+              PN.fly(b.bee, p[0], p[1], p2[0] - p[0], p2[1] - p[1], 0.35);
+              b.bee.flap(t, b.i);
+              const op = PN.clamp((q - 1.9) / 0.4, 0, 1) * (1 - PN.clamp((q - 13.6) / 1.2, 0, 1));
+              b.bee.g.setAttribute("opacity", op.toFixed(3));
+            });
+            bubbles.forEach((b) => {
+              if (q < 15.0) {
+                b.g.setAttribute("opacity", 0);
+                return;
+              }
+              const raw = (q - 15.0 - b.k * 0.55 - b.i * 0.2) / 2.2;
+              if (raw < 0) {
+                b.g.setAttribute("opacity", 0);
+                return;
+              }
+              const u = raw - Math.floor(raw);
+              const x = b.x + Math.sin(q * 2 + b.k) * 10;
+              const y = CY + 40 - u * 190;
+              b.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") scale(" + (0.6 + 0.5 * u).toFixed(2) + ")");
+              b.g.setAttribute("opacity", (PN.clamp(u / 0.15, 0, 1) * (1 - PN.clamp((u - 0.7) / 0.3, 0, 1))).toFixed(2));
+            });
+            const bzOp = PN.clamp((q - 3.2) / 0.15, 0, 1) * (1 - PN.clamp((q - 4.6) / 0.3, 0, 1));
+            bzFx.g.setAttribute("transform", "translate(" + (1130 + Math.sin(q * 40) * 3).toFixed(1) + " " + (470 + Math.cos(q * 33) * 3).toFixed(1) + ") rotate(-6) scale(" + bzOp.toFixed(3) + ")");
+            const popOp = PN.clamp((q - 1.5) / 0.12, 0, 1) * (1 - PN.clamp((q - 2.5) / 0.25, 0, 1));
+            popFx.g.setAttribute("transform", "translate(330 470) rotate(8) scale(" + popOp.toFixed(3) + ")");
+          });
 
-          // inicial
-          tl.set(crops, { opacity: 0, scale: 0.2 }, 0);
-          tl.set(["#s3-cap2", "#s3-cap3"], { opacity: 0 }, 0);
-          tl.set(nits, { opacity: 0 }, 0);
-          bees.forEach((b) => tl.set(b.g, { opacity: 0, x: b.home + b.ox, y: CY + b.oy }, 0));
+          // cámara lenta
+          tl.fromTo("#s3-cam", { scale: 1, transformOrigin: "50% 62%" }, { scale: 1.045, duration: DUR, ease: "sine.inOut" }, 0);
+
+          tl.fromTo("#s3-eyebrow", { opacity: 0, x: -60, rotation: -6 }, { opacity: 1, x: 0, rotation: -1.5, duration: 0.5, ease: "back.out(2)" }, 0.1);
+          tl.fromTo(titleWords, { opacity: 0, y: 90, rotation: 7 }, { opacity: 1, y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.8)", stagger: 0.1 }, 0.2);
+          tl.fromTo("#s3-note", { opacity: 0, x: 80, rotation: 6 }, { opacity: 1, x: 0, rotation: 1.6, duration: 0.5, ease: "back.out(1.8)" }, 0.8);
+          tl.fromTo("#s3-lot", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.7, ease: "back.out(1.4)" }, 0.3);
+          tl.fromTo(".s3-chip", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.8)", stagger: 0.12 }, 0.8);
+
+          tl.set(["#s3-cap2", "#s3-cap3", "#s3-year2"], { opacity: 0 }, 0);
 
           // FASE 1  1 - 6.5  captación
-          tl.to("#s3-c1 .s3-chip-fill", { opacity: 1, duration: 0.4 }, 1.2);
-          tl.fromTo("#s3-cap1", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.2);
+          tl.to("#s3-c1 .s3-chip-fill", { opacity: 1, duration: 0.3 }, 1.2);
+          tl.fromTo("#s3-cap1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.2);
           islands.forEach((isl, i) => {
-            tl.fromTo(isl.g, { scale: 0, svgOrigin: isl.x + " " + CY }, { scale: 1, svgOrigin: isl.x + " " + CY, duration: 0.8, ease: "back.out(1.5)" }, 1.4 + i * 0.25);
-            tl.fromTo(isl.flowers, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.4, ease: "back.out(2.5)", stagger: 0.06 }, 2.0 + i * 0.25);
-          });
-          bees.forEach((b, i) => {
-            tl.to(b.g, { opacity: 1, duration: 0.3 }, 3.0 + i * 0.07);
-            tl.to(b.g, { x: b.home - b.ox * 0.5, y: CY - b.oy * 0.5, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.0 + i * 0.07);
+            tl.fromTo(isl.inner, { scale: 0, svgOrigin: isl.x + " " + CY }, { scale: 1, svgOrigin: isl.x + " " + CY, duration: 0.7, ease: "back.out(1.8)" }, 1.3 + i * 0.25);
           });
 
           // FASE 2  6.5 - 13.5  desborde
-          tl.to("#s3-c1 .s3-chip-fill", { opacity: 0, duration: 0.3 }, 6.5);
-          tl.to("#s3-c2 .s3-chip-fill", { opacity: 1, duration: 0.4 }, 6.6);
-          tl.to("#s3-cap1", { opacity: 0, duration: 0.3 }, 6.5);
-          tl.to("#s3-cap2", { opacity: 1, duration: 0.4 }, 6.7);
-          tl.to(crops, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", stagger: { each: 0.018, from: "center", grid: [8, 30] } }, 6.8);
-          bees.forEach((b, i) => {
-            const tx = 200 + ((i * 119) % 1500);
-            const ty = 350 + ((i * 83) % 460);
-            tl.to(b.g, { x: tx, y: ty, duration: 2.6, ease: "power2.inOut" }, 7.4 + i * 0.08);
-            tl.to(b.g, { x: tx + 60, y: ty - 30, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 3 }, 10.2 + i * 0.05);
-          });
-          islands.forEach((isl) => {
-            tl.to(isl.flowers, { opacity: 0.35, duration: 1.4, stagger: 0.04 }, 8.0);
+          tl.to("#s3-c1 .s3-chip-fill", { opacity: 0, duration: 0.2 }, 6.5);
+          tl.to("#s3-c2 .s3-chip-fill", { opacity: 1, duration: 0.3 }, 6.6);
+          tl.to("#s3-cap1", { opacity: 0, duration: 0.2 }, 6.5);
+          tl.to("#s3-cap2", { opacity: 1, duration: 0.3 }, 6.7);
+          ["#s3-m0", "#s3-m1", "#s3-m2"].forEach((id, i) => {
+            tl.fromTo(id, { attr: { r: 0 } }, { attr: { r: 540 }, duration: 5.2, ease: "power2.out" }, 7.0 + i * 0.2);
           });
 
           // FASE 3  13.5 - 20  rotación
-          tl.to("#s3-c2 .s3-chip-fill", { opacity: 0, duration: 0.3 }, 13.5);
-          tl.to("#s3-c3 .s3-chip-fill", { opacity: 1, duration: 0.4 }, 13.6);
-          tl.to("#s3-cap2", { opacity: 0, duration: 0.3 }, 13.5);
-          tl.to("#s3-cap3", { opacity: 1, duration: 0.4 }, 13.7);
-          bees.forEach((b) => tl.to(b.g, { opacity: 0.0, duration: 0.6 }, 13.6));
+          tl.to("#s3-c2 .s3-chip-fill", { opacity: 0, duration: 0.2 }, 13.5);
+          tl.to("#s3-c3 .s3-chip-fill", { opacity: 1, duration: 0.3 }, 13.6);
+          tl.to("#s3-cap2", { opacity: 0, duration: 0.2 }, 13.5);
+          tl.to("#s3-cap3", { opacity: 1, duration: 0.3 }, 13.7);
+          tl.to("#s3-year1", { opacity: 0, duration: 0.2 }, 13.5);
+          tl.to("#s3-year2", { opacity: 1, duration: 0.3 }, 13.7);
+          rich.forEach((r, i) => tl.to(r, { opacity: 1, duration: 0.8, ease: "power2.out" }, 14.3 + i * 0.15));
           islands.forEach((isl, i) => {
-            tl.to(isl.g, { x: 230, duration: 1.8, ease: "power2.inOut" }, 14.2 + i * 0.2);
-            tl.to(isl.flowers, { opacity: 1, duration: 0.8 }, 15.8);
-          });
-          nits.forEach((n, i) => {
-            tl.fromTo(n, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: "back.out(2)" }, 15.4 + i * 0.25);
-            tl.to(n, { y: -22, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 2 }, 16.2 + i * 0.25);
+            tl.to(isl.outer, { x: SHIFT, duration: 2.0, ease: "power2.inOut" }, 14.4 + i * 0.2);
           });
 
           window.__timelines["s3-islas"] = tl;

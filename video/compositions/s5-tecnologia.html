@@ -6,13 +6,49 @@
   <body>
     <template>
       <style>
+        @font-face {
+          font-family: "Bangers";
+          src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+        }
+        @font-face {
+          font-family: "Permanent Marker";
+          src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #f4ebd0;
-          font-family: "IBM Plex Mono", monospace;
-          color: #283618;
+          background: #2b1d5e;
+          font-family: "Permanent Marker", cursive;
+          color: #fff1d6;
+        }
+        #s5-cam {
+          position: absolute;
+          inset: 0;
+          filter: url(#boil);
+        }
+        .ht {
+          position: absolute;
+          pointer-events: none;
+          background-image: radial-gradient(circle, rgba(25, 195, 230, 0.4) 3.4px, transparent 3.8px);
+          background-size: 20px 20px;
+        }
+        #s5-ht1 {
+          right: 0;
+          bottom: 0;
+          width: 1100px;
+          height: 700px;
+          -webkit-mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 70%);
+          mask-image: radial-gradient(circle at 100% 100%, #000 0%, transparent 70%);
+        }
+        .cap {
+          position: absolute;
+          background: #ffd23f;
+          border: 6px solid #17132b;
+          box-shadow: 9px 9px 0 #17132b;
+          padding: 10px 22px 8px;
+          letter-spacing: 0.02em;
+          color: #17132b;
         }
         #s5-vis {
           position: absolute;
@@ -20,317 +56,428 @@
           top: 90px;
           width: 950px;
           height: 900px;
-          border: 5px solid #283618;
-          border-radius: 12px;
-          background: #ede1bd;
+          border: 9px solid #17132b;
+          border-radius: 6px;
+          background: #7fe3f5;
           overflow: hidden;
+          box-shadow: 16px 16px 0 #19c3e6;
         }
         #s5-vis svg {
           position: absolute;
           left: 0;
           top: 0;
-          width: 940px;
-          height: 890px;
+          width: 932px;
+          height: 882px;
         }
         #s5-eyebrow {
-          position: absolute;
           left: 1110px;
-          top: 90px;
-          font-size: 28px;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          color: #588157;
+          top: 80px;
+          font-size: 30px;
+          text-transform: uppercase;
+          transform: rotate(-1.5deg);
         }
         .s5-h {
           position: absolute;
           left: 1110px;
-          top: 230px;
-          width: 720px;
-          font-family: "Archivo Black", sans-serif;
-          font-size: 96px;
-          line-height: 1.02;
-          letter-spacing: -0.03em;
+          top: 190px;
+          width: 740px;
+          font-family: "Bangers", sans-serif;
+          font-size: 164px;
+          line-height: 0.94;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          color: #fff1d6;
+          -webkit-text-stroke: 9px #17132b;
+          paint-order: stroke fill;
+          text-shadow: 8px 8px 0 #ff3d8b;
         }
         .s5-h .hl {
-          color: #588157;
+          color: #ffd23f;
+        }
+        .s5-h .w {
+          transform-origin: 0 100%;
+          margin-right: 0.16em;
         }
         .s5-sub {
-          position: absolute;
           left: 1110px;
-          top: 700px;
+          top: 720px;
           width: 700px;
-          font-size: 34px;
-          line-height: 1.4;
+          font-size: 31px;
+          line-height: 1.28;
+          background: #fff1d6;
         }
-        #s5-progress {
+        #s5-dots {
           position: absolute;
           left: 1110px;
-          bottom: 90px;
-          width: 720px;
-          height: 8px;
-          background: rgba(40, 54, 24, 0.18);
-        }
-        #s5-progress-fill {
-          width: 100%;
-          height: 100%;
-          background: #588157;
-          transform-origin: 0 50%;
+          bottom: 60px;
+          width: 300px;
+          height: 80px;
         }
         .s5-lbl {
-          font-family: "IBM Plex Mono", monospace;
-          font-weight: 700;
-          font-size: 26px;
-          fill: #283618;
+          font-family: "Permanent Marker", cursive;
+          font-size: 25px;
+          fill: #17132b;
         }
       </style>
 
-      <div data-hf-id="hf-r66z" id="root" data-composition-id="s5-tecnologia" data-width="1920" data-height="1080">
-        <div data-hf-id="hf-661v" id="s5-eyebrow">03 · LA TECNOLOGÍA</div>
+      <div id="root" data-composition-id="s5-tecnologia" data-width="1920" data-height="1080">
+        <div id="s5-cam">
+          <div id="s5-ht1" class="ht"></div>
+          <div id="s5-eyebrow" class="cap">03 · La tecnología</div>
 
-        <h2 data-hf-id="hf-01u6" id="s5-ha" class="s5-h"><span data-hf-id="hf-qbif" class="hl">PolliNode</span></h2>
-        <p data-hf-id="hf-4ynm" id="s5-suba" class="s5-sub">Un nodo solar de bajo costo que mira y escucha el lote, conectado por LoRaWAN, sin depender de la señal 4G.</p>
-        <h2 data-hf-id="hf-ez5t" id="s5-hb" class="s5-h">Ve y <span data-hf-id="hf-w8od" class="hl">escucha</span>.</h2>
-        <p data-hf-id="hf-qo52" id="s5-subb" class="s5-sub">Cámara y micrófono identifican qué polinizadores visitan cada zona, y distinguen a las plagas.</p>
-        <h2 data-hf-id="hf-b4ah" id="s5-hc" class="s5-h">Y decide dónde <span data-hf-id="hf-nssj" class="hl">sembrar</span>.</h2>
-        <p data-hf-id="hf-6yxu" id="s5-subc" class="s5-sub">El modelo arma un mapa de calor, detecta las zonas muertas y marca dónde va la próxima isla.</p>
-        <div data-hf-id="hf-d58f" id="s5-progress"><div data-hf-id="hf-7o57" id="s5-progress-fill"></div></div>
+          <h2 id="s5-ha" class="s5-h"><span class="hl">PolliNode</span></h2>
+          <p id="s5-suba" class="s5-sub cap">Un nodo solar de bajo costo que mira y escucha el lote, conectado por LoRaWAN, sin depender de la señal 4G.</p>
+          <h2 id="s5-hb" class="s5-h">Ve y <span class="hl">escucha</span>.</h2>
+          <p id="s5-subb" class="s5-sub cap">Cámara y micrófono identifican qué polinizadores visitan cada zona, y distinguen a las plagas.</p>
+          <h2 id="s5-hc" class="s5-h">Y decide dónde <span class="hl">sembrar</span>.</h2>
+          <p id="s5-subc" class="s5-sub cap">El modelo arma un mapa de calor, detecta las zonas muertas y marca dónde va la próxima isla.</p>
 
-        <div data-hf-id="hf-9sv0" id="s5-vis">
-          <!-- A: el nodo -->
-          <svg data-hf-id="hf-hex3" id="s5-va" viewBox="0 0 940 890">
-            <rect data-hf-id="hf-na3l" x="0" y="770" width="940" height="120" fill="#a3b18a" />
-            <rect data-hf-id="hf-x0de" x="0" y="770" width="940" height="8" fill="#283618" />
-            <rect data-hf-id="hf-urqi" id="s5-pole" x="455" y="300" width="20" height="478" fill="#283618" />
-            <g data-hf-id="hf-vhx3" transform="translate(465 290)">
-              <g data-hf-id="hf-8f6z" id="s5-solar">
-                <g data-hf-id="hf-g65y" transform="rotate(-18)">
-                  <rect data-hf-id="hf-hobg" x="-180" y="-16" width="360" height="32" rx="4" fill="#354f52" stroke="#283618" stroke-width="5" />
-                  <line data-hf-id="hf-ngdf" x1="-120" y1="-16" x2="-120" y2="16" stroke="#84a98c" stroke-width="3" />
-                  <line data-hf-id="hf-rhiz" x1="-60" y1="-16" x2="-60" y2="16" stroke="#84a98c" stroke-width="3" />
-                  <line data-hf-id="hf-ix05" x1="0" y1="-16" x2="0" y2="16" stroke="#84a98c" stroke-width="3" />
-                  <line data-hf-id="hf-cu97" x1="60" y1="-16" x2="60" y2="16" stroke="#84a98c" stroke-width="3" />
-                  <line data-hf-id="hf-asfv" x1="120" y1="-16" x2="120" y2="16" stroke="#84a98c" stroke-width="3" />
+          <svg id="s5-dots" viewBox="0 0 300 80">
+            <g transform="translate(40 40)"><polygon id="s5-dot-a" points="34,0 17,29.4 -17,29.4 -34,0 -17,-29.4 17,-29.4" fill="#ff3d8b" stroke="#17132b" stroke-width="6" stroke-linejoin="round" /></g>
+            <g transform="translate(150 40)"><polygon id="s5-dot-b" points="34,0 17,29.4 -17,29.4 -34,0 -17,-29.4 17,-29.4" fill="#fff1d6" stroke="#17132b" stroke-width="6" stroke-linejoin="round" /></g>
+            <g transform="translate(260 40)"><polygon id="s5-dot-c" points="34,0 17,29.4 -17,29.4 -34,0 -17,-29.4 17,-29.4" fill="#fff1d6" stroke="#17132b" stroke-width="6" stroke-linejoin="round" /></g>
+          </svg>
+
+          <div id="s5-vis">
+            <!-- A: el nodo -->
+            <svg id="s5-va" viewBox="0 0 932 882">
+              <g id="s5-clouds"></g>
+              <g id="s5-sun" transform="translate(120 130)">
+                <g id="s5-sun-rays" stroke="#17132b" stroke-width="8" stroke-linecap="round"></g>
+                <circle cx="0" cy="0" r="40" fill="#ffd23f" stroke="#17132b" stroke-width="8" />
+              </g>
+              <rect x="0" y="770" width="932" height="120" fill="#3a2a82" />
+              <rect x="0" y="770" width="932" height="120" fill="url(#ht-mag)" opacity="0.35" />
+              <rect x="0" y="766" width="932" height="10" fill="#17132b" />
+              <g id="s5-grass"></g>
+              <g id="s5-gflowers"></g>
+              <rect id="s5-pole" x="455" y="300" width="22" height="478" fill="#17132b" />
+              <g transform="translate(465 290)">
+                <g id="s5-solar">
+                  <g transform="rotate(-18)">
+                    <rect x="-180" y="-18" width="360" height="36" rx="4" fill="#17132b" transform="translate(8 8)" />
+                    <rect x="-180" y="-18" width="360" height="36" rx="4" fill="#6c3df4" stroke="#17132b" stroke-width="7" />
+                    <line x1="-120" y1="-18" x2="-120" y2="18" stroke="#7fe3f5" stroke-width="4" />
+                    <line x1="-60" y1="-18" x2="-60" y2="18" stroke="#7fe3f5" stroke-width="4" />
+                    <line x1="0" y1="-18" x2="0" y2="18" stroke="#7fe3f5" stroke-width="4" />
+                    <line x1="60" y1="-18" x2="60" y2="18" stroke="#7fe3f5" stroke-width="4" />
+                    <line x1="120" y1="-18" x2="120" y2="18" stroke="#7fe3f5" stroke-width="4" />
+                    <rect id="s5-glint" x="-180" y="-18" width="46" height="36" rx="4" fill="rgba(255,255,255,0.7)" />
+                  </g>
                 </g>
               </g>
-            </g>
-            <g data-hf-id="hf-nmot" id="s5-cam">
-              <rect data-hf-id="hf-nowp" x="420" y="400" width="90" height="64" rx="10" fill="#dda15e" stroke="#283618" stroke-width="5" />
-              <circle data-hf-id="hf-snxb" cx="465" cy="432" r="19" fill="#283618" />
-              <circle data-hf-id="hf-na6x" cx="465" cy="432" r="8" fill="#a7c957" />
-            </g>
-            <g data-hf-id="hf-1uux" id="s5-mic">
-              <rect data-hf-id="hf-2pnu" x="375" y="520" width="32" height="64" rx="14" fill="#f4ebd0" stroke="#283618" stroke-width="5" />
-              <line data-hf-id="hf-66q0" x1="383" y1="538" x2="399" y2="538" stroke="#283618" stroke-width="3" />
-              <line data-hf-id="hf-2xk8" x1="383" y1="552" x2="399" y2="552" stroke="#283618" stroke-width="3" />
-            </g>
-            <g data-hf-id="hf-djes" id="s5-clima">
-              <rect data-hf-id="hf-w8bh" x="525" y="520" width="76" height="54" rx="8" fill="#f4ebd0" stroke="#283618" stroke-width="5" />
-              <circle data-hf-id="hf-v4qm" cx="548" cy="547" r="9" fill="#bc4749" />
-              <rect data-hf-id="hf-5hqd" x="568" y="533" width="18" height="28" rx="4" fill="#588157" />
-            </g>
-            <g data-hf-id="hf-y3k9" id="s5-lora" fill="none" stroke="#283618" stroke-width="7" stroke-linecap="round">
-              <path data-hf-id="hf-5kla" d="M 645 215 A 50 50 0 0 1 645 285" />
-              <path data-hf-id="hf-kasa" d="M 674 186 A 90 90 0 0 1 674 314" />
-              <path data-hf-id="hf-9bfc" d="M 702 158 A 130 130 0 0 1 702 342" />
-            </g>
-            <circle data-hf-id="hf-gveq" cx="610" cy="250" r="10" fill="#283618" />
-
-            <g data-hf-id="hf-th47" id="s5-callouts">
-              <g data-hf-id="hf-twdv" id="s5-co1"><line data-hf-id="hf-hfcw" x1="270" y1="262" x2="320" y2="278" stroke="#283618" stroke-width="3" /><text data-hf-id="hf-enqq" class="s5-lbl" x="30" y="268">PANEL SOLAR</text></g>
-              <g data-hf-id="hf-j0w8" id="s5-co2"><line data-hf-id="hf-ul3u" x1="330" y1="432" x2="418" y2="432" stroke="#283618" stroke-width="3" /><text data-hf-id="hf-qmar" class="s5-lbl" x="30" y="410">CÁMARA</text><text data-hf-id="hf-dwct" class="s5-lbl" x="30" y="440">UV / MACRO</text></g>
-              <g data-hf-id="hf-jsk1" id="s5-co3"><line data-hf-id="hf-f4xx" x1="300" y1="552" x2="373" y2="552" stroke="#283618" stroke-width="3" /><text data-hf-id="hf-hdvr" class="s5-lbl" x="30" y="558">MICRÓFONO</text></g>
-              <g data-hf-id="hf-b4o6" id="s5-co4"><line data-hf-id="hf-jxng" x1="603" y1="548" x2="668" y2="548" stroke="#283618" stroke-width="3" /><text data-hf-id="hf-ns0o" class="s5-lbl" x="676" y="542">MICRO</text><text data-hf-id="hf-51az" class="s5-lbl" x="676" y="572">CLIMA</text></g>
-              <g data-hf-id="hf-f2s7" id="s5-co5"><text data-hf-id="hf-4yhq" class="s5-lbl" x="742" y="256">LoRaWAN</text></g>
-            </g>
-          </svg>
-
-          <!-- B: visión + bioacústica -->
-          <svg data-hf-id="hf-h664" id="s5-vb" viewBox="0 0 940 890">
-            <text data-hf-id="hf-wv2v" class="s5-lbl" x="40" y="58" letter-spacing="3">VISIÓN ARTIFICIAL</text>
-            <rect data-hf-id="hf-z5f0" x="40" y="76" width="860" height="360" rx="10" fill="#a3b18a" stroke="#283618" stroke-width="5" />
-            <g data-hf-id="hf-9d3m" id="s5-v-flower">
-              <line data-hf-id="hf-syfu" x1="200" y1="436" x2="200" y2="290" stroke="#283618" stroke-width="8" />
-              <circle data-hf-id="hf-r5d5" cx="200" cy="260" r="40" fill="#f4ebd0" stroke="#283618" stroke-width="5" />
-              <circle data-hf-id="hf-fe1a" cx="200" cy="260" r="16" fill="#dda15e" />
-              <circle data-hf-id="hf-4n9f" cx="150" cy="270" r="22" fill="#f4ebd0" stroke="#283618" stroke-width="4" />
-              <circle data-hf-id="hf-3vvm" cx="250" cy="270" r="22" fill="#f4ebd0" stroke="#283618" stroke-width="4" />
-            </g>
-            <g data-hf-id="hf-rimf" id="s5-v-bee" transform="translate(470 230)">
-              <g data-hf-id="hf-tror" id="s5-v-bee-in">
-                <ellipse data-hf-id="hf-fnko" cx="-8" cy="-26" rx="30" ry="16" fill="#f4ebd0" stroke="#283618" stroke-width="4" />
-                <ellipse data-hf-id="hf-nmuu" cx="14" cy="-28" rx="28" ry="15" fill="#f4ebd0" stroke="#283618" stroke-width="4" />
-                <ellipse data-hf-id="hf-pugd" cx="0" cy="0" rx="46" ry="30" fill="#dda15e" stroke="#283618" stroke-width="5" />
-                <rect data-hf-id="hf-0uk3" x="-16" y="-27" width="12" height="54" fill="#283618" />
-                <rect data-hf-id="hf-rvc0" x="8" y="-26" width="12" height="52" fill="#283618" />
-                <circle data-hf-id="hf-r1ik" cx="-52" cy="-4" r="15" fill="#283618" />
+              <g id="s5-cam-node">
+                <rect x="420" y="400" width="90" height="64" rx="10" fill="#17132b" transform="translate(7 7)" />
+                <rect x="420" y="400" width="90" height="64" rx="10" fill="#ffd23f" stroke="#17132b" stroke-width="7" />
+                <circle cx="465" cy="432" r="20" fill="#17132b" />
+                <circle id="s5-lens" cx="465" cy="432" r="9" fill="#19c3e6" />
+                <circle id="s5-led" cx="498" cy="412" r="5" fill="#ff3d8b" />
               </g>
-            </g>
-            <g data-hf-id="hf-fqi5" id="s5-v-box1" fill="none" stroke="#588157" stroke-width="7" stroke-linecap="square">
-              <path data-hf-id="hf-r8t1" d="M 394 164 L 394 190 M 394 164 L 420 164" />
-              <path data-hf-id="hf-3z53" d="M 546 164 L 546 190 M 546 164 L 520 164" />
-              <path data-hf-id="hf-he3g" d="M 394 296 L 394 270 M 394 296 L 420 296" />
-              <path data-hf-id="hf-w9tq" d="M 546 296 L 546 270 M 546 296 L 520 296" />
-            </g>
-            <g data-hf-id="hf-kqi2" id="s5-v-tag1"><rect data-hf-id="hf-ben0" x="394" y="116" width="128" height="40" fill="#588157" /><text data-hf-id="hf-r5zy" x="406" y="145" font-family="IBM Plex Mono" font-weight="700" font-size="26" fill="#f4ebd0">ABEJA</text></g>
-            <g data-hf-id="hf-08k8" id="s5-v-pest" transform="translate(740 330)">
-              <g data-hf-id="hf-rsnl" id="s5-v-pest-in">
-                <ellipse data-hf-id="hf-y9kh" cx="0" cy="0" rx="26" ry="14" fill="#344e41" stroke="#283618" stroke-width="4" />
-                <circle data-hf-id="hf-8vh0" cx="-26" cy="-2" r="8" fill="#344e41" />
+              <g id="s5-mic">
+                <rect x="375" y="520" width="34" height="66" rx="15" fill="#fff1d6" stroke="#17132b" stroke-width="7" />
+                <line x1="383" y1="538" x2="401" y2="538" stroke="#17132b" stroke-width="4" />
+                <line x1="383" y1="552" x2="401" y2="552" stroke="#17132b" stroke-width="4" />
               </g>
-            </g>
-            <g data-hf-id="hf-zke0" id="s5-v-box2" fill="none" stroke="#bc4749" stroke-width="6" stroke-linecap="square">
-              <path data-hf-id="hf-he1y" d="M 684 286 L 684 306 M 684 286 L 704 286" />
-              <path data-hf-id="hf-6zgh" d="M 796 286 L 796 306 M 796 286 L 776 286" />
-              <path data-hf-id="hf-wzth" d="M 684 372 L 684 352 M 684 372 L 704 372" />
-              <path data-hf-id="hf-lwzm" d="M 796 372 L 796 352 M 796 372 L 776 372" />
-            </g>
-            <g data-hf-id="hf-eks9" id="s5-v-tag2"><rect data-hf-id="hf-dzgt" x="684" y="242" width="112" height="38" fill="#bc4749" /><text data-hf-id="hf-skum" x="696" y="270" font-family="IBM Plex Mono" font-weight="700" font-size="24" fill="#f4ebd0">PLAGA</text></g>
+              <g id="s5-clima">
+                <rect x="525" y="520" width="76" height="54" rx="8" fill="#fff1d6" stroke="#17132b" stroke-width="7" />
+                <circle cx="548" cy="547" r="10" fill="#ff3d8b" stroke="#17132b" stroke-width="3" />
+                <rect x="568" y="533" width="18" height="28" rx="4" fill="#19c3e6" stroke="#17132b" stroke-width="3" />
+              </g>
+              <g id="s5-lora" fill="none" stroke="#17132b" stroke-width="9" stroke-linecap="round"></g>
+              <circle id="s5-lora-dot" cx="610" cy="250" r="11" fill="#ff3d8b" stroke="#17132b" stroke-width="5" />
+              <g id="s5-beeA"></g>
 
-            <text data-hf-id="hf-2jfj" class="s5-lbl" x="40" y="500" letter-spacing="3">BIOACÚSTICA</text>
-            <rect data-hf-id="hf-doso" x="40" y="518" width="860" height="270" rx="10" fill="#f4ebd0" stroke="#283618" stroke-width="5" />
-            <g data-hf-id="hf-2x7i" id="s5-bars"></g>
-            <text data-hf-id="hf-t06k" class="s5-lbl" x="62" y="824">ZUMBIDO DE ALAS</text>
-            <text data-hf-id="hf-0zad" class="s5-lbl" x="500" y="824" fill="#588157">→ FAMILIA DE INSECTO</text>
-          </svg>
+              <g id="s5-callouts">
+                <g id="s5-co1"><rect x="22" y="236" width="244" height="44" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><line x1="266" y1="262" x2="320" y2="278" stroke="#17132b" stroke-width="5" /><text class="s5-lbl" x="34" y="268">PANEL SOLAR</text></g>
+                <g id="s5-co2"><rect x="22" y="380" width="262" height="76" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><line x1="284" y1="432" x2="418" y2="432" stroke="#17132b" stroke-width="5" /><text class="s5-lbl" x="34" y="410">CÁMARA</text><text class="s5-lbl" x="34" y="442">UV / MACRO</text></g>
+                <g id="s5-co3"><rect x="22" y="528" width="244" height="44" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><line x1="266" y1="552" x2="373" y2="552" stroke="#17132b" stroke-width="5" /><text class="s5-lbl" x="34" y="560">MICRÓFONO</text></g>
+                <g id="s5-co4"><rect x="672" y="520" width="150" height="76" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><line x1="603" y1="548" x2="672" y2="548" stroke="#17132b" stroke-width="5" /><text class="s5-lbl" x="684" y="550">MICRO</text><text class="s5-lbl" x="684" y="582">CLIMA</text></g>
+                <g id="s5-co5"><rect x="738" y="222" width="150" height="44" fill="#fff1d6" stroke="#17132b" stroke-width="5" /><text class="s5-lbl" x="750" y="254">LoRaWAN</text></g>
+              </g>
+            </svg>
 
-          <!-- C: mapa de calor -->
-          <svg data-hf-id="hf-niw1" id="s5-vc" viewBox="0 0 940 890">
-            <text data-hf-id="hf-nkf5" class="s5-lbl" x="40" y="62" letter-spacing="3">MAPA DE POLINIZACIÓN</text>
-            <g data-hf-id="hf-70cu" id="s5-heat"></g>
-            <rect data-hf-id="hf-vaw1" x="40" y="86" width="864" height="486" fill="none" stroke="#283618" stroke-width="5" />
-            <g data-hf-id="hf-r904" id="s5-pins"></g>
-            <g data-hf-id="hf-ghi3" id="s5-legend">
-              <rect data-hf-id="hf-wbyy" x="40" y="598" width="40" height="26" fill="#588157" stroke="#283618" stroke-width="3" />
-              <text data-hf-id="hf-uoqt" class="s5-lbl" x="92" y="620">ALTA</text>
-              <rect data-hf-id="hf-lpv4" x="220" y="598" width="40" height="26" fill="#dda15e" stroke="#283618" stroke-width="3" />
-              <text data-hf-id="hf-ipqd" class="s5-lbl" x="272" y="620">MEDIA</text>
-              <rect data-hf-id="hf-a69s" x="430" y="598" width="40" height="26" fill="#bc4749" stroke="#283618" stroke-width="3" />
-              <text data-hf-id="hf-ywf8" class="s5-lbl" x="482" y="620">ZONA MUERTA</text>
-            </g>
-            <g data-hf-id="hf-ohmi" id="s5-chat">
-              <rect data-hf-id="hf-yf4t" x="40" y="670" width="860" height="170" rx="22" fill="#f4ebd0" stroke="#283618" stroke-width="5" />
-              <circle data-hf-id="hf-d52q" cx="108" cy="755" r="34" fill="#588157" stroke="#283618" stroke-width="4" />
-              <path data-hf-id="hf-4ixd" d="M 92 756 L 104 768 L 126 742" fill="none" stroke="#f4ebd0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-              <text data-hf-id="hf-11cw" x="170" y="742" font-family="IBM Plex Mono" font-weight="700" font-size="30" fill="#283618">Sembrá la próxima isla</text>
-              <text data-hf-id="hf-fduz" x="170" y="786" font-family="IBM Plex Mono" font-weight="400" font-size="30" fill="#283618">en los puntos marcados.</text>
-            </g>
-          </svg>
+            <!-- B: visión + bioacústica -->
+            <svg id="s5-vb" viewBox="0 0 932 882">
+              <defs>
+                <clipPath id="s5-clip-vis"><rect x="40" y="76" width="852" height="360" rx="8" /></clipPath>
+              </defs>
+              <rect width="932" height="882" fill="#fff1d6" />
+              <text class="s5-lbl" x="40" y="58" letter-spacing="3" style="font-size:30px">VISIÓN ARTIFICIAL</text>
+              <rect x="40" y="76" width="852" height="360" rx="8" fill="#ffd23f" />
+              <g clip-path="url(#s5-clip-vis)">
+                <rect x="40" y="76" width="852" height="360" fill="url(#ht-white)" opacity="0.5" />
+                <g id="s5-v-field"></g>
+                <g id="s5-v-flowers"></g>
+                <g id="s5-v-beeholder"></g>
+                <g id="s5-v-box1" fill="none" stroke="#17132b" stroke-width="9" stroke-linecap="square">
+                  <path d="M -80 -66 L -80 -38 M -80 -66 L -52 -66" />
+                  <path d="M 80 -66 L 80 -38 M 80 -66 L 52 -66" />
+                  <path d="M -80 66 L -80 38 M -80 66 L -52 66" />
+                  <path d="M 80 66 L 80 38 M 80 66 L 52 66" />
+                  <rect x="-80" y="-118" width="150" height="46" fill="#ff3d8b" stroke="#17132b" stroke-width="5" />
+                  <text x="-68" y="-84" font-family="Bangers" font-size="38" fill="#fff1d6" stroke="none" letter-spacing="2">ABEJA</text>
+                </g>
+                <g id="s5-v-pestholder"></g>
+                <g id="s5-v-box2" fill="none" stroke="#17132b" stroke-width="8" stroke-linecap="square">
+                  <path d="M -58 -40 L -58 -20 M -58 -40 L -38 -40" />
+                  <path d="M 58 -40 L 58 -20 M 58 -40 L 38 -40" />
+                  <path d="M -58 40 L -58 20 M -58 40 L -38 40" />
+                  <path d="M 58 40 L 58 20 M 58 40 L 38 40" />
+                  <rect x="-58" y="-90" width="128" height="44" fill="#19c3e6" stroke="#17132b" stroke-width="5" />
+                  <text x="-46" y="-58" font-family="Bangers" font-size="36" fill="#17132b" stroke="none" letter-spacing="2">PLAGA</text>
+                </g>
+              </g>
+              <rect x="40" y="76" width="852" height="360" rx="8" fill="none" stroke="#17132b" stroke-width="9" />
+
+              <text class="s5-lbl" x="40" y="500" letter-spacing="3" style="font-size:30px">BIOACÚSTICA</text>
+              <rect x="40" y="518" width="852" height="270" rx="8" fill="#2b1d5e" stroke="#17132b" stroke-width="9" />
+              <g id="s5-bars"></g>
+              <rect id="s5-scan" x="60" y="530" width="5" height="246" fill="#ffd23f" />
+              <rect x="40" y="800" width="360" height="52" fill="#fff1d6" stroke="#17132b" stroke-width="5" />
+              <text class="s5-lbl" x="56" y="836">ZUMBIDO DE ALAS</text>
+              <rect x="470" y="800" width="422" height="52" fill="#19c3e6" stroke="#17132b" stroke-width="5" />
+              <text class="s5-lbl" x="486" y="836">→ FAMILIA DE INSECTO</text>
+            </svg>
+
+            <!-- C: mapa de calor -->
+            <svg id="s5-vc" viewBox="0 0 932 882">
+              <rect width="932" height="882" fill="#fff1d6" />
+              <text class="s5-lbl" x="40" y="62" letter-spacing="3" style="font-size:30px">MAPA DE POLINIZACIÓN</text>
+              <g id="s5-heat"></g>
+              <rect id="s5-heat-scan" x="40" y="86" width="7" height="486" fill="#17132b" />
+              <rect x="40" y="86" width="864" height="486" fill="none" stroke="#17132b" stroke-width="9" />
+              <g id="s5-pins"></g>
+              <g id="s5-legend">
+                <rect x="40" y="598" width="40" height="28" fill="#ff3d8b" stroke="#17132b" stroke-width="4" />
+                <text class="s5-lbl" x="92" y="622">ALTA</text>
+                <rect x="220" y="598" width="40" height="28" fill="#ffd23f" stroke="#17132b" stroke-width="4" />
+                <text class="s5-lbl" x="272" y="622">MEDIA</text>
+                <rect x="430" y="598" width="40" height="28" fill="#19c3e6" stroke="#17132b" stroke-width="4" />
+                <text class="s5-lbl" x="482" y="622">ZONA MUERTA</text>
+              </g>
+              <g id="s5-chat">
+                <path d="M 80 670 L 880 670 Q 900 670 900 690 L 900 810 Q 900 830 880 830 L 190 830 L 140 880 L 150 830 L 80 830 Q 60 830 60 810 L 60 690 Q 60 670 80 670 Z" fill="#17132b" transform="translate(9 9)" />
+                <path d="M 80 670 L 880 670 Q 900 670 900 690 L 900 810 Q 900 830 880 830 L 190 830 L 140 880 L 150 830 L 80 830 Q 60 830 60 810 L 60 690 Q 60 670 80 670 Z" fill="#fff1d6" stroke="#17132b" stroke-width="7" stroke-linejoin="round" />
+                <text x="100" y="738" font-family="Bangers" font-size="52" fill="#17132b" letter-spacing="1">¡SEMBRÁ LA PRÓXIMA ISLA</text>
+                <text x="100" y="796" font-family="Bangers" font-size="52" fill="#ff3d8b" stroke="#17132b" stroke-width="2.4" paint-order="stroke" letter-spacing="1">EN LOS PUNTOS MARCADOS!</text>
+              </g>
+              <g id="s5-sfxC"></g>
+            </svg>
+          </div>
         </div>
       </div>
 
       <script>
         (function () {
-          const NS = "http://www.w3.org/2000/svg";
-          const mk = (parent, name, attrs) => {
-            const el = document.createElementNS(NS, name);
-            for (const k in attrs) el.setAttribute(k, attrs[k]);
-            parent.appendChild(el);
-            return el;
-          };
-          let seed = 11;
-          const rnd = () => {
-            seed = (seed * 16807) % 2147483647;
-            return (seed - 1) / 2147483646;
-          };
+          const mk = PN.mk;
+          const DUR = 25;
           const lerp = (a, b, t) => a + (b - a) * t;
           const hex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
           const mix = (c1, c2, t) => {
             const a = hex(c1), b = hex(c2);
             return "rgb(" + a.map((v, i) => Math.round(lerp(v, b[i], t))).join(",") + ")";
           };
-          const heatColor = (v) => (v < 0.5 ? mix("#bc4749", "#dda15e", v / 0.5) : mix("#dda15e", "#588157", (v - 0.5) / 0.5));
+          // frío (zona muerta) → amarillo → magenta (alta polinización)
+          const heatColor = (v) => (v < 0.5 ? mix("#19c3e6", "#ffd23f", v / 0.5) : mix("#ffd23f", "#ff3d8b", (v - 0.5) / 0.5));
+          const $ = (id) => document.getElementById(id);
 
-          // barras de audio
-          const barsG = document.getElementById("s5-bars");
+          const heads = ["#s5-ha", "#s5-hb", "#s5-hc"].map((id) => PN.words(document.querySelector(id)));
+
+          // A: nubes, sol, pasto, flores, arcos LoRa, abeja
+          const cl = $("s5-clouds");
+          [[640, 120, 1], [820, 210, 0.7]].forEach((c) => {
+            const g = mk(cl, "g", { transform: "translate(" + c[0] + " " + c[1] + ") scale(" + c[2] + ")" });
+            mk(g, "path", { d: "M -90 30 Q -110 -10 -60 -14 Q -50 -60 0 -50 Q 40 -80 80 -40 Q 130 -40 120 10 Q 130 34 90 36 Z", fill: "#fff1d6", stroke: "#17132b", "stroke-width": 7, "stroke-linejoin": "round" });
+          });
+          const raysG = $("s5-sun-rays");
+          for (let i = 0; i < 12; i++) {
+            const a = (i / 12) * Math.PI * 2;
+            mk(raysG, "line", { x1: Math.cos(a) * 58, y1: Math.sin(a) * 58, x2: Math.cos(a) * 82, y2: Math.sin(a) * 82 });
+          }
+          const grassG = $("s5-grass");
+          const grnd = PN.rng(7);
+          const blades = [];
+          for (let i = 0; i < 40; i++) {
+            const x = 8 + i * 23.5 + grnd() * 8;
+            const h = 30 + grnd() * 40;
+            const g = mk(grassG, "path", { d: "M " + x + " 780 q -6 " + -h * 0.5 + " 2 " + -h + " q 11 " + h * 0.5 + " 6 " + h + " Z", fill: i % 3 ? "#ff3d8b" : "#ffd23f", stroke: "#17132b", "stroke-width": 4, "stroke-linejoin": "round" });
+            blades.push({ el: g, x: x, k: grnd() * 6.28 });
+          }
+          const gfl = [];
+          [[90, 740], [250, 748], [700, 744], [850, 738], [570, 752]].forEach((p, i) => {
+            mk($("s5-gflowers"), "line", { x1: p[0], y1: p[1], x2: p[0], y2: 780, stroke: "#17132b", "stroke-width": 7, "stroke-linecap": "round" });
+            const f = PN.flower($("s5-gflowers"), p[0], p[1], 26, ["#fff1d6", "#ff3d8b", "#19c3e6", "#ff9ec7", "#ffd23f"][i], "#ffd23f");
+            gfl.push({ f: f, k: i * 1.7 });
+          });
+          const lora = $("s5-lora");
+          const arcs = [0, 1, 2, 3].map(() => mk(lora, "path", { d: "", opacity: 0 }));
+          const beeA = PN.bee($("s5-beeA"), { scale: 1.1 });
+
+          // B: campo de visión, abeja y plaga
+          const vf = $("s5-v-field");
+          for (let i = 0; i < 8; i++) {
+            mk(vf, "line", { x1: 40, y1: 110 + i * 46, x2: 900, y2: 110 + i * 46, stroke: "#17132b", "stroke-width": 3, "stroke-dasharray": "2 22", "stroke-linecap": "round", opacity: 0.4 });
+          }
+          const vfl = [];
+          [[160, 380], [330, 395], [610, 385], [800, 392]].forEach((p, i) => {
+            mk($("s5-v-flowers"), "line", { x1: p[0], y1: p[1], x2: p[0], y2: 440, stroke: "#17132b", "stroke-width": 8, "stroke-linecap": "round" });
+            vfl.push(PN.flower($("s5-v-flowers"), p[0], p[1], 34, ["#fff1d6", "#ff9ec7", "#19c3e6", "#ff7a2f"][i], "#ffd23f"));
+          });
+          const beeV = PN.bee($("s5-v-beeholder"), { scale: 1.4 });
+          const pest = mk($("s5-v-pestholder"), "g", {});
+          mk(pest, "ellipse", { cx: 0, cy: 0, rx: 30, ry: 17, fill: "#6c3df4", stroke: "#17132b", "stroke-width": 5 });
+          mk(pest, "circle", { cx: 28, cy: -2, r: 10, fill: "#17132b" });
+          [[-14, 14], [0, 15], [14, 14]].forEach((p) => mk(pest, "line", { x1: p[0], y1: p[1], x2: p[0] - 5, y2: p[1] + 12, stroke: "#17132b", "stroke-width": 4, "stroke-linecap": "round" }));
+          mk(pest, "line", { x1: 0, y1: -17, x2: 0, y2: 17, stroke: "#17132b", "stroke-width": 3 });
+
+          // B: barras de audio
+          const barsG = $("s5-bars");
+          const NB = 44;
           const bars = [];
-          for (let i = 0; i < 44; i++) {
-            const x = 66 + i * 19;
-            const r = mk(barsG, "rect", { x: x, y: 560, width: 11, height: 180, rx: 4, fill: i % 7 === 3 ? "#bc4749" : "#588157" });
-            bars.push({ el: r, x: x, f: 0.15 + rnd() * 0.85, d: 0.25 + rnd() * 0.35 });
+          for (let i = 0; i < NB; i++) {
+            const x = 74 + i * 18.2;
+            bars.push({ el: mk(barsG, "rect", { x: x, y: 640, width: 11, height: 20, rx: 4, fill: i > 14 && i < 24 ? "#ff3d8b" : "#19c3e6", stroke: "#17132b", "stroke-width": 3 }), i: i });
           }
 
-          // mapa de calor
+          // C: mapa de calor
           const COLS = 16, ROWS = 9, CS = 54, X0 = 40, Y0 = 86;
-          const heatG = document.getElementById("s5-heat");
+          const heatG = $("s5-heat");
           const cells = [];
           for (let r = 0; r < ROWS; r++) {
             for (let c = 0; c < COLS; c++) {
               const edge = Math.min(r, ROWS - 1 - r) / 4;
               let v = 1.05 - 0.95 * Math.pow(c / (COLS - 1), 0.8) + 0.1 * Math.sin(r * 1.7 + c * 0.9) + (1 - edge) * 0.12;
               v = Math.max(0, Math.min(1, v));
-              cells.push(mk(heatG, "rect", { x: X0 + c * CS, y: Y0 + r * CS, width: CS - 2, height: CS - 2, fill: heatColor(v) }));
+              cells.push({ el: mk(heatG, "rect", { x: X0 + c * CS, y: Y0 + r * CS, width: CS - 2, height: CS - 2, fill: heatColor(v), opacity: 0 }), cx: X0 + c * CS + CS / 2, v: v });
             }
           }
-          // pines de próxima isla
-          const pinsG = document.getElementById("s5-pins");
-          const pinAt = [[11, 3], [12, 6]];
-          const pins = pinAt.map((p, i) => {
+          const pinsG = $("s5-pins");
+          const pins = [[11, 3], [12, 6]].map((p) => {
             const cx = X0 + p[0] * CS + CS / 2;
             const cy = Y0 + p[1] * CS + CS / 2;
             const outer = mk(pinsG, "g", { transform: "translate(" + cx + " " + cy + ")" });
             const g = mk(outer, "g", {});
-            mk(g, "circle", { cx: 0, cy: -34, r: 26, fill: "#283618", stroke: "#f4ebd0", "stroke-width": 5 });
-            mk(g, "path", { d: "M -14 -18 L 0 6 L 14 -18 Z", fill: "#283618" });
-            mk(g, "circle", { cx: 0, cy: -34, r: 10, fill: "#a7c957" });
+            mk(g, "circle", { cx: 0, cy: -34, r: 27, fill: "#17132b", stroke: "#fff1d6", "stroke-width": 5 });
+            mk(g, "path", { d: "M -15 -18 L 0 7 L 15 -18 Z", fill: "#17132b" });
+            mk(g, "circle", { cx: 0, cy: -34, r: 11, fill: "#ffd23f" });
             return g;
           });
           const pinLabel = mk(pinsG, "g", {});
-          mk(pinLabel, "rect", { x: 436, y: 112, width: 266, height: 40, fill: "#283618" });
-          const pt = mk(pinLabel, "text", { x: 450, y: 140, "font-family": "IBM Plex Mono", "font-weight": "700", "font-size": 26, fill: "#f4ebd0" });
+          mk(pinLabel, "rect", { x: 436, y: 112, width: 280, height: 46, fill: "#17132b" });
+          const pt = mk(pinLabel, "text", { x: 452, y: 146, "font-family": "Bangers", "font-size": 38, fill: "#ffd23f", "letter-spacing": 2 });
           pt.textContent = "PRÓXIMA ISLA";
+          const popC = PN.sfx($("s5-sfxC"), "¡LISTO!", 800, 360, 150, "#ffd23f", 6);
 
           const tl = gsap.timeline({ paused: true });
-          tl.fromTo("#s5-progress-fill", { scaleX: 0 }, { scaleX: 1, duration: 25, ease: "none" }, 0);
-          tl.fromTo("#s5-eyebrow", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
-          tl.fromTo("#s5-vis", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, 0.1);
+
+          PN.clock(tl, DUR, function (t) {
+            const q = PN.q(t);
+            // A
+            $("s5-sun-rays").setAttribute("transform", "rotate(" + (q * 14).toFixed(1) + ")");
+            blades.forEach((b) => b.el.setAttribute("transform", "rotate(" + (Math.sin(q * 1.5 + b.k) * 5).toFixed(2) + " " + b.x + " 780)"));
+            gfl.forEach((g) => g.f.inner.setAttribute("transform", "rotate(" + (Math.sin(q * 1.4 + g.k) * 9).toFixed(2) + ")"));
+            const gl = ((q * 0.5) % 2) * 440 - 120;
+            $("s5-glint").setAttribute("x", (-180 + Math.max(0, Math.min(310, gl))).toFixed(1));
+            $("s5-glint").setAttribute("opacity", gl > -60 && gl < 330 ? 1 : 0);
+            $("s5-led").setAttribute("opacity", (Math.sin(q * 6) > 0 ? 1 : 0.25).toFixed(2));
+            arcs.forEach((a, k) => {
+              if (q < 3.0) {
+                a.setAttribute("opacity", 0);
+                return;
+              }
+              const ph = ((((q - 3.0) / 1.8 - k / 4) % 1) + 1) % 1;
+              const r = 30 + ph * 120;
+              const x1 = 610 + r * Math.cos(-0.75), y1 = 250 + r * Math.sin(-0.75), x2 = 610 + r * Math.cos(0.75), y2 = 250 + r * Math.sin(0.75);
+              a.setAttribute("d", "M " + x1.toFixed(1) + " " + y1.toFixed(1) + " A " + r.toFixed(1) + " " + r.toFixed(1) + " 0 0 1 " + x2.toFixed(1) + " " + y2.toFixed(1));
+              a.setAttribute("opacity", ((1 - ph) * 0.95).toFixed(2));
+            });
+            const ax = 920 - ((q * 70) % 1100);
+            PN.fly(beeA, ax, 190 + Math.sin(q * 2.2) * 26, -1, Math.cos(q * 2.2) * 0.5, 0.4);
+            beeA.flap(t, 0);
+            // B
+            const bt = q - 8;
+            const bx = 470 + 230 * Math.sin(bt * 0.8);
+            const by = 220 + 44 * Math.sin(bt * 1.6);
+            PN.fly(beeV, bx, by, Math.cos(bt * 0.8) * 230 * 0.8, Math.cos(bt * 1.6) * 44 * 1.6, 0.4);
+            beeV.flap(t, 1);
+            $("s5-v-box1").setAttribute("transform", "translate(" + bx.toFixed(1) + " " + (by + 4).toFixed(1) + ")");
+            const px = 700 + 90 * Math.sin(bt * 0.5);
+            pest.setAttribute("transform", "translate(" + px.toFixed(1) + " 352) scale(" + (Math.cos(bt * 0.5) >= 0 ? 1 : -1) + " 1)");
+            $("s5-v-box2").setAttribute("transform", "translate(" + px.toFixed(1) + " 352)");
+            vfl.forEach((f, i) => f.inner.setAttribute("transform", "rotate(" + (Math.sin(q * 1.2 + i) * 6).toFixed(2) + ")"));
+            bars.forEach((b) => {
+              const env = 0.35 + 0.65 * Math.abs(Math.sin(bt * 0.8));
+              const v = (0.18 + 0.82 * Math.abs(Math.sin(q * 5.1 + b.i * 0.45) * Math.sin(q * 2.3 + b.i * 0.21))) * env;
+              const h = 14 + 190 * v;
+              b.el.setAttribute("height", h.toFixed(1));
+              b.el.setAttribute("y", (650 - h / 2).toFixed(1));
+            });
+            $("s5-scan").setAttribute("x", (66 + ((q * 130) % 820)).toFixed(1));
+            // C
+            const sx = X0 + PN.clamp((q - 16.4) / 2.6, 0, 1) * 864;
+            $("s5-heat-scan").setAttribute("x", (sx - 3).toFixed(1));
+            $("s5-heat-scan").setAttribute("opacity", q > 16.4 && q < 19.2 ? 1 : 0);
+            cells.forEach((c) => {
+              let o = PN.clamp((sx - c.cx) / 50, 0, 1);
+              if (c.v < 0.28 && q > 19.4) o *= 0.88 + 0.12 * Math.sin(q * 5);
+              c.el.setAttribute("opacity", o.toFixed(2));
+            });
+          });
+
+          tl.fromTo("#s5-cam", { scale: 1, transformOrigin: "40% 50%" }, { scale: 1.035, duration: DUR, ease: "sine.inOut" }, 0);
+          tl.fromTo("#s5-eyebrow", { opacity: 0, x: -60, rotation: -6 }, { opacity: 1, x: 0, rotation: -1.5, duration: 0.5, ease: "back.out(2)" }, 0.1);
+          tl.fromTo("#s5-vis", { opacity: 0, x: -120, rotation: -5 }, { opacity: 1, x: 0, rotation: -0.6, duration: 0.7, ease: "back.out(1.5)" }, 0.1);
           tl.set(["#s5-hb", "#s5-subb", "#s5-hc", "#s5-subc", "#s5-vb", "#s5-vc"], { opacity: 0 }, 0);
+          const wordsIn = (arr, at) => tl.fromTo(arr, { opacity: 0, y: 90, rotation: 7 }, { opacity: 1, y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.8)", stagger: 0.09 }, at);
+          const subIn = (id, at) => tl.fromTo(id, { opacity: 0, y: 40, rotation: -3 }, { opacity: 1, y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, at);
 
           // BEAT A  0 - 8  el nodo
-          tl.fromTo("#s5-ha", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.4);
-          tl.fromTo("#s5-suba", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 1.0);
-          tl.fromTo("#s5-pole", { scaleY: 0, svgOrigin: "465 778" }, { scaleY: 1, svgOrigin: "465 778", duration: 0.8, ease: "power3.out" }, 0.5);
-          tl.fromTo("#s5-solar", { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.7, ease: "back.out(1.6)" }, 1.1);
-          tl.fromTo("#s5-cam", { opacity: 0, scale: 0.4, svgOrigin: "465 432" }, { opacity: 1, scale: 1, svgOrigin: "465 432", duration: 0.5, ease: "back.out(2)" }, 1.7);
-          tl.fromTo("#s5-mic", { opacity: 0, scale: 0.4, svgOrigin: "391 552" }, { opacity: 1, scale: 1, svgOrigin: "391 552", duration: 0.5, ease: "back.out(2)" }, 2.1);
-          tl.fromTo("#s5-clima", { opacity: 0, scale: 0.4, svgOrigin: "563 547" }, { opacity: 1, scale: 1, svgOrigin: "563 547", duration: 0.5, ease: "back.out(2)" }, 2.5);
-          tl.fromTo("#s5-lora path", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.25 }, 3.0);
-          tl.to("#s5-lora path", { opacity: 0.25, duration: 0.5, yoyo: true, repeat: 5, stagger: 0.18, ease: "sine.inOut" }, 4.0);
+          wordsIn(heads[0], 0.4);
+          subIn("#s5-suba", 1.0);
+          tl.fromTo("#s5-pole", { scaleY: 0, svgOrigin: "466 778" }, { scaleY: 1, svgOrigin: "466 778", duration: 0.7, ease: "back.out(1.4)" }, 0.5);
+          tl.fromTo("#s5-solar", { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.8)" }, 1.1);
+          tl.fromTo("#s5-cam-node", { opacity: 0, scale: 0.3, svgOrigin: "465 432" }, { opacity: 1, scale: 1, svgOrigin: "465 432", duration: 0.45, ease: "back.out(2.6)" }, 1.7);
+          tl.fromTo("#s5-mic", { opacity: 0, scale: 0.3, svgOrigin: "391 552" }, { opacity: 1, scale: 1, svgOrigin: "391 552", duration: 0.45, ease: "back.out(2.6)" }, 2.1);
+          tl.fromTo("#s5-clima", { opacity: 0, scale: 0.3, svgOrigin: "563 547" }, { opacity: 1, scale: 1, svgOrigin: "563 547", duration: 0.45, ease: "back.out(2.6)" }, 2.5);
+          tl.fromTo("#s5-lora-dot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.8);
           ["#s5-co1", "#s5-co2", "#s5-co3", "#s5-co4", "#s5-co5"].forEach((id, i) => {
-            tl.fromTo(id, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 1.4 + i * 0.4);
+            tl.fromTo(id, { opacity: 0, x: -20, rotation: -3 }, { opacity: 1, x: 0, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 1.4 + i * 0.4);
           });
 
           // salida A
-          tl.to(["#s5-ha", "#s5-suba"], { opacity: 0, y: -30, duration: 0.5, ease: "power2.in" }, 7.5);
-          tl.to("#s5-va", { opacity: 0, duration: 0.5 }, 7.5);
+          tl.to(["#s5-ha", "#s5-suba"], { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 7.6);
+          tl.to("#s5-va", { opacity: 0, duration: 0.4 }, 7.6);
 
           // BEAT B  8 - 16  ve y escucha
-          tl.fromTo("#s5-hb", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 8.0);
-          tl.fromTo("#s5-subb", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 8.7);
-          tl.fromTo("#s5-vb", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 8.0);
-          tl.fromTo("#s5-v-bee-in", { x: -400, opacity: 0 }, { x: 0, opacity: 1, duration: 1.2, ease: "power2.out" }, 8.4);
-          tl.to("#s5-v-bee-in", { y: -12, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, 9.6);
-          tl.fromTo(["#s5-v-box1", "#s5-v-tag1"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 9.8);
-          tl.fromTo("#s5-v-pest-in", { x: 200, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 10.4);
-          tl.fromTo(["#s5-v-box2", "#s5-v-tag2"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 11.2);
-          bars.forEach((b, i) => {
-            tl.fromTo(b.el, { scaleY: 0.08, svgOrigin: (b.x + 5) + " 650" }, { scaleY: b.f, svgOrigin: (b.x + 5) + " 650", duration: b.d, ease: "sine.inOut", yoyo: true, repeat: 11 }, 11.4 + i * 0.02);
-          });
+          tl.to("#s5-vis", { backgroundColor: "#fff1d6", duration: 0.1 }, 8.0);
+          tl.to("#s5-dot-a", { fill: "#fff1d6", duration: 0.2 }, 8.0);
+          tl.to("#s5-dot-b", { fill: "#19c3e6", duration: 0.2 }, 8.0);
+          tl.set("#s5-hb", { opacity: 1 }, 8.0);
+          wordsIn(heads[1], 8.0);
+          subIn("#s5-subb", 8.7);
+          tl.fromTo("#s5-vb", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 8.0);
+          tl.fromTo("#s5-v-box1", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 9.6);
+          tl.fromTo("#s5-v-box2", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 11.0);
 
           // salida B
-          tl.to(["#s5-hb", "#s5-subb"], { opacity: 0, y: -30, duration: 0.5, ease: "power2.in" }, 15.5);
-          tl.to("#s5-vb", { opacity: 0, duration: 0.5 }, 15.5);
+          tl.to(["#s5-hb", "#s5-subb"], { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 15.6);
+          tl.to("#s5-vb", { opacity: 0, duration: 0.4 }, 15.6);
 
           // BEAT C  16 - 25  decide
-          tl.fromTo("#s5-hc", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 16.0);
-          tl.fromTo("#s5-subc", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 16.7);
-          tl.fromTo("#s5-vc", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 16.0);
-          tl.fromTo(cells, { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: { each: 0.012, from: "start", grid: [ROWS, COLS], axis: "x" } }, 16.4);
-          tl.fromTo(["#s5-legend"], { opacity: 0 }, { opacity: 1, duration: 0.5 }, 18.6);
+          tl.to("#s5-dot-b", { fill: "#fff1d6", duration: 0.2 }, 16.0);
+          tl.to("#s5-dot-c", { fill: "#ffd23f", duration: 0.2 }, 16.0);
+          tl.set("#s5-hc", { opacity: 1 }, 16.0);
+          wordsIn(heads[2], 16.0);
+          subIn("#s5-subc", 16.7);
+          tl.fromTo("#s5-vc", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 16.0);
+          tl.fromTo("#s5-legend", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 18.8);
           pins.forEach((p, i) => {
-            tl.fromTo(p, { y: -220, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out" }, 19.4 + i * 0.5);
+            tl.fromTo(p, { y: -220, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "bounce.out" }, 19.8 + i * 0.5);
           });
-          tl.fromTo(pinLabel, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 20.2);
-          tl.fromTo("#s5-chat", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.4)" }, 21.4);
+          tl.fromTo(pinLabel, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(2)" }, 20.6);
+          tl.fromTo("#s5-sfxC", { opacity: 0, scale: 0.2, transformOrigin: "800px 360px" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(3)" }, 20.8);
+          tl.to("#s5-sfxC", { opacity: 0, duration: 0.3 }, 22.4);
+          tl.fromTo("#s5-chat", { opacity: 0, y: 50, scale: 0.9, transformOrigin: "50% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 21.8);
 
           window.__timelines["s5-tecnologia"] = tl;
         })();

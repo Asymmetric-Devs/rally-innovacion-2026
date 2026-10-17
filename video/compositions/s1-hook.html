@@ -6,165 +6,304 @@
   <body>
     <template>
       <style>
+        @font-face {
+          font-family: "Bangers";
+          src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+        }
+        @font-face {
+          font-family: "Permanent Marker";
+          src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #f4ebd0;
-          font-family: "IBM Plex Mono", monospace;
-          color: #283618;
+          background: #ff7a2f;
+          font-family: "Permanent Marker", cursive;
+          color: #17132b;
         }
-        #s1-grid {
+        #s1-cam {
           position: absolute;
           inset: 0;
-          opacity: 0.16;
+          filter: url(#boil);
         }
-        #s1-field {
+        #s1-bg,
+        #s1-world,
+        #s1-fg,
+        #s1-fx {
           position: absolute;
-          inset: 0;
+          left: 0;
+          top: 0;
           width: 1920px;
           height: 1080px;
+        }
+        .ht {
+          position: absolute;
+          pointer-events: none;
+          background-image: radial-gradient(circle, rgba(23, 19, 43, 0.5) 3.4px, transparent 3.8px);
+          background-size: 20px 20px;
+        }
+        #s1-ht1 {
+          left: 0;
+          top: 0;
+          width: 760px;
+          height: 560px;
+          -webkit-mask-image: radial-gradient(circle at 0% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 0% 0%, #000 0%, transparent 72%);
         }
         #s1-title {
           position: absolute;
           left: 90px;
-          bottom: 70px;
+          bottom: 52px;
           width: 1740px;
-          font-family: "Archivo Black", sans-serif;
-          font-size: 80px;
-          line-height: 1.04;
-          letter-spacing: -0.03em;
-          color: #283618;
+          font-family: "Bangers", sans-serif;
+          font-size: 126px;
+          line-height: 0.98;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          color: #fff1d6;
+          -webkit-text-stroke: 9px #17132b;
+          paint-order: stroke fill;
+          text-shadow: 8px 8px 0 #ff3d8b;
         }
-        #s1-title br { display: block; }
-        #s1-title .hl {
-          color: #bc4749;
+        #s1-title .ln {
+          display: block;
+        }
+        #s1-title .w {
+          display: inline-block;
+          margin-right: 0.22em;
+          transform-origin: 0 100%;
+        }
+        #s1-title .hl .w {
+          color: #ffd23f;
+        }
+        .cap {
+          position: absolute;
+          background: #ffd23f;
+          border: 6px solid #17132b;
+          box-shadow: 9px 9px 0 #17132b;
+          padding: 10px 22px 8px;
+          font-size: 30px;
+          line-height: 1.1;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
         }
         #s1-tag {
-          position: absolute;
-          left: 90px;
-          top: 60px;
-          font-size: 26px;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          color: #588157;
+          left: 80px;
+          top: 62px;
+          transform: rotate(-1.6deg);
         }
         #s1-zone-label {
-          position: absolute;
           left: 1010px;
-          top: 596px;
-          width: 340px;
-          font-size: 24px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          color: #8b3536;
-          text-align: center;
+          top: 724px;
+          background: #19c3e6;
+          transform: rotate(1.8deg);
+          font-size: 28px;
         }
       </style>
 
-      <div data-hf-id="hf-hv3x" id="root" data-composition-id="s1-hook" data-width="1920" data-height="1080">
-        <svg data-hf-id="hf-922x" id="s1-grid" viewBox="0 0 1920 1080">
-          <g data-hf-id="hf-x73p" stroke="#283618" stroke-width="2">
-            <line data-hf-id="hf-qp5c" x1="0" y1="180" x2="1920" y2="180" />
-            <line data-hf-id="hf-1vng" x1="0" y1="360" x2="1920" y2="360" />
-            <line data-hf-id="hf-mbk0" x1="0" y1="540" x2="1920" y2="540" />
-            <line data-hf-id="hf-y2w4" x1="0" y1="720" x2="1920" y2="720" />
-            <line data-hf-id="hf-4wrl" x1="320" y1="0" x2="320" y2="1080" />
-            <line data-hf-id="hf-a73r" x1="640" y1="0" x2="640" y2="1080" />
-            <line data-hf-id="hf-4sc1" x1="960" y1="0" x2="960" y2="1080" />
-            <line data-hf-id="hf-41u9" x1="1280" y1="0" x2="1280" y2="1080" />
-            <line data-hf-id="hf-e6ap" x1="1600" y1="0" x2="1600" y2="1080" />
-          </g>
-        </svg>
+      <div id="root" data-composition-id="s1-hook" data-width="1920" data-height="1080">
+        <div id="s1-cam">
+          <svg id="s1-bg" viewBox="0 0 1920 1080">
+            <defs>
+              <clipPath id="s1-sun-clip"><circle cx="1500" cy="250" r="190" /></clipPath>
+            </defs>
+            <rect x="-40" y="-40" width="2000" height="1160" fill="#ff7a2f" />
+            <g id="s1-rays" fill="#ff9a4d"></g>
+            <circle cx="1500" cy="250" r="190" fill="#ffd23f" stroke="#17132b" stroke-width="9" />
+            <g clip-path="url(#s1-sun-clip)"><circle cx="1470" cy="285" r="190" fill="url(#ht-white)" opacity="0.65" /></g>
+            <circle cx="1500" cy="250" r="190" fill="none" stroke="#17132b" stroke-width="9" />
+            <polygon points="-40,770 1960,700 1960,1120 -40,1120" fill="#2b1d5e" stroke="#17132b" stroke-width="9" stroke-linejoin="round" />
+            <polygon points="-40,770 1960,700 1960,800 -40,872" fill="url(#ht-mag)" opacity="0.5" />
+          </svg>
+          <div id="s1-ht1" class="ht"></div>
 
-        <div data-hf-id="hf-mqss" id="s1-tag">RALLY LATINOAMERICANO DE INNOVACIÓN 2026 · DESAFÍO 03</div>
-
-        <svg data-hf-id="hf-zy6v" id="s1-field" viewBox="0 0 1920 1080">
-          <!-- monte nativo -->
-          <g data-hf-id="hf-3j9x" id="s1-monte" fill="#344e41">
-            <circle data-hf-id="hf-awso" cx="150" cy="250" r="92" />
-            <circle data-hf-id="hf-16rw" cx="260" cy="360" r="104" />
-            <circle data-hf-id="hf-jar4" cx="150" cy="470" r="96" />
-            <circle data-hf-id="hf-qfmk" cx="290" cy="560" r="88" />
-            <circle data-hf-id="hf-6vap" cx="170" cy="620" r="70" />
-            <circle data-hf-id="hf-tssb" cx="360" cy="260" r="60" />
-          </g>
-          <!-- lote -->
-          <g data-hf-id="hf-a3i1" id="s1-lot">
-            <rect data-hf-id="hf-zy51" x="480" y="140" width="1360" height="560" rx="10" fill="#a3b18a" />
-            <g data-hf-id="hf-pzuw" id="s1-rows" fill="#8fa876">
-              <rect data-hf-id="hf-4wer" x="480" y="140" width="1360" height="28" />
-              <rect data-hf-id="hf-yzfm" x="480" y="196" width="1360" height="28" />
-              <rect data-hf-id="hf-vm8p" x="480" y="252" width="1360" height="28" />
-              <rect data-hf-id="hf-fw4l" x="480" y="308" width="1360" height="28" />
-              <rect data-hf-id="hf-09in" x="480" y="364" width="1360" height="28" />
-              <rect data-hf-id="hf-1xx8" x="480" y="420" width="1360" height="28" />
-              <rect data-hf-id="hf-xfvx" x="480" y="476" width="1360" height="28" />
-              <rect data-hf-id="hf-5fss" x="480" y="532" width="1360" height="28" />
-              <rect data-hf-id="hf-usnv" x="480" y="588" width="1360" height="28" />
-              <rect data-hf-id="hf-vkhc" x="480" y="644" width="1360" height="28" />
+          <svg id="s1-world" viewBox="0 0 1920 1080">
+            <defs>
+              <clipPath id="s1-clip-dead"><ellipse cx="1180" cy="420" rx="170" ry="138" /></clipPath>
+            </defs>
+            <g id="s1-lot">
+              <rect x="540" y="164" width="1320" height="560" rx="16" fill="url(#ht-ink)" opacity="0.6" />
+              <rect x="520" y="140" width="1320" height="560" rx="16" fill="#3a2a82" />
+              <g id="s1-rows"></g>
+              <g id="s1-dead-plants" clip-path="url(#s1-clip-dead)">
+                <rect x="520" y="140" width="1320" height="560" fill="#3a2a82" />
+                <g id="s1-dead-rows"></g>
+              </g>
+              <rect x="520" y="140" width="1320" height="560" rx="16" fill="none" stroke="#17132b" stroke-width="10" />
             </g>
-            <rect data-hf-id="hf-qnrj" x="480" y="140" width="1360" height="560" rx="10" fill="none" stroke="#283618" stroke-width="5" />
-          </g>
-          <!-- zona muerta -->
-          <circle data-hf-id="hf-jb5l" id="s1-dead" cx="1180" cy="420" r="150" fill="#bc4749" opacity="0" />
-          <circle data-hf-id="hf-1znk" id="s1-dead-ring" cx="1180" cy="420" r="150" fill="none" stroke="#bc4749" stroke-width="6" stroke-dasharray="14 12" opacity="0" />
-          <!-- trayectoria -->
-          <path data-hf-id="hf-6ubn" id="s1-trail" d="M 340 420 C 520 330, 700 520, 900 400" fill="none" stroke="#283618" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round" />
-          <!-- abeja -->
-          <g data-hf-id="hf-nr3s" id="s1-bee">
-            <ellipse data-hf-id="hf-uux2" cx="0" cy="-16" rx="22" ry="12" fill="#f4ebd0" stroke="#283618" stroke-width="3" />
-            <ellipse data-hf-id="hf-yhpe" cx="14" cy="-18" rx="20" ry="11" fill="#f4ebd0" stroke="#283618" stroke-width="3" />
-            <ellipse data-hf-id="hf-q1zo" cx="0" cy="0" rx="30" ry="19" fill="#dda15e" stroke="#283618" stroke-width="4" />
-            <rect data-hf-id="hf-kflw" x="-10" y="-17" width="9" height="34" fill="#283618" />
-            <rect data-hf-id="hf-fu27" x="6" y="-16" width="9" height="32" fill="#283618" />
-            <circle data-hf-id="hf-08ty" cx="-34" cy="-3" r="10" fill="#283618" />
-          </g>
-          <text data-hf-id="hf-vcxr" id="s1-q" x="1180" y="470" text-anchor="middle" font-family="Archivo Black" font-size="150" fill="#f4ebd0" opacity="0">?</text>
-        </svg>
+            <g id="s1-rings" fill="none" stroke="#19c3e6" stroke-width="8"></g>
+            <ellipse id="s1-dead" cx="1180" cy="420" rx="170" ry="138" fill="url(#ht-cyan)" opacity="0" />
+            <ellipse id="s1-dead-ring" cx="1180" cy="420" rx="170" ry="138" fill="none" stroke="#17132b" stroke-width="8" stroke-dasharray="16 14" opacity="0" />
+            <g id="s1-trees"></g>
+            <g id="s1-trail" fill="#17132b" stroke="#fff1d6" stroke-width="2"></g>
+            <ellipse id="s1-bee-shadow" cx="0" cy="0" rx="64" ry="18" fill="url(#ht-ink)" opacity="0" />
+            <g id="s1-bee-holder"></g>
+            <g id="s1-sfx"></g>
+            <g id="s1-qholder"></g>
+          </svg>
 
-        <div data-hf-id="hf-sr0q" id="s1-zone-label">ZONA SIN VISITAS</div>
+          <svg id="s1-fg" viewBox="0 0 1920 1080"></svg>
+          <svg id="s1-fx" viewBox="0 0 1920 1080"></svg>
 
-        <h1 data-hf-id="hf-suoy" id="s1-title">¿Y si el campo pudiera decirte <br data-hf-id="hf-x5px" /><span data-hf-id="hf-3tpm" class="hl">dónde le falta vida</span>?</h1>
+          <div id="s1-tag" class="cap">Rally Latinoamericano de Innovación 2026 · Desafío 03</div>
+          <div id="s1-zone-label" class="cap">Zona sin visitas</div>
+          <h1 id="s1-title"></h1>
+        </div>
       </div>
 
       <script>
         (function () {
-          const tl = gsap.timeline({ paused: true });
-          const trail = document.getElementById("s1-trail");
-          const len = trail.getTotalLength();
-          const pts = [];
-          for (let i = 0; i <= 40; i++) {
-            const p = trail.getPointAtLength((len * i) / 40);
-            pts.push({ x: p.x, y: p.y });
-          }
-          const bee = { t: 0 };
-          const beeEl = document.getElementById("s1-bee");
-          const place = () => {
-            const f = bee.t * 40;
-            const i = Math.min(39, Math.floor(f));
-            const a = pts[i];
-            const b = pts[i + 1];
-            const k = f - i;
-            const x = a.x + (b.x - a.x) * k;
-            const y = a.y + (b.y - a.y) * k + Math.sin(bee.t * 38) * 7;
-            beeEl.setAttribute("transform", "translate(" + x + " " + y + ") scale(-1 1)");
-          };
-          place();
+          const mk = PN.mk;
+          const DUR = 10;
+          const $ = (id) => document.getElementById(id);
 
-          tl.set("#s1-trail", { strokeDasharray: "4 14" }, 0);
-          tl.fromTo("#s1-tag", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, 0.1);
-          tl.fromTo("#s1-lot", { opacity: 0, scale: 0.94, transformOrigin: "1160px 420px" }, { opacity: 1, scale: 1, duration: 1.1, ease: "power2.out" }, 0.2);
-          tl.fromTo("#s1-monte", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 1.0, ease: "power3.out" }, 0.4);
-          tl.fromTo("#s1-bee", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.2);
-          tl.to(bee, { t: 1, duration: 3.6, ease: "sine.inOut", onUpdate: place }, 1.3);
-          tl.to("#s1-bee", { opacity: 0, duration: 0.6, ease: "power1.in" }, 4.7);
-          tl.fromTo("#s1-dead", { opacity: 0, scale: 0.4, transformOrigin: "1180px 420px" }, { opacity: 0.55, scale: 1, duration: 0.9, ease: "back.out(1.6)" }, 4.9);
-          tl.fromTo("#s1-dead-ring", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 5.0);
-          tl.fromTo("#s1-q", { opacity: 0, scale: 0.5, transformOrigin: "1180px 420px" }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)" }, 5.4);
-          tl.fromTo("#s1-zone-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 5.7);
-          tl.to("#s1-dead", { scale: 1.08, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 2, transformOrigin: "1180px 420px" }, 6.0);
-          tl.fromTo("#s1-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 6.6);
+          // título palabra por palabra
+          const title = $("s1-title");
+          const lines = [
+            { cls: "", words: ["¿Y", "si", "el", "campo", "pudiera", "decirte"] },
+            { cls: "hl", words: ["dónde", "le", "falta", "vida?"] },
+          ];
+          const wordEls = [];
+          lines.forEach((l) => {
+            const ln = document.createElement("span");
+            ln.className = "ln " + l.cls;
+            l.words.forEach((w) => {
+              const s = document.createElement("span");
+              s.className = "w";
+              s.textContent = w;
+              ln.appendChild(s);
+              wordEls.push(s);
+            });
+            title.appendChild(ln);
+          });
+
+          // rayos del sol (cómic)
+          const raysG = $("s1-rays");
+          const NR = 22;
+          const rays = [];
+          for (let i = 0; i < NR; i++) rays.push(mk(raysG, "polygon", { points: "0,0 0,0 0,0" }));
+          const setRays = (t) => {
+            const base = PN.q(t) * 0.05;
+            rays.forEach((r, i) => {
+              const a0 = (i / NR) * Math.PI * 2 + base;
+              const a1 = a0 + (Math.PI * 2) / NR / 2;
+              const R = 2300;
+              r.setAttribute("points", "1500,250 " + (1500 + Math.cos(a0) * R).toFixed(0) + "," + (250 + Math.sin(a0) * R).toFixed(0) + " " + (1500 + Math.cos(a1) * R).toFixed(0) + "," + (250 + Math.sin(a1) * R).toFixed(0));
+            });
+          };
+
+          // plantas
+          PN.rows($("s1-rows"), 560, 180, 1810, 670, 50, 34, "#ffd23f", "#fff1d6", 22);
+          PN.rows($("s1-dead-rows"), 560, 180, 1810, 670, 50, 34, "#8c86b8", "#c2bde0", 22);
+
+          // monte nativo
+          const treesG = $("s1-trees");
+          const trees = [
+            [150, 240, 94, 3], [280, 355, 110, 5], [140, 470, 100, 8], [285, 595, 92, 11],
+            [170, 660, 72, 13], [390, 250, 58, 17], [410, 520, 62, 19], [95, 360, 64, 23],
+          ].map((t) => PN.tree(treesG, t[0], t[1], t[2], t[3]));
+
+          // abeja y recorrido
+          const path = "M 340 440 C 480 330, 620 520, 780 410 C 860 352, 930 380, 965 396";
+          const pts = PN.samplePath($("s1-world"), path, 80);
+          const bee = PN.bee($("s1-bee-holder"), { scale: 1.75 });
+          const shadow = $("s1-bee-shadow");
+          const trailG = $("s1-trail");
+          const TN = 30;
+          const dots = [];
+          for (let i = 0; i < TN; i++) {
+            const p = PN.at(pts, i / (TN - 1));
+            dots.push(mk(trailG, "circle", { cx: p.x, cy: p.y, r: 5.5, opacity: 0 }));
+          }
+          const bz = PN.sfx($("s1-sfx"), "BZZZ!", 0, 0, 150, "#ff3d8b", 7);
+          bz.text.setAttribute("fill", "#fff1d6");
+          bz.text.setAttribute("stroke", "#17132b");
+          bz.text.setAttribute("stroke-width", "7");
+          bz.text.setAttribute("paint-order", "stroke");
+
+          // "?" en estallido
+          const qb = PN.sfx($("s1-qholder"), "?", 1180, 420, 250, "#ffd23f", 11);
+          qb.text.setAttribute("font-size", "190");
+          qb.text.setAttribute("y", "62");
+
+          // ondas de la zona muerta
+          const ringsG = $("s1-rings");
+          const rings = [0, 1, 2].map(() => mk(ringsG, "ellipse", { cx: 1180, cy: 420, rx: 0, ry: 0, opacity: 0 }));
+
+          // pasto de primer plano (silueta de tinta con luz cian)
+          const fg = $("s1-fg");
+          const frnd = PN.rng(61);
+          const blades = [];
+          for (let i = 0; i < 48; i++) {
+            const x = -10 + i * 41 + frnd() * 18;
+            const h = 80 + frnd() * 120;
+            const lean = (frnd() - 0.5) * 50;
+            const g = mk(fg, "g", {});
+            mk(g, "path", { d: "M " + (x - 18) + " 1092 Q " + (x - 4) + " " + (1092 - h * 0.6) + " " + (x + lean) + " " + (1092 - h) + " Q " + (x + 12 + lean * 0.3) + " " + (1092 - h * 0.45) + " " + (x + 20) + " 1092 Z", fill: "#17132b" });
+            mk(g, "path", { d: "M " + (x - 16) + " 1090 Q " + (x - 3) + " " + (1090 - h * 0.6) + " " + (x + lean) + " " + (1090 - h), fill: "none", stroke: "#19c3e6", "stroke-width": 4, "stroke-linecap": "round", opacity: 0.9 });
+            blades.push({ g: g, x: x, k: frnd() * 6.28 });
+          }
+          [[1290, 905, "#ff3d8b"], [1480, 895, "#ffd23f"], [1660, 908, "#19c3e6"], [1830, 898, "#ff3d8b"]].forEach((f) => {
+            mk(fg, "line", { x1: f[0], y1: f[1], x2: f[0] + 6, y2: 1090, stroke: "#17132b", "stroke-width": 8, "stroke-linecap": "round" });
+            PN.flower(fg, f[0], f[1], 34, f[2], "#fff1d6");
+          });
+
+          // polen
+          const pollen = PN.pollen($("s1-fx"), 26, 1920, 1080, 5, "#fff1d6");
+
+          const tl = gsap.timeline({ paused: true });
+
+          PN.clock(tl, DUR, function (t) {
+            const q = PN.q(t);
+            setRays(t);
+            blades.forEach((b) => b.g.setAttribute("transform", "rotate(" + (Math.sin(q * 1.3 + b.k) * 3.5).toFixed(2) + " " + b.x + " 1092)"));
+            trees.forEach((tr, i) => tr.sway(t + i, 3.4));
+            pollen.update(t);
+            // abeja (a doses)
+            const u = PN.ease(PN.clamp((q - 1.3) / 3.7, 0, 1));
+            const p = PN.at(pts, u);
+            const op = PN.clamp((q - 1.2) / 0.4, 0, 1) * (1 - PN.clamp((q - 4.7) / 0.6, 0, 1));
+            const bob = Math.sin(q * 7.5) * 7;
+            bee.place(p.x, p.y + bob, p.ang * 0.6);
+            bee.g.setAttribute("opacity", op.toFixed(3));
+            bee.flap(t, 0);
+            shadow.setAttribute("cx", (p.x + 18).toFixed(1));
+            shadow.setAttribute("cy", (p.y + 76).toFixed(1));
+            shadow.setAttribute("opacity", (0.7 * op).toFixed(3));
+            dots.forEach((d, i) => d.setAttribute("opacity", i / (TN - 1) <= u && q > 1.3 ? (0.35 + 0.65 * (i / (TN - 1))).toFixed(2) : 0));
+            // BZZZ sigue a la abeja y vibra
+            const bzOp = PN.clamp((q - 1.5) / 0.2, 0, 1) * (1 - PN.clamp((q - 3.6) / 0.4, 0, 1));
+            bz.g.setAttribute("transform", "translate(" + (p.x - 90 + Math.sin(q * 40) * 3).toFixed(1) + " " + (p.y - 120 + Math.cos(q * 33) * 3).toFixed(1) + ") rotate(-8) scale(" + (0.9 * bzOp).toFixed(3) + ")");
+            // ondas
+            rings.forEach((r, k) => {
+              if (q < 5.3) {
+                r.setAttribute("opacity", 0);
+                return;
+              }
+              const ph = ((((q - 5.3) / 2.4 - k / 3) % 1) + 1) % 1;
+              r.setAttribute("rx", (170 + ph * 120).toFixed(1));
+              r.setAttribute("ry", (138 + ph * 98).toFixed(1));
+              r.setAttribute("opacity", ((1 - ph) * 0.9).toFixed(3));
+            });
+          });
+
+          // cámara: se inclina sobre el campo y avanza lento
+          tl.fromTo("#s1-world", { rotationX: 36, scale: 1.12, x: 50, y: 70, transformPerspective: 1900, transformOrigin: "50% 52%" }, { rotationX: 21, scale: 1.12, x: 50, y: 70, transformPerspective: 1900, transformOrigin: "50% 52%", duration: 4.2, ease: "power2.out" }, 0);
+          tl.fromTo("#s1-cam", { scale: 1, transformOrigin: "58% 42%" }, { scale: 1.05, duration: DUR, ease: "sine.inOut" }, 0);
+
+          tl.fromTo("#s1-tag", { opacity: 0, x: -60, rotation: -6 }, { opacity: 1, x: 0, rotation: -1.6, duration: 0.5, ease: "back.out(2)" }, 0.2);
+          tl.fromTo("#s1-lot", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.4)" }, 0.1);
+          tl.fromTo("#s1-trees", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.9, ease: "back.out(1.3)" }, 0.3);
+
+          tl.fromTo("#s1-dead", { opacity: 0 }, { opacity: 0.55, duration: 0.7, ease: "power2.out" }, 5.0);
+          tl.fromTo("#s1-dead-plants", { opacity: 0 }, { opacity: 1, duration: 0.7, ease: "power2.out" }, 5.0);
+          tl.fromTo("#s1-dead-ring", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 5.1);
+          tl.fromTo("#s1-qholder", { opacity: 0, scale: 0.2, svgOrigin: "1180 420" }, { opacity: 1, scale: 1, svgOrigin: "1180 420", duration: 0.55, ease: "back.out(2.6)" }, 5.5);
+          tl.to("#s1-qholder", { rotation: 5, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 5, svgOrigin: "1180 420" }, 6.1);
+          tl.fromTo("#s1-zone-label", { opacity: 0, y: 30, rotation: 6 }, { opacity: 1, y: 0, rotation: 1.8, duration: 0.45, ease: "back.out(2)" }, 5.8);
+          tl.fromTo(wordEls, { opacity: 0, y: 90, rotation: 7 }, { opacity: 1, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.8)", stagger: 0.1 }, 6.3);
+
           window.__timelines["s1-hook"] = tl;
         })();
       </script>

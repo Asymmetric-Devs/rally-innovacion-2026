@@ -5,87 +5,281 @@
   </head>
   <body>
     <template>
+      <!--
+        ESCENA 7: CIERRE (8 s). Primero va el video en cámara con la frase final subtitulada y, al final, la placa con el logo.
+        Cuando esté grabado: copiar el video a assets/cierre.mp4 y reemplazar #s7-slot por
+          <video id="s7-footage" class="clip" src="assets/cierre.mp4" data-start="0" data-duration="5.8"
+                 data-has-audio="true" playsinline></video>
+      -->
       <style>
+        @font-face {
+          font-family: "Bangers";
+          src: url("assets/fonts/Bangers-Regular.ttf") format("truetype");
+        }
+        @font-face {
+          font-family: "Permanent Marker";
+          src: url("assets/fonts/PermanentMarker.woff2") format("woff2");
+        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #283618;
-          font-family: "IBM Plex Mono", monospace;
-          color: #f4ebd0;
+          background: #17132b;
+          font-family: "Permanent Marker", cursive;
+          color: #17132b;
         }
-        #s7-glow {
+        #s7-slot {
           position: absolute;
-          left: 560px;
-          top: 140px;
-          width: 800px;
-          height: 800px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(167, 201, 87, 0.35) 0%, rgba(167, 201, 87, 0) 68%);
-        }
-        #s7-name {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 330px;
-          text-align: center;
-          font-family: "Archivo Black", sans-serif;
-          font-size: 210px;
-          line-height: 1;
-          letter-spacing: -0.04em;
-        }
-        #s7-name .hl {
-          color: #a7c957;
-        }
-        #s7-quote {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 600px;
-          text-align: center;
-          font-size: 38px;
-          line-height: 1.4;
-          color: #dde5b6;
-        }
-        #s7-foot {
-          position: absolute;
-          left: 90px;
-          right: 90px;
-          bottom: 80px;
+          inset: 0;
+          background: #2b1d5e;
           display: flex;
-          justify-content: space-between;
-          font-size: 26px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          color: #a7c957;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 0 220px 200px;
+          font-family: "Bangers", sans-serif;
+          font-size: 120px;
+          line-height: 0.96;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          color: #fff1d6;
+          -webkit-text-stroke: 9px #17132b;
+          paint-order: stroke fill;
+          text-shadow: 8px 8px 0 #ff3d8b;
         }
-        #s7-rule {
+        #s7-frame {
           position: absolute;
-          left: 90px;
-          right: 90px;
-          bottom: 140px;
-          height: 4px;
-          background: #588157;
-          transform-origin: 0 50%;
+          inset: 0;
+          border: 20px solid #17132b;
+          filter: url(#boil);
         }
+        .cap {
+          position: absolute;
+          background: #fff1d6;
+          border: 6px solid #17132b;
+          box-shadow: 9px 9px 0 #17132b;
+          padding: 10px 22px 8px;
+          letter-spacing: 0.02em;
+        }
+        #s7-cap {
+          left: 50%;
+          bottom: 64px;
+          font-size: 42px;
+          line-height: 1.22;
+          text-transform: uppercase;
+          text-align: center;
+          transform: translateX(-50%);
+          white-space: nowrap;
+          filter: url(#boil);
+        }
+        #s7-cap .ln {
+          display: block;
+        }
+        #s7-cap .w {
+          display: inline-block;
+          margin: 0 0.12em;
+        }
+        #s7-end {
+          position: absolute;
+          inset: 0;
+          background: #2b1d5e;
+          clip-path: circle(0px at 960px 540px);
+        }
+        #s7-bg,
+        #s7-lg,
+        #s7-fx {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+        }
+        #s7-lg {
+          filter: url(#boil);
+        }
+        .ht {
+          position: absolute;
+          pointer-events: none;
+          background-image: radial-gradient(circle, rgba(255, 61, 139, 0.55) 3.4px, transparent 3.8px);
+          background-size: 20px 20px;
+        }
+        #s7-ht1 {
+          left: 0;
+          bottom: 0;
+          width: 900px;
+          height: 500px;
+          -webkit-mask-image: radial-gradient(circle at 0% 100%, #000 0%, transparent 70%);
+          mask-image: radial-gradient(circle at 0% 100%, #000 0%, transparent 70%);
+        }
+        #s7-foot1,
+        #s7-foot2 {
+          position: absolute;
+          bottom: 60px;
+          background: #ffd23f;
+          border: 6px solid #17132b;
+          box-shadow: 9px 9px 0 #17132b;
+          padding: 10px 22px 8px;
+          font-size: 28px;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          filter: url(#boil);
+        }
+        #s7-foot1 { left: 90px; transform: rotate(-1.2deg); }
+        #s7-foot2 { right: 90px; transform: rotate(1deg); background: #fff1d6; }
       </style>
 
-      <div data-hf-id="hf-pb7u" id="root" data-composition-id="s7-cierre" data-width="1920" data-height="1080">
-        <div data-hf-id="hf-swgv" id="s7-glow"></div>
-        <div data-hf-id="hf-cpur" id="s7-name">Polli<span data-hf-id="hf-9jch" class="hl">Node</span></div>
-        <div data-hf-id="hf-n8fk" id="s7-quote"><span data-hf-id="hf-18l5" style="display:block">El futuro del agro no es solo cultivar la tierra.</span><span data-hf-id="hf-vgos" style="display:block">Es entender el ecosistema que la hace productiva.</span></div>
-        <div data-hf-id="hf-mx4e" id="s7-rule"></div>
-        <div data-hf-id="hf-f5ls" id="s7-foot"><span data-hf-id="hf-xuso">EQUIPO LAMBDA · UTN FRRE INTECNOR</span><span data-hf-id="hf-vy9i">RALLY LATINOAMERICANO DE INNOVACIÓN 2026</span></div>
+      <div id="root" data-composition-id="s7-cierre" data-width="1920" data-height="1080">
+        <div id="s7-slot" data-layout-allow-overlap>Acá entra el cierre en cámara</div>
+        <div id="s7-frame"></div>
+        <div id="s7-cap" class="cap"></div>
+
+        <div id="s7-end">
+          <svg id="s7-bg" viewBox="0 0 1920 1080"><g id="s7-rays"></g></svg>
+          <div id="s7-ht1" class="ht"></div>
+
+          <svg id="s7-lg" viewBox="-125 -80 1580 760">
+            <defs>
+              <pattern id="lg-dotsw" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(28)"><circle cx="11" cy="11" r="4.2" fill="#ffffff" /></pattern>
+              <linearGradient id="lg-fade" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fff" /><stop offset="0.55" stop-color="#000" /></linearGradient>
+              <mask id="lg-fadeMask"><rect x="0" y="0" width="640" height="640" fill="url(#lg-fade)" /></mask>
+              <clipPath id="lg-hexClip"><path d="M 300 52 L 516 176 L 516 424 L 300 548 L 84 424 L 84 176 Z" /></clipPath>
+              <clipPath id="lg-abd"><ellipse cx="-16" cy="0" rx="24" ry="14" /></clipPath>
+            </defs>
+            <g id="lg-mark-w">
+              <g transform="translate(20 20)">
+                <path d="M 300 52 L 516 176 L 516 424 L 300 548 L 84 424 L 84 176 Z" transform="translate(-22 18)" fill="#19c3e6" stroke="#17132b" stroke-width="14" stroke-linejoin="round" />
+                <path d="M 300 52 L 516 176 L 516 424 L 300 548 L 84 424 L 84 176 Z" fill="#ff3d8b" stroke="#17132b" stroke-width="16" stroke-linejoin="round" />
+                <g clip-path="url(#lg-hexClip)">
+                  <g mask="url(#lg-fadeMask)"><rect x="0" y="0" width="640" height="640" fill="url(#lg-dotsw)" opacity="0.6" /></g>
+                  <path d="M 84 424 L 300 548 L 516 424 L 516 470 L 300 600 L 84 470 Z" fill="#17132b" opacity="0.18" />
+                </g>
+                <g fill="none" stroke="#17132b" stroke-width="13" stroke-linecap="round">
+                  <path d="M 392 150 A 70 70 0 0 1 452 214" />
+                  <path d="M 392 112 A 112 112 0 0 1 488 212" />
+                </g>
+                <g fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round">
+                  <path d="M 392 150 A 70 70 0 0 1 452 214" />
+                  <path d="M 392 112 A 112 112 0 0 1 488 212" />
+                </g>
+                <g transform="translate(296 344) rotate(-10) scale(3.8)" stroke-linejoin="round" stroke-linecap="round">
+                  <ellipse cx="-4" cy="9" rx="22" ry="5" fill="#17132b" opacity="0.22" transform="translate(4 18)" />
+                  <g stroke="#17132b" stroke-width="3">
+                    <line x1="-4" y1="12" x2="-8" y2="22" /><line x1="6" y1="13" x2="4" y2="24" /><line x1="16" y1="12" x2="19" y2="22" />
+                  </g>
+                  <g stroke="#17132b" stroke-width="3">
+                    <ellipse cx="2" cy="-26" rx="9" ry="20" fill="#7fe3f5" transform="rotate(-28 2 -9)" />
+                    <ellipse cx="16" cy="-27" rx="10" ry="21" fill="#b9f1fa" transform="rotate(12 16 -9)" />
+                  </g>
+                  <path d="M 24 -30 L 20 -22 M 26 -22 L 22 -14" stroke="#17132b" stroke-width="2" opacity="0.5" />
+                  <path d="M -39 0 L -49 -4 L -49 4 Z" fill="#17132b" stroke="#17132b" stroke-width="2" />
+                  <ellipse cx="-16" cy="0" rx="24" ry="14" fill="#ffd23f" stroke="#17132b" stroke-width="3.4" />
+                  <g clip-path="url(#lg-abd)" fill="#17132b">
+                    <rect x="-33" y="-16" width="7" height="32" /><rect x="-21" y="-16" width="7" height="32" /><rect x="-9" y="-16" width="7" height="32" />
+                  </g>
+                  <circle cx="12" cy="-1" r="13" fill="#ff7a2f" stroke="#17132b" stroke-width="3.4" />
+                  <circle cx="31" cy="0" r="11" fill="#17132b" />
+                  <circle cx="34" cy="-3" r="5" fill="#fff" />
+                  <circle cx="35.5" cy="-3" r="2.2" fill="#17132b" />
+                  <g stroke="#17132b" stroke-width="2.8" fill="none">
+                    <path d="M 36 -9 Q 40 -20 50 -22" /><path d="M 40 -5 Q 50 -12 58 -8" />
+                  </g>
+                  <circle cx="51" cy="-22" r="4.2" fill="#ffd23f" stroke="#17132b" stroke-width="2.6" />
+                  <circle cx="59" cy="-8" r="4.2" fill="#19c3e6" stroke="#17132b" stroke-width="2.6" />
+                </g>
+              </g>
+            </g>
+            <g transform="translate(640 0)" font-family="Bangers" font-size="270" letter-spacing="2" stroke-linejoin="round">
+              <g id="lg-w1">
+                <text x="14" y="296" fill="#19c3e6" stroke="#19c3e6" stroke-width="14">POLLI</text>
+                <text x="-8" y="278" fill="#ff3d8b" stroke="#17132b" stroke-width="16" paint-order="stroke">POLLI</text>
+                <text x="-8" y="278" fill="#ffd23f" stroke="#17132b" stroke-width="2" paint-order="stroke">POLLI</text>
+              </g>
+              <g id="lg-w2">
+                <text x="14" y="536" fill="#19c3e6" stroke="#19c3e6" stroke-width="14">NODE</text>
+                <text x="-8" y="518" fill="#17132b" stroke="#17132b" stroke-width="18" paint-order="stroke">NODE</text>
+                <text x="-8" y="518" fill="#fff1d6" stroke="#17132b" stroke-width="2" paint-order="stroke">NODE</text>
+              </g>
+              <g id="lg-tag" font-family="Permanent Marker" font-size="40" fill="#fff1d6" letter-spacing="0">
+                <text x="2" y="596" transform="rotate(-3 300 580)">POLINIZACIÓN CON SENSORES E IA</text>
+              </g>
+            </g>
+          </svg>
+
+          <svg id="s7-fx" viewBox="0 0 1920 1080"></svg>
+          <div id="s7-foot1">Equipo Lambda · UTN FRRE INTECNOR</div>
+          <div id="s7-foot2">Rally Latinoamericano de Innovación 2026</div>
+        </div>
       </div>
 
       <script>
         (function () {
+          const mk = PN.mk;
+          const DUR = 8;
+          const $ = (id) => document.getElementById(id);
+
+          // subtítulos de la frase final
+          const cap = $("s7-cap");
+          const lines = ["El futuro del agro no es solo cultivar la tierra.", "Es entender el ecosistema que la hace productiva."];
+          const wordEls = [];
+          lines.forEach((l) => {
+            const ln = document.createElement("span");
+            ln.className = "ln";
+            l.split(" ").forEach((w) => {
+              const s = document.createElement("span");
+              s.className = "w";
+              s.textContent = w;
+              ln.appendChild(s);
+              wordEls.push(s);
+            });
+            cap.appendChild(ln);
+          });
+
+          // rayos de la placa final
+          const raysG = $("s7-rays");
+          const NR = 24;
+          mk(raysG, "rect", { x: -40, y: -40, width: 2000, height: 1160, fill: "#2b1d5e" });
+          const rays = [];
+          for (let i = 0; i < NR; i++) rays.push(mk(raysG, "polygon", { points: "0,0 0,0 0,0", fill: i % 2 ? "#3a2a82" : "#2b1d5e" }));
+          const setRays = (t) => {
+            const base = PN.q(t) * 0.04;
+            rays.forEach((r, i) => {
+              const a0 = (i / NR) * Math.PI * 2 + base;
+              const a1 = a0 + (Math.PI * 2) / NR;
+              r.setAttribute("points", "960,500 " + (960 + Math.cos(a0) * 2400).toFixed(0) + "," + (500 + Math.sin(a0) * 2400).toFixed(0) + " " + (960 + Math.cos(a1) * 2400).toFixed(0) + "," + (500 + Math.sin(a1) * 2400).toFixed(0));
+            });
+          };
+
+          const bees = [0, 1].map((i) => PN.bee($("s7-fx"), { scale: 1.2 }));
+          const pollen = PN.pollen($("s7-fx"), 26, 1920, 1080, 55, "#ffd23f");
+
           const tl = gsap.timeline({ paused: true });
-          tl.fromTo("#s7-glow", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 0);
-          tl.fromTo("#s7-name", { opacity: 0, y: 60, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out" }, 0.1);
-          tl.fromTo("#s7-quote", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0.8);
-          tl.fromTo("#s7-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.0, ease: "power3.inOut" }, 1.0);
-          tl.fromTo("#s7-foot", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 1.6);
+          PN.clock(tl, DUR, function (t) {
+            const q = PN.q(t);
+            setRays(t);
+            pollen.update(t);
+            bees.forEach((b, i) => {
+              const a = q * 1.5 + i * Math.PI;
+              const x = 960 + 760 * Math.cos(a);
+              const y = 500 + 330 * Math.sin(a);
+              PN.fly(b, x, y, -760 * Math.sin(a), 330 * Math.cos(a), 0.5);
+              b.flap(t, i);
+              b.g.setAttribute("opacity", PN.clamp((q - 6.4) / 0.5, 0, 1).toFixed(2));
+            });
+          });
+
+          tl.fromTo("#s7-slot", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0);
+          tl.fromTo(wordEls, { opacity: 0, y: 30, rotation: 4 }, { opacity: 1, y: 0, rotation: 0, duration: 0.3, ease: "back.out(2)", stagger: 0.24 }, 0.5);
+          tl.to("#s7-cap", { opacity: 0, duration: 0.2 }, 5.6);
+
+          // placa final: el círculo de tinta se abre y el logo entra de golpe
+          tl.to("#s7-end", { clipPath: "circle(1400px at 960px 540px)", duration: 0.9, ease: "power2.inOut" }, 5.8);
+          tl.fromTo("#lg-mark-w", { scale: 0.2, rotation: -14, svgOrigin: "320 340" }, { scale: 1, rotation: 0, svgOrigin: "320 340", duration: 0.6, ease: "back.out(1.8)" }, 6.2);
+          tl.fromTo("#lg-w1", { x: 600, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 6.45);
+          tl.fromTo("#lg-w2", { x: 600, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 6.65);
+          tl.fromTo("#lg-tag", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 7.1);
+          tl.fromTo("#s7-foot1", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, 7.1);
+          tl.fromTo("#s7-foot2", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(2)" }, 7.25);
+
           window.__timelines["s7-cierre"] = tl;
         })();
       </script>

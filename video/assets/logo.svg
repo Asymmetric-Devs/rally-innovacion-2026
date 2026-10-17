@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 640" width="1500" height="640">
+  <style>
+    @font-face { font-family: "Bangers"; src: url("fonts/Bangers-Regular.ttf"); }
+    @font-face { font-family: "Permanent Marker"; src: url("fonts/PermanentMarker.woff2") format("woff2"); }
+    .w { font-family: "Bangers", Impact, sans-serif; }
+    .m { font-family: "Permanent Marker", cursive; }
+  </style>
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
+      <circle cx="12" cy="12" r="4.6" fill="#17132b" />
+    </pattern>
+    <pattern id="dotsw" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
+      <circle cx="11" cy="11" r="4.2" fill="#ffffff" />
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" />
+      <stop offset="0.55" stop-color="#000" />
+    </linearGradient>
+    <mask id="fadeMask"><rect x="0" y="0" width="640" height="640" fill="url(#fade)" /></mask>
+    <clipPath id="hexClip"><path d="M 300 52 L 516 176 L 516 424 L 300 548 L 84 424 L 84 176 Z" /></clipPath>
+    <clipPath id="abd"><ellipse cx="-16" cy="0" rx="24" ry="14" /></clipPath>
+  </defs>
+
+  <!-- MARCA -->
+  <g id="mark" transform="translate(20 20)">
+    <!-- impresión corrida: cian atrás, amarillo, magenta al frente -->
+    <path d="M 300 52 L 516 176 L 516 424 L 300 548 L 84 424 L 84 176 Z" transform="translate(-22 18)" fill="#19c3e6" stroke="#17132b" stroke-width="14" stroke-linejoin="round" />
+    <path d="M 300 52 L 516 176 L 516 424 L 300 548 L 84 424 L 84 176 Z" fill="#ff3d8b" stroke="#17132b" stroke-width="16" stroke-linejoin="round" />
+    <g clip-path="url(#hexClip)">
+      <g mask="url(#fadeMask)"><rect x="0" y="0" width="640" height="640" fill="url(#dotsw)" opacity="0.6" /></g>
+      <path d="M 84 424 L 300 548 L 516 424 L 516 470 L 300 600 L 84 470 Z" fill="#17132b" opacity="0.18" />
+    </g>
+
+    <!-- ondas de señal -->
+    <g fill="none" stroke="#17132b" stroke-width="13" stroke-linecap="round">
+      <path d="M 392 150 A 70 70 0 0 1 452 214" />
+      <path d="M 392 112 A 112 112 0 0 1 488 212" />
+    </g>
+    <g fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round">
+      <path d="M 392 150 A 70 70 0 0 1 452 214" />
+      <path d="M 392 112 A 112 112 0 0 1 488 212" />
+    </g>
+
+    <!-- abeja -->
+    <g transform="translate(296 344) rotate(-10) scale(3.8)" stroke-linejoin="round" stroke-linecap="round">
+      <ellipse cx="-4" cy="9" rx="22" ry="5" fill="#17132b" opacity="0.22" transform="translate(4 18)" />
+      <!-- patas -->
+      <g stroke="#17132b" stroke-width="3">
+        <line x1="-4" y1="12" x2="-8" y2="22" /><line x1="6" y1="13" x2="4" y2="24" /><line x1="16" y1="12" x2="19" y2="22" />
+      </g>
+      <!-- alas -->
+      <g stroke="#17132b" stroke-width="3">
+        <ellipse cx="2" cy="-26" rx="9" ry="20" fill="#7fe3f5" transform="rotate(-28 2 -9)" />
+        <ellipse cx="16" cy="-27" rx="10" ry="21" fill="#b9f1fa" transform="rotate(12 16 -9)" />
+      </g>
+      <path d="M 24 -30 L 20 -22 M 26 -22 L 22 -14" stroke="#17132b" stroke-width="2" opacity="0.5" />
+      <!-- aguijón + abdomen -->
+      <path d="M -39 0 L -49 -4 L -49 4 Z" fill="#17132b" stroke="#17132b" stroke-width="2" />
+      <ellipse cx="-16" cy="0" rx="24" ry="14" fill="#ffd23f" stroke="#17132b" stroke-width="3.4" />
+      <g clip-path="url(#abd)" fill="#17132b">
+        <rect x="-33" y="-16" width="7" height="32" /><rect x="-21" y="-16" width="7" height="32" /><rect x="-9" y="-16" width="7" height="32" />
+      </g>
+      <!-- tórax y cabeza -->
+      <circle cx="12" cy="-1" r="13" fill="#ff7a2f" stroke="#17132b" stroke-width="3.4" />
+      <circle cx="31" cy="0" r="11" fill="#17132b" />
+      <circle cx="34" cy="-3" r="5" fill="#fff" />
+      <circle cx="35.5" cy="-3" r="2.2" fill="#17132b" />
+      <!-- antenas con nodos -->
+      <g stroke="#17132b" stroke-width="2.8" fill="none">
+        <path d="M 36 -9 Q 40 -20 50 -22" /><path d="M 40 -5 Q 50 -12 58 -8" />
+      </g>
+      <circle cx="51" cy="-22" r="4.2" fill="#ffd23f" stroke="#17132b" stroke-width="2.6" />
+      <circle cx="59" cy="-8" r="4.2" fill="#19c3e6" stroke="#17132b" stroke-width="2.6" />
+    </g>
+  </g>
+
+  <!-- PALABRA -->
+  <g id="word" transform="translate(640 0)">
+    <g class="w" font-size="270" letter-spacing="2" stroke-linejoin="round">
+      <text x="14" y="296" fill="#19c3e6" stroke="#19c3e6" stroke-width="14">POLLI</text>
+      <text x="-8" y="278" fill="#ff3d8b" stroke="#17132b" stroke-width="16" paint-order="stroke">POLLI</text>
+      <text x="-8" y="278" fill="#ffd23f" stroke="#17132b" stroke-width="2" paint-order="stroke">POLLI</text>
+    </g>
+    <g class="w" font-size="270" letter-spacing="2" stroke-linejoin="round">
+      <text x="14" y="536" fill="#19c3e6" stroke="#19c3e6" stroke-width="14">NODE</text>
+      <text x="-8" y="518" fill="#17132b" stroke="#17132b" stroke-width="18" paint-order="stroke">NODE</text>
+      <text x="-8" y="518" fill="#fff1d6" stroke="#17132b" stroke-width="2" paint-order="stroke">NODE</text>
+    </g>
+    <g class="m" font-size="40" fill="#17132b" transform="rotate(-3 300 580)">
+      <text x="2" y="596">polinización con sensores e IA</text>
+    </g>
+  </g>
+</svg>
