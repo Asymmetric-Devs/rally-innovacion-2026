@@ -6,90 +6,78 @@
   <body>
     <template>
       <style>
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: normal;
-          src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
-        }
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: italic;
-          src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
-        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #f4efe6;
-          font-family: "Instrument Serif", serif;
-          color: #1d1b19;
+          font-family: "Montserrat", sans-serif;
         }
         #s1-cam {
           position: absolute;
           inset: 0;
         }
         #s1-title {
+          top: 190px;
+          width: 840px;
+          font-size: 86px;
+        }
+        #s1-yes {
           position: absolute;
           left: 120px;
-          top: 120px;
-          font-size: 128px;
-          line-height: 1.02;
-          letter-spacing: -0.015em;
-          font-weight: 400;
+          top: 760px;
+          font-size: 44px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          color: #c8f25c;
+          opacity: 0;
         }
-        #s1-title .ln {
-          display: block;
-          overflow: hidden;
-          padding-bottom: 0.14em;
-          margin-bottom: -0.14em;
+        #s1-frame {
+          left: 1000px;
+          top: 130px;
+          width: 800px;
+          height: 820px;
         }
-        #s1-title .in {
-          display: block;
-        }
-        #s1-title .yes {
-          font-style: italic;
-          color: #c4502f;
-          margin-top: 0.12em;
-        }
-        #s1-strip {
-          position: absolute;
-          left: 120px;
-          top: 742px;
-          width: 1680px;
-          height: 260px;
+        #s1-map {
+          width: 800px;
+          height: 820px;
         }
       </style>
 
-      <div id="root" data-composition-id="s1-hook" data-width="1920" data-height="1080">
-        <div id="s1-cam">
-          <h1 id="s1-title">
-            <span class="ln"><span class="in">¿Y si pudiéramos producir más</span></span>
-            <span class="ln"><span class="in">y, al mismo tiempo, recuperar</span></span>
-            <span class="ln"><span class="in">la biodiversidad?</span></span>
-            <span class="ln yes"><span class="in">En el Chaco, creemos que sí.</span></span>
+      <div data-hf-id="hf-hv3x" id="root" data-composition-id="s1-hook" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-d2kf" id="s1-cam">
+          <h1 data-hf-id="hf-wood" id="s1-title" class="h">
+            <span data-hf-id="hf-smev" class="ln"><span data-hf-id="hf-y3x7" class="in">¿Y si pudiéramos</span></span>
+            <span data-hf-id="hf-oupj" class="ln"><span data-hf-id="hf-ultq" class="in">producir más y,</span></span>
+            <span data-hf-id="hf-ogei" class="ln"><span data-hf-id="hf-daxq" class="in">al mismo tiempo,</span></span>
+            <span data-hf-id="hf-o23h" class="ln"><span data-hf-id="hf-ml5y" class="in">recuperar la</span></span>
+            <span data-hf-id="hf-qu8o" class="ln"><span data-hf-id="hf-k88c" class="in"><span data-hf-id="hf-rn88" class="mk" id="s1-mk"><span data-hf-id="hf-sygp">biodiversidad?</span></span></span></span>
           </h1>
+          <div data-hf-id="hf-5oro" id="s1-yes">En el Chaco, creemos que sí.</div>
 
-          <svg id="s1-strip" viewBox="0 0 1680 260">
-            <defs>
-              <clipPath id="s1-lot-clip"><rect x="300" y="0" width="1380" height="260" /></clipPath>
-              <clipPath id="s1-zone-clip"><ellipse id="s1-zone-e" cx="1130" cy="130" rx="175" ry="104" /></clipPath>
-              <clipPath id="s1-bloom-clip"><ellipse id="s1-bloom-e" cx="1130" cy="130" rx="0" ry="0" /></clipPath>
-            </defs>
-            <g id="s1-lot">
-              <rect x="300" y="0" width="1380" height="260" fill="#ebe4d6" />
-              <g clip-path="url(#s1-lot-clip)"><g id="s1-rows"></g></g>
-              <g clip-path="url(#s1-zone-clip)" id="s1-zone">
-                <rect x="300" y="0" width="1380" height="260" fill="#ebe4d6" />
-                <rect x="300" y="0" width="1380" height="260" fill="url(#hatch-clay)" opacity="0.8" />
-              </g>
-              <ellipse id="s1-zone-ring" cx="1130" cy="130" rx="175" ry="104" fill="none" stroke="#c4502f" stroke-width="3" stroke-dasharray="10 9" />
-              <g clip-path="url(#s1-bloom-clip)"><rect x="300" y="0" width="1380" height="260" fill="#ebe4d6" /><g id="s1-bloom"></g></g>
-            </g>
-            <g id="s1-trees"></g>
-            <g id="s1-flowers"></g>
-            <g id="s1-trail" fill="#1d1b19"></g>
-            <g id="s1-bee-holder"></g>
-          </svg>
+          <div data-hf-id="hf-kgs1" id="s1-frame" class="frame">
+            <svg data-hf-id="hf-o7qw" id="s1-map" viewBox="0 0 800 820">
+              <defs data-hf-id="hf-mh0t">
+                <pattern data-hf-id="hf-w5jv" id="s1-hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line data-hf-id="hf-9mk4" x1="0" y1="0" x2="0" y2="12" stroke="#ff7a5c" stroke-width="3" /></pattern>
+                <clipPath data-hf-id="hf-12gu" id="s1-lot-clip"><rect data-hf-id="hf-1o7j" x="300" y="150" width="500" height="520" /></clipPath>
+                <clipPath data-hf-id="hf-z0w7" id="s1-zone-clip"><ellipse data-hf-id="hf-ja5o" cx="570" cy="410" rx="150" ry="124" /></clipPath>
+                <clipPath data-hf-id="hf-j0gy" id="s1-bloom-clip"><ellipse data-hf-id="hf-10wb" id="s1-bloom-e" cx="570" cy="410" rx="0" ry="0" /></clipPath>
+              </defs>
+              <g data-hf-id="hf-bjo8" id="s1-bands"></g>
+              <rect data-hf-id="hf-xz4r" x="300" y="150" width="500" height="520" fill="#0f2d1f" />
+              <g data-hf-id="hf-89jq" clip-path="url(#s1-lot-clip)"><g data-hf-id="hf-eqqz" id="s1-rows"></g></g>
+              <rect data-hf-id="hf-u74h" x="300" y="150" width="500" height="520" fill="none" stroke="#223c2d" stroke-width="2" />
+              <g data-hf-id="hf-zbhc" clip-path="url(#s1-zone-clip)" id="s1-zone"><rect data-hf-id="hf-ermj" x="300" y="150" width="500" height="520" fill="#0f2d1f" /><rect data-hf-id="hf-rn86" x="300" y="150" width="500" height="520" fill="url(#s1-hatch)" opacity="0.85" /></g>
+              <ellipse data-hf-id="hf-2qhs" id="s1-zone-ring" cx="570" cy="410" rx="150" ry="124" fill="none" stroke="#ff7a5c" stroke-width="3" stroke-dasharray="10 9" />
+              <g data-hf-id="hf-3r6i" clip-path="url(#s1-bloom-clip)"><rect data-hf-id="hf-edbi" x="300" y="150" width="500" height="520" fill="#0f2d1f" /><g data-hf-id="hf-eutx" id="s1-bloom"></g></g>
+              <g data-hf-id="hf-rs4n" id="s1-trees"></g>
+              <g data-hf-id="hf-c6js" id="s1-flowers"></g>
+              <g data-hf-id="hf-5e4m" id="s1-trail" fill="#c8f25c"></g>
+              <g data-hf-id="hf-7bpf" id="s1-bee-holder"></g>
+            </svg>
+            <div data-hf-id="hf-rsfg" class="br tl"></div><div data-hf-id="hf-2rei" class="br tr"></div><div data-hf-id="hf-gsq6" class="br bl"></div><div data-hf-id="hf-a3p4" class="br rb"></div>
+            <div data-hf-id="hf-cjd0" id="s1-pill" class="pill warn">Lote 01 · sin visitas</div>
+            <div data-hf-id="hf-csgz" id="s1-pill2" class="pill" style="opacity:0">Lote 01 · polinización activa</div>
+          </div>
         </div>
       </div>
 
@@ -100,25 +88,25 @@
           const $ = (id) => document.getElementById(id);
           const ins = Array.from(document.querySelectorAll("#s1-title .in"));
 
-          // cultivo (puntos tenues) y floración que va a ocupar la zona seca
-          PN.rows($("s1-rows"), 320, 30, 1660, 240, 36, 30, "#1d1b19", 6, 0.28);
-          PN.rows($("s1-bloom"), 320, 30, 1660, 240, 36, 30, "#e5a02d", 8, 1);
+          // fondo tipo satélite: franjas de parcelas
+          for (let i = 0; i < 11; i++) mk($("s1-bands"), "rect", { x: 0, y: i * 76, width: 800, height: 76, fill: i % 2 ? "#14402a" : "#123524" });
+          // cultivo y floración
+          PN.rows($("s1-rows"), 322, 176, 790, 660, 36, 30, "#6ee7b7", 6, 0.3);
+          PN.rows($("s1-bloom"), 322, 176, 790, 660, 36, 30, "#c8f25c", 9, 1);
 
           // monte nativo
-          const trees = [[110, 132, 78, 3], [208, 62, 54, 5], [212, 196, 58, 8], [48, 48, 40, 11], [74, 218, 32, 13]].map((t) => PN.tree($("s1-trees"), t[0], t[1], t[2], t[3]));
-          const petals = ["#c4502f", "#e5a02d", "#f4efe6"];
-          const flowers = [[44, 120], [262, 122], [120, 44], [268, 238], [60, 226]].map((p, i) => ({ f: PN.flower($("s1-flowers"), p[0], p[1], 15, petals[i % 3], "#1d1b19"), at: 3.7 + i * 0.18 }));
+          const trees = [[100, 210, 84, 3], [190, 350, 104, 5], [96, 500, 90, 8], [212, 630, 78, 11], [130, 730, 58, 13], [250, 120, 52, 17], [70, 90, 46, 19]].map((t) => PN.tree($("s1-trees"), t[0], t[1], t[2], t[3]));
+          const petals = ["#ff7a5c", "#f5b83d", "#eef3e4"];
+          const flowers = [[262, 230], [286, 470], [160, 110], [276, 700], [60, 640]].map((p, i) => ({ f: PN.flower($("s1-flowers"), p[0], p[1], 15, petals[i % 3], "#0a1a13"), at: 3.7 + i * 0.18 }));
 
-          // abeja
-          const path = "M 280 150 C 460 80, 640 190, 840 120 S 1040 150, 1130 130";
-          const pts = PN.samplePath($("s1-strip"), path, 80);
+          // abeja y recorrido
+          const path = "M 270 420 C 360 350, 440 470, 520 400 S 560 410, 570 410";
+          const pts = PN.samplePath($("s1-map"), path, 80);
           const bee = PN.bee($("s1-bee-holder"), { scale: 1.9 });
-          const trailG = $("s1-trail");
-          const TN = 26;
           const dots = [];
-          for (let i = 0; i < TN; i++) {
-            const p = PN.at(pts, i / (TN - 1));
-            dots.push(mk(trailG, "circle", { cx: p.x, cy: p.y, r: 2.8, opacity: 0 }));
+          for (let i = 0; i < 24; i++) {
+            const p = PN.at(pts, i / 23);
+            dots.push(mk($("s1-trail"), "circle", { cx: p.x, cy: p.y, r: 3, opacity: 0 }));
           }
 
           const tl = gsap.timeline({ paused: true });
@@ -131,26 +119,27 @@
             });
             const u = PN.ease(PN.clamp((t - 1.0) / 4.4, 0, 1));
             const p = PN.at(pts, u);
-            const op = PN.clamp((t - 0.9) / 0.5, 0, 1);
             bee.place(p.x, p.y + Math.sin(t * 6) * 4, p.ang * 0.5);
-            bee.g.setAttribute("opacity", op.toFixed(2));
+            bee.g.setAttribute("opacity", PN.clamp((t - 0.9) / 0.5, 0, 1).toFixed(2));
             bee.flap(t, 0);
-            dots.forEach((d, i) => d.setAttribute("opacity", i / (TN - 1) <= u && t > 1.0 ? 0.55 : 0));
+            dots.forEach((d, i) => d.setAttribute("opacity", i / 23 <= u && t > 1.0 ? 0.6 : 0));
           });
 
-          tl.fromTo("#s1-cam", { scale: 1, transformOrigin: "50% 60%" }, { scale: 1.03, duration: DUR, ease: "sine.inOut" }, 0);
-          tl.fromTo("#s1-strip", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.1);
-          const line = (i, at) => tl.to(ins[i], { y: 0, yPercent: 0, duration: 0.9, ease: "power3.out" }, at);
-          tl.set(ins, { yPercent: 128 }, 0);
-          line(0, 0.6);
-          line(1, 2.5);
-          line(2, 3.7);
-          line(3, 5.2);
+          tl.fromTo("#s1-cam", { scale: 1, transformOrigin: "60% 50%" }, { scale: 1.025, duration: DUR, ease: "sine.inOut" }, 0);
+          tl.fromTo("#s1-frame", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out" }, 0.1);
+          tl.set(ins, { yPercent: 130 }, 0);
+          tl.set("#s1-mk", { "--mk": 0, color: "#eef3e4" }, 0);
+          [0.6, 1.5, 2.4, 3.2, 3.8].forEach((at, i) => tl.to(ins[i], { yPercent: 0, duration: 0.9, ease: "power3.out" }, at));
+          tl.to("#s1-mk", { "--mk": 1, duration: 0.7, ease: "power3.out" }, 4.4);
+          tl.to("#s1-mk", { color: "#0a1a13", duration: 0.01 }, 4.75);
+          tl.fromTo("#s1-yes", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 5.2);
 
           // "creemos que sí": la zona seca florece
           tl.to("#s1-zone", { opacity: 0, duration: 0.9, ease: "power2.out" }, 5.5);
           tl.to("#s1-zone-ring", { opacity: 0, duration: 0.6 }, 5.5);
-          tl.to("#s1-bloom-e", { attr: { rx: 175, ry: 104 }, duration: 1.2, ease: "power2.out" }, 5.5);
+          tl.to("#s1-bloom-e", { attr: { rx: 150, ry: 124 }, duration: 1.2, ease: "power2.out" }, 5.5);
+          tl.to("#s1-pill", { opacity: 0, duration: 0.3 }, 5.7);
+          tl.to("#s1-pill2", { opacity: 1, duration: 0.5 }, 6.0);
 
           window.__timelines["s1-hook"] = tl;
         })();

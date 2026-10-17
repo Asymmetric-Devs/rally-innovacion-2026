@@ -6,22 +6,8 @@
     <title>PolliNode - Rally 2026</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script src="kit.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <style>
-      @font-face {
-        font-family: "Instrument Serif";
-        font-style: normal;
-        src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Instrument Serif";
-        font-style: italic;
-        src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Instrument Sans";
-        font-weight: 400 700;
-        src: url("assets/fonts/InstrumentSans.woff2") format("woff2");
-      }
       * {
         margin: 0;
         padding: 0;
@@ -33,14 +19,16 @@
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #f4efe6;
+        background: #0a1a13;
       }
       #root {
         position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background: #f4efe6;
+        background-color: #0a1a13;
+        background-image: linear-gradient(rgba(34, 60, 45, 0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 60, 45, 0.55) 1px, transparent 1px);
+        background-size: 64px 64px;
       }
       #chrome {
         position: absolute;
@@ -50,33 +38,36 @@
         height: 130px;
         z-index: 50;
         pointer-events: none;
-        font-family: "Instrument Sans", sans-serif;
-        color: #1d1b19;
+        font-family: "IBM Plex Mono", monospace;
       }
       .ch-label {
         position: absolute;
         left: 120px;
-        top: 58px;
+        top: 52px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
         font-size: 22px;
-        font-weight: 600;
-        letter-spacing: 0.18em;
+        font-weight: 700;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
+        color: #c8f25c;
         opacity: 0;
       }
-      .ch-label b {
-        font-weight: 600;
-        color: #a8401f;
-        margin-right: 18px;
+      .ch-label i {
+        display: block;
+        width: 48px;
+        height: 2px;
+        background: #c8f25c;
       }
-      #chl-5 b {
-        color: #f0966f;
-      }
-      #ch-ticks {
+      .ch-count {
         position: absolute;
         right: 120px;
-        top: 62px;
-        width: 330px;
-        height: 24px;
+        top: 52px;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: #9db3a4;
         opacity: 0;
       }
       .wipe {
@@ -90,93 +81,80 @@
         will-change: transform;
       }
       #wipeA {
-        background: #1d1b19;
+        background: #c8f25c;
       }
       #wipeB {
-        background: #c4502f;
+        background: #0a1a13;
         z-index: 101;
       }
     </style>
   </head>
   <body>
-    <!-- Recursos globales: tramas de rayado -->
-    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
-      <defs>
-        <pattern id="hatch-clay" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="11" stroke="#c4502f" stroke-width="2.6" /></pattern>
-        <pattern id="hatch-ink" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="11" stroke="#1d1b19" stroke-width="2" /></pattern>
-      </defs>
-    </svg>
-
-    <!-- Duración total: 103 s. Cada escena dura lo que su voz + un respiro. -->
-    <div
+    <!-- Duración total: 110 s. Cada escena dura lo que su voz más un respiro. -->
+    <div data-hf-id="hf-agh4"
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="103"
+      data-duration="110"
       data-width="1920"
       data-height="1080"
     >
-      <div id="s1-hook" data-composition-id="s1-hook" data-composition-src="compositions/s1-hook.html" data-start="0" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
-      <div id="s2-problema" data-composition-id="s2-problema" data-composition-src="compositions/s2-problema.html" data-start="8" data-duration="18" data-track-index="1" data-width="1920" data-height="1080"></div>
-      <div id="s3-islas" data-composition-id="s3-islas" data-composition-src="compositions/s3-islas.html" data-start="26" data-duration="18.5" data-track-index="1" data-width="1920" data-height="1080"></div>
-      <div id="s4-pizarron" data-composition-id="s4-pizarron" data-composition-src="compositions/s4-pizarron.html" data-start="44.5" data-duration="18" data-track-index="1" data-width="1920" data-height="1080"></div>
-      <div id="s5-tecnologia" data-composition-id="s5-tecnologia" data-composition-src="compositions/s5-tecnologia.html" data-start="62.5" data-duration="19" data-track-index="1" data-width="1920" data-height="1080"></div>
-      <div id="s6-impacto" data-composition-id="s6-impacto" data-composition-src="compositions/s6-impacto.html" data-start="81.5" data-duration="12.5" data-track-index="1" data-width="1920" data-height="1080"></div>
-      <div id="s7-cierre" data-composition-id="s7-cierre" data-composition-src="compositions/s7-cierre.html" data-start="94" data-duration="9" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-b3b2" id="s1-hook" data-composition-id="s1-hook" data-composition-src="compositions/s1-hook.html" data-start="0" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-olfl" id="s2-problema" data-composition-id="s2-problema" data-composition-src="compositions/s2-problema.html" data-start="8" data-duration="18" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-di67" id="s3-islas" data-composition-id="s3-islas" data-composition-src="compositions/s3-islas.html" data-start="26" data-duration="18.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-lbvb" id="s4-pizarron" data-composition-id="s4-pizarron" data-composition-src="compositions/s4-pizarron.html" data-start="44.5" data-duration="25" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-ta8a" id="s5-tecnologia" data-composition-id="s5-tecnologia" data-composition-src="compositions/s5-tecnologia.html" data-start="69.5" data-duration="19" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-yexc" id="s6-impacto" data-composition-id="s6-impacto" data-composition-src="compositions/s6-impacto.html" data-start="88.5" data-duration="12.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-w2q2" id="s7-cierre" data-composition-id="s7-cierre" data-composition-src="compositions/s7-cierre.html" data-start="101" data-duration="9" data-track-index="1" data-width="1920" data-height="1080"></div>
 
-      <!-- voces en off (cada una empieza 0,5 s después de su escena) -->
-      <audio id="vo1" src="assets/vo/vo1-gancho.m4a" data-start="0.5" data-duration="6.44" data-track-index="2" data-volume="1"></audio>
-      <audio id="vo2" src="assets/vo/vo2-problema.m4a" data-start="8.5" data-duration="16.35" data-track-index="2" data-volume="1"></audio>
-      <audio id="vo3" src="assets/vo/vo3-solucion.m4a" data-start="26.5" data-duration="17.12" data-track-index="2" data-volume="1"></audio>
-      <audio id="vo5" src="assets/vo/vo5-tecnologia.m4a" data-start="63" data-duration="17.43" data-track-index="2" data-volume="1"></audio>
-      <audio id="vo6" src="assets/vo/vo6-impacto.m4a" data-start="82" data-duration="10.88" data-track-index="2" data-volume="1"></audio>
-      <audio id="vo7" src="assets/vo/vo7-cierre.m4a" data-start="94.5" data-duration="6.22" data-track-index="2" data-volume="1"></audio>
+      <!-- voces en off (cada una empieza 0,5 s después de su escena); los bordes ya tienen fundidos -->
+      <audio data-hf-id="hf-444w" id="vo1" src="assets/vo/vo1-gancho.m4a" data-start="0.5" data-duration="6.44" data-track-index="2" data-volume="1"></audio>
+      <audio data-hf-id="hf-fz8h" id="vo2" src="assets/vo/vo2-problema.m4a" data-start="8.5" data-duration="16.35" data-track-index="2" data-volume="1"></audio>
+      <audio data-hf-id="hf-iogb" id="vo3" src="assets/vo/vo3-solucion.m4a" data-start="26.5" data-duration="17.12" data-track-index="2" data-volume="1"></audio>
+      <audio data-hf-id="hf-4tmk" id="vo5" src="assets/vo/vo5-tecnologia.m4a" data-start="70" data-duration="17.43" data-track-index="2" data-volume="1"></audio>
+      <audio data-hf-id="hf-k1qi" id="vo6" src="assets/vo/vo6-impacto.m4a" data-start="89" data-duration="10.88" data-track-index="2" data-volume="1"></audio>
+      <audio data-hf-id="hf-ksgs" id="vo7" src="assets/vo/vo7-cierre.m4a" data-start="101.5" data-duration="6.22" data-track-index="2" data-volume="1"></audio>
 
-      <div id="chrome">
-        <div id="chl-2" class="ch-label"><b>02</b>El problema</div>
-        <div id="chl-3" class="ch-label"><b>03</b>La solución</div>
-        <div id="chl-5" class="ch-label"><b>05</b>La tecnología</div>
-        <div id="chl-6" class="ch-label"><b>06</b>El impacto</div>
-        <svg id="ch-ticks" viewBox="0 0 330 24"></svg>
+      <!-- música de fondo: "Dreamy Flashback", Kevin MacLeod (CC BY 4.0). Baja bajo la toma del pizarrón. -->
+      <audio data-hf-id="hf-gf1v"
+        id="music"
+        src="assets/music/dreamy-flashback.m4a"
+        data-start="0"
+        data-duration="110"
+        data-track-index="3"
+        data-volume="1"
+        data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:0.13},{&quot;t&quot;:43.5,&quot;v&quot;:0.13},{&quot;t&quot;:45.5,&quot;v&quot;:0.05},{&quot;t&quot;:63,&quot;v&quot;:0.05},{&quot;t&quot;:65.5,&quot;v&quot;:0.13},{&quot;t&quot;:108,&quot;v&quot;:0.13}]}]}"
+      ></audio>
+
+      <div data-hf-id="hf-rwb7" id="chrome">
+        <div data-hf-id="hf-gh1h" id="chl-2" class="ch-label"><i data-hf-id="hf-wt6k"></i>El problema</div><div data-hf-id="hf-0r0y" id="chc-2" class="ch-count">02 / 07</div>
+        <div data-hf-id="hf-acmu" id="chl-3" class="ch-label"><i data-hf-id="hf-zeb8"></i>La solución</div><div data-hf-id="hf-n3y0" id="chc-3" class="ch-count">03 / 07</div>
+        <div data-hf-id="hf-oatl" id="chl-5" class="ch-label"><i data-hf-id="hf-y7e5"></i>La tecnología</div><div data-hf-id="hf-jkew" id="chc-5" class="ch-count">05 / 07</div>
+        <div data-hf-id="hf-dmaa" id="chl-6" class="ch-label"><i data-hf-id="hf-ylp6"></i>El impacto</div><div data-hf-id="hf-582q" id="chc-6" class="ch-count">06 / 07</div>
       </div>
-      <div id="wipeA" class="wipe"></div>
-      <div id="wipeB" class="wipe"></div>
+      <div data-hf-id="hf-zhnn" id="wipeA" class="wipe"></div>
+      <div data-hf-id="hf-qtrs" id="wipeB" class="wipe"></div>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
 
-      // progreso: 7 marcas finas, la actual en arcilla
-      const ticksSvg = document.getElementById("ch-ticks");
-      const ticks = [];
-      for (let i = 0; i < 7; i++) ticks.push(PN.mk(ticksSvg, "rect", { x: i * 48, y: 10, width: 36, height: 4, fill: "#1d1b19", opacity: 0.22 }));
-
-      // escenas: inicio, fin, y si muestran cabecera ("" = oculta), con modo oscuro
+      // cabecera por escena (etiqueta con línea lima y contador)
       const S = [
-        { a: 0, b: 8, label: "", dark: false },
-        { a: 8, b: 26, label: "chl-2", dark: false },
-        { a: 26, b: 44.5, label: "chl-3", dark: false },
-        { a: 44.5, b: 62.5, label: "", dark: false },
-        { a: 62.5, b: 81.5, label: "chl-5", dark: true },
-        { a: 81.5, b: 94, label: "chl-6", dark: false },
-        { a: 94, b: 103, label: "", dark: false },
+        { a: 8, b: 26, id: "2" },
+        { a: 26, b: 44.5, id: "3" },
+        { a: 69.5, b: 88.5, id: "5" },
+        { a: 88.5, b: 101, id: "6" },
       ];
-      tl.set("#chrome", { color: "#1d1b19" }, 0);
-      S.forEach((s, i) => {
-        if (!s.label) return;
-        const col = s.dark ? "#f4efe6" : "#1d1b19";
-        tl.fromTo("#" + s.label, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, s.a + 0.5);
-        tl.to("#" + s.label, { opacity: 0, duration: 0.3 }, s.b - 0.5);
-        tl.set("#" + s.label, { color: col }, 0);
-        tl.to("#ch-ticks", { opacity: 1, duration: 0.5 }, s.a + 0.5);
-        tl.to("#ch-ticks", { opacity: 0, duration: 0.3 }, s.b - 0.5);
-        tl.set("#ch-ticks rect", { fill: col }, s.a + 0.4);
-        tl.set(ticks, { fill: col, opacity: 0.22 }, s.a + 0.4);
-        tl.set(ticks[i], { fill: "#c4502f", opacity: 1 }, s.a + 0.45);
+      tl.set([".ch-label", ".ch-count"], { opacity: 0 }, 0);
+      S.forEach((s) => {
+        tl.fromTo("#chl-" + s.id, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, s.a + 0.5);
+        tl.fromTo("#chc-" + s.id, { opacity: 0 }, { opacity: 1, duration: 0.6 }, s.a + 0.6);
+        tl.to(["#chl-" + s.id, "#chc-" + s.id], { opacity: 0, duration: 0.3 }, s.b - 0.55);
       });
 
-      // cortina: tinta primero, arcilla detrás; cubre y descubre de izquierda a derecha
+      // cortina: lima primero, bosque oscuro detrás; cubre y descubre de izquierda a derecha
       tl.set(["#wipeA", "#wipeB"], { xPercent: -101 }, 0);
-      [8, 26, 44.5, 62.5, 81.5, 94].forEach((T) => {
+      [8, 26, 44.5, 69.5, 88.5, 101].forEach((T) => {
         tl.set("#wipeA", { xPercent: -101 }, T - 0.56);
         tl.set("#wipeB", { xPercent: -101 }, T - 0.48);
         tl.to("#wipeA", { xPercent: 0, duration: 0.5, ease: "power3.inOut" }, T - 0.55);

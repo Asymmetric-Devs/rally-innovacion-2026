@@ -6,28 +6,11 @@
   <body>
     <template>
       <style>
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: normal;
-          src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
-        }
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: italic;
-          src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
-        }
-        @font-face {
-          font-family: "Instrument Sans";
-          font-weight: 400 700;
-          src: url("assets/fonts/InstrumentSans.woff2") format("woff2");
-        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #f4efe6;
-          font-family: "Instrument Serif", serif;
-          color: #1d1b19;
+          font-family: "Montserrat", sans-serif;
         }
         #s6-cam {
           position: absolute;
@@ -36,77 +19,70 @@
         #s6-list {
           position: absolute;
           left: 120px;
-          top: 200px;
-          width: 960px;
+          top: 190px;
+          width: 980px;
         }
         .item {
           position: relative;
-          height: 168px;
-          border-top: 2px solid rgba(29, 27, 25, 0.22);
+          height: 172px;
+          border-top: 1px solid #223c2d;
           overflow: hidden;
         }
         .item .num {
           position: absolute;
           left: 0;
-          top: 34px;
-          font-family: "Instrument Sans", sans-serif;
-          font-weight: 600;
+          top: 40px;
+          font-family: "IBM Plex Mono", monospace;
+          font-weight: 700;
           font-size: 22px;
           letter-spacing: 0.16em;
-          color: #c4502f;
+          color: #c8f25c;
         }
         .item .txt {
           position: absolute;
-          left: 84px;
-          top: 6px;
-          font-size: 112px;
-          line-height: 1.12;
-          letter-spacing: -0.015em;
+          left: 86px;
+          top: 22px;
+          font-weight: 900;
+          font-size: 84px;
+          line-height: 1.1;
+          letter-spacing: -0.04em;
+          color: #eef3e4;
           white-space: nowrap;
         }
-        .item .txt em {
-          color: #c4502f;
+        #s6-end {
+          top: 280px;
+          width: 1000px;
+          font-size: 80px;
+          opacity: 0;
+        }
+        #s6-mapf {
+          left: 1160px;
+          top: 230px;
+          width: 640px;
+          height: 640px;
+          background: #0e2a1c;
         }
         #s6-map {
-          position: absolute;
-          left: 1130px;
-          top: 230px;
-          width: 700px;
+          width: 640px;
           height: 640px;
-        }
-        #s6-end {
-          position: absolute;
-          left: 120px;
-          top: 290px;
-          width: 980px;
-          font-size: 124px;
-          line-height: 1.02;
-          letter-spacing: -0.02em;
-        }
-        #s6-end .ln {
-          display: block;
-          overflow: hidden;
-          padding-bottom: 0.14em;
-          margin-bottom: -0.14em;
-        }
-        #s6-end .in {
-          display: block;
-        }
-        #s6-end em {
-          color: #c4502f;
         }
       </style>
 
-      <div id="root" data-composition-id="s6-impacto" data-width="1920" data-height="1080">
-        <div id="s6-cam">
-          <div id="s6-list">
-            <div class="item" id="s6-i1"><span class="num">01</span><span class="txt">Menos fertilizante</span></div>
-            <div class="item" id="s6-i2"><span class="num">02</span><span class="txt">Cero pesticidas</span></div>
-            <div class="item" id="s6-i3"><span class="num">03</span><span class="txt">Más biodiversidad</span></div>
-            <div class="item" id="s6-i4"><span class="num">04</span><span class="txt">Mejor <em>precio</em></span></div>
+      <div data-hf-id="hf-pb6k" id="root" data-composition-id="s6-impacto" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-h3i0" id="s6-cam">
+          <div data-hf-id="hf-1zu7" id="s6-list">
+            <div data-hf-id="hf-vpyv" class="item" id="s6-i1"><span data-hf-id="hf-cshg" class="num">01</span><span data-hf-id="hf-p864" class="txt">Menos fertilizante</span></div>
+            <div data-hf-id="hf-kuh8" class="item" id="s6-i2"><span data-hf-id="hf-blkd" class="num">02</span><span data-hf-id="hf-10kp" class="txt">Cero pesticidas</span></div>
+            <div data-hf-id="hf-ntqt" class="item" id="s6-i3"><span data-hf-id="hf-bzve" class="num">03</span><span data-hf-id="hf-muqh" class="txt">Más biodiversidad</span></div>
+            <div data-hf-id="hf-4duq" class="item" id="s6-i4"><span data-hf-id="hf-dzej" class="num">04</span><span data-hf-id="hf-nfko" class="txt">Mejor <span data-hf-id="hf-42yp" class="mk" id="s6-mk"><span data-hf-id="hf-i0yr">precio</span></span></span></div>
           </div>
-          <h2 id="s6-end"><span class="ln"><span class="in">Pensada para el</span></span><span class="ln"><span class="in">productor chaqueño.</span></span><span class="ln"><span class="in"><em>Escalable a toda</em></span></span><span class="ln"><span class="in"><em>la región.</em></span></span></h2>
-          <svg id="s6-map" viewBox="0 0 700 640"></svg>
+          <h2 data-hf-id="hf-e3c8" id="s6-end" class="h"><span data-hf-id="hf-smev" class="ln"><span data-hf-id="hf-jv9f" class="in">Pensada para el</span></span><span data-hf-id="hf-oupj" class="ln"><span data-hf-id="hf-usm9" class="in">productor chaqueño.</span></span><span data-hf-id="hf-ogei" class="ln"><span data-hf-id="hf-9yyz" class="in">Escalable a toda</span></span><span data-hf-id="hf-o23h" class="ln"><span data-hf-id="hf-dn8z" class="in">la <span data-hf-id="hf-6xjd" class="mk" id="s6-mk2"><span data-hf-id="hf-6pkx">región.</span></span></span></span></h2>
+
+          <div data-hf-id="hf-hp0n" id="s6-mapf" class="frame">
+            <svg data-hf-id="hf-g3sh" id="s6-map" viewBox="0 0 640 640"></svg>
+            <div data-hf-id="hf-rsfg" class="br tl"></div><div data-hf-id="hf-2rei" class="br tr"></div><div data-hf-id="hf-gsq6" class="br bl"></div><div data-hf-id="hf-a3p4" class="br rb"></div>
+            <div data-hf-id="hf-85vv" id="s6-pill" class="pill">Región · nodos activos</div>
+          </div>
         </div>
       </div>
 
@@ -117,16 +93,15 @@
           const $ = (id) => document.getElementById(id);
 
           // mapa de puntos; los núcleos se encienden con cada beneficio y luego se expanden a toda la región
-          const COLS = 22, ROWS = 20, GAP = 31;
+          const COLS = 20, ROWS = 20, GAP = 31;
           const dots = [];
           for (let r = 0; r < ROWS; r++) {
             for (let c = 0; c < COLS; c++) {
-              const x = 18 + c * GAP, y = 18 + r * GAP;
-              dots.push({ el: mk($("s6-map"), "circle", { cx: x, cy: y, r: 3, fill: "#1d1b19", opacity: 0.2 }), x: x, y: y });
+              const x = 26 + c * GAP, y = 26 + r * GAP;
+              dots.push({ el: mk($("s6-map"), "circle", { cx: x, cy: y, r: 3, fill: "#6ee7b7", opacity: 0.22 }), x: x, y: y });
             }
           }
-          const nuclei = [{ x: 150, y: 150, at: 1.3 }, { x: 450, y: 110, at: 2.7 }, { x: 250, y: 380, at: 3.9 }, { x: 540, y: 470, at: 5.4 }];
-
+          const nuclei = [{ x: 150, y: 150, at: 1.3 }, { x: 430, y: 120, at: 2.7 }, { x: 230, y: 380, at: 3.9 }, { x: 470, y: 470, at: 5.4 }];
           const items = ["#s6-i1", "#s6-i2", "#s6-i3", "#s6-i4"];
           const endIns = Array.from(document.querySelectorAll("#s6-end .in"));
 
@@ -138,34 +113,38 @@
               let lvl = 0;
               nuclei.forEach((n) => {
                 const dist = Math.hypot(d.x - n.x, d.y - n.y);
-                const grow = PN.out((t - n.at) / 1.4);
-                const radius = 105 * grow + 760 * PN.out(wave);
+                const radius = 105 * PN.out((t - n.at) / 1.4) + 760 * PN.out(wave);
                 const l = PN.clamp(1 - dist / Math.max(radius, 1), 0, 1);
                 lvl = Math.max(lvl, t > n.at ? PN.clamp(l * 1.6, 0, 1) : 0);
               });
               d.el.setAttribute("r", (3 + 4.5 * lvl).toFixed(2));
-              d.el.setAttribute("fill", lvl > 0.02 ? "#e5a02d" : "#1d1b19");
-              d.el.setAttribute("opacity", (0.2 + 0.8 * lvl).toFixed(2));
+              d.el.setAttribute("fill", lvl > 0.02 ? "#c8f25c" : "#6ee7b7");
+              d.el.setAttribute("opacity", (0.22 + 0.78 * lvl).toFixed(2));
             });
           });
 
           tl.fromTo("#s6-cam", { scale: 1, transformOrigin: "50% 55%" }, { scale: 1.02, duration: DUR, ease: "sine.inOut" }, 0);
-          tl.fromTo("#s6-map", { opacity: 0 }, { opacity: 1, duration: 0.9 }, 0.5);
+          tl.fromTo("#s6-mapf", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out" }, 0.4);
+          tl.set("#s6-mk", { "--mk": 0, color: "#eef3e4" }, 0);
+          tl.set("#s6-mk2", { "--mk": 0, color: "#eef3e4" }, 0);
           [1.1, 2.3, 3.6, 5.3].forEach((at, i) => {
             tl.fromTo(items[i] + " .txt", { yPercent: 170 }, { yPercent: 0, duration: 0.9, ease: "power3.out" }, at);
             tl.fromTo(items[i] + " .num", { opacity: 0 }, { opacity: 1, duration: 0.5 }, at + 0.2);
-            tl.fromTo(items[i], { borderTopColor: "rgba(29,27,25,0)" }, { borderTopColor: "rgba(29,27,25,0.22)", duration: 0.6 }, at);
           });
+          tl.to("#s6-mk", { "--mk": 1, duration: 0.6, ease: "power3.out" }, 5.8);
+          tl.to("#s6-mk", { color: "#0a1a13", duration: 0.01 }, 6.1);
 
           // segunda frase: pasa a un titular grande y el mapa se expande
           tl.to("#s6-list", { opacity: 0, y: -30, duration: 0.6, ease: "power2.in" }, 6.9);
-          tl.set(endIns, { yPercent: 128 }, 0);
+          tl.set(endIns, { yPercent: 130 }, 0);
           tl.set("#s6-end", { opacity: 0 }, 0);
           tl.set("#s6-end", { opacity: 1 }, 7.2);
           tl.to(endIns[0], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 7.3);
           tl.to(endIns[1], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 8.0);
           tl.to(endIns[2], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 9.0);
           tl.to(endIns[3], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 9.7);
+          tl.to("#s6-mk2", { "--mk": 1, duration: 0.6, ease: "power3.out" }, 10.3);
+          tl.to("#s6-mk2", { color: "#0a1a13", duration: 0.01 }, 10.6);
 
           window.__timelines["s6-impacto"] = tl;
         })();

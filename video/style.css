@@ -1,0 +1,114 @@
+/* PolliNode: estilo compartido (Dosel: bosque oscuro, lima, menta, coral). */
+:root {
+  --canopy: #0a1a13;
+  --surface: #112419;
+  --surface2: #163021;
+  --line: #223c2d;
+  --ink: #eef3e4;
+  --sage: #9db3a4;
+  --lime: #c8f25c;
+  --mint: #6ee7b7;
+  --honey: #f5b83d;
+  --coral: #ff7a5c;
+}
+
+/* titulares: Montserrat negra, apretada, con marcador lima en la palabra clave */
+.h {
+  position: absolute;
+  left: 120px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  color: #eef3e4;
+}
+.h .ln {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+.h .in {
+  display: block;
+}
+.mk {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  color: #0a1a13;
+  padding: 0 0.12em;
+  margin: 0 -0.02em;
+}
+.mk::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.08em;
+  bottom: 0.0em;
+  background: #c8f25c;
+  border-radius: 0.1em;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--mk, 1));
+}
+.mk > span {
+  position: relative;
+}
+
+/* etiquetas mono */
+.mono {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.pill {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6ee7b7;
+  background: rgba(10, 26, 19, 0.9);
+  border: 1px solid #223c2d;
+  padding: 12px 20px 10px;
+}
+.pill.warn {
+  color: #ff7a5c;
+}
+.body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #9db3a4;
+  line-height: 1.4;
+}
+
+/* marco tipo visor (como las capturas de Dosel): esquinas blancas y etiqueta de datos */
+.frame {
+  position: absolute;
+  background: #0e2a1c;
+  border: 1px solid #223c2d;
+  overflow: hidden;
+}
+.frame svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.br {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border: 0 solid #eef3e4;
+  pointer-events: none;
+}
+.br.tl { left: 24px; top: 24px; border-top-width: 4px; border-left-width: 4px; }
+.br.tr { right: 24px; top: 24px; border-top-width: 4px; border-right-width: 4px; }
+.br.bl { left: 24px; bottom: 24px; border-bottom-width: 4px; border-left-width: 4px; }
+.br.rb { right: 24px; bottom: 24px; border-bottom-width: 4px; border-right-width: 4px; }
+.frame .pill {
+  position: absolute;
+  left: 52px;
+  bottom: 40px;
+}

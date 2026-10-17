@@ -1,19 +1,23 @@
-/* PolliNode: kit de ilustración minimalista.
+/* PolliNode: kit de ilustración (identidad inspirada en Dosel: bosque oscuro, lima y menta).
    Todo es función pura del tiempo (sin Math.random ni relojes) para que cada frame sea reproducible. */
 (function () {
   const NS = "http://www.w3.org/2000/svg";
   const PN = (window.PN = {});
   const C = (PN.C = {
-    bone: "#f4efe6",
-    paper: "#ebe4d6",
-    sand: "#d9cbb0",
-    ink: "#1d1b19",
-    clay: "#c4502f",
-    saffron: "#e5a02d",
-    slate: "#1f2d36",
-    slate2: "#2c3f4b",
-    leaf: "#33504a",
-    leaf2: "#46675f",
+    canopy: "#0a1a13",
+    surface: "#112419",
+    surface2: "#163021",
+    line: "#223c2d",
+    ink: "#eef3e4",
+    sage: "#9db3a4",
+    lime: "#c8f25c",
+    mint: "#6ee7b7",
+    honey: "#f5b83d",
+    coral: "#ff7a5c",
+    f1: "#123524",
+    f2: "#1d5c3e",
+    f3: "#2f7d4f",
+    f4: "#54a36a",
   });
 
   PN.mk = function (parent, name, attrs) {
@@ -49,26 +53,29 @@
     fn(0);
   };
 
-  /* Abeja plana (mira a la derecha). Devuelve { g, flap(t, phase), place(x, y, angDeg, flip) }. */
+  /* Abeja (mira a la derecha), con sombra suave. Devuelve { g, flap(t, phase), place(x, y, angDeg, flip) }. */
   PN.bee = function (parent, opts) {
     opts = opts || {};
     const s = opts.scale || 1;
     const g = PN.mk(parent, "g", {});
     const inner = PN.mk(g, "g", { transform: "scale(" + s + ")" });
+    if (opts.shadow !== false) PN.mk(inner, "ellipse", { cx: 0, cy: 30, rx: 22, ry: 6, fill: "#000", opacity: 0.28 });
     const cid = PN.uid("bee-clip");
     const defs = PN.mk(inner, "defs", {});
     const cp = PN.mk(defs, "clipPath", { id: cid });
     PN.mk(cp, "ellipse", { cx: -6, cy: 3, rx: 22, ry: 12 });
     const wingBack = PN.mk(inner, "g", {});
-    PN.mk(wingBack, "ellipse", { cx: 0, cy: -15, rx: 7, ry: 15, fill: C.bone, "fill-opacity": 0.75, stroke: C.ink, "stroke-width": 2 });
-    PN.mk(inner, "ellipse", { cx: -6, cy: 3, rx: 22, ry: 12, fill: C.saffron });
-    const st = PN.mk(inner, "g", { "clip-path": "url(#" + cid + ")", fill: C.ink });
+    PN.mk(wingBack, "ellipse", { cx: 0, cy: -15, rx: 7, ry: 15, fill: C.ink, "fill-opacity": 0.38 });
+    PN.mk(inner, "ellipse", { cx: -6, cy: 3, rx: 22, ry: 12, fill: C.honey });
+    const st = PN.mk(inner, "g", { "clip-path": "url(#" + cid + ")", fill: C.canopy });
     PN.mk(st, "rect", { x: -14, y: -12, width: 6, height: 30 });
     PN.mk(st, "rect", { x: -2, y: -12, width: 6, height: 30 });
-    PN.mk(inner, "circle", { cx: 19, cy: 1, r: 8.5, fill: C.ink });
-    PN.mk(inner, "path", { d: "M 23 -5 Q 27 -13 34 -14 M 25 -1 Q 33 -5 38 -2", fill: "none", stroke: C.ink, "stroke-width": 2, "stroke-linecap": "round" });
+    PN.mk(inner, "ellipse", { cx: -6, cy: -3, rx: 16, ry: 4, fill: "#fff", opacity: 0.18 });
+    PN.mk(inner, "circle", { cx: 19, cy: 1, r: 8.5, fill: C.canopy });
+    PN.mk(inner, "circle", { cx: 22, cy: -1, r: 2.2, fill: C.lime });
+    PN.mk(inner, "path", { d: "M 23 -6 Q 27 -13 34 -14 M 25 -1 Q 33 -5 38 -2", fill: "none", stroke: C.canopy, "stroke-width": 2, "stroke-linecap": "round" });
     const wingFront = PN.mk(inner, "g", {});
-    PN.mk(wingFront, "ellipse", { cx: 0, cy: -15, rx: 8, ry: 16, fill: C.bone, "fill-opacity": 0.9, stroke: C.ink, "stroke-width": 2 });
+    PN.mk(wingFront, "ellipse", { cx: 0, cy: -15, rx: 8, ry: 16, fill: C.ink, "fill-opacity": 0.62 });
     const bee = {
       g: g,
       flap: function (t, phase) {
@@ -84,20 +91,23 @@
     return bee;
   };
 
-  /* Copa de árbol vista desde arriba: círculos planos. Devuelve { g, sway(t, amp) }. */
+  /* Copa de árbol vista desde arriba, en tonos de verde con sombra. Devuelve { g, sway(t, amp) }. */
   PN.tree = function (parent, cx, cy, r, seed) {
     const rnd = PN.rng(seed);
     const g = PN.mk(parent, "g", {});
+    PN.mk(g, "ellipse", { cx: cx + r * 0.22, cy: cy + r * 0.3, rx: r * 1.05, ry: r * 0.9, fill: "#000", opacity: 0.32 });
     const blobs = [];
-    const add = function (x, y, rr, fill) {
-      blobs.push({ el: PN.mk(g, "circle", { cx: x, cy: y, r: rr, fill: fill }), k: rnd() * 6.28 });
+    const add = function (x, y, rr, fill, o) {
+      blobs.push({ el: PN.mk(g, "circle", { cx: x, cy: y, r: rr, fill: fill, opacity: o === undefined ? 1 : o }), k: rnd() * 6.28 });
     };
-    add(cx, cy, r, C.leaf);
-    for (let i = 0; i < 5; i++) {
-      const a = (i / 5) * Math.PI * 2 + rnd() * 0.8;
-      const d = r * (0.3 + rnd() * 0.25);
-      add(cx + Math.cos(a) * d, cy + Math.sin(a) * d, r * (0.3 + rnd() * 0.16), i % 2 ? C.leaf2 : "#3d5c55");
+    add(cx, cy, r, C.f2);
+    const tones = [C.f3, C.f2, C.f3, C.f4];
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2 + rnd() * 0.7;
+      const d = r * (0.3 + rnd() * 0.28);
+      add(cx + Math.cos(a) * d, cy + Math.sin(a) * d, r * (0.3 + rnd() * 0.18), tones[i % 4]);
     }
+    for (let i = 0; i < 3; i++) add(cx - r * (0.12 + rnd() * 0.28), cy - r * (0.12 + rnd() * 0.28), r * (0.14 + rnd() * 0.08), C.f4, 0.75);
     return {
       g: g,
       sway: function (t, amp) {
@@ -109,7 +119,7 @@
     };
   };
 
-  /* Flor simple: pétalos redondos sin contorno. Devuelve { g, inner }: animar `inner` (local), no `g`. */
+  /* Flor simple: pétalos redondos. Devuelve { g, inner }: animar `inner` (local), no `g`. */
   PN.flower = function (parent, cx, cy, r, petal, center) {
     const g = PN.mk(parent, "g", { transform: "translate(" + cx + " " + cy + ")" });
     const inner = PN.mk(g, "g", {});
@@ -117,7 +127,7 @@
       const a = (k / 5) * Math.PI * 2 - Math.PI / 2;
       PN.mk(inner, "circle", { cx: Math.cos(a) * r * 0.55, cy: Math.sin(a) * r * 0.55, r: r * 0.5, fill: petal });
     }
-    PN.mk(inner, "circle", { cx: 0, cy: 0, r: r * 0.3, fill: center || C.ink });
+    PN.mk(inner, "circle", { cx: 0, cy: 0, r: r * 0.3, fill: center || C.canopy });
     return { g: g, inner: inner };
   };
 

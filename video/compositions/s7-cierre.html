@@ -6,135 +6,155 @@
   <body>
     <template>
       <style>
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: normal;
-          src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
-        }
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: italic;
-          src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
-        }
-        @font-face {
-          font-family: "Instrument Sans";
-          font-weight: 400 700;
-          src: url("assets/fonts/InstrumentSans.woff2") format("woff2");
-        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #f4efe6;
-          font-family: "Instrument Serif", serif;
-          color: #1d1b19;
+          font-family: "Montserrat", sans-serif;
         }
         #s7-quote {
-          position: absolute;
-          left: 120px;
-          top: 230px;
-          font-size: 118px;
-          line-height: 1.03;
-          letter-spacing: -0.015em;
+          top: 220px;
+          font-size: 84px;
           white-space: nowrap;
-        }
-        #s7-quote .ln {
-          display: block;
-          overflow: hidden;
-          padding-bottom: 0.14em;
-          margin-bottom: -0.14em;
-        }
-        #s7-quote .in {
-          display: block;
-        }
-        #s7-quote em {
-          color: #c4502f;
         }
         #s7-logo {
           position: absolute;
-          left: 360px;
-          top: 270px;
-          width: 1200px;
-          height: 448px;
+          left: 0;
+          right: 0;
+          top: 340px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 56px;
+          opacity: 0;
+        }
+        #s7-tile {
+          width: 330px;
+          height: 330px;
+          border-radius: 74px;
+          background: #c8f25c;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        #s7-name {
+          font-weight: 900;
+          font-size: 168px;
+          letter-spacing: -0.055em;
+          line-height: 1;
+          color: #eef3e4;
+        }
+        #s7-name b {
+          color: #c8f25c;
+          font-weight: 900;
+        }
+        #s7-sub {
+          margin-top: 18px;
+          font-size: 34px;
+          font-weight: 400;
+          color: #9db3a4;
+          letter-spacing: 0;
         }
         #s7-foot {
           position: absolute;
           left: 0;
           right: 0;
-          bottom: 70px;
+          bottom: 84px;
           text-align: center;
-          font-family: "Instrument Sans", sans-serif;
-          font-weight: 600;
-          font-size: 22px;
-          letter-spacing: 0.18em;
+          font-family: "IBM Plex Mono", monospace;
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
+          color: #9db3a4;
           opacity: 0;
         }
         #s7-foot i {
           font-style: normal;
-          color: #c4502f;
-          margin: 0 18px;
+          color: #c8f25c;
+          margin: 0 16px;
+        }
+        #s7-credit {
+          margin-top: 16px;
+          font-size: 16px;
+          letter-spacing: 0.1em;
+          color: #6b8574;
         }
       </style>
 
-      <div id="root" data-composition-id="s7-cierre" data-width="1920" data-height="1080">
-        <h2 id="s7-quote">
-          <span class="ln"><span class="in">El futuro del agro</span></span>
-          <span class="ln"><span class="in">no es solo cultivar la tierra,</span></span>
-          <span class="ln"><span class="in">es entender el <em>ecosistema</em></span></span>
-          <span class="ln"><span class="in">que la hace productiva.</span></span>
+      <div data-hf-id="hf-pb7u" id="root" data-composition-id="s7-cierre" data-width="1920" data-height="1080">
+        <h2 data-hf-id="hf-wd32" id="s7-quote" class="h">
+          <span data-hf-id="hf-smev" class="ln"><span data-hf-id="hf-fze6" class="in">El futuro del agro</span></span>
+          <span data-hf-id="hf-oupj" class="ln"><span data-hf-id="hf-h0n4" class="in">no es solo cultivar la tierra,</span></span>
+          <span data-hf-id="hf-ogei" class="ln"><span data-hf-id="hf-2nxi" class="in">es entender el <span data-hf-id="hf-ul7e" class="mk" id="s7-mk"><span data-hf-id="hf-364y">ecosistema</span></span></span></span>
+          <span data-hf-id="hf-o23h" class="ln"><span data-hf-id="hf-focc" class="in">que la hace productiva.</span></span>
         </h2>
 
-        <svg id="s7-logo" viewBox="0 0 1500 560">
-          <defs>
-            <clipPath id="lg-body"><ellipse cx="-8" cy="12" rx="92" ry="48" /></clipPath>
-            <clipPath id="lg-wclip"><rect id="lg-wrect" x="590" y="0" width="0" height="560" /></clipPath>
-          </defs>
-          <g id="lg-mark">
-            <path d="M 260 40 L 441.9 145 L 441.9 355 L 260 460 L 78.1 355 L 78.1 145 Z" transform="translate(0 40)" fill="#1d1b19" stroke="#1d1b19" stroke-width="10" stroke-linejoin="round" />
-            <g transform="translate(250 304) rotate(-16) scale(1.18)">
-              <ellipse cx="-8" cy="-74" rx="30" ry="68" fill="#f4efe6" opacity="0.92" transform="rotate(-18 -8 -10)" />
-              <ellipse cx="34" cy="-72" rx="28" ry="64" fill="#f4efe6" opacity="0.72" transform="rotate(16 34 -10)" />
-              <path d="M -102 22 L -118 30 L -104 6 Z" fill="#e5a02d" />
-              <ellipse cx="-8" cy="12" rx="92" ry="48" fill="#e5a02d" />
-              <g clip-path="url(#lg-body)" fill="#1d1b19"><rect x="-52" y="-50" width="20" height="120" /><rect x="-12" y="-50" width="20" height="120" /></g>
-              <circle cx="88" cy="-2" r="36" fill="#f4efe6" />
-              <circle cx="100" cy="-8" r="8" fill="#1d1b19" />
-              <g fill="none" stroke="#f4efe6" stroke-width="6" stroke-linecap="round"><path d="M 96 -34 Q 104 -62 138 -78" /><path d="M 114 -22 Q 142 -34 168 -26" /></g>
-              <circle cx="144" cy="-82" r="11" fill="#c4502f" />
-              <circle cx="174" cy="-24" r="10" fill="#e5a02d" />
-            </g>
-          </g>
-          <g clip-path="url(#lg-wclip)">
-            <text x="600" y="318" font-family="Instrument Serif" font-size="248" fill="#1d1b19" letter-spacing="-4">Polli<tspan font-style="italic" fill="#c4502f" dx="12">Node</tspan></text>
-            <rect x="610" y="378" width="64" height="5" fill="#c4502f" />
-            <text x="610" y="436" font-family="Instrument Sans" font-weight="600" font-size="27" fill="#1d1b19" letter-spacing="7.5" opacity="0.78">POLINIZACIÓN CON SENSORES E IA</text>
-          </g>
-        </svg>
+        <div data-hf-id="hf-ev6h" id="s7-logo">
+          <div data-hf-id="hf-l39s" id="s7-tile"><svg data-hf-id="hf-r8ey" id="s7-pix" width="260" height="260" viewBox="0 0 260 260"></svg></div>
+          <div data-hf-id="hf-yeow">
+            <div data-hf-id="hf-cpur" id="s7-name">Polli<b data-hf-id="hf-9ki5">Node</b></div>
+            <div data-hf-id="hf-a7d2" id="s7-sub">Polinización con sensores e IA.</div>
+          </div>
+        </div>
 
-        <div id="s7-foot">Equipo Lambda<i>·</i>UTN FRRE INTECNOR<i>·</i>Rally Latinoamericano de Innovación 2026</div>
+        <div data-hf-id="hf-qu31" id="s7-foot">Equipo Lambda<i data-hf-id="hf-orwx">·</i>UTN FRRE INTECNOR<i data-hf-id="hf-vd8l">·</i>Rally Latinoamericano de Innovación 2026
+          <div data-hf-id="hf-t5e3" id="s7-credit">Música: “Dreamy Flashback” de Kevin MacLeod (incompetech.com), CC BY 4.0</div>
+        </div>
       </div>
 
       <script>
         (function () {
+          const mk = PN.mk;
           const DUR = 9;
           const $ = (id) => document.getElementById(id);
           const ins = Array.from(document.querySelectorAll("#s7-quote .in"));
 
+          // abeja de píxeles vista desde arriba (el mismo logo, dibujado con cuadrados)
+          const rows = [
+            "...D.....D...",
+            "....D...D....",
+            "..WW.DDD.WW..",
+            ".WWW.EDE.WWW.",
+            "WWWWYYYYYWWWW",
+            "WWWWDDDDDWWWW",
+            ".WWWYYYYYWWW.",
+            "..WWDDDDDWW..",
+            "....YYYYY....",
+            "....DDDDD....",
+            ".....YYY.....",
+            ".....DDD.....",
+            "......D......",
+          ];
+          const col = { D: "#0a1a13", Y: "#f5b83d", W: "#fbfff0", E: "#c8f25c" };
+          const C = 20;
+          const pix = [];
+          rows.forEach((row, r) => {
+            for (let c = 0; c < row.length; c++) {
+              const ch = row[c];
+              if (col[ch]) pix.push(mk($("s7-pix"), "rect", { x: c * C, y: r * C, width: C - 2, height: C - 2, rx: 2, fill: col[ch], opacity: 0 }));
+            }
+          });
+
           const tl = gsap.timeline({ paused: true });
-          tl.set(ins, { yPercent: 128 }, 0);
+          tl.set(ins, { yPercent: 130 }, 0);
+          tl.set("#s7-mk", { "--mk": 0, color: "#eef3e4" }, 0);
           // la frase aparece mientras se dice
           tl.to(ins[0], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 0.6);
           tl.to(ins[1], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 1.4);
           tl.to(ins[2], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 3.55);
+          tl.to("#s7-mk", { "--mk": 1, duration: 0.7, ease: "power3.out" }, 4.1);
+          tl.to("#s7-mk", { color: "#0a1a13", duration: 0.01 }, 4.45);
           tl.to(ins[3], { yPercent: 0, duration: 0.9, ease: "power3.out" }, 4.45);
-          tl.to(ins, { yPercent: -128, duration: 0.6, ease: "power3.in", stagger: 0.06 }, 6.6);
+          tl.to(ins, { yPercent: -130, duration: 0.6, ease: "power3.in", stagger: 0.06 }, 6.6);
 
-          // el logo
-          tl.set("#lg-mark", { opacity: 0 }, 0);
-          tl.fromTo("#lg-mark", { opacity: 0, scale: 0.9, svgOrigin: "260 280" }, { opacity: 1, scale: 1, svgOrigin: "260 280", duration: 1.0, ease: "power3.out" }, 7.2);
-          tl.fromTo("#lg-wrect", { attr: { width: 0 } }, { attr: { width: 900 }, duration: 1.0, ease: "power3.inOut" }, 7.5);
-          tl.fromTo("#s7-foot", { opacity: 0, y: 12 }, { opacity: 0.8, y: 0, duration: 0.8, ease: "power3.out" }, 8.1);
+          // el logo: la baldosa y la abeja se arman de a píxeles
+          tl.set("#s7-logo", { opacity: 1 }, 7.15);
+          tl.fromTo("#s7-tile", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 7.2);
+          tl.to(pix, { opacity: 1, duration: 0.3, stagger: { each: 0.012, from: "random" } }, 7.4);
+          tl.fromTo("#s7-name", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, 7.6);
+          tl.fromTo("#s7-sub", { opacity: 0 }, { opacity: 1, duration: 0.7 }, 8.0);
+          tl.fromTo("#s7-foot", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 8.1);
 
           window.__timelines["s7-cierre"] = tl;
         })();

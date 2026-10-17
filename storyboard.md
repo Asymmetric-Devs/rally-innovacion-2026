@@ -1,6 +1,6 @@
 # Storyboard y speech: video de 2:00
 
-> **Actualización (rama `video-minimal`):** el video pasó a un estilo editorial minimalista (papel hueso, tinta, arcilla y azafrán, tipografía serif), con logo propio, las seis voces integradas y la toma real del pizarrón. Los tiempos vigentes están en `guion.md` y la descripción técnica en `video/NOTAS.md`. Lo que sigue es el storyboard original de referencia.
+> **Actualización (rama `video-dosel`):** el video usa la identidad de Dosel (bosque oscuro, lima, menta, titulares con marcador), con logo propio de abeja de píxeles, las seis voces integradas, la toma real completa del pizarrón y música de fondo sutil. Los tiempos vigentes están en `guion.md` y la descripción técnica en `video/NOTAS.md`. Lo que sigue es el storyboard original de referencia.
 
 Formato: 1920x1080, 24/30 fps. Mezcla de **animación** (HyperFrames) con **una escena real del equipo explicando en el pizarrón** en la mitad del video (0:50-1:15), para darle humanidad.
 

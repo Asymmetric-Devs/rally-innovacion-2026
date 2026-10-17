@@ -6,171 +6,142 @@
   <body>
     <template>
       <style>
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: normal;
-          src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
-        }
-        @font-face {
-          font-family: "Instrument Serif";
-          font-style: italic;
-          src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
-        }
-        @font-face {
-          font-family: "Instrument Sans";
-          font-weight: 400 700;
-          src: url("assets/fonts/InstrumentSans.woff2") format("woff2");
-        }
         #root {
           position: absolute;
           inset: 0;
           overflow: hidden;
-          background: #1f2d36;
-          font-family: "Instrument Serif", serif;
-          color: #f4efe6;
+          font-family: "Montserrat", sans-serif;
         }
         #s5-cam {
           position: absolute;
           inset: 0;
         }
-        .h {
-          position: absolute;
-          left: 120px;
-          top: 340px;
-          width: 820px;
-          font-size: 140px;
-          line-height: 1.02;
-          letter-spacing: -0.015em;
-          font-weight: 400;
+        .h5 {
+          top: 330px;
+          width: 840px;
+          font-size: 104px;
         }
-        .h .ln {
-          display: block;
-          overflow: hidden;
-          padding-bottom: 0.14em;
-          margin-bottom: -0.14em;
-        }
-        .h .in {
-          display: block;
-        }
-        .h em {
-          color: #e5a02d;
-        }
-        #s5-panel {
-          position: absolute;
+        #s5-frame {
           left: 1000px;
-          top: 180px;
+          top: 170px;
           width: 800px;
-          height: 720px;
-          background: #2c3f4b;
+          height: 740px;
         }
-        #s5-panel svg {
-          position: absolute;
-          left: 0;
-          top: 0;
+        #s5-frame svg {
           width: 800px;
-          height: 720px;
+          height: 740px;
         }
         .cap {
-          font-family: "Instrument Sans", sans-serif;
-          font-weight: 600;
-          font-size: 21px;
-          letter-spacing: 0.16em;
+          font-family: "IBM Plex Mono", monospace;
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
-          fill: #f4efe6;
+          fill: #eef3e4;
         }
         .note {
-          font-family: "Instrument Sans", sans-serif;
-          font-weight: 500;
-          font-size: 30px;
-          fill: #1d1b19;
+          font-family: "IBM Plex Mono", monospace;
+          font-weight: 700;
+          font-size: 24px;
+          letter-spacing: 0.06em;
+          fill: #c8f25c;
+        }
+        .note2 {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 26px;
+          fill: #9db3a4;
         }
       </style>
 
-      <div id="root" data-composition-id="s5-tecnologia" data-width="1920" data-height="1080">
-        <div id="s5-cam">
-          <h2 id="s5-ha" class="h"><span class="ln"><span class="in">Polli<em>Node</em></span></span></h2>
-          <h2 id="s5-hb" class="h"><span class="ln"><span class="in">Mira y</span></span><span class="ln"><span class="in"><em>escucha.</em></span></span></h2>
-          <h2 id="s5-hc" class="h"><span class="ln"><span class="in">Calcula dónde</span></span><span class="ln"><span class="in"><em>sembrar.</em></span></span></h2>
+      <div data-hf-id="hf-r66z" id="root" data-composition-id="s5-tecnologia" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-057f" id="s5-cam">
+          <h2 data-hf-id="hf-86ew" id="s5-ha" class="h h5"><span data-hf-id="hf-smev" class="ln"><span data-hf-id="hf-xamw" class="in">Polli<span data-hf-id="hf-4usd" class="mk" id="s5-mka"><span data-hf-id="hf-mzjd">Node</span></span></span></span></h2>
+          <h2 data-hf-id="hf-j1wj" id="s5-hb" class="h h5"><span data-hf-id="hf-oupj" class="ln"><span data-hf-id="hf-3tm4" class="in">Mira y</span></span><span data-hf-id="hf-ogei" class="ln"><span data-hf-id="hf-k88c" class="in"><span data-hf-id="hf-8swe" class="mk" id="s5-mkb"><span data-hf-id="hf-8c29">escucha.</span></span></span></span></h2>
+          <h2 data-hf-id="hf-cw6q" id="s5-hc" class="h h5"><span data-hf-id="hf-o23h" class="ln"><span data-hf-id="hf-v8gp" class="in">Calcula dónde</span></span><span data-hf-id="hf-qu8o" class="ln"><span data-hf-id="hf-x7wk" class="in"><span data-hf-id="hf-cr0f" class="mk" id="s5-mkc"><span data-hf-id="hf-xfcf">sembrar.</span></span></span></span></h2>
 
-          <div id="s5-panel">
+          <div data-hf-id="hf-969x" id="s5-frame" class="frame">
             <!-- A: el nodo -->
-            <svg id="s5-va" viewBox="0 0 800 720">
-              <line x1="80" y1="620" x2="720" y2="620" stroke="#f4efe6" stroke-width="3" opacity="0.4" />
-              <g id="s5-node" fill="none" stroke="#f4efe6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                <line id="s5-pole" x1="400" y1="620" x2="400" y2="262" />
-                <g id="s5-solar" transform="translate(400 244) rotate(-14)">
-                  <rect x="-150" y="-12" width="300" height="24" />
-                  <line x1="-75" y1="-12" x2="-75" y2="12" stroke-width="3" /><line x1="0" y1="-12" x2="0" y2="12" stroke-width="3" /><line x1="75" y1="-12" x2="75" y2="12" stroke-width="3" />
+            <svg data-hf-id="hf-4j8a" id="s5-va" viewBox="0 0 800 740">
+              <line data-hf-id="hf-4i3m" x1="70" y1="620" x2="730" y2="620" stroke="#eef3e4" stroke-width="3" opacity="0.35" />
+              <g data-hf-id="hf-67kd" id="s5-node" fill="none" stroke="#eef3e4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <line data-hf-id="hf-8etf" id="s5-pole" x1="400" y1="620" x2="400" y2="262" />
+                <g data-hf-id="hf-p3rd" id="s5-solar" transform="translate(400 244) rotate(-14)">
+                  <rect data-hf-id="hf-qk2b" x="-150" y="-12" width="300" height="24" fill="#112419" />
+                  <line data-hf-id="hf-f48g" x1="-75" y1="-12" x2="-75" y2="12" stroke-width="3" /><line data-hf-id="hf-uy4i" x1="0" y1="-12" x2="0" y2="12" stroke-width="3" /><line data-hf-id="hf-jhjc" x1="75" y1="-12" x2="75" y2="12" stroke-width="3" />
                 </g>
-                <g id="s5-cam-node"><rect x="358" y="322" width="84" height="58" fill="#1f2d36" /><circle cx="400" cy="351" r="16" /><circle cx="400" cy="351" r="6" fill="#e5a02d" stroke="none" /></g>
-                <g id="s5-mic"><rect x="332" y="440" width="28" height="56" rx="14" fill="#1f2d36" /><line x1="342" y1="460" x2="350" y2="460" stroke-width="3" /><line x1="342" y1="474" x2="350" y2="474" stroke-width="3" /></g>
-                <g id="s5-clima"><rect x="440" y="440" width="64" height="46" rx="6" fill="#1f2d36" /><circle cx="460" cy="463" r="6" fill="#c4502f" stroke="none" /><rect x="474" y="452" width="14" height="24" rx="3" stroke-width="3" /></g>
+                <g data-hf-id="hf-g3ku" id="s5-cam-node"><rect data-hf-id="hf-cnbh" x="358" y="322" width="84" height="58" fill="#112419" /><circle data-hf-id="hf-ltjm" cx="400" cy="351" r="16" /><circle data-hf-id="hf-xnwq" cx="400" cy="351" r="6" fill="#c8f25c" stroke="none" /></g>
+                <g data-hf-id="hf-1uux" id="s5-mic"><rect data-hf-id="hf-t9iw" x="332" y="440" width="28" height="56" rx="14" fill="#112419" /><line data-hf-id="hf-qtxm" x1="342" y1="460" x2="350" y2="460" stroke-width="3" /><line data-hf-id="hf-5zhs" x1="342" y1="474" x2="350" y2="474" stroke-width="3" /></g>
+                <g data-hf-id="hf-djes" id="s5-clima"><rect data-hf-id="hf-2gxa" x="440" y="440" width="64" height="46" rx="6" fill="#112419" /><circle data-hf-id="hf-1xjl" cx="460" cy="463" r="6" fill="#ff7a5c" stroke="none" /><rect data-hf-id="hf-jiio" x="474" y="452" width="14" height="24" rx="3" stroke-width="3" /></g>
               </g>
-              <g id="s5-lora" fill="none" stroke="#e5a02d" stroke-width="5" stroke-linecap="round"></g>
-              <circle id="s5-lora-dot" cx="478" cy="214" r="9" fill="#e5a02d" />
-              <g id="s5-callouts">
-                <g id="s5-co1"><line x1="248" y1="238" x2="296" y2="246" stroke="#f4efe6" stroke-width="2" /><text class="cap" x="236" y="244" text-anchor="end">Panel solar</text></g>
-                <g id="s5-co2"><line x1="258" y1="351" x2="352" y2="351" stroke="#f4efe6" stroke-width="2" /><text class="cap" x="246" y="344" text-anchor="end">Cámara</text><text class="cap" x="246" y="372" text-anchor="end">UV · macro</text></g>
-                <g id="s5-co3"><line x1="270" y1="468" x2="326" y2="468" stroke="#f4efe6" stroke-width="2" /><text class="cap" x="258" y="474" text-anchor="end">Micrófono</text></g>
-                <g id="s5-co4"><line x1="508" y1="463" x2="552" y2="463" stroke="#f4efe6" stroke-width="2" /><text class="cap" x="564" y="458">Micro</text><text class="cap" x="564" y="486">clima</text></g>
-                <g id="s5-co5"><text class="cap" x="590" y="236">LoRaWAN</text></g>
+              <g data-hf-id="hf-5i20" id="s5-lora" fill="none" stroke="#c8f25c" stroke-width="5" stroke-linecap="round"></g>
+              <circle data-hf-id="hf-vgqy" id="s5-lora-dot" cx="478" cy="214" r="9" fill="#c8f25c" />
+              <g data-hf-id="hf-th47" id="s5-callouts">
+                <g data-hf-id="hf-twdv" id="s5-co1"><line data-hf-id="hf-8crx" x1="248" y1="238" x2="296" y2="246" stroke="#9db3a4" stroke-width="2" /><text data-hf-id="hf-z1b8" class="cap" x="236" y="244" text-anchor="end">Panel solar</text></g>
+                <g data-hf-id="hf-j0w8" id="s5-co2"><line data-hf-id="hf-x3wu" x1="258" y1="351" x2="352" y2="351" stroke="#9db3a4" stroke-width="2" /><text data-hf-id="hf-8scy" class="cap" x="246" y="344" text-anchor="end">Cámara</text><text data-hf-id="hf-7k5k" class="cap" x="246" y="372" text-anchor="end">UV · macro</text></g>
+                <g data-hf-id="hf-jsk1" id="s5-co3"><line data-hf-id="hf-h22n" x1="270" y1="468" x2="326" y2="468" stroke="#9db3a4" stroke-width="2" /><text data-hf-id="hf-ir32" class="cap" x="258" y="474" text-anchor="end">Micrófono</text></g>
+                <g data-hf-id="hf-b4o6" id="s5-co4"><line data-hf-id="hf-iggw" x1="508" y1="463" x2="552" y2="463" stroke="#9db3a4" stroke-width="2" /><text data-hf-id="hf-4h7l" class="cap" x="564" y="458">Micro</text><text data-hf-id="hf-2wam" class="cap" x="564" y="486">clima</text></g>
+                <g data-hf-id="hf-f2s7" id="s5-co5"><text data-hf-id="hf-l8bj" class="cap" x="590" y="236" fill="#c8f25c" style="fill:#c8f25c">LoRaWAN</text></g>
               </g>
             </svg>
 
             <!-- B: visión + bioacústica -->
-            <svg id="s5-vb" viewBox="0 0 800 720">
-              <defs><clipPath id="s5-clip-vis"><rect x="60" y="86" width="680" height="250" /></clipPath></defs>
-              <text class="cap" x="60" y="64">Visión artificial</text>
-              <rect x="60" y="86" width="680" height="250" fill="#1f2d36" />
-              <g clip-path="url(#s5-clip-vis)">
-                <g id="s5-v-flowers"></g>
-                <g id="s5-v-beeholder"></g>
-                <g id="s5-v-box1" fill="none" stroke="#e5a02d" stroke-width="4" stroke-linecap="square">
-                  <path d="M -56 -44 L -56 -24 M -56 -44 L -36 -44" /><path d="M 56 -44 L 56 -24 M 56 -44 L 36 -44" />
-                  <path d="M -56 44 L -56 24 M -56 44 L -36 44" /><path d="M 56 44 L 56 24 M 56 44 L 36 44" />
-                  <rect x="-56" y="-78" width="92" height="30" fill="#e5a02d" stroke="none" />
-                  <text x="-48" y="-56" font-family="Instrument Sans" font-weight="700" font-size="18" letter-spacing="2" fill="#1d1b19" stroke="none">ABEJA</text>
+            <svg data-hf-id="hf-549t" id="s5-vb" viewBox="0 0 800 740">
+              <defs data-hf-id="hf-mh0t"><clipPath data-hf-id="hf-d1n9" id="s5-clip-vis"><rect data-hf-id="hf-2dh2" x="60" y="100" width="680" height="250" /></clipPath></defs>
+              <text data-hf-id="hf-f9xo" class="cap" x="60" y="82" fill="#9db3a4" style="fill:#9db3a4">Visión artificial</text>
+              <rect data-hf-id="hf-d0cg" x="60" y="100" width="680" height="250" fill="#123524" />
+              <g data-hf-id="hf-g1yr" clip-path="url(#s5-clip-vis)">
+                <g data-hf-id="hf-3i51" id="s5-v-flowers"></g>
+                <g data-hf-id="hf-2tiz" id="s5-v-beeholder"></g>
+                <g data-hf-id="hf-vqrv" id="s5-v-box1" fill="none" stroke="#c8f25c" stroke-width="4" stroke-linecap="square">
+                  <path data-hf-id="hf-8ll2" d="M -56 -44 L -56 -24 M -56 -44 L -36 -44" /><path data-hf-id="hf-mziq" d="M 56 -44 L 56 -24 M 56 -44 L 36 -44" />
+                  <path data-hf-id="hf-zk2i" d="M -56 44 L -56 24 M -56 44 L -36 44" /><path data-hf-id="hf-f63i" d="M 56 44 L 56 24 M 56 44 L 36 44" />
+                  <rect data-hf-id="hf-pu2a" x="-56" y="-80" width="96" height="30" fill="#c8f25c" stroke="none" />
+                  <text data-hf-id="hf-qi08" x="-48" y="-58" font-family="IBM Plex Mono" font-weight="700" font-size="18" letter-spacing="2" fill="#0a1a13" stroke="none">ABEJA</text>
                 </g>
-                <g id="s5-v-pestholder"></g>
-                <g id="s5-v-box2" fill="none" stroke="#c4502f" stroke-width="4" stroke-linecap="square">
-                  <path d="M -42 -28 L -42 -14 M -42 -28 L -28 -28" /><path d="M 42 -28 L 42 -14 M 42 -28 L 28 -28" />
-                  <path d="M -42 28 L -42 14 M -42 28 L -28 28" /><path d="M 42 28 L 42 14 M 42 28 L 28 28" />
-                  <rect x="-42" y="-62" width="84" height="28" fill="#c4502f" stroke="none" />
-                  <text x="-34" y="-42" font-family="Instrument Sans" font-weight="700" font-size="17" letter-spacing="2" fill="#f4efe6" stroke="none">PLAGA</text>
+                <g data-hf-id="hf-tc6h" id="s5-v-pestholder"></g>
+                <g data-hf-id="hf-q0yv" id="s5-v-box2" fill="none" stroke="#ff7a5c" stroke-width="4" stroke-linecap="square">
+                  <path data-hf-id="hf-u4m7" d="M -42 -28 L -42 -14 M -42 -28 L -28 -28" /><path data-hf-id="hf-ei6v" d="M 42 -28 L 42 -14 M 42 -28 L 28 -28" />
+                  <path data-hf-id="hf-mker" d="M -42 28 L -42 14 M -42 28 L -28 28" /><path data-hf-id="hf-d3kr" d="M 42 28 L 42 14 M 42 28 L 28 28" />
+                  <rect data-hf-id="hf-6dcu" x="-42" y="-62" width="84" height="28" fill="#ff7a5c" stroke="none" />
+                  <text data-hf-id="hf-x26b" x="-34" y="-42" font-family="IBM Plex Mono" font-weight="700" font-size="17" letter-spacing="2" fill="#0a1a13" stroke="none">PLAGA</text>
                 </g>
               </g>
-              <text class="cap" x="60" y="398">Bioacústica</text>
-              <rect x="60" y="420" width="680" height="220" fill="#1f2d36" />
-              <g id="s5-bars"></g>
-              <rect id="s5-scan" x="76" y="432" width="3" height="196" fill="#f4efe6" opacity="0.8" />
-              <text class="cap" x="60" y="680" fill="#e5a02d" style="fill:#e5a02d">Zumbido de alas → familia de insecto</text>
+              <rect data-hf-id="hf-xke8" x="60" y="100" width="680" height="250" fill="none" stroke="#223c2d" stroke-width="2" />
+              <text data-hf-id="hf-ybqj" class="cap" x="60" y="412" fill="#9db3a4" style="fill:#9db3a4">Bioacústica</text>
+              <rect data-hf-id="hf-79g7" x="60" y="430" width="680" height="220" fill="#0f2d1f" stroke="#223c2d" stroke-width="2" />
+              <g data-hf-id="hf-2x7i" id="s5-bars"></g>
+              <rect data-hf-id="hf-83cq" id="s5-scan" x="76" y="442" width="3" height="196" fill="#c8f25c" opacity="0.8" />
+              <text data-hf-id="hf-64ps" class="cap" x="60" y="690" fill="#6ee7b7" style="fill:#6ee7b7">Zumbido de alas → familia de insecto</text>
             </svg>
 
             <!-- C: mapa de calor -->
-            <svg id="s5-vc" viewBox="0 0 800 720">
-              <text class="cap" x="64" y="64">Mapa de polinización</text>
-              <g id="s5-heat"></g>
-              <rect id="s5-heat-scan" x="64" y="88" width="3" height="378" fill="#f4efe6" />
-              <g id="s5-dead-over"></g>
-              <ellipse id="s5-dead-ring" cx="590" cy="277" rx="150" ry="112" fill="none" stroke="#c4502f" stroke-width="3" stroke-dasharray="10 9" opacity="0" />
-              <g id="s5-pin">
-                <circle cx="590" cy="277" r="34" fill="none" stroke="#f4efe6" stroke-width="3" stroke-dasharray="4 7" />
-                <circle cx="590" cy="277" r="12" fill="#e5a02d" />
-                <rect x="512" y="204" width="156" height="32" fill="#1f2d36" /><text class="cap" x="590" y="227" text-anchor="middle">Próxima isla</text>
+            <svg data-hf-id="hf-eu74" id="s5-vc" viewBox="0 0 800 740">
+              <defs data-hf-id="hf-vl9d"><pattern data-hf-id="hf-sk77" id="s5-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line data-hf-id="hf-w3op" x1="0" y1="0" x2="0" y2="10" stroke="#ff7a5c" stroke-width="2.6" /></pattern></defs>
+              <text data-hf-id="hf-qg6i" class="cap" x="64" y="76" fill="#9db3a4" style="fill:#9db3a4">Mapa de polinización</text>
+              <g data-hf-id="hf-70cu" id="s5-heat"></g>
+              <rect data-hf-id="hf-4ixv" id="s5-heat-scan" x="64" y="100" width="3" height="378" fill="#c8f25c" />
+              <g data-hf-id="hf-d68p" id="s5-dead-over"></g>
+              <ellipse data-hf-id="hf-hqjh" id="s5-dead-ring" cx="590" cy="289" rx="150" ry="112" fill="none" stroke="#ff7a5c" stroke-width="3" stroke-dasharray="10 9" opacity="0" />
+              <g data-hf-id="hf-08jh" id="s5-pin">
+                <circle data-hf-id="hf-82m7" cx="590" cy="289" r="34" fill="none" stroke="#eef3e4" stroke-width="3" stroke-dasharray="4 7" />
+                <circle data-hf-id="hf-yss2" cx="590" cy="289" r="12" fill="#c8f25c" />
+                <rect data-hf-id="hf-5uhy" x="514" y="214" width="152" height="32" fill="#0a1a13" /><text data-hf-id="hf-bsos" class="cap" x="590" y="237" text-anchor="middle" fill="#c8f25c" style="fill:#c8f25c">Próxima isla</text>
               </g>
-              <g id="s5-legend">
-                <rect x="64" y="496" width="22" height="22" fill="#2c3f4b" stroke="#f4efe6" stroke-width="2" /><rect x="64" y="496" width="22" height="22" fill="url(#hatch-clay)" />
-                <text class="cap" x="98" y="514">Zona muerta</text>
-                <rect x="300" y="496" width="22" height="22" fill="#e5a02d" /><text class="cap" x="334" y="514">Media</text>
-                <rect x="470" y="496" width="22" height="22" fill="#f4efe6" /><text class="cap" x="504" y="514">Alta</text>
+              <g data-hf-id="hf-ghi3" id="s5-legend">
+                <rect data-hf-id="hf-a9b0" x="64" y="510" width="22" height="22" fill="#0f2d1f" stroke="#ff7a5c" stroke-width="2" /><rect data-hf-id="hf-k2fq" x="64" y="510" width="22" height="22" fill="url(#s5-hatch)" />
+                <text data-hf-id="hf-eocr" class="cap" x="98" y="528">Zona muerta</text>
+                <rect data-hf-id="hf-b52t" x="300" y="510" width="22" height="22" fill="#2f7d4f" /><text data-hf-id="hf-v2wm" class="cap" x="334" y="528">Media</text>
+                <rect data-hf-id="hf-q5u9" x="470" y="510" width="22" height="22" fill="#c8f25c" /><text data-hf-id="hf-7uir" class="cap" x="504" y="528">Alta</text>
               </g>
-              <g id="s5-msg">
-                <rect x="64" y="560" width="672" height="110" fill="#f4efe6" />
-                <rect x="64" y="560" width="8" height="110" fill="#c4502f" />
-                <text class="note" x="100" y="607">Sembrá la próxima isla</text>
-                <text class="note" x="100" y="647" style="font-weight:400">en el punto marcado.</text>
+              <g data-hf-id="hf-x3ub" id="s5-msg">
+                <rect data-hf-id="hf-uczn" x="64" y="568" width="672" height="112" fill="#112419" stroke="#223c2d" stroke-width="2" />
+                <rect data-hf-id="hf-1hoj" x="64" y="568" width="6" height="112" fill="#c8f25c" />
+                <text data-hf-id="hf-sszt" class="note" x="100" y="615">→ SEMBRAR PRÓXIMA ISLA</text>
+                <text data-hf-id="hf-lweo" class="note2" x="100" y="656">en el punto marcado del mapa</text>
               </g>
             </svg>
+            <div data-hf-id="hf-rsfg" class="br tl"></div><div data-hf-id="hf-2rei" class="br tr"></div><div data-hf-id="hf-gsq6" class="br bl"></div><div data-hf-id="hf-a3p4" class="br rb"></div>
           </div>
         </div>
       </div>
@@ -189,26 +160,25 @@
             return "rgb(" + a.map((v, i) => Math.round(lerp(v, b[i], t))).join(",") + ")";
           };
           // baja → media → alta polinización
-          const heat = (v) => (v < 0.5 ? mix("#1f2d36", "#e5a02d", v / 0.5) : mix("#e5a02d", "#f4efe6", (v - 0.5) / 0.5));
+          const heat = (v) => (v < 0.5 ? mix("#0f2d1f", "#2f7d4f", v / 0.5) : mix("#2f7d4f", "#c8f25c", (v - 0.5) / 0.5));
 
-          // A: arcos LoRa
           const arcs = [0, 1, 2].map(() => mk($("s5-lora"), "path", { d: "", opacity: 0 }));
 
           // B: campo de visión
-          const vfl = [[150, 330], [330, 340], [520, 326], [660, 336]].map((p, i) => {
-            mk($("s5-v-flowers"), "line", { x1: p[0], y1: p[1], x2: p[0], y2: 340, stroke: "#f4efe6", "stroke-width": 3, opacity: 0.5 });
-            return PN.flower($("s5-v-flowers"), p[0], p[1], 20, ["#f4efe6", "#e5a02d", "#c4502f", "#f4efe6"][i], "#1d1b19");
+          const vfl = [[150, 340], [330, 348], [520, 336], [660, 346]].map((p, i) => {
+            mk($("s5-v-flowers"), "line", { x1: p[0], y1: p[1], x2: p[0], y2: 352, stroke: "#2f7d4f", "stroke-width": 4 });
+            return PN.flower($("s5-v-flowers"), p[0], p[1], 20, ["#eef3e4", "#f5b83d", "#ff7a5c", "#eef3e4"][i], "#0a1a13");
           });
-          const beeV = PN.bee($("s5-v-beeholder"), { scale: 1.6 });
+          const beeV = PN.bee($("s5-v-beeholder"), { scale: 1.8 });
           const pest = mk($("s5-v-pestholder"), "g", {});
-          mk(pest, "ellipse", { cx: 0, cy: 0, rx: 22, ry: 12, fill: "#f4efe6", opacity: 0.9 });
-          mk(pest, "circle", { cx: 21, cy: -1, r: 7, fill: "#f4efe6" });
-          [[-10, 10], [0, 11], [10, 10]].forEach((p) => mk(pest, "line", { x1: p[0], y1: p[1], x2: p[0] - 4, y2: p[1] + 9, stroke: "#f4efe6", "stroke-width": 2.5, "stroke-linecap": "round" }));
+          mk(pest, "ellipse", { cx: 0, cy: 0, rx: 22, ry: 12, fill: "#9db3a4" });
+          mk(pest, "circle", { cx: 21, cy: -1, r: 7, fill: "#9db3a4" });
+          [[-10, 10], [0, 11], [10, 10]].forEach((p) => mk(pest, "line", { x1: p[0], y1: p[1], x2: p[0] - 4, y2: p[1] + 9, stroke: "#9db3a4", "stroke-width": 2.5, "stroke-linecap": "round" }));
           const bars = [];
-          for (let i = 0; i < 46; i++) bars.push({ el: mk($("s5-bars"), "rect", { x: 80 + i * 14.4, y: 520, width: 7, height: 10, rx: 2, fill: i > 14 && i < 26 ? "#e5a02d" : "#f4efe6", opacity: i > 14 && i < 26 ? 1 : 0.55 }), i: i });
+          for (let i = 0; i < 46; i++) bars.push({ el: mk($("s5-bars"), "rect", { x: 80 + i * 14.4, y: 530, width: 7, height: 10, rx: 2, fill: i > 14 && i < 26 ? "#c8f25c" : "#6ee7b7", opacity: i > 14 && i < 26 ? 1 : 0.55 }), i: i });
 
           // C: mapa de calor
-          const COLS = 16, ROWS = 9, CS = 42, X0 = 64, Y0 = 88;
+          const COLS = 16, ROWS = 9, CS = 42, X0 = 64, Y0 = 100;
           const cells = [];
           for (let r = 0; r < ROWS; r++) {
             for (let c = 0; c < COLS; c++) {
@@ -217,14 +187,13 @@
               v = Math.max(0, Math.min(1, v));
               const x = X0 + c * CS, y = Y0 + r * CS;
               cells.push({ el: mk($("s5-heat"), "rect", { x: x, y: y, width: CS - 2, height: CS - 2, fill: heat(v), opacity: 0 }), cx: x + CS / 2, v: v });
-              if (v < 0.3) mk($("s5-dead-over"), "rect", { x: x, y: y, width: CS - 2, height: CS - 2, fill: "url(#hatch-clay)", opacity: 0, class: "dead" });
+              if (v < 0.3) mk($("s5-dead-over"), "rect", { x: x, y: y, width: CS - 2, height: CS - 2, fill: "url(#s5-hatch)", opacity: 0, class: "dead" });
             }
           }
 
           const tl = gsap.timeline({ paused: true });
 
           PN.clock(tl, DUR, function (t) {
-            // A: ondas de señal
             arcs.forEach((a, k) => {
               if (t < 3.2) {
                 a.setAttribute("opacity", 0);
@@ -236,42 +205,46 @@
               a.setAttribute("d", "M " + x1.toFixed(1) + " " + y1.toFixed(1) + " A " + r.toFixed(1) + " " + r.toFixed(1) + " 0 0 1 " + x2.toFixed(1) + " " + y2.toFixed(1));
               a.setAttribute("opacity", ((1 - ph) * 0.9).toFixed(2));
             });
-            // B: abeja y plaga
             const bt = t - 4.0;
             const bx = 400 + 230 * Math.sin(bt * 0.75);
-            const by = 190 + 36 * Math.sin(bt * 1.5);
+            const by = 210 + 36 * Math.sin(bt * 1.5);
             PN.fly(beeV, bx, by, Math.cos(bt * 0.75) * 230 * 0.75, Math.cos(bt * 1.5) * 36 * 1.5, 0.4);
             beeV.flap(t, 1);
             $("s5-v-box1").setAttribute("transform", "translate(" + bx.toFixed(1) + " " + (by + 2).toFixed(1) + ")");
             const px = 560 + 90 * Math.sin(bt * 0.5);
-            pest.setAttribute("transform", "translate(" + px.toFixed(1) + " 296) scale(" + (Math.cos(bt * 0.5) >= 0 ? 1 : -1) + " 1)");
-            $("s5-v-box2").setAttribute("transform", "translate(" + px.toFixed(1) + " 296)");
+            pest.setAttribute("transform", "translate(" + px.toFixed(1) + " 316) scale(" + (Math.cos(bt * 0.5) >= 0 ? 1 : -1) + " 1)");
+            $("s5-v-box2").setAttribute("transform", "translate(" + px.toFixed(1) + " 316)");
             vfl.forEach((f, i) => f.inner.setAttribute("transform", "rotate(" + (Math.sin(t * 1.1 + i) * 5).toFixed(2) + ")"));
             bars.forEach((b) => {
               const env = 0.4 + 0.6 * Math.abs(Math.sin(bt * 0.75));
               const v = (0.15 + 0.85 * Math.abs(Math.sin(t * 5.1 + b.i * 0.45) * Math.sin(t * 2.3 + b.i * 0.21))) * env;
               const h = 10 + 160 * v;
               b.el.setAttribute("height", h.toFixed(1));
-              b.el.setAttribute("y", (530 - h / 2).toFixed(1));
+              b.el.setAttribute("y", (540 - h / 2).toFixed(1));
             });
             $("s5-scan").setAttribute("x", (76 + ((t * 120) % 650)).toFixed(1));
-            // C: barrido del mapa
             const sx = X0 + PN.clamp((t - 8.9) / 2.2, 0, 1) * (COLS * CS);
             $("s5-heat-scan").setAttribute("x", (sx - 1).toFixed(1));
             $("s5-heat-scan").setAttribute("opacity", t > 8.9 && t < 11.2 ? 0.9 : 0);
             cells.forEach((c) => c.el.setAttribute("opacity", PN.clamp((sx - c.cx) / 40, 0, 1).toFixed(2)));
           });
 
-          tl.fromTo("#s5-cam", { scale: 1, transformOrigin: "45% 55%" }, { scale: 1.025, duration: DUR, ease: "sine.inOut" }, 0);
-          tl.set([A, B, Cc], { yPercent: 128 }, 0);
+          tl.fromTo("#s5-cam", { scale: 1, transformOrigin: "55% 55%" }, { scale: 1.025, duration: DUR, ease: "sine.inOut" }, 0);
+          tl.set([A, B, Cc], { yPercent: 130 }, 0);
+          tl.set(["#s5-mka", "#s5-mkb", "#s5-mkc"], { "--mk": 0, color: "#eef3e4" }, 0);
           tl.set(["#s5-vb", "#s5-vc"], { opacity: 0 }, 0);
-          tl.fromTo("#s5-panel", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.3);
+          tl.fromTo("#s5-frame", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.3);
 
           const lineIn = (el, at) => tl.to(el, { yPercent: 0, duration: 0.9, ease: "power3.out" }, at);
-          const lineOut = (el, at) => tl.to(el, { yPercent: -128, duration: 0.55, ease: "power3.in" }, at);
+          const lineOut = (el, at) => tl.to(el, { yPercent: -130, duration: 0.55, ease: "power3.in" }, at);
+          const mark = (id, at) => {
+            tl.to(id, { "--mk": 1, duration: 0.6, ease: "power3.out" }, at);
+            tl.to(id, { color: "#0a1a13", duration: 0.01 }, at + 0.3);
+          };
 
           // A  (voz 0,7 a 3,9): el nodo
           lineIn(A[0], 0.8);
+          mark("#s5-mka", 1.6);
           tl.fromTo("#s5-pole", { attr: { y2: 620 } }, { attr: { y2: 262 }, duration: 0.9, ease: "power3.out" }, 1.2);
           tl.fromTo("#s5-solar", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 2.0);
           tl.fromTo("#s5-cam-node", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 2.7);
@@ -280,20 +253,24 @@
           tl.fromTo("#s5-lora-dot", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 3.0);
           [["#s5-co1", 2.1], ["#s5-co2", 2.7], ["#s5-co3", 3.1], ["#s5-co4", 3.4], ["#s5-co5", 3.6]].forEach((c) => tl.fromTo(c[0], { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, c[1]));
           lineOut(A, 3.9);
+          tl.set("#s5-ha", { opacity: 0 }, 4.5);
           tl.to("#s5-va", { opacity: 0, duration: 0.5 }, 3.9);
 
           // B  (voz 4 a 8): visión y bioacústica
           lineIn(B[0], 4.3);
           lineIn(B[1], 4.9);
+          mark("#s5-mkb", 5.5);
           tl.to("#s5-vb", { opacity: 1, duration: 0.5 }, 4.1);
           tl.fromTo("#s5-v-box1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 5.9);
           tl.fromTo("#s5-v-box2", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 6.9);
           lineOut(B, 8.0);
+          tl.set("#s5-hb", { opacity: 0 }, 8.6);
           tl.to("#s5-vb", { opacity: 0, duration: 0.5 }, 8.0);
 
           // C  (voz 8,7 a 18): mapa de calor, zona muerta, próxima isla
           lineIn(Cc[0], 8.6);
           lineIn(Cc[1], 9.2);
+          mark("#s5-mkc", 9.9);
           tl.to("#s5-vc", { opacity: 1, duration: 0.4 }, 8.6);
           tl.fromTo(".dead", { opacity: 0 }, { opacity: 0.9, duration: 0.7 }, 11.9);
           tl.fromTo("#s5-dead-ring", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 12.0);
